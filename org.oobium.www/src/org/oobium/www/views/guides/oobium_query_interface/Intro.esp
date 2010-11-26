@@ -1,0 +1,11 @@
+title Oobium Query Interface
+
+p This guide covers different ways to retrieve data from the database using Oobium.
+	+w By referring to this guide, you will be able to:
+ul.intro
+	li Find records using a variety of methods and conditions
+	li Specify the order, retrieved attributes, grouping, and other properties of the found records
+	li Use eager loading to reduce the number of database queries needed for data retrieval
+	li Use dynamic finders methods
+	li Check for the existence of particular records
+	li Perform various calculations on Oobium models

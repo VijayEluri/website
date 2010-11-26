@@ -1,0 +1,56 @@
+title Deleting Comments
+
+p Another important feature on a blog is being able to delete SPAM comments. To do this, we need to implement a
+	+w link of some sort in the view and a destroy method in the CommentController.
+
+p So first, let’s add the destroy link in the comments/ShowComment.esp view:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> 
+	+> ShowComment(Comment comment)
+	+> 
+	+> p <b>Commenter:</b> { comment.getCommenter() }
+	+> p <b>Comment:</b> { comment.getBody() }
+	+> 
+	+> a(comment, destroy) Destroy Comment
+
+p Clicking this new "Destroy Comment" link will fire off a
+	+w DELETE /posts/{id}/comments/{id} to our CommentsController, which can then use this to find the comment we
+	+w want to destroy. So, let’s add a destroy method to our controller:
+
+div.code <- code.java
+	+> package com.test.blog.controllers;
+	+> 
+	+> import java.sql.SQLException;
+	+> import java.util.Map;
+	+> import org.oobium.app.server.controller.Controller;
+	+> import org.oobium.http.HttpRequest;
+	+> 
+	+> public class CommentController extends Controller {
+	+> 
+	+>   public CommentController(HttpRequest request, Map<String, Object> routeParams) {
+	+>     super(request, routeParams);
+	+>   }
+	+> 
+	+>   @Override
+	+>   public void create() throws SQLException {
+	+>     Comment comment = param("comment", new Comment());
+	+>     if(comment.create()) {
+	+>       redirectTo(comment.getPost(), show);
+	+>     }
+	+>   }
+	+> 
+	+>   @Override
+	+>   public void create() throws SQLException {
+	+>     Comment comment = Comment.find("where id=? and post=?", getId(), param("post"));
+	+>     Post post = comment.getPost();
+	+>     if(comment.destroy()) {
+	+>       redirectTo(post, show);
+	+>     }
+	+>   }
+	+> 
+	+> }
+
+p The destroy method will find the comment with the correct id and post fields, and then remove it from the database
+	+= and send us back to the show action for the post.

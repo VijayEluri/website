@@ -1,0 +1,8 @@
+title Oobium Relations
+
+p This guide covers the relation features of Oobium models.  By referring to this guide, you will be able to:
+ul.intro
+	li Declare relations between Oobium models
+	li Understand the various types of Oobium relations
+	li Use the methods added to your models by creating relations
+	li Understand the database schema caused by relations

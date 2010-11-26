@@ -1,0 +1,144 @@
+title Creating a Controller
+
+p With the model in hand, you can turn your attention to creating a matching controller. Again, there’s a generator
+	+w for this:
+
+div.code <- code $ create controller comment
+
+p This creates a controller, CommentController, that contains the standard constructor and a handleRequest method:
+
+div.code <- code.java
+	+> package com.test.blog.controllers;
+	+> 
+	+> import java.sql.SQLException;
+	+> import java.util.Map;
+	+> import org.oobium.app.server.controller.Controller;
+	+> import org.oobium.http.HttpRequest;
+	+> 
+	+> public class CommentController extends Controller {
+	+> 
+	+>   public CommentController(HttpRequest request, Map<String, Object> routeParams) {
+	+>     super(request, routeParams);
+	+>   }
+	+> 
+	+>   @Override
+	+>   public void handleRequest() throws SQLException {
+	+>     // TODO handle the request
+	+>   }
+	+> 
+	+> }
+
+p The handleRequest method is called when the controller is routed in a non-RESTful way. Since we didn't specify that
+	+w we're working with a model here (and will therefore be using RESTful routes), Oobium went ahead and added this
+	+w method for us. We'll replace it below.
+
+p Like with any blog, our readers will create their comments directly after reading the post, and once they have
+	+w added their comment, will be sent back to the post show page to see their comment now listed. Due to this,
+	+w our CommentsController is there to provide a method to create comments and delete SPAM comments when they arrive.
+
+p So first, we’ll wire up the ShowPost view to let us make a new comment:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> 
+	+> ShowPost(Post post)
+	+> 
+	+> p
+	+>   b Name:
+	+>   +  { post.getName() }
+	+> p
+	+>   b Title:
+	+>   +  { post.getTitle() }
+	+> p
+	+>   b Content:
+	+>   +  { post.getContent() }
+	+> 
+	+> h2 Add a comment:
+	+> form<Comment>(new Comment())
+	+>   hidden(post, value: {f post })
+	+>   div.field
+	+>     label(commenter)
+	+>     text(commenter)
+	+>   div.field
+	+>     label(body)
+	+>     text(body)
+	+>   div.actions
+	+>     submit
+	+> 
+	+> a(post, showEdit) Edit
+	+> +=  | 
+	+> a(Post.class, showAll) Back
+
+p This adds a form on the ShowPost view that creates a new comment, which will call the CommentController's
+	+w create action, so let’s revisit the controller and replace the existing handleRequest method with the RESTful
+	+w create method:
+
+div.code <- code.java
+	+> package com.test.blog.controllers;
+	+> 
+	+> import java.sql.SQLException;
+	+> import java.util.Map;
+	+> import org.oobium.app.server.controller.Controller;
+	+> import org.oobium.http.HttpRequest;
+	+> 
+	+> public class CommentController extends Controller {
+	+> 
+	+>   public CommentController(HttpRequest request, Map<String, Object> routeParams) {
+	+>     super(request, routeParams);
+	+>   }
+	+> 
+	+>   @Override
+	+>   public void create() throws SQLException {
+	+>     Comment comment = param("comment", new Comment());
+	+>     if(comment.create()) {
+	+>       redirectTo(comment.getPost(), show);
+	+>     }
+	+>   }
+	+> 
+	+> }
+
+p Once we have made the new comment, we send the user back to the original post.  The getPost() method on the 
+	+w comment object will contain the correct post model because we set it in the form using
+	+w <code>hidden(post, value: {f post })</code>.
+
+p As we have seen previously, this redirect routes to the show method of the PostController, which in turn
+	+w renders the showPost view. This is where we want the comment to show, so let’s add that now:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> 
+	+> ShowPost(Post post)
+	+> 
+	+> p
+	+>   b Name:
+	+>   +  { post.getName() }
+	+> p
+	+>   b Title:
+	+>   +  { post.getTitle() }
+	+> p
+	+>   b Content:
+	+>   +  { post.getContent() }
+	+> 
+	+> h2 Comments
+	+> - for(Comment comment : post.comments()) {
+	+>     p <b>Commenter:</b> { comment.getCommenter() }
+	+>     p <b>Comment:</b> { comment.getBody() }
+	+> - }
+	+> 
+	+> h2 Add a comment:
+	+> form<Comment>(new Comment())
+	+>   hidden(post, value: {f post })
+	+>   div.field
+	+>     label(commenter)
+	+>     text(commenter)
+	+>   div.field
+	+>     label(body)
+	+>     text(body)
+	+>   div.actions
+	+>     submit
+	+> 
+	+> a(post, showEdit) Edit
+	+> +=  | 
+	+> a(Post.class, showAll) Back
+
+p Now you can add posts and comments to your blog and have them show up in the right places.

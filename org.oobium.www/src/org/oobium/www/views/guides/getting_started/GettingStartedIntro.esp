@@ -1,0 +1,8 @@
+title Getting Started with Oobium
+
+p This guide covers getting up and running with Oobium. After reading it, you should be familiar with:
+ul.intro
+	li Installing Oobium, creating a new Oobium application, and connecting your application to a database
+	li The general layout of an Oobium application
+	li The basic principles of MVC (Model, View Controller) and RESTful design
+	li How to quickly generate the starting pieces of an Oobium application.

@@ -1,0 +1,9 @@
+title Layouts and Rendering in Oobium
+
+p This guide covers the basic layout features of Action Controller and Action View. By referring to this guide,
+	+w you will be able to:
+ul.intro
+	li Use the various rendering methods built into Oobium
+	li Create layouts with multiple content sections
+	li Use partials to DRY up your views
+	li Use nested layouts (sub-templates)

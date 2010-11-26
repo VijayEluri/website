@@ -1,0 +1,8 @@
+title Install via Source
+
+p To install Oobium via source, what I'm really talking about is importing all of the Oobium bundles (aka plugins)
+	+w into your Eclipse workspace and then launching a new IDE in either Run or Debug mode (trust me, it'll be fun).
+
+p The first step to do this is to install (if it isn't already) the eGit plugins for Eclipse.
+
+p TODO finish this section :)

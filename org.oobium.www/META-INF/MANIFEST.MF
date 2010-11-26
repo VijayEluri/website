@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.oobium.www Bundle
+Bundle-SymbolicName: org.oobium.www
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Oobium-Type: application
+Import-Package: org.oobium.app,
+ org.oobium.app.model,
+ org.oobium.app.server.controller,
+ org.oobium.app.server.response,
+ org.oobium.app.server.routing,
+ org.oobium.app.server.view,
+ org.oobium.app.workers,
+ org.oobium.http,
+ org.oobium.http.constants,
+ org.oobium.logging,
+ org.oobium.persist,
+ org.oobium.utils,
+ org.oobium.utils.coercion,
+ org.oobium.utils.json,
+ org.osgi.framework;version="1.4.0"
+Bundle-Activator: org.oobium.www.Activator
+Export-Package: org.oobium.www
+Bundle-ActivationPolicy: lazy

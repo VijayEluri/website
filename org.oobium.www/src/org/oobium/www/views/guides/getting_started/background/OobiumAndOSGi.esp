@@ -1,0 +1,15 @@
+title OSGi
+
+p Oobium consumes OSGi bundles like so many tasty little snacks (or, like Winston goes through cilantro).
+	+w Oobium also creates OSGi bundles - all of its generated applications, modules, migrations, etc. are really just
+	+w OSGi bundles with some extra markers to help Oobium do its thing.
+
+p Deep down, in places I don't talk about at parties, OSGi is the real influence and driving force behind Oobium;
+	+w it is also the inspiration behind the name
+	+w and logo (particals, modularity, and all that jazz). SWT and Android are also significant forces
+	+w at play, but at the core the framework I was really after was an "OSGi on Rails" and not just a "Java on Rails".
+
+p Thus, a deployed Oobium application is really just a collection of bundles (those familiar with Eclipse will be used
+	+w to this). There are server bundles, logging bundles, persistence bundles, database bundles, etc., etc., and they
+	+w all get configured into a collection that together creates a fully functioning application that can send and
+	+w recieve HTTP requests (or other types of requests, if you change out some of the bundles - which is the point).

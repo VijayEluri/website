@@ -1,0 +1,28 @@
+title Ruby on Rails
+
+p If you have any experience with 
+	a("http://rubyonrails.org") Ruby on Rails
+	+w then the similarities between it and what you'll see here will be
+	+w quite obvious. Oobium is not associated with or affiliated with, nor is it endorsed by or approved by Ruby on Rails,
+	+w its community, or anyone involved with Rails. It is, however, inspired by what Rails and the Rails community
+	+w have created and accomplished.
+
+p Also, if you've seen the 
+	a("http://guides.rubyonrails.org") Rails Guides
+	+w then the format of this site (the Oobium Framework Guides) should also be 
+	+w immediately familiar. This site is built from the Rails Guides site, but not from its source - everthing has been
+	+w moved over manually and redone in Oobium ESP for a couple of reasons: 1. the more I can use Oobium the better
+	+w it gets and I didn't have a "static document" project yet; and 2. there
+	+w are enough differences that editing a direct copy would have been more difficult and important details would
+	+w have been missed.
+
+p This being said, it would be a mistake to think of Oobium simply as a "Java on Rails". Not only would
+	+w this be a rude trademark violation, but it would be missing the point.
+
+ul
+	li Java is not Ruby (gee, really?) and Oobium does not attempt to make it so
+	li Oobium is not just a framework, it is also tools and builds and environments
+	li Oobium is not just for web applications, it is also for mobile and rich client applications
+
+p Of course, at the heart of it all is the framework and when stuck, the Oobium framework looks first to Ruby on Rails
+	+w for suggestions.<br/>Face it Java lords, they got a lot right.

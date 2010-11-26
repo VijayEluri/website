@@ -1,0 +1,25 @@
+title Starting up the Web Server
+
+p You actually have a fully functional Oobium application already. To see it, you need to start it and a web server
+	+w on your development machine. You can do this by running the following command:
+
+div.code
+	code $ start
+
+p This will export and start the application in your local workspace, as well as launch the Server View in Eclipse for
+	+w you to interact with:
+
+div TODO (screenshot)
+
+p The drop-down combo box contains all of the routes currently handled by the application.
+	+w You can type "localhost:5000" directly in this combo box or, open it, select the root (it will be the first one)
+	+w and hit the play button to load it.  When the page loads, you should see the ever common "hello world!":
+
+div TODO (screenshot)
+
+p Another way to see the result, which can be handy during development, is to issue an HTTP request directly from
+	+w within the Oobium Console:
+
+div.code
+	code $ http get localhost:5000
+

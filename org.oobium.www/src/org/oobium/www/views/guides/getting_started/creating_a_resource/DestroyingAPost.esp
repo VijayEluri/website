@@ -1,0 +1,22 @@
+title Destroying a Post
+
+p Finally, clicking one of the destroy links sends the associated id to the destroy action:
+
+div.code <- code.java
+	+> @Override // DELETE/URL/[models]/id
+	+> public void destroy() throws SQLException {
+	+>   Post post = Post.newInstance(getId());
+	+>   if(post.destroy()) {
+	+>     switch(wants()) {
+	+=       case <span class="javaStaticField">JS</span>:\n
+	+=       case <span class="javaStaticField">JSON</span>: renderDestroyed(post);     break;\n
+	+=       case <span class="javaStaticField">HTML</span>: redirectTo(post, <span class="javaStaticField">showAll</span>); break;\n
+	+>     }
+	+>   } else {
+	+>     renderErrors(post);
+	+>   }
+	+> }
+
+p The destroy method of an Oobium model instance removes the corresponding record from the database. After
+	+w that’s done, there isn’t any record to display, so Oobium redirects the user’s browser to the ShowAllPosts
+	+w view for the model.

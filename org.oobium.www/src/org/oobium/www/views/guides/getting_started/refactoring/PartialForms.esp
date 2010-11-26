@@ -1,0 +1,59 @@
+title Partial Forms
+
+p Lets also move that new comment section out to it’s own partial, again, you create a file
+	+w comments/CommentForm.esp and in it you put:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> 
+	+> CommentForm(Comment comment)
+	+> 
+	+> form(comment)
+	+>   hidden(post)
+	+>   div.field
+	+>     label(commenter)
+	+>     text(commenter)
+	+>   div.field
+	+>     label(body)
+	+>     text(body)
+	+>   div.actions
+	+>     submit
+
+p A couple things to notice:
+ul
+	li We're not specifying the type on the form - this is because we are passing in an existing variable rather than
+		+w creating one in the form declaration.
+	li The hidden field can simply specify the field, like the other inputs, because the comment already has the
+		+w post field set (we'll set it in the ShowPost view, changed below).
+
+p Then you make the posts/ShowPost.esp look like the following:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> import com.test.blog.views.comments.*
+	+> 
+	+> ShowPost(Post post)
+	+> 
+	+> p
+	+>   b Name:
+	+>   +  { post.getName() }
+	+> p
+	+>   b Title:
+	+>   +  { post.getTitle() }
+	+> p
+	+>   b Content:
+	+>   +  { post.getContent() }
+	+> 
+	+> h2 Comments
+	+> view<ShowComment>(Comment: post.comments())
+	+> 
+	+> h2 Add a comment:
+	+> view<CommentForm>(new Comment().setPost(post))
+	+> 
+	+> a(post, showEdit) Edit
+	+> +=  | 
+	+> a(Post.class, showAll) Back
+
+p Note that in the view<CommentForm> element we are creating a new Comment and immediately setting the post via a
+	+w setter method.  All setter methods in Oobium models return the model itself so that they can accomodate
+	+w method chaining.

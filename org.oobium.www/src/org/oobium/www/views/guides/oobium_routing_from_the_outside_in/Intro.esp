@@ -1,0 +1,9 @@
+title Oobium Routing from the Outside In
+
+p This guide covers the user-facing features of Rails routing. By referring to this guide, you will be able to:
+ul.intro
+	li Understand the code in Activator#addRoutes
+	li Construct your own routes, using either the preferred resourceful style or with the match method
+	li Identify what parameters to expect an action to receive
+	li Automatically create paths and URLs using route helpers
+	li Use advanced techniques such as constraints and Rack endpoints

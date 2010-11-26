@@ -1,0 +1,180 @@
+body
+	font-family: Helvetica, Arial, sans-serif
+	color: #444
+	margin-right: auto
+	margin-left: auto
+	margin-top: 0px
+	background-color: #666
+#allContent
+	margin-right: auto
+	margin-left: auto
+#topper
+	height: 30px
+	background-color: #444
+#header
+	height: 160px
+	padding-bottom: 5px
+	background-color: #666
+#headerContent
+	width: 960px
+	margin-right: auto
+	margin-left: auto
+#logo
+	padding-top: 10px
+#topBar
+	background-color: #259ba6
+#topBarContent
+	width: 960px
+	margin-right: auto
+	margin-left: auto
+	padding: 20px 0px
+#topBarContent p
+	color: #cecece
+	margin-top: 5px
+	width: 629px
+#topBarContent h1
+	color: #black
+	width: 629px
+	margin: 0px 0px 5px 0px
+#column
+	float: right
+	width: 260px
+	padding: 20px
+	margin-top: 20px
+	background-color: #fffffd
+#book
+	float: left
+	padding: 10px 2px 10px 10px
+#main
+	background-color: #fffffd
+#mainContent
+	width: 960px
+	margin-right: auto
+	margin-left: auto
+	padding: 20px
+#footer
+	background-color: #666
+#footerContent
+	width: 960px
+	margin-right: auto
+	margin-left: auto
+	color: #cecece
+	font-size: 12px
+	padding: 20px 0px
+
+a img,:link img,:visited img
+	border: none
+
+:link
+	color: #e38531
+:visited
+	color: #26b037	
+
+ol
+	margin: 0.5em 0
+	list-style-type: decimal
+ul
+	margin: 0.5em 0
+	padding: 0 35px
+	list-style-type: square
+li
+	margin: 0.5em 0
+
+ul.intro li
+	background: url("/check_bullet.gif") no-repeat scroll left 0.5em transparent
+	font-size: 1.1428em
+	font-weight: bold
+	list-style: none outside none
+	padding: 0.5em 1.75em
+
+.intro
+	width: 580px
+
+div.code code
+	display: block
+	font-family: monaco, "Bitstream Vera Sans Mono", "Courier New", courier, monospace
+	margin: 0.25em 0
+	overflow: auto
+	white-space: pre
+
+div.code_container, div.important, div.caution, div.warning, div.note, div.info
+	margin-bottom: 1.5em
+
+div.code
+	background: url("/tab_code.gif") no-repeat scroll left top #eee
+	padding: 1.25em 1.25em 1.25em 48px
+
+div.info
+	background: url("/tab_info.gif") no-repeat scroll left top #d5e9f6
+	border: medium none
+	margin-left: 0
+	margin-top: 0.25em
+	padding: 1.25em 1.25em 1.25em 48px
+
+div.note
+	background: url("/tab_note.gif") no-repeat scroll left top #fff9d8
+	border: medium none
+	margin-left: 0
+	margin-top: 0.25em
+	padding: 1.25em 1.25em 1.25em 48px
+
+div.ticket
+	background: url("/tab_ticket.gif") no-repeat scroll left top #fff9d8
+	border: medium none
+	margin-left: 0
+	margin-top: 0.25em
+	padding: 1.25em 1.25em 1.25em 48px
+
+div.warning
+	background: url("/tab_warn.gif") no-repeat scroll left top #f9d9d8
+	border: medium none
+	margin-left: 0
+	margin-top: 0.25em
+	padding: 1.25em 1.25em 1.25em 48px
+
+.program
+	color: #333
+	font-size: 1.55em
+	font-weight: bold
+	padding: 20px 0 0 0
+
+.guide
+	padding: 15px 0 30px 0
+	border-bottom: 1px solid #ccc
+.guide a
+	font-size: 1.15em
+	font-weight: bold
+
+.summary
+	margin: 5px 0 0 10px
+
+.consoleLink
+	color: blue
+	text-decoration: underline
+
+/* START - Java Syntax Coloring */
+.java
+	color: #000
+
+.javaComment
+	color: #208020
+
+.javaJavaDoc
+	color: #3F5FBF
+
+.javaText
+	color: #2A00FF
+
+.javaKeyword
+	color: #7F0055
+
+.javaAnnotation
+	color: #646464
+
+.javaField
+	color: #0000C0
+
+.javaStaticField
+	color: #0000C0
+	font-style: italic
+/* END - Java Syntax Coloring */

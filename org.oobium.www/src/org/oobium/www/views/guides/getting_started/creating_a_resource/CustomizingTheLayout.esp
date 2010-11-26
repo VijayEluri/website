@@ -1,0 +1,25 @@
+title Customizing the Layout
+
+p The view is only part of the story of how HTML is displayed in your web browser. Oobium also has the concept
+	+w of layouts, which are containers for views. When Oobium renders a view to the browser, it does so by putting
+	+w the view’s HTML into a layout’s HTML. An application specific layout is used for all the controllers and
+	+w can be found in the com.test.blog.views._layouts package, as the _Layout.esp file.
+	+w To open this application wide layout in your editor:
+
+div.code <- code $ open layout
+
+p Now modify the layout by adding a body tag with a background style, and making the existing div its child:
+
+div.code
+	code
+		+> title com.test.blog: { titleize(getChild().getClass().getSimpleName()) }
+		+> 
+		+> head
+		+>   script(defaults)
+		+>   style(defaults)
+		+> 
+		+> body(style:"background: #eee")
+		+>   div <- yield
+
+p Now when you refresh the /posts page, you’ll see a gray background to the page. This same gray background
+	+w will be used throughout all the views for posts.

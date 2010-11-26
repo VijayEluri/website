@@ -1,0 +1,4 @@
+title Adding a Second Model
+
+p Now that you’ve seen how a model built with scaffolding looks like, it’s time to add a second model
+	+w to the application. The second model will handle comments on blog posts.

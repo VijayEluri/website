@@ -1,0 +1,43 @@
+title Adding Some Validation
+
+p Oobium includes 2 ways to help you validate the data in your models before they are sent to persistent storage.
+	+w The first is for simple validations that will also affect the database, such as making a field required, and
+	+w is implemented right in the <code>ModelDescription</code> annotation.
+p Open the <code>Post</code> model and make the <code>name</code> and <code>title</code> fields required
+	+w by adding "<code>required=true</code>" to the attribute properties:
+
+div.code
+	code.java
+		+> @Attribute(name="name", type=String.class, required=true),
+		+> @Attribute(name="title", type=String.class, required=true),
+
+p This change will validate that the <code>name</code> and <code>title</code> are not blank (null or zero-length)
+	+w on two levels.  First,  at the model level, code will be generated in the super class to check these fields
+	+w and fail on either a save or update if they are blank.  Second at the database level the table will be created
+	+w with checks to prevent blank values from being inserted or added (the exact mechanism depends on the database
+	+w adapter used).
+
+p The second way to do validations in Oobium is by overriding the appropriate <code>validateXXX()</code> method.
+	+w There are four of them:
+ul
+	li <code>validateSave()</code> - is run before the model is saved (both when it is being created and updated)
+	li <code>validateCreate()</code> - is run before the model is created (but not before it is updated)
+	li <code>validateUpdate()</code> - is run before the model is updated (but not before it is created)
+	li <code>validateDestroy()</code> - is run before the model is destroyed
+
+p For our demo here, we want to make sure that the <code>title</code> is at least 5 characters long before
+	+w allowing the model to be saved:
+
+div.code
+	code.java
+		+> @Override
+		+> protected void validateSave() {
+		+>   super.validateSave();
+		+>   if(hasTitle() && getTitle().length() < 5) {
+		+=     addError(<span class="javaStaticField">TITLE</span>, "must be at least 5 characters long");\n
+		+>   }
+		+> }
+
+p Notice the <code>addError</code> line: this is how we tell Oobium that something is not right and to cancel
+	+w the operation. This will also put the error into a map that we can access later to find out what went
+	+w wrong and display an appropriate message to the user.

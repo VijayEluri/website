@@ -1,0 +1,34 @@
+title The Model
+
+p The first product of the model generator is, of course, the model itself - Post.java:
+
+div.code <- code.java
+		+> package com.test.blog.models;
+		+> 
+		+> import org.oobium.persist.Attribute;
+		+> import org.oobium.persist.ModelDescription;
+		+> import org.oobium.persist.Text;
+		+> 
+		+> @ModelDescription(
+		+>   attrs = {
+		+>     @Attribute(name="name", type=String.class),
+		+>     @Attribute(name="title", type=String.class),
+		+>     @Attribute(name="content", type=Text.class)
+		+>   }
+		+> )
+		+> public class Post extends PostModel {
+		+> 
+		+> }
+
+p The first important aspect of model classes in Oobium, is the <code>ModelDescription</code> annotation.  This annotation
+	+w is used to describe the model's contained attributes and relationships to other models.
+p As you can see in the source code above, the attributes specified in the create command have been implemented as
+	+w an array of @Attribute annotations.  Also note that there are no fields or methods related to these attributes
+	+w in the <code>Post</code> class itself - they are in its super class, <code>PostModel</code>, which is 
+	+w automatically generated upon any change to the <code>ModelDescription</code> annotation.
+p The purpose of this is so that you have a very clean representation of your model with which to work: your 
+	+w attributes and relations are displayed up front and the boiler plate code, which should be implied anyway, is
+	+w tucked away in an auto-generated super class so that it won't distract from any custom methods that you need to add.
+p The next important aspect is further up the hierarchy: <code>PostModel</code> extends the Oobium <code>Model</code>
+	+w class. <code>Model</code> supplies a great deal of funcationality to your Oobium models for free, including basic
+	+w lifecycle CRUD (Create, Retrieve, Update, Destroy) operations, data validation and query support.

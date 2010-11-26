@@ -1,0 +1,122 @@
+title Creating new Posts
+
+p Creating a new post involves two actions. The first is the showNew action, which instantiates an empty Post object:
+
+div.code <- code.java
+		+> @Override // GET/URL/[models]/new
+		+> public void showNew() throws SQLException {
+		+>   render(new ShowNewPost(flash("post", new Post())));
+		+> }
+
+p The ShowNewPost.esp view displays this empty Post to the user:
+
+div.code <- code
+		+> import com.test.blog.models.*
+		+> 
+		+> ShowNewPost(Post post)
+		+> 
+		+> h1 New post
+		+> 
+		+> messages
+		+> view<PostForm>(post)
+		+> 
+		+> a(Post.class, showAll) Back
+
+p The <code>{"view<PostForm>(post)"}</code>
+	+w line is our first introduction to partials in Oobium. A partial is actually a regular ESP file, but is used
+	+w in a way that only renders its body. In this case, we are rendering the PostForm into the ShowNewPost view
+	+w - we want the body of the PostForm, but nothing else.  This is convenient to do here because the form used
+	+w to make a new post, is basically identical to a form used to edit a post, both have text fields for the name
+	+w and title and a text area for the content with a button to make a new post or update the existing post.
+
+p If you take a look at posts/PostForm.esp file, you will see the following:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> 
+	+> PostForm(Post post)
+	+> 
+	+> messages
+	+> form(post)
+	+>   div.field
+	+>     div <- label(name)
+	+>     div <- text(name)
+	+>   div.field
+	+>     div <- label(title)
+	+>     div <- text(title)
+	+>   div.field
+	+>     div <- label(content)
+	+>     div <- text(content)
+	+>   div.actions
+	+>     submit
+
+p For more information on partials, refer to the 
+	a("/layouts_and_rendering_in_oobium") Layouts and Rendering in Oobium
+	+w guide.
+
+p For the most part, Oobium will simply pass through ESP elements to HTML elements: 
+	+> div -> <div></div>.
+	+w This can be especially handy if you want to implement some tag that Oobium doesn't know about yet.
+	+w In some cases though, it is convenient for the ESP compiler to intercept elements and add some special
+	+w funtionality. Previously we saw this with the anchor element; in this case, it is the form element
+	+w that is being used in a new manner.
+
+p Passing a model into the form element as its single argument makes the form, and its children, work with
+	+w the model and its methods.  For example, since this form element is being passed the post variable then
+	+w the label(name) element will create a label that is filled with the value of post.getName().  Likewise,
+	+w the text(name) element compiles into a text input whose value is set to post.getName().
+
+p The form element is also smart enough to work out if you are doing a New Post or an Edit Post action, and
+	+w will set the form's action attribute and submit button names appropriately in the HTML output.
+
+div.info This is the prefered manner of working with forms in Oobium because it is more succinct and object oriented,
+	+w but it is not the only way - you can always use the form element as a plain old HTML equivalent when it
+	+w is more convenient to do so.
+
+p When the user clicks the Create Post button on this form, the browser will send information back to the create
+	+w method of the controller (Oobium knows to call the create method because the form is sent with an HTTP POST
+	+w request; that’s one of the REST conventions that is used in the default routing):
+
+div.code <- code.java
+	+> @Override // POST/URL/[models]
+	+> public void create() throws SQLException {
+	+>   Post post = param("post", new Post());
+	+>   if(post.create()) {
+	+>     switch(wants()) {
+	+=       case <span class="javaStaticField">JS</span>:\n
+	+=       case <span class="javaStaticField">JSON</span>: renderCreated(post); break;\n
+	+=       case <span class="javaStaticField">HTML</span>: redirectTo(post, <span class="javaStaticField">show</span>, "Post was successfully created."); break;\n
+	+>     }
+	+>   } else {
+	+>     switch(wants()) {
+	+=       case <span class="javaStaticField">JS</span>:\n
+	+=       case <span class="javaStaticField">JSON</span>: renderErrors(post);    break;\n
+	+=       case <span class="javaStaticField">HTML</span>: redirectTo(post, <span class="javaStaticField">showNew</span>); break;\n
+	+>     }
+	+>   }
+	+> }
+
+p The create action instantiates a new Post object from the data supplied by the user on the form, which Oobium
+	+w makes available in the params map. The params map is automatically created when the request comes in, and
+	+w is filled with all of the parameters that were sent from the browser.  Most of the time we're just looking
+	+w for Strings, and using param(String name) will return just that.  Sometimes though, we want something a little
+	+w more interesting, like a Map, or a Model even.  For these cases Oobium makes heavy use of type coercion,
+	+w through its own TypeCoercer class, and we're seeing a use of that here. The param method is overloaded in two
+	+w very usefull ways: 1. param(String name, Class<T> clazz) will coerce the result of param(String name) into the
+	+w type specified by clazz; and 2. param(String name, Object defaultValue) takes this a step further by returning
+	+w the defaultValue if there is no parameter with the given name. Hence, the code param("post", new Post()) is
+	+w saying: return the value of the "post" parameter as a Post object or, if there is no parameter named "post"
+	+w then return the new Post object. Phew! that seemed like a lot... it isn't, really.
+
+p After successfully saving the new post, the create method redirects the user to the resulting post show
+	+w action and sets a notice to the user that the Post was successfully created.
+
+p If the post was not successfully saved, due to a validation error, then the controller returns the user back to
+	+w the showNew action with any error messages so that the user has the chance to fix the error and try again.
+
+p The “Post was successfully created” message is stored inside of the Oobium flash map, (just called the Flash)
+	+w so that messages can be carried over to another action, providing the user with useful information on the status
+	+w of their request. In the case of create, the user never actually sees any page rendered during the Post creation
+	+w process, because it immediately redirects to the new Post as soon Oobium saves the record. The Flash carries over
+	+w a message to the next action, so that when the user is redirected back to the show action, they are presented with
+	+w a message saying “Post was successfully created.”

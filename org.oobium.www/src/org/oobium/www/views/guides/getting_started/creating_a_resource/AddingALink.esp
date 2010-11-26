@@ -1,0 +1,38 @@
+title Adding a Link
+
+p To hook the posts up to the home page you’ve already created, you can add a link to the home page.
+	+w Open pages/Home.esp by issuing the <code>open view</code> command:
+
+div.code
+	code $ open view pages/Home
+
+p And modify it to look like the following:
+
+div.code
+	code
+		+> import com.test.blog.models.*
+		+> 
+		+> title Home Page
+		+> 
+		+> div Hello Oobium! :)
+		+> 
+		+> a(Post.class, showAll) My Blog
+
+p There are a few things to discuss with the simple code snippet above as this is our first look at an Oobium
+	+w view template, called an ESP file (for Elemental Server Page).  For a more in depth look at ESP files see the
+	+w Oobium guide: 
+	a("/all_about_esp_files") All about ESP Files
+	+= .
+p First, notice the <code>import</code> statement - yes, this really is a Java file; no, you don't need to know much
+	+w about Java to use it.  What you will need to know is: import statements, constructors, and basic variables and loops
+	+w (but you don't need any of that just yet).
+p Second, notice that there is no HTML, although what is there should look like tags that you've probably seen in HTML
+	+w - this is a format that is very similar to 
+	a("http://haml-lang.com/") HAML
+	+= , and Oobium tries to take every advantage from it as possible.
+ul
+	li <code>title</code> - the HTML title tag, except it can be placed on any page
+	li <code>div</code> - the HTML div tag, anything on the same line after the space goes inside the div as HTML text
+	li <code>a</code> - an HTML link (or anchor) and this is its ESP two-parameters version: the two parameters create
+		+w a path (using REST) and set it to the link's <code>href</code> attribute; here we're saying: create a link
+		+w to the <code>showAll</code> action for the <code>Post</code> class (typically "/posts")

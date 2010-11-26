@@ -1,0 +1,108 @@
+title Running a Migration
+
+p Remember back when we created the application we also said to create a Migration project.  Now's the time to
+	+w a look at what that was all about.
+
+p The Migration project is closely related to your regular Oobium application and exists solely to help you setup
+	+w and manage its persistent storage (typically a database).  It does this by creating <i>migrations</i>.
+	+w Migrations are Java classes that are designed to make it simple to create and modify database tables
+	+w Oobium uses its console to run migrations, and it's possible to undo a migration after it's been applied to
+	+w your database.  The order that migrations are processed is set in the <code>Migrator</code> class, which
+	+w can be found at the root of the Migration project.  The Migrator can also be opened using the console:
+
+div.code <- code $ open migrator
+
+p The Migrator contains a single method to return the migrations that it will process, and the order in
+	+w which to process them:
+
+div.code <- code.java
+	+> package com.test.blog.migrator;
+	+> 
+	+> import static org.oobium.utils.literal.List;
+	+> 
+	+> import java.util.List;
+	+> 
+	+> import org.oobium.persist.migrate.Migration;
+	+> import org.oobium.persist.migrate.MigratorService;
+	+> 
+	+> import com.test.blog.migrator.migrations.CreateDatabase;
+	+> 
+	+> public class Migrator extends MigratorService {
+	+> 
+	+>   @Override
+	+>   public List<? extends Migration> getMigrations() {
+	+>     return List(
+	+>       new CreateDatabase()
+	+>     );
+	+>   }
+	+> 
+	+> }
+
+p Initially there is only one migration, and it is intended to be used for just what its name implies: create
+	+w the database.  If you open it up, here's what you'll find:
+
+div.code <- code.java
+	+> package com.test.blog.migrator.migrations;
+	+> 
+	+> import java.sql.SQLException;
+	+> 
+	+> public class CreateDatabase extends AbstractCreateDatabase {
+	+> 
+	+>   @Override
+	+>   public void up() throws SQLException {
+	+>     // TODO set any custom options to be used in the super method
+	+>     super.up();
+	+>     // TODO manipulate the data now that the database has been created
+	+>   }
+	+> 
+	+>   @Override
+	+>   public void down() throws SQLException {
+	+>     // TODO add any custom routines before dropping the database
+	+>     dropDatabase();
+	+>   }
+	+> 
+	+> }
+
+p The above migration creates two methods, up, called when you run this migration into the database, and down, in
+	+w case you need to reverse the changes made by this migration at a later date. The up command in this case
+	+w simply delegates to its super class, which is auto-generated from all of the models in the application
+	+w (as well as from separate modules that have been included, something we'll discuss later).
+
+p Taking a look at the super class, the up method is:
+
+div.code <- code.java
+	+> @Override
+	+> public void up() throws SQLException {
+	+>   Table systemAttrs = createTable("system_attrs",
+	+>       String("name"),
+	+>       String("detail"),
+	+>       Text("data")
+	+>   );
+	+>   systemAttrs.addUniqueIndex("name", "detail");
+	+>   systemAttrs.update();
+	+> 
+	+>   createTable("posts", tableOptions.get("posts"),
+	+>       String("name", Map("required", true)),
+	+>       String("title", Map("required", true)),
+	+>       Text("content"),
+	+>       Timestamps()
+	+>   );
+	+> }
+
+p The up method in this case creates two tables.  The first is a system table that is created for all projects.
+	+w The next is the one for our <code>Post</code> model - a table with two string columns and a text column.
+	+w It also creates two timestamp fields (implied by <code>Timestamps()</code>) to track record creation and
+	+w updating. More information about Oobium migrations can be found in the 
+	a("/oobium_database_migrations") Oobium Database Migrations
+	+w guide.
+
+p At this point, you can use a console command to run the migration:
+
+div.code <- code $ migrate
+
+p Oobium will execute this migration command and tell you it created the System and Posts tables.
+
+div.note
+	+w Because you’re working in the development environment by default, this command will apply to the
+	+w database defined in the development section of your configuration.js file.
+

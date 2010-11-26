@@ -1,0 +1,25 @@
+title Guide Assumptions
+
+div.warning
+	+w Oobium is built on cross platform tools and ideals, but is currently developed solely on Linux and primarily
+	+w deployed to Linux. If you are on Windows or Mac please let me know what you encounter and I'll do my best to
+	+w fix any issues promptly.
+	div Thanks for your help!
+
+p This guide is designed for beginners who want to get started with an Oobium application from scratch.
+	+w It does not assume that you have any prior experience with Oobium. However, to get the most out of it, 
+	+w you need to have some prerequisites installed:
+ul
+	li
+		a("http://www.oracle.com/technetwork/java/javase/downloads/index.html") Java SE JDK, version 1.6
+		+w or higher
+	li
+		a("http://eclipse.org/downloads/") Eclipse version 3.6 (Helios)
+		+w or higher
+p The Oobium framework is written in and runs on the Java programming language. If you have no prior
+	+w experience with Java, you will find a very steep learning curve diving straight into Oobium.
+	+w There are plenty of good free resources on the internet for learning Java. Oreilly's books are also
+	+w great - Java in a Nutshell has always been a good place to get started.
+p Don't worry about J2EE, it is not
+	+w used here at all; neither are Servlets, JSP, JPA, or Hibernate. OSGi is used extensively, but you'll
+	+w be masked from it until you decide otherwise.

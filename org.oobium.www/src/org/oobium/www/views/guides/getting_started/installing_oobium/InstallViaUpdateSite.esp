@@ -1,0 +1,11 @@
+title Install via Update Site
+
+p The quickest way to install the Oobium framework and tools is through its Eclipse Update-Site.
+
+p Currently, the update site is only available as a download from Github. So, download the file: 
+	a("https://github.com/downloads/oobium/framework/org.oobium.framework.update-site.zip") 
+		+= org.oobium.framework.update-site.zip
+	+w and unzip it someplace convenient. Then add it to your Eclipse update manager's Available Software
+	+w Sites (as local) and use it to install the Oobium feature.
+
+p That's it! Of course, hosting the update site online would still be nicer, so I'm working on it...

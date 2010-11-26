@@ -1,0 +1,55 @@
+title Partial Collections
+
+p First we will make a comment view to extract showing all the comments for the post. Create the file
+	+w comments/ShowComment.esp and put the following into it:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> 
+	+> ShowComment(Comment comment)
+	+> 
+	+> p <b>Commenter:</b> { comment.getCommenter() }
+	+> p <b>Comment:</b> { comment.getBody() }
+
+p Then, in the posts/ShowPost.esp you can change it to look like the following:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> import com.test.blog.views.comments.*
+	+> 
+	+> ShowPost(Post post)
+	+> 
+	+> p
+	+>   b Name:
+	+>   +  { post.getName() }
+	+> p
+	+>   b Title:
+	+>   +  { post.getTitle() }
+	+> p
+	+>   b Content:
+	+>   +  { post.getContent() }
+	+> 
+	+> h2 Comments
+	+> view<ShowComment>(Comment: post.comments())
+	+> 
+	+> h2 Add a comment:
+	+> form<Comment>(new Comment())
+	+>   hidden(post, value: {f post })
+	+>   div.field
+	+>     label(commenter)
+	+>     text(commenter)
+	+>   div.field
+	+>     label(body)
+	+>     text(body)
+	+>   div.actions
+	+>     submit
+	+> 
+	+> a(post, showEdit) Edit
+	+> +=  | 
+	+> a(Post.class, showAll) Back
+
+p This will now render the partial in comments/ShowComment.esp once for each comment that is in the
+	+w post.comments() collection. As the render method iterates over the post.comments() collection, it creates
+	+w a new instance of the ShowComment view, and passes in the element of the collection, cast to the type
+	+w specified by the entry key ("Comment" in this case). This will actually work beyond just collections - any
+	+w class that implements Iterable or any array.

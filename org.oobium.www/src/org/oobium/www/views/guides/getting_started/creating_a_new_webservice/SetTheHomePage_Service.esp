@@ -1,0 +1,54 @@
+title Setting the Application Home Page
+
+p When creating a web service application, Oobium goes ahead and creates a simple "hello world" controller and 
+	+= a route for it. Now let's take a look at what actually is happening, and how we may change it in the future.
+
+p Open up your application's <code>Activator</code> class (it will be in the root directory of the project); 
+	+= you can also open it using the console:
+
+div.code
+	code $ open activator
+
+p The activator will look like the following and contain a single method, <code>addRoutes</code>:
+
+div.code
+	code.java
+		+> package com.test;
+		+> 
+		+> import com.test.views.pages.Home;
+		+> import org.oobium.app.AppConfig;
+		+> import org.oobium.app.AppService;
+		+> import org.oobium.app.server.routing.Router;
+		+> 
+		+> public class Activator extends AppService {
+		+> 
+		+>   @Override
+		+>   public void addRoutes(AppConfig config, Router router) {
+		+> 
+		+>     // TODO add routes specific to your application
+		+> 
+		+>     router.setHome(new Controller() {
+		+>       @Override
+		+>       public void handleRequest() throws SQLException {
+		+>         render("hello world!");
+		+>       }
+		+>     });
+		+>   }
+		+> 
+		+> }
+
+p Since every web site has the same home, or root, path ("/") Oobium provides a convenient method to set a route
+	+w for it: <code>setHome</code>.  This method is overloaded to handle the many ways you may wish to serve a
+	+w home page to your visitors. The version that is being used in the above code simply takes an instance of a
+	+w <code>Controller</code>, which we create on the spot for the sake of simplicity.
+p Inside the Controller are many overloaded <code>render</code> methods to make it easy to render the response to
+	+w the incoming request.  Here, we are simply returning the <code>String</code> "hello world!", so we use the one
+	+w that takes a single <code>String</code>.  This version assumes that we want the <code>StatusCode</code> to be
+	+w <code>200 - SUCCESS</code> and sets it to that for us.  It also sets the response's <code>Content-Type</code> 
+	+w header to simply match that of the request.
+p What this snippet of code is essentially saying is: associate the given <code>Controller</code> with the path "/";
+	+w and then, when a request comes in for the path "/", create the response by calling the <code>handleRequest</code>
+	+w method of the given <code>Controller</code>.
+p More details about routing can be found in the next sections as well as at: 
+	a("/oobium_routing_from_the_outside_in") Oobium Routing from the Outside In
+	+= .

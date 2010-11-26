@@ -1,0 +1,5 @@
+title /Error500
+
+title Error: 500 - server error
+
+div.errors Sorry, but an internal server error prevented the page you requested from being rendered.

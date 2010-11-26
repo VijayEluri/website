@@ -1,0 +1,65 @@
+title Editing Posts
+
+p Like creating a new post, editing a post is a two-part process. The first step is a request to
+	+w a(post, showEdit) with a particular post. This calls the showEdit method in the controller:
+
+div.code <- code.java
+	+> @Override // GET/URL/[models]/id/edit
+	+> public void showEdit() throws SQLException {
+	+>   Post post = Post.find(getId());
+	+>   if(post != null) {
+	+>     post.putAll(flash("post"));
+	+>     render(new ShowEditPost(post));
+	+>   }
+	+> }
+
+p After finding the requested post, it is rendered using the ShowEditPost view to display it:
+
+div.code <- code
+	+> import com.test.blog.models.*
+	+> 
+	+> ShowEditPost(Post post)
+	+> 
+	+> h1 Editing post
+	+> 
+	+> messages
+	+> view<PostForm>(post)
+	+> 
+	+> a(post) Show
+	+> +=  | 
+	+> a(Post.class, showAll) Back
+
+p Again, as with the ShowNewPost view, the ShowEditPost view is using the form partial, this time however, the form
+	+w will do a PUT action to the PostController and the submit button will display "Update Post".
+
+p Submitting the form created by this view will invoke the update method within the controller:
+
+div.code <- code.java
+	+> @Override // PUT/URL/[models]/id
+	+> public void update() throws SQLException {
+	+>   Post post = param("post", Post.class).setId(getId());
+	+>   if(post.update()) {
+	+>     switch(wants()) {
+	+=       case <span class="javaStaticField">JS</span>:\n
+	+=       case <span class="javaStaticField">JSON</span>: renderOK();             break;\n
+	+=       case <span class="javaStaticField">HTML</span>: redirectTo(post, <span class="javaStaticField">show</span>, "Post was successfully updated."); break;\n
+	+>     }
+	+>   } else {
+	+>     switch(wants()) {
+	+=       case <span class="javaStaticField">JS</span>:\n
+	+=       case <span class="javaStaticField">JSON</span>: renderErrors(post);         break;\n
+	+=       case <span class="javaStaticField">HTML</span>: redirectTo(post, <span class="javaStaticField">showEdit</span>); break;\n
+	+>     }
+	+>   }
+	+> }
+
+p In the update method, Oobium instantiates a new Post class using the param map in much the same way as in the
+	+w create method, only this time is also sets the post's id explicitly to the id parameter that is part of the
+	+w route. If all goes well, the user is redirected to the post’s
+	+w show view. If there are any problems, it’s back to the edit view to correct them.
+
+div.note Sometimes you don't want just any parameter sent from a client to be saved to the database (activation
+	+w codes, password hashes, account balances, etc....).  Therefore Oobium controllers include a filter
+	+w mechanism that can be used to control what can or cannot be in the param map.
+	p For example, the following will remove all entries <i>except</i> the one name "content" from the "post" param map:
+	div(style:"margin-left:20px") <- code.java filter("post").select("content");

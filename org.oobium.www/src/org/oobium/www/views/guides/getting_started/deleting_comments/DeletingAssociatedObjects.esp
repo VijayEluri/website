@@ -1,0 +1,40 @@
+title Deleting Associated Objects
+
+p If you delete a post then its associated comments will also need to be deleted. Otherwise they would simply
+	+w occupy space in the database. Oobium allows you to use the onDelete property of a relation to achieve this.
+	+w Modify the Post model as follows:
+
+div.code <- code.java
+		+> package com.test.blog.models;
+		+> 
+		+> import static org.oobium.persist.Relation.CASCADE;
+		+> 
+		+> import org.oobium.persist.Attribute;
+		+> import org.oobium.persist.ModelDescription;
+		+> import org.oobium.persist.Text;
+		+> 
+		+> @ModelDescription(
+		+>   attrs = {
+		+>     @Attribute(name="name", type=String.class),
+		+>     @Attribute(name="title", type=String.class),
+		+>     @Attribute(name="content", type=Text.class)
+		+> 	 },
+		+>   hasMany = {
+		+=     @Relation(name="comments", type=Comment.class, onDelete=<span class="javaStaticField">CASCADE</span>)\n
+		+>   },
+		+>   timestamps = true
+		+> )
+		+> public class Post extends PostModel {
+		+> 
+		+>   @Override
+		+>   protected void validateSave() {
+		+>     super.validateSave();
+		+>     if(hasTitle() && getTitle().length() < 5) {
+		+=       addError(<span class="javaStaticField">TITLE</span>, "must be at least 5 characters long");\n
+		+>     }
+		+>   }
+		+> 
+		+> }
+
+p Now the comments will be deleted from the database when their parent Post is deleted. This is a change at the
+	+w database level.

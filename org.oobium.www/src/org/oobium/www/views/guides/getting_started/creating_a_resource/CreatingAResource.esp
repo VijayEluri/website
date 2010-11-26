@@ -1,0 +1,24 @@
+title Creating a Resource
+
+p In the case of the blog application, you can start by generating a scaffolded Post resource: this will
+	+w represent a single blog posting. To do this, enter this command in your terminal:
+
+div.code <- code $ create model post name:string title:string content:text
+
+div.note
+	+w While scaffolding will get you up and running quickly, the code that it generates
+	+w is not intended to be a perfect fit for your application. You will need to customize the
+	+w code yourself, though it does provide a convenient way to get started.
+
+p The model generator will build 6 files in your application and edit one more.
+	+w The output from the command will contain hyperlinks to open them in the editor:
+
+div.code
+	code
+		+= created model <span class="consoleLink">Post</span>\n
+		+= created view <span class="consoleLink">posts/ShowEditPost</span>\n
+		+= created view <span class="consoleLink">posts/ShowAllPosts</span>\n
+		+= created view <span class="consoleLink">posts/ShowNewPost</span>\n
+		+= created view <span class="consoleLink">posts/ShowPost</span>\n
+		+= created controller <span class="consoleLink">PostController</span>\n
+		+= added model routes to <span class="consoleLink">Activator.java</span>

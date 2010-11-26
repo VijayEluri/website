@@ -1,0 +1,17 @@
+title License and Source
+
+p The Oobium framework and tools are licensed under the 
+	a("http://www.opensource.org/licenses/eclipse-1.0.php") Eclipse Public License, v1.0
+	+= .
+p Source code is hosted at Github:
+ul
+	li
+		a("https://github.com/oobium/framework") Oobium Framework
+		+w (includes tools)
+	li <-	a("https://github.com/oobium/guides") Oobium Framework Guides
+
+p To read more about the EPL:
+ul
+	li <- a("http://www.eclipse.org/legal/eplfaq.php") Eclipse Foundation: Eclipse Public License (EPL) Frequently Asked Questions
+	li <- a("http://www.oss-watch.ac.uk/resources/epl.xml") OSS Watch: The Eclipse Public License - An Overview
+	li <- a("http://en.wikipedia.org/wiki/Eclipse_Public_License") Wikipedia: Eclipse Public License
