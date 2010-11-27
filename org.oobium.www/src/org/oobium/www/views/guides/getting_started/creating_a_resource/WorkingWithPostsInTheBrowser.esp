@@ -1,9 +1,9 @@
 title Working with Posts in the Browser
 
 p Now you’re ready to start working with posts. To do that, navigate to
-	+w http://localhost:3000 and then click the “My Blog” link:
+	+w http://localhost:5000 and then click the “My Blog” link:
 
-div TODO (screenshot)
+div <- img("guides/getting_started/screenshot-new_app-server_view-posts.png")
 
 p This is the result of Oobium rendering the showAll view of your posts. There aren’t currently any posts
 	+w in the database, but if you click the New Post link you can create one. After that, you’ll find that

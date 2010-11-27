@@ -18,14 +18,14 @@ p If you’d like more details on REST as an architectural style, these resource
 ul
 	li
 		a("http://www.infoq.com/articles/rest-introduction") A Brief Introduction to REST
-		+=  by Stefan Tilkov
+		+w  by Stefan Tilkov
 	li
 		a("http://bitworking.org/news/373/An-Introduction-to-REST") An Introduction to REST
-		+=  (video tutorial) by Joe Gregorio
+		+w  (video tutorial) by Joe Gregorio
 	li
 		a("http://en.wikipedia.org/wiki/Representational_State_Transfer") Representational State Transfer
-		+= article in Wikipedia
+		+w article in Wikipedia
 	li
 		a("http://www.infoq.com/articles/webber-rest-workflow") How to GET a Cup of Coffee
-		+= by Jim Webber, Savas Parastatidis & Ian Robinson
+		+w by Jim Webber, Savas Parastatidis & Ian Robinson
 	

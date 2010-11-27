@@ -11,6 +11,6 @@ div.code <- code
 p This creates comments as a resource related to posts from its hasMany declaration. This is another part of capturing
 	+w the hierarchical relationship that exists between posts and comments.
 
-div.info For more information on routing, see the
+div.info For more information on routing, see the 
 	a("/oobium_routing_from_the_outside_in") Oobium Routing from the Outside In
 	+w guide.

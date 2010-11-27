@@ -1,3 +1,6 @@
 title Installing Oobium
 
-p There are currently two way to install Oobium: 1. via an Eclipse Update Site; and 2. via Source.
+p There are currently two way to install and run Oobium:
+ol
+	li Eclipse Update Site
+	li Importing the Source code into your Eclipse workspace.

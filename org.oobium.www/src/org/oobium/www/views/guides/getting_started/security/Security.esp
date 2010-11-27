@@ -21,7 +21,7 @@ div.code <- code
 	+>   @Override
 	+>   protected boolean authorize(String username, String password) {
 	+>     return "admin".equals(username) && "password".equals(password);
-	+> }
+	+>   }
 	+> 
 	+> }
 
@@ -54,7 +54,7 @@ div.code <- code
 	+>   }
 	+> }
 
-p Now if you try to create a new post, you will be greeted with a basic HTTP Authentication challenge
+p Now if you try to create a new post, you will be greeted with a basic HTTP Authentication challenge:
 
-p TODO (screenshot) of HTTP Authentication challenge
+div <- img("guides/getting_started/screenshot-new_app-security_window.png")
 

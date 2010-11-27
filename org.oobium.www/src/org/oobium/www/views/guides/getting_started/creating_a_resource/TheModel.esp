@@ -30,5 +30,5 @@ p The purpose of this is so that you have a very clean representation of your mo
 	+w attributes and relations are displayed up front and the boiler plate code, which should be implied anyway, is
 	+w tucked away in an auto-generated super class so that it won't distract from any custom methods that you need to add.
 p The next important aspect is further up the hierarchy: <code>PostModel</code> extends the Oobium <code>Model</code>
-	+w class. <code>Model</code> supplies a great deal of funcationality to your Oobium models for free, including basic
+	+w class. <code>Model</code> supplies a great deal of functionality to your Oobium models for free, including basic
 	+w lifecycle CRUD (Create, Retrieve, Update, Destroy) operations, data validation and query support.

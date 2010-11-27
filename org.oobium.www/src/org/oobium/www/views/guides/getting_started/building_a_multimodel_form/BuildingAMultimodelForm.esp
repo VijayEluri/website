@@ -88,4 +88,4 @@ div.code <- code
 	+> a(Post.class, showAll) Back
 
 p As you can see, I cheated a little and added a getTags() method to the Post model so we could display a comma
-	+w separated list of tags in one line.  That's how you'd do it real life, so there.
+	+w separated list of tags in one line.  That's how you'd do it real life too, so there.

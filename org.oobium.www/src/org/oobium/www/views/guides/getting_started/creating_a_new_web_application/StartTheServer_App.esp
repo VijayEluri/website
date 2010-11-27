@@ -9,17 +9,15 @@ div.code
 p This will export and start the application in your local workspace, as well as launch the Server View in Eclipse for
 	+w you to interact with:
 
-div TODO (screenshot)
+div <- img("guides/getting_started/screenshot-new_app-server_view.png")
 
 p The drop-down combo box contains all of the routes currently handled by the application.
-	+w You can type "localhost:5000" directly in this combo box or, open it, select the root (it will be the first one)
-	+w and hit the play button to load it.  When the page loads, you should see the ever common "hello world!":
-
-div TODO (screenshot)
+	+w You can type "localhost:5000" directly in this combo box or open it, select the root (it will be the first one),
+	+w and hit the play button to load it.  Of course, Oobium is a little impatient sometimes - when it gets the routes
+	+w it will automatically load the first one. When the application is updated, it will be automatically reloaded and
+	+w the browser in the server view will be refreshed. To make Oobium wait, simply deselect the sync button on the toolbar.
 
 p Another way to see the result, which can be handy during development, is to issue an HTTP request directly from
 	+w within the Oobium Console:
 
-div.code
-	code $ http get localhost:5000
-
+div <- img("guides/getting_started/screenshot-new_app-console_view.png")

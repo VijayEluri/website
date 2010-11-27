@@ -1,14 +1,14 @@
 title Running a Migration
 
-p Remember back when we created the application we also said to create a Migration project.  Now's the time to
+p Back when we created the application we also said to create a Migration project.  Now's the time to
 	+w a look at what that was all about.
 
 p The Migration project is closely related to your regular Oobium application and exists solely to help you setup
 	+w and manage its persistent storage (typically a database).  It does this by creating <i>migrations</i>.
-	+w Migrations are Java classes that are designed to make it simple to create and modify database tables
+	+w Migrations are Java classes that are designed to make it simple to create and modify database tables.
 	+w Oobium uses its console to run migrations, and it's possible to undo a migration after it's been applied to
 	+w your database.  The order that migrations are processed is set in the <code>Migrator</code> class, which
-	+w can be found at the root of the Migration project.  The Migrator can also be opened using the console:
+	+w can be found at the root of the Migrator project.  The Migrator can also be opened using the console:
 
 div.code <- code $ open migrator
 
@@ -63,10 +63,10 @@ div.code <- code.java
 	+> 
 	+> }
 
-p The above migration creates two methods, up, called when you run this migration into the database, and down, in
-	+w case you need to reverse the changes made by this migration at a later date. The up command in this case
-	+w simply delegates to its super class, which is auto-generated from all of the models in the application
-	+w (as well as from separate modules that have been included, something we'll discuss later).
+p The above migration creates two methods, up, which is called when you run this migration into the database,
+	+w and down, in case you need to reverse the changes made by this migration at a later date. The up command
+	+w in this case simply delegates to its super class, which is auto-generated from all of the models in the
+	+w application (as well as from separate modules that have been included, something we'll discuss later).
 
 p Taking a look at the super class, the up method is:
 

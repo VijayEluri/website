@@ -11,7 +11,7 @@ div.note
 	+w code yourself, though it does provide a convenient way to get started.
 
 p The model generator will build 6 files in your application and edit one more.
-	+w The output from the command will contain hyperlinks to open them in the editor:
+	+w The output from the command will contain hyperlinks to open each of them in the editor:
 
 div.code
 	code

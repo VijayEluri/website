@@ -25,4 +25,4 @@ p We'll discuss the migration project later in the guide.
 p Take a moment to open the application in the Eclipse Package Explorer and take a look at what was created.
 	+w  It should look like this:
 
-div TODO (screenshot)
+div <- img("guides/getting_started/screenshot-new_app-package_explorer.png")

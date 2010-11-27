@@ -75,11 +75,11 @@ public class GettingStarted extends Guide {
 									new InstallViaSource()
 								}),
 
-			/*6*/ new Chapter(new CreatingANewWebService(), new View[] {
-									new CreatingTheService(),
-									new StartTheServer_Service(), 
-									new SetTheHomePage_Service()
-								}),
+//			/*6*/ new Chapter(new CreatingANewWebService(), new View[] {
+//									new CreatingTheService(),
+//									new StartTheServer_Service(), 
+//									new SetTheHomePage_Service()
+//								}),
 
 			/*7*/ new Chapter(new CreatingANewWebApplication(), new View[] {
 									new CreatingTheApplication(),
