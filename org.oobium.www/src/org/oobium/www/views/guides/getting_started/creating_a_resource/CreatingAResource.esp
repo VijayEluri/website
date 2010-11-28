@@ -13,12 +13,11 @@ div.note
 p The model generator will build 6 files in your application and edit one more.
 	+w The output from the command will contain hyperlinks to open each of them in the editor:
 
-div.code
-	code
-		+= created model <span class="consoleLink">Post</span>\n
-		+= created view <span class="consoleLink">posts/ShowEditPost</span>\n
-		+= created view <span class="consoleLink">posts/ShowAllPosts</span>\n
-		+= created view <span class="consoleLink">posts/ShowNewPost</span>\n
-		+= created view <span class="consoleLink">posts/ShowPost</span>\n
-		+= created controller <span class="consoleLink">PostController</span>\n
-		+= added model routes to <span class="consoleLink">Activator.java</span>
+div.code <- code
+	+= created model <span class="consoleLink">Post</span>\n
+	+= created view <span class="consoleLink">posts/ShowEditPost</span>\n
+	+= created view <span class="consoleLink">posts/ShowAllPosts</span>\n
+	+= created view <span class="consoleLink">posts/ShowNewPost</span>\n
+	+= created view <span class="consoleLink">posts/ShowPost</span>\n
+	+= created controller <span class="consoleLink">PostController</span>\n
+	+= added model routes to <span class="consoleLink">Activator.java</span>

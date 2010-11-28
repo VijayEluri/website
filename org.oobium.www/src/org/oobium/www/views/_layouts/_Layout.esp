@@ -18,12 +18,12 @@ div#allContent
 			p &copy;2010 Oobium, Inc. All Rights Reserved
 			p This work is licenced under a 
 				a(href:"http://creativecommons.org/licenses/by-sa/3.0/") Creative Commons Attribution-Share Alike 3.0
-				+=  Licence and is a derivative work of the excellent 
+				+w Licence and is a derivative work of the excellent 
 				a("http://guides.rubyonrails.org/index.html") Ruby on Rails Guides
 				+= , created at the ongoing 
 				a("http://hackfest.rubyonrails.org/") Guides hackfest
 				+= .
 			p "Oobium", and the Oobium logo are trademarks of Jeremy Dowdall. All rights reserved.<br/>
-				+= "Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.<br/>
-				+= Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
-				+=  Other names may be trademarks of their respective owners.
+				+w "Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.<br/>
+				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
+				+w Other names may be trademarks of their respective owners.

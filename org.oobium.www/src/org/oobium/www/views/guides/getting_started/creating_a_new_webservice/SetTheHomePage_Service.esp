@@ -1,10 +1,10 @@
 title Setting the Application Home Page
 
-p When creating a web service application, Oobium goes ahead and creates a simple "hello world" controller and 
-	+= a route for it. Now let's take a look at what actually is happening, and how we may change it in the future.
+p When creating a web service application, Oobium goes ahead and creates a simple "hello world" controller and
+	+w a route for it. Now let's take a look at what actually is happening, and how we may change it in the future.
 
-p Open up your application's <code>Activator</code> class (it will be in the root directory of the project); 
-	+= you can also open it using the console:
+p Open up your application's <code>Activator</code> class (it will be in the root directory of the project);
+	+w you can also open it using the console:
 
 div.code
 	code $ open activator

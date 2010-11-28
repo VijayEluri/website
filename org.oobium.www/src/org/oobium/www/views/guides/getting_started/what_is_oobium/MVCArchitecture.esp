@@ -1,24 +1,24 @@
 title The MVC Architecture
 
-p At the core of the Oobium framework is the Model, View, Controller architecture, usually just called MVC. 
-	+= MVC benefits include:
+p At the core of the Oobium framework is the Model, View, Controller architecture, usually just called MVC.
+	+w MVC benefits include:
 ul
 	li Isolation of business logic from the user interface
 	li Ease of keeping code DRY and Modular
 	li Making it clear where different types of code belong for easier maintenance
 
 h5 Models
-p A model represents the information (data) of the application and the rules to manipulate that data. In the case 
-	+= of Oobium, models are primarily used for managing the rules of interaction with a corresponding database table. 
-	+= In most cases, one table in your database will correspond to one model in your application. The bulk of your 
-	+= application’s business logic will be concentrated in the models.
+p A model represents the information (data) of the application and the rules to manipulate that data. In the case
+	+w of Oobium, models are primarily used for managing the rules of interaction with a corresponding database table.
+	+w In most cases, one table in your database will correspond to one model in your application. The bulk of your
+	+w application’s business logic will be concentrated in the models.
 
 h5 Views
-p Views represent the user interface of your application. In Oobium, views are often HTML files with embedded Java 
-	+= code that perform tasks related solely to the presentation of the data. Views handle the job of providing data 
-	+= to the web browser or other tool that is used to make requests from your application.
+p Views represent the user interface of your application. In Oobium, views are often HTML files with embedded Java
+	+w code that perform tasks related solely to the presentation of the data. Views handle the job of providing data
+	+w to the web browser or other tool that is used to make requests from your application.
 
 h5 Controllers
-p Controllers provide the “glue” between models and views. In Oobium, controllers are responsible for processing the 
-	+= incoming requests from the web browser, interrogating the models for data, and passing that data on to the views 
-	+= for presentation.
+p Controllers provide the “glue” between models and views. In Oobium, controllers are responsible for processing the
+	+w incoming requests from the web browser, interrogating the models for data, and passing that data on to the views
+	+w for presentation.

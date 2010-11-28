@@ -53,4 +53,4 @@ div.code <- code.java
 	+> }
 
 p The destroy method will find the comment with the correct id and post fields, and then remove it from the database
-	+= and send us back to the show action for the post.
+	+w and send us back to the show action for the post.

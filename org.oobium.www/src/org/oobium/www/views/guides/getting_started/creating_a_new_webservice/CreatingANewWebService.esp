@@ -1,6 +1,6 @@
 title Creating a new Web Service (Hello, World!)
 
 p
-	+= One of the traditional places to start with a new language or framework is by getting "Hello World" 
-	+= up on screen quickly.  To do this, we're going to create the simplest Oobium application posssible: 
-	+= a Web Service.
+	+w One of the traditional places to start with a new language or framework is by getting "Hello World"
+	+w up on screen quickly.  To do this, we're going to create the simplest Oobium application posssible:
+	+w a Web Service.

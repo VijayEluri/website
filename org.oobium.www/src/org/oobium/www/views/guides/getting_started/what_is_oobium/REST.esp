@@ -1,9 +1,9 @@
 title REST
 
-p Rest stands for Representational State Transfer and is the foundation of the RESTful architecture. This is 
-	+= generally considered to be Roy Fielding’s doctoral thesis, Architectural Styles and the Design of 
-	+= Network-based Software Architectures. While you can read through the thesis, REST in terms of Rails boils 
-	+= down to two main principles:
+p Rest stands for Representational State Transfer and is the foundation of the RESTful architecture. This is
+	+w generally considered to be Roy Fielding’s doctoral thesis, Architectural Styles and the Design of
+	+w Network-based Software Architectures. While you can read through the thesis, REST in terms of Rails boils
+	+w down to two main principles:
 ul
 	li Using resource identifiers such as URLs to represent resources.
 	li Transferring representations of the state of that resource between system components.
@@ -11,10 +11,10 @@ ul
 p For example, to an Oobium application, a request such as this:
 code(style: "margin-left: 20px") DELETE /photos/17
 p would be understood to refer to a photo resource with the ID of 17, and to indicate a desired action – deleting
-	+= that resource. REST is a natural style for the architecture of web applications, and Rails hooks into this
-	+= shielding you from many of the RESTful complexities and browser quirks.
+	+w that resource. REST is a natural style for the architecture of web applications, and Rails hooks into this
+	+w shielding you from many of the RESTful complexities and browser quirks.
 p If you’d like more details on REST as an architectural style, these resources are more approachable than
-	+= Fielding’s thesis:
+	+w Fielding’s thesis:
 ul
 	li
 		a("http://www.infoq.com/articles/rest-introduction") A Brief Introduction to REST
