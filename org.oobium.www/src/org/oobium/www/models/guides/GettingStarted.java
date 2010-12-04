@@ -18,10 +18,6 @@ import org.oobium.www.views.guides.getting_started.creating_a_new_web_applicatio
 import org.oobium.www.views.guides.getting_started.creating_a_new_web_application.CreatingTheApplication;
 import org.oobium.www.views.guides.getting_started.creating_a_new_web_application.SetTheHomePage_App;
 import org.oobium.www.views.guides.getting_started.creating_a_new_web_application.StartTheServer_App;
-import org.oobium.www.views.guides.getting_started.creating_a_new_webservice.CreatingANewWebService;
-import org.oobium.www.views.guides.getting_started.creating_a_new_webservice.CreatingTheService;
-import org.oobium.www.views.guides.getting_started.creating_a_new_webservice.SetTheHomePage_Service;
-import org.oobium.www.views.guides.getting_started.creating_a_new_webservice.StartTheServer_Service;
 import org.oobium.www.views.guides.getting_started.creating_a_resource.AddingALink;
 import org.oobium.www.views.guides.getting_started.creating_a_resource.AddingSomeValidation;
 import org.oobium.www.views.guides.getting_started.creating_a_resource.CreatingAResource;
@@ -75,19 +71,13 @@ public class GettingStarted extends Guide {
 									new InstallViaSource()
 								}),
 
-//			/*6*/ new Chapter(new CreatingANewWebService(), new View[] {
-//									new CreatingTheService(),
-//									new StartTheServer_Service(), 
-//									new SetTheHomePage_Service()
-//								}),
-
-			/*7*/ new Chapter(new CreatingANewWebApplication(), new View[] {
+			/*6*/ new Chapter(new CreatingANewWebApplication(), new View[] {
 									new CreatingTheApplication(),
 									new StartTheServer_App(), 
 									new SetTheHomePage_App()
 								}),
 								
-			/*8*/ new Chapter(new CreatingAResource(), new View[] {
+			/*7*/ new Chapter(new CreatingAResource(), new View[] {
 									new TheModel(),
 									new AddingSomeValidation(),
 									new RunningAMigration(),
@@ -101,25 +91,25 @@ public class GettingStarted extends Guide {
 									new DestroyingAPost()
 								}),
 								
-			/*9*/ new Chapter(new AddingASecondModel(), new View[] {
+			/*8*/ new Chapter(new AddingASecondModel(), new View[] {
 									new CreatingAModel(),
 									new AssociatingModels(),
 									new AddingARouteForComments(),
 									new CreatingAController()
 								}),
 								
-			/*10*/ new Chapter(new Refactoring(), new View[] {
+			/*9*/ new Chapter(new Refactoring(), new View[] {
 									new PartialCollections(),
 									new PartialForms()
 								}),
 			
-			/*11*/new Chapter(new DeletingComments(), new View[] {
+			/*10*/new Chapter(new DeletingComments(), new View[] {
 									new DeletingAssociatedObjects()
 								}),
 			
-			/*12*/new Chapter(new Security()),
+			/*11*/new Chapter(new Security()),
 			
-			/*13*/new Chapter(new BuildingAMultimodelForm())
+			/*12*/new Chapter(new BuildingAMultimodelForm())
 		};
 	}
 	
