@@ -17,7 +17,7 @@ test: {
 },
 
 prod: {
-	host: "my.domain.com",
+	host: [ "oobium.org", "www.oobium.org" ],
 	port: 80,
 }
 
