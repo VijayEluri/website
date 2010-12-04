@@ -8,7 +8,8 @@ ul
 	li
 		a("https://github.com/oobium/framework") Oobium Framework
 		+w (includes tools)
-	li <-	a("https://github.com/oobium/guides") Oobium Framework Guides
+	li <-	a("https://github.com/oobium/website") Oobium Framework Guides
+		+w (as part of oobium.org)
 
 p To read more about the EPL:
 ul
