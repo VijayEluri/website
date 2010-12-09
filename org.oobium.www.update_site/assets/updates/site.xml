@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.oobium.framework_0.5.0.201012061025.jar" id="org.oobium.framework" version="0.5.0.201012061025">
+      <category name="Oobium"/>
+   </feature>
+   <category-def name="Oobium" label="Oobium"/>
+</site>
