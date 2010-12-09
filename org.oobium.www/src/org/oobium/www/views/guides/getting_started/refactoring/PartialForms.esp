@@ -51,7 +51,7 @@ div.code <- code
 	+> view<CommentForm>(new Comment().setPost(post))
 	+> 
 	+> a(post, showEdit) Edit
-	+> +=  | 
+	+> span  | 
 	+> a(Post.class, showAll) Back
 
 p Note that in the view<CommentForm> element we are creating a new Comment and immediately setting the post via a

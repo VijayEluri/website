@@ -11,6 +11,7 @@ div.code <- code.java
 		+> 
 		+> import org.oobium.persist.Attribute;
 		+> import org.oobium.persist.ModelDescription;
+		+> import org.oobium.persist.Relation;
 		+> import org.oobium.persist.Text;
 		+> 
 		+> @ModelDescription(

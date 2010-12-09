@@ -84,7 +84,7 @@ div.code <- code
 	+> view<CommentForm>(new Comment().setPost(post))
 	+> 
 	+> a(post, showEdit) Edit
-	+> +=  | 
+	+> span  | 
 	+> a(Post.class, showAll) Back
 
 p As you can see, I cheated a little and added a getTags() method to the Post model so we could display a comma

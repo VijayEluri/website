@@ -36,6 +36,6 @@ div.code <- code
 	+>   +  { post.getTitle() }
 	+> 
 	+> a(post, edit) Edit
-	+> +=  | 
+	+> span  | 
 	+> a(Post.class, showAll) Back
 

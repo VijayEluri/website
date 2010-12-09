@@ -22,11 +22,10 @@ div.code <- code
 	+> 
 	+> h1 Editing post
 	+> 
-	+> messages
 	+> view<PostForm>(post)
 	+> 
 	+> a(post) Show
-	+> +=  | 
+	+> span  | 
 	+> a(Post.class, showAll) Back
 
 p Again, as with the ShowNewPost view, the ShowEditPost view is using the form partial, this time however, the form

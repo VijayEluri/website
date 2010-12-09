@@ -1,7 +1,13 @@
 title Partial Collections
 
-p First we will make a comment view to extract showing all the comments for the post. Create the file
-	+w comments/ShowComment.esp and put the following into it:
+p First we will make a comment view to extract showing all the comments for the post. Create the view
+	+w comments/ShowComment:
+
+div.code <- code $ create view comments/ShowComment
+
+p Note that this will create an ESP file, ShowComment.esp, in the views/comments folder.
+	br
+	+= Open this file and put the following into it:
 
 div.code <- code
 	+> import com.test.blog.models.*
@@ -45,7 +51,7 @@ div.code <- code
 	+>     submit
 	+> 
 	+> a(post, showEdit) Edit
-	+> +=  | 
+	+> span  | 
 	+> a(Post.class, showAll) Back
 
 p This will now render the partial in comments/ShowComment.esp once for each comment that is in the

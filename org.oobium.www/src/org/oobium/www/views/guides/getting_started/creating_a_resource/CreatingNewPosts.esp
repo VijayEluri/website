@@ -17,7 +17,6 @@ div.code <- code
 		+> 
 		+> h1 New post
 		+> 
-		+> messages
 		+> view<PostForm>(post)
 		+> 
 		+> a(Post.class, showAll) Back

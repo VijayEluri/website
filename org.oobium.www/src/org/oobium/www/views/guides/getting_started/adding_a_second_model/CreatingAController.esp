@@ -66,7 +66,7 @@ div.code <- code
 	+>     submit
 	+> 
 	+> a(post, showEdit) Edit
-	+> +=  | 
+	+> span  | 
 	+> a(Post.class, showAll) Back
 
 p This adds a form on the ShowPost view that creates a new comment, which will call the CommentController's
@@ -75,6 +75,8 @@ p This adds a form on the ShowPost view that creates a new comment, which will c
 
 div.code <- code.java
 	+> package com.test.blog.controllers;
+	+> 
+	+= import static org.oobium.app.server.controller.Action.<span class="javaStaticField">show</span>\n
 	+> 
 	+> import java.sql.SQLException;
 	+> import java.util.Map;
@@ -91,7 +93,7 @@ div.code <- code.java
 	+>   public void create() throws SQLException {
 	+>     Comment comment = param("comment", new Comment());
 	+>     if(comment.create()) {
-	+>       redirectTo(comment.getPost(), show);
+	+=       redirectTo(comment.getPost(), <span class="javaStaticField">show</span>);\n
 	+>     }
 	+>   }
 	+> 
@@ -102,7 +104,7 @@ p Once we have made the new comment, we send the user back to the original post.
 	+w <code>hidden(post, value: {f post })</code>.
 
 p As we have seen previously, this redirect routes to the show method of the PostController, which in turn
-	+w renders the showPost view. This is where we want the comment to show, so let’s add that now:
+	+w renders the ShowPost view. This is where we want the comment to show, so let’s add that now:
 
 div.code <- code
 	+> import com.test.blog.models.*
@@ -138,7 +140,7 @@ div.code <- code
 	+>     submit
 	+> 
 	+> a(post, showEdit) Edit
-	+> +=  | 
+	+> span  | 
 	+> a(Post.class, showAll) Back
 
 p Now you can add posts and comments to your blog and have them show up in the right places.

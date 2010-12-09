@@ -42,7 +42,7 @@ div.code <- code.java
 	+>   }
 	+> 
 	+>   @Override
-	+>   public void create() throws SQLException {
+	+>   public void destroy() throws SQLException {
 	+>     Comment comment = Comment.find("where id=? and post=?", getId(), param("post"));
 	+>     Post post = comment.getPost();
 	+>     if(comment.destroy()) {
