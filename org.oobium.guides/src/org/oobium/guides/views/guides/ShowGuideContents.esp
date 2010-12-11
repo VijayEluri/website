@@ -1,0 +1,23 @@
+import java.util.*
+import org.oobium.guides.models.*
+import org.oobium.guides.views.pages.*
+
+ShowGuideContents(Guide guide)
+
+div#guideContent
+	- if(guide.chapters.length == 0) {
+			div There are currently no chapters for this guide.
+	- } else {
+		- for(int i = 0; i < guide.chapters.length; i++) {
+			- Chapter chapter = guide.chapters[i];
+				h3#{chapter.getId()} { (i+1) + ". " + chapter.title }
+			- if(chapter.intro != null) {
+					yield(chapter.intro)
+			- }
+			- for(int j = 0; j < chapter.sections.length; j++) {
+				- View section = chapter.sections[j];
+					h4#{chapter.getId(section)} { (i+1) + "." + (j+1) + " " + section.getTitle() }
+					yield(section)
+			- }
+		- }
+	- }

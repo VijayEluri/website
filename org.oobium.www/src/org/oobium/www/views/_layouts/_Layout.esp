@@ -1,29 +1,3 @@
 title org.oobium.www: { titleize(getChild().getClass().getSimpleName()) }
 
-head
-	style<Styles>
-
-div#allContent
-	div#topper
-	div#header
-		div#headerContent
-			div#logo
-				a(href:"/") <- img(src:"/brightLogo.png")
-	div#topBar 
-		div#topBarContent <- yield("topBarContent")
-	div#main 
-		div#mainContent <- yield
-	div#footer
-		div#footerContent
-			p &copy;2010 Oobium, Inc. All Rights Reserved
-			p This work is licenced under a 
-				a(href:"http://creativecommons.org/licenses/by-sa/3.0/") Creative Commons Attribution-Share Alike 3.0
-				+w Licence and is a derivative work of the excellent 
-				a("http://guides.rubyonrails.org/index.html") Ruby on Rails Guides
-				+= , created at the ongoing 
-				a("http://hackfest.rubyonrails.org/") Guides hackfest
-				+= .
-			p "Oobium", and the Oobium logo are trademarks of Jeremy Dowdall. All rights reserved.<br/>
-				+w "Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.<br/>
-				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
-				+w Other names may be trademarks of their respective owners.
+yield

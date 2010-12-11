@@ -1,0 +1,17 @@
+import java.util.*
+import org.oobium.guides.models.*
+import org.oobium.guides.views.pages.*
+
+ShowGuide(Guide guide)
+
+title { guide.getTitle() }
+
+contentFor("topBarContent")
+	div#column
+		img#book(src:"/chapters.gif")
+		h3 Chapters
+		view<ShowGuideTOC>(guide)
+	h1 { guide.getTitle() }
+	yield(guide.intro)
+
+view<ShowGuideContents>(guide)

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.oobium.guides Bundle
+Bundle-SymbolicName: org.oobium.guides
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Oobium-Type: application
+Import-Package: org.osgi.framework;version="1.4.0",
+ org.oobium.app,
+ org.oobium.app.model,
+ org.oobium.app.server.controller,
+ org.oobium.app.server.response,
+ org.oobium.app.server.routing,
+ org.oobium.app.workers,
+ org.oobium.app.server.view,
+ org.oobium.http,
+ org.oobium.http.constants,
+ org.oobium.logging,
+ org.oobium.persist,
+ org.oobium.utils,
+ org.oobium.utils.coercion,
+ org.oobium.utils.json
+Bundle-Activator: org.oobium.guides.Activator
+Export-Package: org.oobium.guides
+Bundle-ActivationPolicy: lazy
