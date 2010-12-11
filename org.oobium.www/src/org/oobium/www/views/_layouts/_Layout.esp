@@ -1,3 +1,22 @@
-title org.oobium.www: { titleize(getChild().getClass().getSimpleName()) }
+title org.oobium: { titleize(getChild().getClass().getSimpleName()) }
 
-yield
+head
+	style<Styles>
+
+div#allContent
+	div#header
+		div#space
+		div#tabBar
+		div#headerContent
+			div#logo
+				a(href:"/") <- img(src:"/Logo.png")
+			h2 Code Well. Code Happy
+		div#bottomBar
+	div#mainContent
+		div#oobiLinks
+			div#left
+				h2 Get
+			div#center
+				h2 Learn
+			div#right
+				h2 Interact
