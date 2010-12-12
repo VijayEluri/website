@@ -8,7 +8,7 @@ import java.util.Map;
 import org.oobium.app.server.view.View;
 import org.oobium.utils.StringUtils;
 import org.oobium.guides.models.guides.AllAboutEspFiles;
-import org.oobium.guides.models.guides.GettingStarted;
+import org.oobium.guides.models.guides.GettingStartedWithOobium;
 import org.oobium.guides.models.guides.LayoutsAndRenderingInOobium;
 import org.oobium.guides.models.guides.OobiumDatabaseMigrations;
 import org.oobium.guides.models.guides.OobiumQueryInterface;
@@ -24,7 +24,7 @@ public class Guide {
 		programs = new LinkedHashMap<String, List<String>>();
 		guides = new LinkedHashMap<String, Guide>();
 
-		add("Start Here", new GettingStarted());
+		add("Start Here", new GettingStartedWithOobium());
 		add("Models", new OobiumDatabaseMigrations());
 		add("Models", new OobiumQueryInterface());
 		add("Models", new OobiumRelations());
