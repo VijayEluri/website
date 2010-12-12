@@ -1,9 +1,7 @@
 body
 	font-family: Helvetica, Arial, sans-serif
 	color: #444
-	margin-right: auto
-	margin-left: auto
-	margin-top: 0px
+	margin: 0px
 	background-color: #fffffd
 #allContent
 	margin-right: auto
@@ -25,45 +23,60 @@ body
 	padding-bottom: 50px
 #logo
 	padding: 20px
-#bottomBar
+.bar
 	height: 30px
 	background-image: url("/BarBack.png")
 	background-repeat: repeat
 img
 	border: none
+p
+	color: #eee
+#oobiLinks h2
+	margin: 5px 0
 #mainContent
 	width: 920px
 	margin-right: auto
 	margin-left: auto
 #oobiLinks
-	text-align: center
+	text-align: left
 	color: #eee
+	height: 100px
+.block
+	background-image: url("/BlockSlantSm.png")
+	background-repeat: no-repeat 
+	height: 102px
+	width: 260px
+	padding: 10px
+	float: left
+	margin-top: -60px
 #left
-	background-image: url("/BlockSlantSm.png")
-	background-repeat: no-repeat 
-	position: relative
-	left: 0
-	top: -60px
-	height: 102px
-	width: 240px
-	padding: 10px
+	margin-right: 40px
 #center
-	background-image: url("/BlockSlantSm.png")
-	background-repeat: no-repeat 
-	position: relative
-	left: 325px
-	top: -182px
-	height: 102px
-	width: 240px
-	padding: 10px
+	margin-right: 40px
 #right
-	background-image: url("/BlockSlantSm.png")
+.icon
+	float: left
+	padding: 5px 10px 0 10px
+#oobiLinks p
+	padding-left: 10px
+#features
+	background-image: url("/BlockBg.png")
 	background-repeat: no-repeat 
-	position: relative
-	left: 646px
-	top: -302px
-	height: 102px
-	width: 240px
-	padding: 10px
-
+	height: 450px
+	padding: 5px 30px
+#features h2, p
+	margin: 12px 0
+#features li
+	color: #eee
+	font-size: 14px
+#footer
+	background-color: #444
+	padding-top: 4px
+#footerContent
+	width: 920px
+	margin-right: auto
+	margin-left: auto
+	color: #cecece
+	font-size: 12px
+	padding: 20px 0px
 
