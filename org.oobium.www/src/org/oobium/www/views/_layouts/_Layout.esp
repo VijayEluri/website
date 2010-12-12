@@ -11,12 +11,12 @@ div#allContent
 			div#logo
 				a(href:"/") <- img(src:"/Logo.png")
 			h2 Code Well. Code Happy
-		div#bottomBar
-	div#mainContent
-		div#oobiLinks
-			div#left
-				h2 Get
-			div#center
-				h2 Learn
-			div#right
-				h2 Interact
+		div.bar
+	div#mainContent <- yield
+	div#footer
+		div.bar
+		div#footerContent
+			p &copy;2010 Oobium, Inc. All Rights Reserved
+			p "Oobium", and the Oobium logo are trademarks of Jeremy Dowdall. All rights reserved.<br/>
+				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
+				+w Other names may be trademarks of their respective owners.
