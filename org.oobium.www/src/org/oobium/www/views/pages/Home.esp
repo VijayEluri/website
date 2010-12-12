@@ -1,0 +1,29 @@
+title Oobium.org :: Home
+
+div#oobiLinks
+	div#left.block
+		img.icon(src:"/DownloadIcon.png")
+			h2 Get It
+			p Download the latest version: 56.3 now.
+	div#center.block
+		img.icon(src:"/BookIcon.png")
+			h2 Learn It
+			p Check out the fabulous Oobium Guides.
+	div#right.block
+		img.icon(src:"/InteractIcon.png")
+			h2 Contribute It
+			p Make Oobium the best framework it can be!
+div#features
+	h2 Features
+	p Oobium is a Full Stack Framework and Tools for creating and building Web applications in Jave (but in a way that doesn't suck).
+	ul
+		li MVC with simple integrated ORM
+		li RESTfull throughout with simple events system
+		li Modular and extensibile - built on OSGi
+		li Lightweight footprint and concepts
+	p Tools include
+	ul
+		li Code generators
+		li Editors
+		li Eclipise integration
+		li and more
