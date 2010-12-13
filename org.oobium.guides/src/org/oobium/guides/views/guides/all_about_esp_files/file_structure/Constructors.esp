@@ -1,0 +1,42 @@
+title Constructors
+
+p Constructors in ESP files are also extremely similar to their Java counterparts and are used to accomplish the same
+	+w purpose - allow objects to be passed in when being instantiated. There are two big differences with the constructors in ESP files: 1. they cannot have any body, or block, code - only
+	+w a signature is allowed; and 2. they can specify default value for the parameter(s) being passed in.
+
+p The restriction of not allowing a code block is to make sure no-one tries to turn this view object into a piece of
+	+w business logic - objects passed in should be ready to use with minimal code (nothing more than a getter method).
+	+w The parameters will be accessible within the rest of the ESP file as if they were instance variables within a 
+	+w regular Java file (actually, that's exactly what they become in the resulting compiled Java file).
+
+p Default values are a handy feature and are fairly self explanatory. The following constructor is within a file named
+	+w ShowPost.esp and allows either passing in a Post object, or nothing at all. Inside this file, there will be a 
+	+w variable name "post" that will either contain the value passed in, or the value of a new Post object if nothing
+	+w was passed in:
+div.code <- code.java ShowPost(Post post = new Post())
+
+p It is used in your Java code as follows:
+div.code <- code.java
+	+> // pass in the post object
+	+> ShowPost showPost = new ShowPost(post);
+	+> // use the default value
+	+> ShowPost showPost = new ShowPost();
+
+p The only restriction is that you cannot specify a default for parameter in before a parameter that does not have
+	+w a default:
+div This is valid:
+div.code <- code.java ShowPost(Post post, Date start = new Date())
+div This is NOT valid:
+div.code <- code.java ShowPost(Post post, Date start = new Date(), Date end)
+
+p As with import statements, you can have one, many, or no constructors defined in your ESP file.
+	br
+	+w The overall rules for them are as follows:
+ul
+	li one per line
+	li same format as in Java, except that there is no body / block section
+	li must be the first non-empty lines after the imports (or file, if there are no imports)
+	li may not be mixed with any non-constructor elements (blank lines are fine)
+	li must start at the beginning of the line (cannot be indented)
+	li parameters are automatically made available as instance variables (of the same signature)
+	li parameters may have default values

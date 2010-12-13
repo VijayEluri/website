@@ -1,0 +1,21 @@
+title Import Statements
+
+p Import statements are used in ESP files to specify the fully qualified name of a class so that it can be referred to
+	+w in the code by its short (simple) name. This is exactly what they accomplish in a regular Java file and ESP's are
+	+w no different - they actually get compiled (pretty much) straight to Java, the only exception is that
+	+w you don't need to put a semicolon at the end of the statement (but you can, if that's your thing).
+
+p The following rules apply to import statements in ESP files (they're pretty similar to how you'd write them in a
+	+w regular Java file):
+ul
+	li one per line
+	li same format as in Java, except that the ending semicolon is optional
+	li must be the first non-empty lines in the file
+	li may not be mixed with any non-import elements (blank lines are fine)
+	li must start at the beginning of the line (cannot be indented)
+
+p Just in case your wondering - wildcards and static imports are fine too; write them just like you would in Java:
+
+div.code <- code.java
+	+> import static com.myapp.Constants.MAX_VALUE
+	+> import com.myapp.model.*

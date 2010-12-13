@@ -28,8 +28,8 @@ public class Guide {
 		add("Models", new OobiumDatabaseMigrations());
 		add("Models", new OobiumQueryInterface());
 		add("Models", new OobiumRelations());
-		add("Views", new LayoutsAndRenderingInOobium());
 		add("Views", new AllAboutEspFiles());
+		add("Views", new LayoutsAndRenderingInOobium());
 		add("Controllers", new OobiumRoutingFromTheOutsideIn());
 	}
 	
