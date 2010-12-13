@@ -1,0 +1,12 @@
+Block(String id, String title, String message, String image)
+
+- String over = "$('#" + image + "').attr('src', '/" + image + ".png');";
+- String out  = "$('#" + image + "').attr('src', '/" + image + "_dis.png');";
+
+div#{id}.block(onmouseover:{over}, onmouseout:{out})
+	img#{image}.icon(src:"/{image}_dis.png")
+		h2 { title }
+		p { message }
+
+div|hide
+	img(src:"/{image}.png") // preload the roll-over image

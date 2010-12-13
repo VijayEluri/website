@@ -1,16 +1,16 @@
 title org.oobium: { titleize(getChild().getClass().getSimpleName()) }
 
 head
+	script(jquery_1.4.4)
 	style<Styles>
 
 div#allContent
 	div#header
 		div#space
-		div#tabBar
 		div#headerContent
 			div#logo
 				a(href:"/") <- img(src:"/Logo.png")
-			h2 Code Well. Code Happy
+			h2 Code Well - Code Happy
 		div.bar
 	div#mainContent <- yield
 	div#footer

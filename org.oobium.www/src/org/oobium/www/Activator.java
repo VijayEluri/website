@@ -5,6 +5,7 @@ import org.oobium.app.server.routing.Router;
 import org.oobium.utils.Config;
 import org.oobium.www.views._layouts.Styles;
 import org.oobium.www.views.pages.Home;
+import org.oobium.www.views.pages.Install;
 
 public class Activator extends AppService {
 
@@ -13,6 +14,7 @@ public class Activator extends AppService {
 		router.setHome(Home.class);
 		router.addAssetRoutes(this);
 		router.addRoute(Styles.class);
+		router.add("install").asRoute(Install.class);
 	}
 
 }

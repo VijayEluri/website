@@ -1,0 +1,17 @@
+title Oobium.org :: Installation
+
+div#features
+	h2 Installation
+	
+	p The Eclipse Update Site for Oobium is located at:
+		+w http://oobium.org/updates
+	
+	p Oobium is currently only installed via an update site, and has only been run using Eclipse 3.6 on
+		+w Linux (GTK) and Windows. If you experience problems with your installation please submit an issue
+		+w to the Oobium framework project on GitHub: 
+		a("http://github.com/oobium/framework/issues")
+		+= . Thank you!
+	
+	p If you need help installing software on Eclipse, check out Lars Vogel's 
+		a("http://www.vogella.de/articles/Eclipse/article.html#plugin_installation") Eclipse IDE Tutorial
+		+= .

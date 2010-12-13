@@ -3,6 +3,10 @@ body
 	color: #444
 	margin: 0px
 	background-color: #fffffd
+:link
+	color: #e38531
+:visited
+	color: #26b037	
 #allContent
 	margin-right: auto
 	margin-left: auto
@@ -37,23 +41,23 @@ p
 	width: 920px
 	margin-right: auto
 	margin-left: auto
-#oobiLinks
+#oobiLinks, #oobiLinks a
 	text-align: left
 	color: #eee
-	height: 100px
+	height: 60px
 .block
 	background-image: url("/BlockSlantSm.png")
 	background-repeat: no-repeat 
 	height: 102px
-	width: 260px
+	width: 240px
 	padding: 10px
 	float: left
 	margin-top: -60px
-#left
-	margin-right: 40px
-#center
-	margin-right: 40px
+	margin-right: 64px
+.block:hover
+	color: white
 #right
+	margin-right: 0
 .icon
 	float: left
 	padding: 5px 10px 0 10px
@@ -64,6 +68,7 @@ p
 	background-repeat: no-repeat 
 	height: 450px
 	padding: 5px 30px
+	margin-top: 30px
 #features h2, p
 	margin: 12px 0
 #features li
