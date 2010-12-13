@@ -20,7 +20,7 @@ test: {
 },
 
 prod: {
-	host: "guides.oobium.com",
+	host: "guides.oobium.org",
 	port: 80,
 }
 
