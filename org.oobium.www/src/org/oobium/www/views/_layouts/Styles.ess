@@ -48,7 +48,7 @@ img
 	color: #eee
 .block
 	background-image: url("/BlockSmGradient.jpg")
-	background-repeat: repeat 
+	background-repeat: repeat
 	border: 2px solid #eee
 	-moz-border-radius: 10px
 	height: 100px
@@ -59,6 +59,8 @@ img
 	margin-right: 64px
 .block:hover
 	color: white
+	background-color: #666
+	background-image: none
 #left:hover
 	border: 2px solid #73b635
 #center:hover
