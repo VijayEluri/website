@@ -6,7 +6,7 @@ div#oobiLinks
 	a("http://guides.oobium.org")
 		view<Block>("center", "Learn It", "Check out the Oobium Guides.", "BookIcon")
 	a("http://github.com/oobium")
-		view<Block>("right", "Contribute", "Help make Oobium the best!", "InteractIcon")
+		view<Block>("right", "Build It", "Help make Oobium the best!", "InteractIcon")
 div#features
 	h2 What is Oobium?
 	p Oobium is a system for creating web applications, web services, and web connected clients. 
