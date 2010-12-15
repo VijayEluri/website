@@ -9,7 +9,7 @@ div.code
 p This will export and start the application in your local workspace, as well as launch the Server View in Eclipse for
 	+w you to interact with:
 
-div <- img("guides/getting_started/screenshot-new_app-server_view.png")
+div <- img("/guides/getting_started_with_oobium/screenshot-new_app-server_view.png")
 
 p The drop-down combo box contains all of the routes currently handled by the application.
 	+w You can type "localhost:5000" directly in this combo box or open it, select the root (it will be the first one),
@@ -20,4 +20,4 @@ p The drop-down combo box contains all of the routes currently handled by the ap
 p Another way to see the result, which can be handy during development, is to issue an HTTP request directly from
 	+w within the Oobium Console:
 
-div <- img("guides/getting_started/screenshot-new_app-console_view.png")
+div <- img("/guides/getting_started_with_oobium/screenshot-new_app-console_view.png")

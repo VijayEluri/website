@@ -3,7 +3,7 @@ title Working with Posts in the Browser
 p Now you’re ready to start working with posts. To do that, navigate to
 	+w http://localhost:5000 and then click the “My Blog” link:
 
-div <- img("guides/getting_started/screenshot-new_app-server_view-posts.png")
+div <- img("/guides/getting_started_with_oobium/screenshot-new_app-server_view-posts.png")
 
 p This is the result of Oobium rendering the showAll view of your posts. There aren’t currently any posts
 	+w in the database, but if you click the New Post link you can create one. After that, you’ll find that
@@ -14,5 +14,5 @@ div.info
 	+w When working locally in the Server view, Oobium will reload your application and refresh the current
 	+w page everytime a code change is saved, so there's no need to stop and restart the server manually 
 	+w (of course, you can pause this functionality anytime you want by deselecting the 
-	img("synced.gif")
+	img("/synced.gif")
 	+w  "Link with editors" button on the Server view toolbar).

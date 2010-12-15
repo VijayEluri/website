@@ -56,5 +56,5 @@ div.code <- code
 
 p Now if you try to create a new post, you will be greeted with a basic HTTP Authentication challenge:
 
-div <- img("guides/getting_started/screenshot-new_app-security_window.png")
+div <- img("/guides/getting_started_with_oobium/screenshot-new_app-security_window.png")
 
