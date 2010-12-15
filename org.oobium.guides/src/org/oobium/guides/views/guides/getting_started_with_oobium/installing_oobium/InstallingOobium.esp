@@ -4,3 +4,12 @@ p There are currently two way to install and run Oobium:
 ol
 	li Eclipse Update Site
 	li Importing the Source code into your Eclipse workspace.
+
+p The quickest way to install the Oobium framework and tools is through its Eclipse Update-Site. 
+	+w If you're familiar with installing features via the Eclipse update manager, then all you need is the URL
+	+w to the update-site:
+
+div.info
+	+= Update site: http://oobium.org/updates
+
+p If you're new to Eclipse and/or its update manager, then the next section will help with for step-by-step instructions.

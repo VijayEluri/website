@@ -1,5 +1,51 @@
 title Update Site
 
-p The quickest way to install the Oobium framework and tools is through its Eclipse Update-Site.
+p To begin the installation, select the "Install New Software..." item from the Help menu:
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-menu-install_new.png")
 
-p TODO finish this section :)
+p The will bring up the Eclipse Install dialog where you can add new features to your Eclipse installation
+	+w and add software sites from which to install new features. From this dialog, select the "Add..." button
+	+w in the upper right to add the Oobium update-site:
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-screen1.png")
+
+p Fill out the "Add Repository" dialog as shown in the next screenshot, and select "OK" to proceed:
+div.note(style:"margin-bottom: 15px; white-space: pre") <- code
+	+> Name:     Oobium
+	+> Location: http://oobium.org/updates
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-add_repo.png")
+
+p The previous step added the update-site (aka repository) and has selected it in the "Work with:" drop-down
+	+w box. This populates the table with features that we can choose to install. In this particular case
+	+w there is only one: Oobium Framework. Select it now and hit "Next >" to continue:
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-screen2.png")
+
+p The following screen shows additional details of what we have selected to install; verify it is correct
+	+w and hit "Next >" to continue:
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-screen3-details.png")
+
+p The next screen is the license(s) for the feature(s) you have selected to install. Nothing fancy on this
+	+w one - just the same old EPL used for all of Eclipse; take a moment to look it over if you
+	+w haven't before, select the "I accept..." radio button in the lower left, and then click "Finish" to
+	+w (finally!) start the actual install:
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-screen4-license.png")
+
+p The install dialog goes away and we get to watch software streaming across the tubes!
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-screen5-progress.png")
+
+p Oobium doesn't yet include jar signing in its build process so you'll get a Security Warning saying that
+	+w "The authenticity or validity of this software cannot be established". You'll see this warning from
+	+w plenty of plugins and features that you'll install, so you might as well start getting used to it now:
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-screen6-security_warning.png")
+
+p Once the installation is complete Eclipse will ask if you want to Restart or not (restart Eclipse that it,
+	+w not the whole OS). This is another thing you should get used to (for now) so go ahead and hit "Restart Now";
+	+w when Eclipse reloads you'll be ready to start using Oobium!
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-screen7-restart.png")
+
+p Of course, when Eclipse reloads it will look just like it did before. To get to the Oobium console you can either
+	+w open via the "Window -> Show View -> Oobium" menu item, or simply reset the Java perspective as shown below: 
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-reset_perspective.png")
+
+p Tada! Oobium is installed and the console is ready to take your command - have fun!
+div <- img("/guides/getting_started_with_oobium/screenshot-installing-install-done.png")
+
