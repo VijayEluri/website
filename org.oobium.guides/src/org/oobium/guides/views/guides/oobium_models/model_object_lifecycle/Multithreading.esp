@@ -1,0 +1,11 @@
+title Multi-threading
+
+p Java is inherently a multi-threaded language and Oobium takes advantage of this in many places, itself being a
+	+w multi-threaded framework. Models in Oobium, however, are NOT thread-safe.
+
+div.warning
+	+w Oobium is multi-threaded, but Models in Oobium are NOT threadsafe!
+
+p The primary reason for this is simplicity - yours (the application programmer), not Oobium's. Oobium takes care to
+	+w create safe paths of execution for you models to stay on and not have to worry about multithreading issues. If you
+	+w stay on them, you'll have no problems but, of course, where's the fun in that?

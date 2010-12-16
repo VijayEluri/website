@@ -1,0 +1,27 @@
+title Creating Observers
+
+p Image that we want to send an email to a list of subscribers every time we create a new blog post. Because sending
+	+w emails is not directly related to our model's purpose, we should create an observer to contain this
+	+w functionality.
+
+div.code <- code $ create observer post
+
+p Oobium will generate the PostObserver in the models/observers folder:
+
+div.code <- code.java
+	+> package com.test.blog.models.observers;
+	+> 
+	+> import com.test.blog.models.Post;
+	+> import org.oobium.persist.Observer;
+	+> 
+	+> public class PostObserver extends Observer<Post> {
+	+> 
+	+>   @Override
+	+>   protected void afterCreate(Post model) {
+	+>       // TODO Auto-generated method stub
+	+>       super.afterCreate(model);
+	+>   }
+	+> 
+	+> }
+
+p The observer's methods all receive the observed model as the only parameter.

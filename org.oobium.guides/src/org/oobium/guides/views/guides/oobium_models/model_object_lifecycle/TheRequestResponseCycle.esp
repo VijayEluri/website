@@ -1,0 +1,10 @@
+title The Request-Response Cycle
+
+p When handling requests in a standard request-response cycle, Oobium sets up and tears down the model persistors,
+	+w and their sessions, automatically for you. It also does this in a single thread (each execution path through
+	+w a controller happens in a single thread) so that you don't have to worry about concurrency issues.
+
+p At the beginning of a request, models will be injected with an appropriate persistor, whose session will be opened.
+	+w Once the request has been handled, the Oobium framework will close the persistors' sessions and release them. This
+	+w is all done automatically so that all you have to worry about is creating and using your models in a way that
+	+w flows properly with your application logic.

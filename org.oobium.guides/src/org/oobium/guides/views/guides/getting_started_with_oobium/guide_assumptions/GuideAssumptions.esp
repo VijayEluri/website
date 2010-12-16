@@ -1,11 +1,5 @@
 title Guide Assumptions
 
-div.warning
-	+w Oobium is built on cross platform tools and ideals, but is currently developed solely on Linux and primarily
-	+w deployed to Linux. If you are on Windows or Mac please let me know what you encounter and I'll do my best to
-	+w fix any issues promptly.
-	div Thanks for your help!
-
 p This guide is designed for beginners who want to get started with an Oobium application from scratch.
 	+w It does not assume that you have any prior experience with Oobium. However, to get the most out of it, 
 	+w you need to have some prerequisites installed:

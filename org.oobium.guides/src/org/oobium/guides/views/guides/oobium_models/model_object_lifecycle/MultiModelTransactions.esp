@@ -1,0 +1,18 @@
+title Multi-Model Transactions
+
+p Under normal circumstances Oobium persistors commit changes as they happen. In other words, a record is fully written
+	+w to the database (in the case of a database persistor) by the time the save() method returns.
+
+p There may be times, however, when you want to save changes to multiple models, but not commit any of them if one of
+	+w them fails or in some way triggers an error. At this point you'd like to rollback any transactions that may have
+	+w already occured.
+
+p To handle this, Oobium persistors support toggling of their auto-commit behaviour. Also, when auto-commit has been
+	+w turned off commits can be handled manually by the persistor's commit() and rollback() methods.
+
+div.note
+	+w 3 methods to handle commits:
+	ul
+		li setAutoCommit(boolean)
+		li commit()
+		li rollback()

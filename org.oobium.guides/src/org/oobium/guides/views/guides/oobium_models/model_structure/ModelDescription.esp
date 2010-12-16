@@ -1,0 +1,16 @@
+title @ModelDescription
+
+p The @ModelDescription annotation gives your model its true and unique characteristics - its actual defined fields
+	+w that can be persisted, validated, queried, and accessed via standard Java getters and setters. The method of using
+	+w a single class annotation was chosen over several field annotations (as is the case in normal JPA) so that everything
+	+w could be kept in one place and leave you, the coder, with a clean class body with which to work. The Model super class
+	+w provides the run-time functionality of your models, while the @ModelDescription provides its static, compile time
+	+w description.
+
+p The @ModelDescription provides a means to describe your model field in three main sections:
+ol
+	li Attributes ("attrs" - an array of @Attribute annotations)
+	li Has One Relationships ("hasOne" - an array of @Relation annotations)
+	li Has Many Relationships ("hasMany" - an array of @Relation annotations)
+
+p With these, you can create all manner of fields in your models and relationships between your models.

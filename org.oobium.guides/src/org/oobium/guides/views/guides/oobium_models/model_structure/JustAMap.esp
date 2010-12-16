@@ -1,0 +1,13 @@
+title It's Just a Map
+
+p Really, Oobium models are just maps - at least, you should think of them that way.
+
+p The point of this is so that you
+	+w aren't restricted, up-front, to any preconceived notion of what your model should be - it can contain extra stuff 
+	+w if that suits your needs and can also contain less stuff (a partial model, if you will); just depends what you're
+	+w trying to accomplish.
+
+p You can set fields, get fields, putAll and getAll - just (ok, similar) like with a Map.
+
+p Of course, when you create a model in Oobium, you won't see any of this - you're Java file will be pretty much empty.
+	+w All of this is provided by the class hierarchy.

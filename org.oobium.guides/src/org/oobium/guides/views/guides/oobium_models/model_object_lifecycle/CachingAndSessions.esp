@@ -1,0 +1,8 @@
+title Caching and Sessions
+
+p Oobium provides basic caching support in the context of sessions. Between the time a session is created, by calling
+	+w the openSession(String) method of the persistor, and it is terminated, by calling the corresponding closeSession()
+	+w method on the same persistor, each unique model requested should only be retrieved from the actual data source
+	+w only once. Repeat calls to the same model during this time should instead return the object from the persistor's
+	+w cache. Any save or update should, of course, invalidate the cache and the next retrieval will, in fact, go back
+	+w to the data source.

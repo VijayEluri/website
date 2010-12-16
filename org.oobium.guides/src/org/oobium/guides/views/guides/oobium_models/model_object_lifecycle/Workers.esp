@@ -1,0 +1,9 @@
+title Workers
+
+p There are plenty of times that it would be great to run things in a separate thread, or background task. Because this
+	+w is so common (and rightfully so), Oobium has Worker classes that you can use.
+
+p Essentially, Workers are just like threads (Executors, actually) except that they perform two extra helpful tidbits:
+ol
+	li Setup and Teardown your model persistors and their sessions (the same lifecycle as when handling a request)
+	li Execute in limited numbers so your application doesn't crash when you accidentally submit 100,000 of them (oops)

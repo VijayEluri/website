@@ -1,0 +1,36 @@
+title Observer Methods
+
+p Here is a list of all the available methods in an Observer. They are listed here in the same order that they will
+	+w be called during the respective operations:
+
+h3 Creating a Model:
+ul
+	li beforeValidateCreate
+	li afterValidateCreate
+	li beforeSave (if using the save() method, skipped otherwise) 
+	li beforeCreate
+	li afterCreate
+	li afterSave (if using the save() method, skipped otherwise)
+div Triggered by save() and create()
+
+h3 Updating a Model:
+ul
+	li beforeValidateUpdate
+	li afterValidateUpdate
+	li beforeSave (if using the save() method, skipped otherwise) 
+	li beforeUpdate
+	li afterUpdate
+	li afterSave (if using the save() method, skipped otherwise)
+div Triggered by save() and update()
+
+h3 Destroying a Model:
+ul
+	li beforeValidateDestroy
+	li afterValidateDestroy
+	li beforeDestroy
+	li afterDestroy
+div Triggered by destroy()
+
+div.info(style:"margin-top: 15px") <- code
+	+w beforeSave and afterSave are ONLY executed when using the save() method. They are not executed during either
+	+w the create() or update() methods.

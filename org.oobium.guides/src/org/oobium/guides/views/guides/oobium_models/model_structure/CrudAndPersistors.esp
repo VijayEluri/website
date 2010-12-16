@@ -1,0 +1,24 @@
+title CRUD and Persistors
+
+p A key point of models in an application is that they can be saved and retrieved to some form of persistence storage.
+	+w Databases are the most common these days, but the File System, In-Memory cache, or even remote storage systems
+	+w all qualify as well.
+
+p In Oobium, all models have convenient CRUD related methods to make saving and retrieving them simple.
+ul
+	li create() - create the model in persistent storage (but fail if it has already been created)
+	li destroy() - destroy the model and remove it from persistent storage
+	li load() - retrieve the model fields from persisten storage and load them into this instance
+	li save() - save the model to persistent storage (create or update)
+	li update() - update the model in persisten storage (but fail if it has NOT yet been created)
+
+p They do not, however, have any means by which to perform the actual persistence operations. Instead, they have to
+	+w delegate this to a persistor; a copy of which they should contain before one of the CRUD methods is called.
+
+p A persistor is any class that implements the PersistService interface and can be thought of as similar to a typical
+	+w Data Access Object (DAO) in that it knows how to persist certain types of models to a certain type of
+	+w persistent storage (such as a MySQL database, or Amazon S3).
+
+p Under normal conditions you would simply let the framework inject the persistor appropriate for your models and never
+	+w worry about it, but there also exist the option of setting them yourself :)
+ 

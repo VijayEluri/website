@@ -1,0 +1,8 @@
+title Oobium Model Objects
+
+p This guide covers the core features of Oobium models.  By referring to this guide, you will be able to:
+ul.intro
+	li Create Oobium models and make them persistent
+	li Understand the Model Object Lifecycle
+	li Validate and Observe your Models
+	li Understand the database schema caused by relations

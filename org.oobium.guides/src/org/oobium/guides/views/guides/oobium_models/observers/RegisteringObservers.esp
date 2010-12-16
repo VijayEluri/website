@@ -1,0 +1,8 @@
+title Registering Observers
+
+p Observers are placed in the models/observers folder by convention, and any observer found there when the application
+	+w starts will be automatically registered.
+
+p If, however, you are not using this convention or if you are not running with the full Oobium framework (a JUnit test
+	+w case, for instance), you can always register observers with Observer.addObserver(observerClass). Likewise,
+	+w observers can be unregistered with Observer.removeObserver(observerClass)

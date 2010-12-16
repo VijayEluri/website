@@ -11,8 +11,9 @@ import org.oobium.guides.models.guides.AllAboutEspFiles;
 import org.oobium.guides.models.guides.GettingStartedWithOobium;
 import org.oobium.guides.models.guides.LayoutsAndRenderingInOobium;
 import org.oobium.guides.models.guides.OobiumDatabaseMigrations;
+import org.oobium.guides.models.guides.OobiumModels;
 import org.oobium.guides.models.guides.OobiumQueryInterface;
-import org.oobium.guides.models.guides.OobiumRelations;
+import org.oobium.guides.models.guides.OobiumModelRelationships;
 import org.oobium.guides.models.guides.OobiumRoutingFromTheOutsideIn;
 
 public class Guide {
@@ -25,9 +26,10 @@ public class Guide {
 		guides = new LinkedHashMap<String, Guide>();
 
 		add("Start Here", new GettingStartedWithOobium());
+		add("Models", new OobiumModels());
 		add("Models", new OobiumDatabaseMigrations());
+		add("Models", new OobiumModelRelationships());
 		add("Models", new OobiumQueryInterface());
-		add("Models", new OobiumRelations());
 		add("Views", new AllAboutEspFiles());
 		add("Views", new LayoutsAndRenderingInOobium());
 		add("Controllers", new OobiumRoutingFromTheOutsideIn());
