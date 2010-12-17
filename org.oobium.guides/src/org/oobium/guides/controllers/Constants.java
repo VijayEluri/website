@@ -244,7 +244,7 @@ public class Constants {
 		HTML_TAGS.put("table", "Specifies a table");
 		HTML_TAGS.put("tbody", "Specifies a table body");
 		HTML_TAGS.put("td", "Specifies a table cell");
-		HTML_TAGS.put("textarea", "Specifies a text area");
+		HTML_TAGS.put("textArea", "Specifies a text area");
 		HTML_TAGS.put("tfoot", "Specifies a table footer");
 		HTML_TAGS.put("th", "Specifies a table header");
 		HTML_TAGS.put("thead", "Specifies a table header");

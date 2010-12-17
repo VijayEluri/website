@@ -1,2 +1,9 @@
 title Model Structure
 
+p Oobium goes to great lengths to help your models be fully expressive, putting all you need to know about them in one
+	+w place, while also being adamant that they stay clean and that the class body is empty.
+
+p Why keep the class body so devoid of code?<br/>
+	+w Because that's for you to fill up: 
+	a("http://weblog.jamisbuck.org/2006/10/18/skinny-controller-fat-model") "Skinny Controller, Fat Model"
+	+w by Jamis Buck

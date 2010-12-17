@@ -9,7 +9,8 @@ ul
 		+w or higher
 	li
 		a("http://eclipse.org/downloads/") Eclipse version 3.6 (Helios)
-		+w or higher
+		+w or higher<br/>
+		+w PDE is required, so get a build that includes it - Classic, RCP or J2EE are all good
 p The Oobium framework is written in and runs on the Java programming language. If you have no prior
 	+w experience with Java, you will find a very steep learning curve diving straight into Oobium.
 	+w There are plenty of good free resources on the internet for learning Java. Oreilly's books are also

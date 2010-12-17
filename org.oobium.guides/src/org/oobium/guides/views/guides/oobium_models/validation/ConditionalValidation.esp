@@ -1,0 +1,39 @@
+title Conditional Validation
+
+p Sometimes it will make sense to validate an object just when a given predicate is satisfied. You can do that by using
+	+w the "when" and "unless" options. You may use the "when" option when you want to specify that the validation should
+	+w happen. If you want to specify when the validation should not happen, then you may use the "unless" option. Both of
+	+w these options take a String that is the name of a method willin the Model that should be called to evaluate the 
+	+w condition and return a boolean result (if the method does not exist, then an error is logged and false is assumed).
+
+p These options can point to a method that takes either no arguments, or a single argument that is of the same type
+	+w as the field being validated. If multiple fields are being validated, then the method can be overloaded to handle
+	+w multiple types of fields. When performing the validation, Oobium looks first for the single argument version of the
+	+w method, so if both are provided then the no-argument version will never be used.
+
+p The following code snippet shows the "when" options being used: if the Post is not being saved as published, then we
+	+w don't care how long it is, but when it is being published we want to make sure it is at least 1000 characters.
+
+div.code <- code.java
+	+> @ModelDescription(
+	+>   validators = {
+	+>     @Validate(field="content", minLength=1000, when="isPublished")
+	+>   }
+	+> )
+	+> public Post extends PostModel {
+	+> 
+	+>   private boolean isPublished() {
+	+>     return getPublishedAt() != null;
+	+>   }
+	+> 
+	+> }
+
+p Of course, it would probably be even nicer if we could put a minimum requirement on the number of <i>words</i>, rather
+	+w than just characters. The adding the "tokenizer" option in the following code helps us achieve this:
+
+div.code <- code.java
+	+> @Validate(field="content", minLength=1000, tokenizer="\\\\W+", when="isPublished")
+
+p There are also two sub versions of the "unless" option that are available for you convenience: "unlessBlank" and 
+	+w "unlessNull". As their names suggest, they indicate that the validation is to be run unless the value is either
+	+w blank or null.

@@ -1,0 +1,31 @@
+title Working with Validation Errors
+
+p When a validation fails, it adds an error message to the Errors List. This list can be used to ask the model if it
+	+w is valid or not by using the hasErrors() method. Oobium also provides a few other ways of accessing and manipulating
+	+w this list.
+
+ul <- li getErrors()
+	p Returns a LinkedHashMap containing all the errors. Usually each key is the field name and the value is a List of
+		+w error messages. I say usually because errors can also be added manually and at that point the key can be any 
+		+w String that the developer thought appropriate - best to think of the key as the subject of the error.
+
+ul <- li getErrorsList()
+	p Returns a List of all error messages with the subjects (keys) prepended to the original message. This can be very
+		+w handy for quickly printing out a list of errors.
+
+ul <- li getErrors(subject)
+	p Returns a List of all error message belonging to the given subject.
+
+ul <- li addError(subject, message)
+	p All of the above methods return copies of the underlying errors, so modifying them will have no affect on the model
+		+w itself. In order to add an error manually then, we use addError and pass in the appropriate subject and message.
+		+w There is also an overloaded version of this method that only accepts a message, this is usefull for adding non-field
+		+w related message to the base (null) subject.
+
+ul <- li removeError(...) and removeErrors(subject)
+	p Likewise, our model contains several special methods for removing errors, either one at a time, or for an entire subject.
+
+ul <- li clearErrors()
+	p There is also an all destroying clearErrors method to get rid of everything at once. It is, however, protected and
+		+w therefore kept only for use with your model class and not to be called from the outside world (unless, of course,
+		+w you decide to open it up).

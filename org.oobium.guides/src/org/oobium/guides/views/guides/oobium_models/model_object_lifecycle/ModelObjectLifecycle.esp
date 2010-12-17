@@ -1,2 +1,8 @@
 title Model Object Lifecycle
 
+p During the normal operation of an Oobium application, models by be created, updated, and destroyed. To help you
+	+w control your application and its data, Oobium provides many hooks into this model life cycle.
+
+p Sessions and caching help you manage your models in a multithreaded environment, validations allow you to ensure
+	+w that only valid data is persisted to your data store, and observers provide a means to trigger logic before
+	+w or after an alteration of a model's state.

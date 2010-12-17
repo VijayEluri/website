@@ -21,7 +21,13 @@ import org.oobium.guides.views.guides.oobium_models.observers.HaltingExecution;
 import org.oobium.guides.views.guides.oobium_models.observers.ObserverMethods;
 import org.oobium.guides.views.guides.oobium_models.observers.Observers;
 import org.oobium.guides.views.guides.oobium_models.observers.RegisteringObservers;
+import org.oobium.guides.views.guides.oobium_models.validation.AddingValidations;
+import org.oobium.guides.views.guides.oobium_models.validation.ConditionalValidation;
+import org.oobium.guides.views.guides.oobium_models.validation.DisplayingValidationErrors;
+import org.oobium.guides.views.guides.oobium_models.validation.UsingValidationErrors;
 import org.oobium.guides.views.guides.oobium_models.validation.Validation;
+import org.oobium.guides.views.guides.oobium_models.validation.WhenDoesValidationHappen;
+import org.oobium.guides.views.guides.oobium_models.validation.WhyUseValidations;
 
 public class OobiumModels extends Guide {
 
@@ -45,7 +51,14 @@ public class OobiumModels extends Guide {
 									new MultiModelTransactions()
 								}),
 
-			/*3*/ new Chapter(new Validation()),
+			/*3*/ new Chapter(new Validation(), new View[] {
+									new WhyUseValidations(),
+									new AddingValidations(),
+									new WhenDoesValidationHappen(),
+									new ConditionalValidation(),
+									new UsingValidationErrors(),
+									new DisplayingValidationErrors()
+								}),
 
 			/*4*/ new Chapter(new Observers(), new View[] {
 									new CreatingObservers(),

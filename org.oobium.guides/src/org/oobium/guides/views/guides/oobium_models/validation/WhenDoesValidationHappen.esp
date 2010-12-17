@@ -1,0 +1,20 @@
+title When does Validation Happen?
+
+p Validation can occur before any operation that could change the model's state is executed. These operations are:
+ul
+	li create
+	li destroy
+	li save
+	li update
+
+p If a validation fails, indicating that the state of the model is not valid, then the operation is stopped and no
+	+w changes are persisted.
+
+p By default, all validations run on either create or update (which automatically get called on a save), but this
+	+w can be changed by using the "on" property of the @Validate annotation:
+
+div.code <- code.java
+	+= @Validate(field="name", isNotNull=true, on=Validate.<span class="javaStaticField">UPDATE</span>)
+
+p The on method takes an int, and the acceptable ones are defined in the Validate class itself - using static imports
+	+w makes this code look nicer.

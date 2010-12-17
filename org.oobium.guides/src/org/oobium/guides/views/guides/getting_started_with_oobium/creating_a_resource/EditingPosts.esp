@@ -8,7 +8,6 @@ div.code <- code.java
 	+> public void showEdit() throws SQLException {
 	+>   Post post = Post.find(getId());
 	+>   if(post != null) {
-	+>     post.putAll(flash("post"));
 	+>     render(new ShowEditPost(post));
 	+>   }
 	+> }
@@ -46,8 +45,8 @@ div.code <- code.java
 	+>   } else {
 	+>     switch(wants()) {
 	+=       case <span class="javaStaticField">JS</span>:\n
-	+=       case <span class="javaStaticField">JSON</span>: renderErrors(post);         break;\n
-	+=       case <span class="javaStaticField">HTML</span>: redirectTo(post, <span class="javaStaticField">showEdit</span>); break;\n
+	+=       case <span class="javaStaticField">JSON</span>: renderErrors(post); break;\n
+	+=       case <span class="javaStaticField">HTML</span>: render(new ShowEditPost(post)); break;\n
 	+>     }
 	+>   }
 	+> }

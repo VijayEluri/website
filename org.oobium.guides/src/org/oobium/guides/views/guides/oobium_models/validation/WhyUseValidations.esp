@@ -1,0 +1,26 @@
+title Why Use Validations?
+
+p Validations are used to ensure that only valid data is saved into your data store. For example, it may be important
+	+w to your application to ensure that every user provides a valid email address and mailing address.
+
+p There are several ways to validate data before it is saved, including native database constraints,
+	+w client-side validations, controller-level validations, and model-level validations.
+
+ul
+	li Database constraints and/or stored procedures make the validation mechanisms database-dependent and can make testing
+		+w and maintenance more difficult. However, if your database is used by other applications, it may be a good idea to
+		+w use some constraints at the database level. Additionally, database-level validations can safely handle some things
+		+w (such as uniqueness in heavily-used tables) that can be difficult to implement otherwise.<br/>
+		+w Oobium provides ways to specify common database level constraints when defining your model (
+		a("/oobium_models#modeldescription") @ModelDescription
+		+= )
+	li Client-side validations can be useful, but are unreliable if used alone. If they are implemented using
+		+w JavaScript and can be bypassed if the user is using their own client. However, if combined with other techniques,
+		+w client-side validation can be a convenient way to provide users with immediate feedback as they use your site.
+	li Controller-level validations can be tempting to use, but often become unwieldy and difficult to test and maintain.
+		+w Whenever possible, it’s a good idea to keep your controllers skinny, as it will make your application a pleasure
+		+w to work with in the long run.
+	li Model-level validations are the best way to ensure that only valid data is saved into your database. They are database
+		+w agnostic, cannot be bypassed by end users, and are convenient to test and maintain. Oobium makes them easy to use
+		+w and provides built-in tooling for common needs.
+

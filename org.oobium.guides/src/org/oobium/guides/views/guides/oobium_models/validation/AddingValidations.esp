@@ -1,0 +1,71 @@
+title Adding Validation
+
+p As with other parts of the model in Oobium, validations are added in the @ModelDescription class annotation so that
+	+w body of the class is kept clean.
+
+div.code <- code.java
+	+> @ModelDescription(
+	+>   validators = {
+	+>     @Validate(field="name", matches="\\w+")
+	+>   }
+	+> )
+
+p There are two basic ways to use the @Validate annotation: the first is to use it on a specific field (or fields, if
+	+w a comma separate list is provided) as shown above, and the second is to specify a Validator class to do the
+	+w actual work:
+
+div.code <- code.java
+	+> @ModelDescription(
+	+>   validators = {
+	+>     @Validate(with=PostValidator.class)
+	+>   }
+	+> )
+	+> public Post extends PostModel {
+	+> 
+	+> ... snip ...
+	+> 
+	+> public MyValidator implements Validator<Post> {
+	+> 
+	+>   public void validate(Post post) {
+	+>     // TODO validate the post
+	+>   }
+	+> 
+	+> }
+
+p For the first option - working with a specific field - there are several validations that can be performed with a single
+	+w @Validate annotation. They are listed below, but their Javadocs contain further information:
+ul
+	li isBlank
+	li isIn
+	li isNotBlank
+	li isNotIn
+	li isNotNull
+	li isNull
+	li lengthIs
+	li matches
+	li maxLength
+	li minLength
+
+p The each validation has its own default error message, but you can also set this explicitly by using the "message"
+	+w property.
+
+p When the built in validation methods are not enough, you can also write you own.
+
+p Simply create methods that verify the state of your models and add messages to the errors list when they are invalid.
+	+w Then use these methods in the @Validate annotation just the same way as the predefined ones, only this time
+	+w specifying the method with the "withMethod" option:
+
+div.code <- code.java
+	+> @ModelDescription(
+	+>   validators = {
+	+>     @Validate(field="content", withMethod="isGood")
+	+>   }
+	+> )
+	+> public Post extends PostModel {
+	+> 
+	+>   private boolean isGood() {
+	+>     return hasContent() && getContent().contains("oobium");
+	+>   }
+	+> 
+	+> }
+

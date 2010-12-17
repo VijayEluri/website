@@ -5,7 +5,8 @@ p Creating a new post involves two actions. The first is the showNew action, whi
 div.code <- code.java
 		+> @Override // GET/URL/[models]/new
 		+> public void showNew() throws SQLException {
-		+>   render(new ShowNewPost(flash("post", new Post())));
+		+>   Post post = new Post();
+		+>   render(new ShowNewPost(post));
 		+> }
 
 p The ShowNewPost.esp view displays this empty Post to the user:
@@ -89,8 +90,8 @@ div.code <- code.java
 	+>   } else {
 	+>     switch(wants()) {
 	+=       case <span class="javaStaticField">JS</span>:\n
-	+=       case <span class="javaStaticField">JSON</span>: renderErrors(post);    break;\n
-	+=       case <span class="javaStaticField">HTML</span>: redirectTo(post, <span class="javaStaticField">showNew</span>); break;\n
+	+=       case <span class="javaStaticField">JSON</span>: renderErrors(post); break;\n
+	+=       case <span class="javaStaticField">HTML</span>: render(new ShowNewPost(post)); break;\n
 	+>     }
 	+>   }
 	+> }

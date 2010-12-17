@@ -1,0 +1,68 @@
+title Displaying Validation Errors in the View
+
+p Oobium's ESP files contain some custom tags to help you easily display the error messages of your models.
+
+h3 errors
+p When creating a form for a model, you can use the ESP errors tag to render all failed validation messages
+	+w for the current model instance.
+
+div.code <- code.java
+	+> @ModelDescription(
+	+>   attrs = {
+	+>     @Attribute(name="title", type=String.class),
+	+>     @Attribute(name="content", type=Text.class)
+	+>   },
+	+>   validators = {
+	+>     @Validate(field="title, content", isNotBlank=true)
+	+>   }
+	+> )
+	+> public class Post extends PostModel {
+	+> 
+	+> }
+
+div.code(style:"margin-top: 15px") <- code
+	+> form(post)
+	+>   errors
+	+>   div.field
+	+>     div <- label(title)
+	+>     div <- text(title)
+	+>   div.field
+	+>     div <- label(content)
+	+>     div <- textArea(content)
+	+>   div.actions
+	+>     submit
+
+p Now if you submit the form with empty fields (and are still using the default styles), you'll get something like this back:
+
+img("/guides/oobium_models/screenshot-errors1.png")
+
+p You can also use the errors tag outside of a form, to display the errors messages of any model in the view. It works
+	+w the same way and achieves the same results.
+
+div.code <- code errors(post)
+
+p The displayed text for each error message will always be formed by the capitalized (titleized, actually) subject,
+	+w followed by the error message itself.
+
+p There are also options that let you customize the div element that holds the message, allowing you to change the
+	+w title text and message.
+
+div.code <- code errors(title: "Invalid Post!", message: "You'll need to fix the following fields:")
+
+p Which results in the following content:
+
+img("/guides/oobium_models/screenshot-errors2.png")
+
+p If you pass an empty string into either of these options, it will get rid of the respective section.
+
+h3 Customizing the Error Messages CSS
+p The selectors to customize the style of error messages are:
+ul
+	li .fieldWithErrors – Style for the form fields and labels with errors.
+	li .errorExplanation – Style for the div element with the error messages.
+	li .errorExplanation h2 – Style for the header of the div element.
+	li .errorExplanation p – Style for the paragraph that holds the message that appears right below the header of the div element.
+	li .errorExplanation ul li – Style for the list items with individual error messages.
+
+p The default application.css file, that is generated when creating the application, contains the red-based style shown
+	+w above. You can (and are encouraged to) change this to suit your application's needs.

@@ -22,6 +22,8 @@ p Clicking this new "Destroy Comment" link will fire off a
 div.code <- code.java
 	+> package com.test.blog.controllers;
 	+> 
+	+= import static org.oobium.app.server.controller.Action.<span class="javaStaticField">show</span>\n
+	+> 
 	+> import java.sql.SQLException;
 	+> import java.util.Map;
 	+> import org.oobium.app.server.controller.Controller;
@@ -37,7 +39,7 @@ div.code <- code.java
 	+>   public void create() throws SQLException {
 	+>     Comment comment = param("comment", new Comment());
 	+>     if(comment.create()) {
-	+>       redirectTo(comment.getPost(), show);
+	+=       redirectTo(comment.getPost(), <span class="javaStaticField">show</span>);\n
 	+>     }
 	+>   }
 	+> 
@@ -46,7 +48,7 @@ div.code <- code.java
 	+>     Comment comment = Comment.find("where id=? and post=?", getId(), param("post"));
 	+>     Post post = comment.getPost();
 	+>     if(comment.destroy()) {
-	+>       redirectTo(post, show);
+	+=       redirectTo(post, <span class="javaStaticField">show</span>);\n
 	+>     }
 	+>   }
 	+> 

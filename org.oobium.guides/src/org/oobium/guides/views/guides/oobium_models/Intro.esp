@@ -5,4 +5,3 @@ ul.intro
 	li Create Oobium models and make them persistent
 	li Understand the Model Object Lifecycle
 	li Validate and Observe your Models
-	li Understand the database schema caused by relations
