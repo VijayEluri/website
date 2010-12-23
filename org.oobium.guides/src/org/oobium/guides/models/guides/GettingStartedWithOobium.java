@@ -33,8 +33,6 @@ import org.oobium.guides.views.guides.getting_started_with_oobium.creating_a_res
 import org.oobium.guides.views.guides.getting_started_with_oobium.deleting_comments.DeletingAssociatedObjects;
 import org.oobium.guides.views.guides.getting_started_with_oobium.deleting_comments.DeletingComments;
 import org.oobium.guides.views.guides.getting_started_with_oobium.guide_assumptions.GuideAssumptions;
-import org.oobium.guides.views.guides.getting_started_with_oobium.installing_oobium.InstallViaSource;
-import org.oobium.guides.views.guides.getting_started_with_oobium.installing_oobium.InstallViaUpdateSite;
 import org.oobium.guides.views.guides.getting_started_with_oobium.installing_oobium.InstallingOobium;
 import org.oobium.guides.views.guides.getting_started_with_oobium.license.License;
 import org.oobium.guides.views.guides.getting_started_with_oobium.refactoring.PartialCollections;
@@ -66,10 +64,7 @@ public class GettingStartedWithOobium extends Guide {
 									new REST()
 								}),
 
-			/*5*/ new Chapter(new InstallingOobium(), new View[] {
-									new InstallViaUpdateSite(),
-									new InstallViaSource()
-								}),
+			/*5*/ new Chapter(new InstallingOobium()),
 
 			/*6*/ new Chapter(new CreatingANewWebApplication(), new View[] {
 									new CreatingTheApplication(),

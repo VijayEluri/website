@@ -75,7 +75,7 @@ ol
 	list-style-type: decimal
 ul
 	margin: 0.5em 0
-	padding: 0 20px
+	padding: 0 35px
 	list-style-type: square
 li
 	margin: 0.5em 0

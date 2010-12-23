@@ -12,4 +12,6 @@ p The quickest way to install the Oobium framework and tools is through its Ecli
 div.info
 	+= Update site: http://oobium.org/updates
 
-p If you're new to Eclipse and/or its update manager, then the next section will help with for step-by-step instructions.
+p If you're new to Eclipse and/or its update manager, see the 
+	a("http://www.oobium.org/full_installation") Full Installation
+	+w step-by-step instructions.
