@@ -46,8 +46,7 @@ ul
 	li maxLength
 	li minLength
 
-p The each validation has its own default error message, but you can also set this explicitly by using the "message"
-	+w property.
+p Each validation has its own default error message, but you can also set this explicitly by using the "message" property.
 
 p When the built in validation methods are not enough, you can also write you own.
 

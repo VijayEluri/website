@@ -18,3 +18,9 @@ div.code <- code.java
 
 p The on method takes an int, and the acceptable ones are defined in the Validate class itself - using static imports
 	+w makes this code look nicer.
+
+p If you want to specify that a validation run on multiple operations, they can be bitwise-OR'ed:
+
+div.code <- code.java
+	+= @Validate(field="name", isNotNull=true,
+	+w on=<span class="javaStaticField">UPDATE</span> | <span class="javaStaticField">DESTROY</span>)

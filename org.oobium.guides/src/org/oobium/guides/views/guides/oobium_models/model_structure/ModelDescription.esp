@@ -12,5 +12,55 @@ ol
 	li Attributes ("attrs" - an array of @Attribute annotations)
 	li Has One Relationships ("hasOne" - an array of @Relation annotations)
 	li Has Many Relationships ("hasMany" - an array of @Relation annotations)
+	li Validations ("validators" - an array of @Validate annotations)
 
-p With these, you can create all manner of fields in your models and relationships between your models.
+p With these, you can create all manner of fields in your models and relationships between your models. Below is an
+	+w example of what the model for a blog post might look like:
+
+div.code <- code.java
+	+> @ModelDescription(
+	+>   attrs = {
+	+>     @Attribute(name="title", type=String.class, required=true, unique=true),
+	+>     @Attribute(name="content", type=Text.class),
+	+>     @Attribute(name="published", type=Date.class),
+	+>   },
+	+>   hasOne = {
+	+>     @Relation(name="owner", type=User.class, opposite="posts", required=true)
+	+>   },
+	+>   hasMany = {
+	+>     @Relation(name="comments", type=Comment.class, opposite="post")
+	+>   },
+	+>   validators = {
+	+>     @Validate(field="content", minLength=500, tokenizer="\\w+", when="hasPublished")
+	+>   }
+	+> )
+	+> public Post extends PostModel {
+	+> 
+	+> }
+
+p The options for each annotation have javadocs that will be helpful when working with models; external documentation
+	+w requirements should be minimal.
+
+h3 attrs
+p The attrs array is where all of the models fields are described using @Attribute annotations. Each @Attribute
+	+w annotation specifies one field in the model that 1. should be persisted, and 2. should have methods auto-generated
+	+w for it in the super calls (PostModel, in this case).
+
+p By default, the methods generated for each attribute will be: 1. a getter method; 2. a setter method; and 3. a
+	+w a hasser method. For example, the title attribute above will generate: 1. public String getTitle(); 2. 
+	+w public void setTitle(String); and 3. public boolean hasTitle(). Additionally, a property constant will be created in the PostModel class - TITLE, which can be used with the raw
+	+w put and get methods.
+
+p Since the field will be persisted, it will also be added to the schema migration for this model.
+
+h3 hasOne
+p The hasOne array is where relationships that are to one other model (or none, if they're allowed to be null) are
+	+w described using the @Relation annotation.
+
+h3 hasMany
+p The hasMany array is similar to the hasOne array, and also uses the @Relation annotation, except that (as the
+	+w name implies) there can be more than one - a collection.
+
+h3 validators
+p The validators array is where basic validations of the other model descriptions are provided using @Validate
+	+w annotations. These are purely in the Java model objects and do not affect the persisted model at all.

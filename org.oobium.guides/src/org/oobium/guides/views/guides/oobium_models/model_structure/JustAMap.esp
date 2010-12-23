@@ -7,7 +7,10 @@ p The point of this is so that you
 	+w if that suits your needs and can also contain less stuff (a partial model, if you will); just depends what you're
 	+w trying to accomplish.
 
-p You can set fields, get fields, putAll and getAll - just (ok, similar) like with a Map.
+p You can set fields, get fields, putAll and getAll - just like (ok, similar to) a Map. Of course, when you create a
+	+w model in Oobium, you won't see any of this - you're Java file will be pretty much empty.
+	+w All of this is provided by the class hierarchy. 
 
-p Of course, when you create a model in Oobium, you won't see any of this - you're Java file will be pretty much empty.
-	+w All of this is provided by the class hierarchy.
+p This makes your models flexible, but to make them usefull for a specific purpose you need a way to describe the
+	+w important characteristics (what make a blog post a post, and not a comment). This is done by annotating the
+	+w model class itself with the @ModelDescription annotation.

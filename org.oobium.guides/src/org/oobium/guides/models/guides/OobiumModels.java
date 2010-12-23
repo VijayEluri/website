@@ -37,8 +37,8 @@ public class OobiumModels extends Guide {
 		chapters = new Chapter[] {
 			/*1*/ new Chapter(new ModelStructure(), new View[] {
 									new JustAMap(),
-									new TheHierarchy(),
 									new ModelDescription(),
+									new TheHierarchy(),
 									new CrudAndPersistors()
 								}),
 								
