@@ -1,0 +1,22 @@
+title Paths and URLs
+
+p The Oobium router contains a number of methods to help retrieve the path and URL of models that have been
+	+w routed. These can be used, in the case of the Photo resources:
+
+ul
+	li pathTo(Photo.class) -> "/photos"
+	li pathTo(Photo.class, create) -> "/photos"
+	li pathTo(Photo.class, showAll) -> "/photos"
+	li pathTo(Photo.class, showNew) -> "/photos/new"
+	li pathTo(photo) -> "/photos/\{id}"
+	li pathTo(photo, create) -> "/photos"
+	li pathTo(photo, destroy) -> "/photos/\{id}"
+	li pathTo(photo, update) -> "/photos/\{id}"
+	li pathTo(photo, show) -> "/photos/\{id}"
+	li pathTo(photo, showAll) -> "/photos"
+	li pathTo(photo, showEdit) -> "/photos/\{id}/edit"
+	li pathTo(photo, showNew) -> "/photos/new"
+
+p The pathTo method also has a corresponding UrlTo method which prepends the host and port.
+
+p Both pathTo and UrlTo are exposed in the controller and view classes so you have ready access to them.

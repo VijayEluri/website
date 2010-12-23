@@ -1,0 +1,9 @@
+title RESTful Routing
+
+p RESTful routing allows you to quickly declare all of the common routes for a given resourceful controller. 
+	+w Instead of declaring separate routes for your index, show, new, edit, create, update and destroy actions,
+	+w a resourceful route declares them in a single line of code.
+
+p Browsers request pages from Oobium by making a request for a URL using a specific HTTP method, such as GET, POST, PUT
+	+w and DELETE. Each method is a request to perform an operation on the resource. A resource route maps a number of
+	+w related request to the actions in a single controller, based on a common model.

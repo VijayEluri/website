@@ -1,0 +1,20 @@
+title Generating Paths and URLs from Code
+
+p You can also generate paths and URLs. If your application contains this code:
+
+div In the controller:
+div.code <- code.java
+	+> Post post = Post.find(17);
+
+div(style:"margin-top: 10px") In the view:
+div.code <- code
+	+> div Path to mode: { pathTo(post) }
+
+p The router will generate the path to the given post model. Given the route added in the previous section, and
+	+w assuming the title of the given post was "oobium_web_services", this path would look like this:
+	+w "/posts/oobium_web_services".
+
+	+w A standard default would be: "/posts/17", but this may
+	+w not be the case as you may have specified a prefix or some other matching parameter. This reduces the brittleness
+	+w of your code because it decouples the creation and use of routes. It also makes your code easier to understand since
+	+w the intent is expressed (I want the path to the post model) rather than the end result (the path string itself).

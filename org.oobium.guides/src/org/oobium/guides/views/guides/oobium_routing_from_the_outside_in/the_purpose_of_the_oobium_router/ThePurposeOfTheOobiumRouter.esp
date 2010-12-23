@@ -1,0 +1,4 @@
+title The Purpose of the Oobium Router
+
+p The Oobium router recognizes URLs and dispatches them to a controller’s action. It can also generate paths
+	+w and URLs, avoiding the need to hardcode strings in your views.
