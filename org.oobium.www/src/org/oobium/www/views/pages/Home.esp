@@ -1,29 +1,25 @@
 title Oobium.org :: Home
 
+script
+	$(document).ready(function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto();
+	});
+
 div#oobiLinks
 	a("/install")
 		view<Block>("left", "Get It", "Install the latest version.", "DownloadIcon")
 	a("http://guides.oobium.org")
 		view<Block>("center", "Learn It", "Check out the Oobium Guides.", "BookIcon")
 	a("http://github.com/oobium")
-		view<Block>("right", "Love It", "Help make Oobium the best!", "InteractIcon")
+		view<Block>("right", "Contribute", "Help make Oobium the best!", "InteractIcon")
 div#features
-	h2 What is Oobium?
-	p Oobium is a system for creating web applications, web services, and web connected clients. 
-		+w It is designed to make programming these applications easier and more enjoyable 
-		+w by making assumptions about what every developer needs to get started. These assumptions run
-		+w not only through the full framework stack, but also through the tools that are built side-by-side
-		+w with the rest of the system.
-	
-	p The applications built in Oobium use the MVC paradigm and are especially suited to having their models
-		+w persisted to a database, either locally or remotely over HTTP. Oobium applications also rely
-		+w and make heavy use of the RESTful paradigm when developing and sharing APIs.
-	
-	p Oobium is a modular framework written in the Java language and leveraging OSGi. The applications you
-		+w create with it will also be modular and leverage OSGi for ease of configuration, build, and deployment.
-		+w They will also be suitable for integration into larger networks of applications that can communicate
-		+w using shared models, listeners and events through JSON and HTTP.
-	
-	p The Oobium framework and tools are licensed under the Eclipse Public License (EPL) and all source code can
-		+w be found in the Oobium project at GitHub: 
-		a("http://github.com/oobium")
+		ul
+			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE", rel:"prettyPhoto", title:"")
+				img.thumbnail(src:"/Billy.jpg", alt:"YouTube")
+			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE?fs=1&amp;hl=en_US&amp;rel=0", rel:"prettyPhoto", title:"")
+				img.thumbnail(src:"/Cilantro.jpg", alt:"YouTube")
+		ul
+			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE?fs=1&amp;hl=en_US&amp;rel=0", rel:"prettyPhoto", title:"")
+				img.thumbnail(src:"/Sleep.jpg", alt:"YouTube")
+			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE?fs=1&amp;hl=en_US&amp;rel=0", rel:"prettyPhoto", title:"")
+				img.thumbnail(src:"/Walk.jpg", alt:"YouTube")
