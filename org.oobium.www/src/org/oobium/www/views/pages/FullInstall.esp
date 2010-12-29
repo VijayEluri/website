@@ -1,6 +1,22 @@
 title Oobium.org :: Full Step-by-Step Installation
 
+script
+	$(document).ready(function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto();
+	});
+
 div#features(style:"margin-top: -60px")
+	h2 Video - Installing Oobium
+	
+	div#thumbs
+		table(align:"center", width:"100%")
+			tr
+				td(width:"100%")
+					a(href:"http://www.youtube.com/watch?v=WJ4vFpj7fBY&hd=1", rel:"prettyPhoto", title:"")
+						img.thumbnail(src:"/thumbs/installing_oobium.jpg", alt:"Installing Oobium", title:"Installing Oobium (1:59)")
+					span.caption Installing Oobium (1:59)
+	
+	
 	h2 Full Step-by-Step Installation
 	
 	p To begin the installation, select the "Install New Software..." item from the Help menu:

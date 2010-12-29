@@ -1,8 +1,17 @@
 title Oobium.org :: Home
 
 script
+	function enable(elem) {
+		elem.src = elem.src.substring(0,elem.src.length-8) + '.jpg';
+	}
+	function disable(elem) {
+		elem.src = elem.src.substring(0,elem.src.length-4) + '-dis.jpg';
+	}
+	
 	$(document).ready(function(){
 		$("a[rel^='prettyPhoto']").prettyPhoto();
+		$('img.thumbnail').mouseenter(function() { enable(this); });
+		$('img.thumbnail').mouseleave(function() { disable(this); });
 	});
 
 div#oobiLinks
@@ -13,7 +22,18 @@ div#oobiLinks
 	a("http://github.com/oobium")
 		view<Block>("right", "Love It", "Help make Oobium the best!", "InteractIcon")
 div#features
-	h2 What is Oobium?
+	div#thumbs
+		table(align:"center", width:"100%")
+			tr
+				td(width:"100%")
+					a(href:"http://www.youtube.com/watch?v=WJ4vFpj7fBY&hd=1", rel:"prettyPhoto", title:"")
+						img.thumbnail(src:"/thumbs/installing_oobium-dis.jpg", alt:"Installing Oobium", title:"Installing Oobium (1:59)")
+					span.caption Installing Oobium (1:59)
+					div|hide <- img(src:"/thumbs/installing_oobium.jpg") // preload the roll-over image					
+				td(width:"100%")
+					img.thumbnail(src:"/thumbs/coming_soon-dis.jpg")
+					span.caption Coming Soon!
+					div|hide <- img(src:"/thumbs/coming_soon.jpg") // preload the roll-over image					
 	
 	p Oobium is a system for creating web applications, web services, and web connected clients. 
 		+w It is designed to make programming these applications easier and more enjoyable 
@@ -29,16 +49,3 @@ div#features
 		+w create with it will also be modular and leverage OSGi for ease of configuration, build, and deployment.
 		+w They will also be suitable for integration into larger networks of applications that can communicate
 		+w using shared models, listeners and events through JSON and HTTP.
-	
-	
-	div#thumbs|hide
-		ul
-			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE", rel:"prettyPhoto", title:"")
-				img.thumbnail(src:"/Billy.jpg", alt:"YouTube")
-			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE?fs=1&amp;hl=en_US&amp;rel=0", rel:"prettyPhoto", title:"")
-				img.thumbnail(src:"/Cilantro.jpg", alt:"YouTube")
-		ul
-			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE?fs=1&amp;hl=en_US&amp;rel=0", rel:"prettyPhoto", title:"")
-				img.thumbnail(src:"/Sleep.jpg", alt:"YouTube")
-			li <- a(href:"http://www.youtube.com/watch?v=13NxYV4CoaE?fs=1&amp;hl=en_US&amp;rel=0", rel:"prettyPhoto", title:"")
-				img.thumbnail(src:"/Walk.jpg", alt:"YouTube")

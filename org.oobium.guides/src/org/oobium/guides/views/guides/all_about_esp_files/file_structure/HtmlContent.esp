@@ -1,4 +1,6 @@
 title Content
 
 p Everything else on the page is HTML markup. Though, as I'm sure you noticed is the first example, non of it is really
-	+w HTML.
+	+w HTML - it's similar to 
+	a("http://haml-lang.com/") HAML
+	+w with a few twists here and there, all of which we'll cover in the next sections.

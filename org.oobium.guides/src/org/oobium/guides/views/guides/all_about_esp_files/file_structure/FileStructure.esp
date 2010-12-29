@@ -2,9 +2,9 @@ title File Structure
 
 p Every ESP file has three distinct parts, though none of them actually need to be implemented. An empty file is
 	+w valid, albeit not very useful. Any part that is missing becomes implied and will still compile fine - the only
-	+w real constraint here is that any that are implemented must be in the following order:
+	+w real constraint is that the parts that are implemented must be in the following order:
 
 ul
 	li Import Statements(s)
 	li Constructor(s)
-	li Everything else! (aka the web markup)
+	li Everything else! (aka the markup)

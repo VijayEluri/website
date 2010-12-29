@@ -1,10 +1,7 @@
 title Creating the Blog Application
 
 p The best way to use this guide is to follow each step as it happens, no code or step needed to make this
-	+w example application has been left out, so you can literally follow along step by step. If you need to
-	+w see the completed code, you can download it from 
-	a("") Getting Started Code
-	+= .
+	+w example application has been left out, so you can literally follow along step by step.
 
 p To begin, go to the Oobium Console view in Eclipse, and type:
 

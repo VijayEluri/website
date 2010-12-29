@@ -87,8 +87,17 @@ img
 #features li p
 	margin-top: 5px
 	margin-left: 15px
+#thumbs
+	padding: 25px 0
+#thumbs table
+	width: 725px
 #thumbs li
 	display: inline
+	width: 300
+#thumbs .caption
+	text-align: center
+	width: 300px
+	display: block
 .thumbnail
 	padding: 5px 12px
 #vid

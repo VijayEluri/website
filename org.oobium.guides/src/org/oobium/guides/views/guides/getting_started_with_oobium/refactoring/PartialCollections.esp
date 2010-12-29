@@ -39,7 +39,7 @@ div.code <- code
 	+> view<ShowComment>(Comment: post.comments())
 	+> 
 	+> h2 Add a comment:
-	+> form<Comment>(new Comment())
+	+> form(post, "comments")
 	+>   hidden(post, value: {f post })
 	+>   div.field
 	+>     label(commenter)

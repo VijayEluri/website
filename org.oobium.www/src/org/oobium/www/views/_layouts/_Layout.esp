@@ -21,3 +21,6 @@ div#allContent
 			p "Oobium", and the Oobium logo are trademarks of Jeremy Dowdall. All rights reserved.<br/>
 				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
 				+w Other names may be trademarks of their respective owners.
+			p The Oobium Framework and Tools are open source and released under the 
+				a("http://www.opensource.org/licenses/eclipse-1.0.php") EPL
+				+= .

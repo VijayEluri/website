@@ -11,6 +11,17 @@ p The -m indicates to Oobium that we want to creat a model, but since nothing el
 	+w thing that will be created. We could have created both the model and the controller by using -mc. To see other
 	+w options, type <tt>create model help</tt> into the console for a description.
 
+div.code <- code
+	+> oobium$ create model help 
+	+> Create a new Model
+	+>   usage: create model [-fmvcr] <name> [attr1:type1 attr2:type2 ...]
+	+>   flags: f - force (do not ask before overwriting)
+	+>          m - destroy the model (use this alone to create _only_ the model)
+	+>          v - create standard views for the model
+	+>          c - create controller for the model
+	+>          r - add standard route for the model
+	+>          default: "-mvcr" if project is not a Webservice; "-mcr" if it is
+
 p Take a look at the newly created Comment.java:
 
 div.code <- code.java
@@ -29,7 +40,8 @@ div.code <- code.java
 	+>   },
 	+>   hasOne = {
 	+>     @Relation(name="post", type=Post.class)
-	+>   }
+	+>   },
+	+>   timestamps = true
 	+> )
 	+> public class Comment extends CommentModel {
 	+> 
@@ -55,7 +67,8 @@ div.code <- code.java
 	+>   Table comments = createTable("comments", tableOptions.get("comments"),
 	+>       String("commenter"),
 	+>       Text("body"),
-	+>       Integer("post")
+	+>       Integer("post"),
+	+>       Timestamps()
 	+>   );
 	+>   comments.addIndex("post");
 	+> 
@@ -74,10 +87,5 @@ p Notice at the end of the method that a foreign key is setup on the comments ta
 	+w after the tables are all created, because it will add an actual constraint to the database.
 
 p Go ahead and run the migration again, but this time use the 
-	img("/database_go.png")
-	+w Migrate button on the Server view's toolbar (just to mix things up a little).
-
-p Oobium will only execute the migrations that have not already been run against the current database, so in this
-	+w case you will just see:
-
-p TODO (show output from migration)
+	img("/database_refresh.png")
+	+w Redo Migration button on the Server view's toolbar.

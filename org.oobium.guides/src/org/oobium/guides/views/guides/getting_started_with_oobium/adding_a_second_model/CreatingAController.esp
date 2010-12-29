@@ -54,7 +54,7 @@ div.code <- code
 	+>   +  { post.getContent() }
 	+> 
 	+> h2 Add a comment:
-	+> form<Comment>(new Comment())
+	+> form(post, "comments")
 	+>   hidden(post, value: {f post })
 	+>   div.field
 	+>     label(commenter)
@@ -128,7 +128,7 @@ div.code <- code
 	+> - }
 	+> 
 	+> h2 Add a comment:
-	+> form<Comment>(new Comment())
+	+> form(post, "comments")
 	+>   hidden(post, value: {f post })
 	+>   div.field
 	+>     label(commenter)

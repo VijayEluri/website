@@ -20,6 +20,10 @@ div.code <- code.java
 	+>   hasMany = {
 	+>     @Relation(name="comments", type=Comment.class)
 	+>   },
+	+>   validators = {
+	+>     @Validate(field="name", isNotBlank=true),
+	+>     @Validate(field="title", isNotBlank=true, minLength=5)
+	+>   },
 	+>   timestamps = true
 	+> )
 
@@ -33,7 +37,7 @@ div.code <- code.java
 	+>   @Relation(name="post", type=Post.class, opposite="comments")
 	+> }
 
-div And the Post model's hasMany relation:
+div(style:"margin-top: 10px") And the Post model's hasMany relation:
 div.code <- code.java
 	+> hasMany = {
 	+>   @Relation(name="comments", type=Comment.class, opposite="post")
@@ -45,6 +49,6 @@ p If you take another look at the auto generated migration to create the tables,
 	+w it will return true :)
 
 div.info For more information on creating relations in Oobium, see the 
-	a("/oobium_relations") Oobium Relations
+	a("/oobium_model_relationships") Oobium Model Relationships
 	+w guide. 
 

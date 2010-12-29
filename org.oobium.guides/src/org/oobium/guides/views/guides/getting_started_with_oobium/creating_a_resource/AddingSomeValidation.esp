@@ -1,21 +1,23 @@
 title Adding Some Validation
 
 p Oobium includes 2 ways to help you validate the data in your models before they are sent to persistent storage.
-	+w The first is for simple validations that will also affect the database, such as making a field required, and
-	+w is implemented right in the <code>ModelDescription</code> annotation.
-p Open the <code>Post</code> model and make the <code>name</code> and <code>title</code> fields required
-	+w by adding "<code>required=true</code>" to the attribute properties:
+ul
+	li The @Validate annotations in the @ModelDescription
+	li Override the appropriate validate methods in the model code
+
+p Open the <code>Post</code> model and validate that the name and title are not blank by adding
+	+w a validator to the model description's validators array:
 
 div.code
 	code.java
-		+> @Attribute(name="name", type=String.class, required=true),
-		+> @Attribute(name="title", type=String.class, required=true),
+		+> validators = {
+		+>   @Validate(field="name, title", isNotBlank=true)
+		+> }
 
 p This change will validate that the <code>name</code> and <code>title</code> are not blank (null or zero-length)
-	+w on two levels.  First,  at the model level, code will be generated in the super class to check these fields
-	+w and fail on either a save or update if they are blank.  Second at the database level the table will be created
-	+w with checks to prevent blank values from being inserted or added (the exact mechanism depends on the database
-	+w adapter used).
+	+w at the model level. The validation will occur before both updates and creates, but will be skipped on an
+	+w update if the field is not set. This is because partial update are allowed and any field that is not set
+	+w will not be updated in its persistent storage.
 
 p The second way to do validations in Oobium is by overriding the appropriate <code>validateXXX()</code> method.
 	+w There are four of them:
@@ -30,14 +32,17 @@ p For our demo here, we want to make sure that the <code>title</code> is at leas
 
 div.code
 	code.java
-		+> @Override
-		+> protected void validateSave() {
-		+>   super.validateSave();
-		+>   if(hasTitle() && getTitle().length() < 5) {
-		+=     addError(<span class="javaStaticField">TITLE</span>, "must be at least 5 characters long");\n
-		+>   }
+		+> validators = {
+		+>   @Validate(field="name", isNotBlank=true),
+		+>   @Validate(field="title", isNotBlank=true, minLength=5)
 		+> }
 
-p Notice the <code>addError</code> line: this is how we tell Oobium that something is not right and to cancel
-	+w the operation. This will also put the error into a map that we can access later to find out what went
+p If any of these validations fail, they will put an error into a map that we can access later to find out what went
 	+w wrong and display an appropriate message to the user.
+
+p More information about Oobium validations can be found in the 
+	a("/oobium_model_objects#validation") Validations section
+	+w of the 
+	a("/oobium_model_objects") Oobium Model Objects
+	+w guide.
+

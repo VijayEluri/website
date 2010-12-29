@@ -8,9 +8,9 @@ p To demonstrate this, we will add support for giving each post multiple tags, r
 
 div.code <- code $ create model tag name:string post:one
 
-p Again, run the migration to create the database table:
+p Again, redo the migration to create the database table:
 
-div.code <- code $ migrate
+div.code <- code $ migrate redo
 
 p As we did earlier for the Comments, add the hasMany relation to the Post model so that it will be linked
 	+w to the Tags (don't forget to add the opposite properties so it is a true one-to-many relation).
@@ -81,7 +81,7 @@ div.code <- code
 	+> view<ShowComment>(Comment: post.comments())
 	+> 
 	+> h2 Add a comment:
-	+> view<CommentForm>(new Comment().setPost(post))
+	+> view<CommentForm>(post)
 	+> 
 	+> a(post, showEdit) Edit
 	+> span  | 

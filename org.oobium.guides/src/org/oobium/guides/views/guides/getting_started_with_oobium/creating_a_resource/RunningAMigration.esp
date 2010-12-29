@@ -100,6 +100,9 @@ p At this point, you can use a console command to run the migration:
 
 div.code <- code $ migrate
 
+div.note The server must be running to perform a migration. If you stopped it, or are picking up this guide in the
+	+w middle then you'll need to start it up by issuing the "start" command in the Oobium console.
+
 p Oobium will execute this migration command and tell you it created the System and Posts tables.
 
 div.note

@@ -2,6 +2,7 @@ import java.util.*
 import java.util.Map.Entry
 import org.oobium.guides.models.*
 import org.oobium.guides.views.pages.*
+import org.oobium.utils.Config.Mode
 
 title Oobium Framework Guides
 
@@ -19,16 +20,18 @@ contentFor("topBarContent")
 		div.program { entry.getKey() }
 		- for(String path : entry.getValue()) {
 			- Guide guide = Guide.guides.get(path);
-				div.guide
-					div <- a({pathTo("guide", guide.getPath())}) { guide.getTitle() }
-					- if(guide.ticket != null) {
-							div.ticket
-								- if(guide.ticket.url == null) {
-										span { guide.ticket.display }
-								- } else {
-										a(guide.ticket.url) { guide.ticket.display }
-								- }
-					- }
-					div.summary { guide.summary }
+			- if(guide.ticket == null || Mode.isDEV() || guide.ticket.number != null) {
+					div.guide
+						div <- a({pathTo("guide", guide.getPath())}) { guide.getTitle() }
+						- if(guide.ticket != null) {
+								div.ticket
+									- if(guide.ticket.number == null) {
+											span { guide.ticket.display }
+									- } else {
+											a(guide.ticket.getUrl()) { guide.ticket.display }
+									- }
+						- }
+						div.summary { guide.summary }
+			- }
 		- }
 - }

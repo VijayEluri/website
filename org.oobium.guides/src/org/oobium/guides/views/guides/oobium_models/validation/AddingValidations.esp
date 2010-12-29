@@ -24,6 +24,8 @@ div.code <- code.java
 	+> 
 	+> ... snip ...
 	+> 
+	+> }
+	+> 
 	+> public MyValidator implements Validator<Post> {
 	+> 
 	+>   public void validate(Post post) {

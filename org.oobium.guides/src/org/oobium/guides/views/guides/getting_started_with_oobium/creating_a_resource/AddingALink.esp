@@ -14,7 +14,7 @@ div.code
 		+> 
 		+> title Home Page
 		+> 
-		+> div Hello Oobium! :)
+		+> div Hello from Oobium! :)
 		+> 
 		+> a(Post.class, showAll) My Blog
 

@@ -15,9 +15,8 @@ div.code <- code
 	+> 
 	+> a(comment, destroy) Destroy Comment
 
-p Clicking this new "Destroy Comment" link will fire off a
-	+w DELETE /posts/{id}/comments/{id} to our CommentsController, which can then use this to find the comment we
-	+w want to destroy. So, let’s add a destroy method to our controller:
+p Clicking this new "Destroy Comment" link will fire off a DELETE request to the path of the given comment, which will
+	+w get routed to the destroy method of our CommentsController. So, let’s add that destroy method now:
 
 div.code <- code.java
 	+> package com.test.blog.controllers;
@@ -45,7 +44,7 @@ div.code <- code.java
 	+> 
 	+>   @Override
 	+>   public void destroy() throws SQLException {
-	+>     Comment comment = Comment.find("where id=? and post=?", getId(), param("post"));
+	+>     Comment comment = Comment.find(getId());
 	+>     Post post = comment.getPost();
 	+>     if(comment.destroy()) {
 	+=       redirectTo(post, <span class="javaStaticField">show</span>);\n
@@ -56,3 +55,11 @@ div.code <- code.java
 
 p The destroy method will find the comment with the correct id and post fields, and then remove it from the database
 	+w and send us back to the show action for the post.
+
+p Before this will work though, we need to add another route - the one to handle destroying comments! The hasMany
+	+w routes that we added earlier don't add singular routes for a model because that could quickly create a lot of
+	+w redundant routing that would just take up memory and probably not be what you were intending. To explicitly add
+	+w the necessary route, open up the Activator again ($ open activator) and add the following:
+
+div.code <- code.java
+	+= router.addRoute(Comment.class, <span class="javaStaticField">destroy</span>);

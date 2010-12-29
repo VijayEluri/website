@@ -2,12 +2,12 @@ title What is an ESP file?
 
 p In Oobium, views are created using ESP - Elemental Server Pages.
 
-p ESP file are similar to JSP or ERB files in that they allow you to create web markup that includes
+p ESP file are similar to JSP or ERB files in that they allow you to create markup that includes
 	+w dynamic parts of a server side language sprinkled in; Java for JSP and Ruby for ERB. There are some
 	+w very significant differences between ESP and these others however, so let's start by taking a quick look
-	+w at an ERB file and its comparable ESP file.
+	+w at an ERB file and an ESP file that do the same thing.
 
-div ERB template:
+div ERB:
 div.code <- code
 	+> <div>
 	+>   <h2>Listing posts</h2>
@@ -22,7 +22,7 @@ div.code <- code
 	+>   </table>
 	+> </div>
 
-div ESP template:
+div(style:"margin-top: 10px") ESP:
 div.code <- code
 	+> import com.myapp.models.Post
 	+> 
@@ -39,5 +39,5 @@ div.code <- code
 	+>     - }
 
 p ESP files are compiled to Java files and put into the "generated" source folder.  The Java file and class will have
-	+w the same name and case as the original ESP file, as well as be located in the same package. It is this Java
+	+w the same name and case as the original ESP file, as well as be located in the same package. It is actually this Java
 	+w source file that you will reference in your Java code (such as from within a Controller).

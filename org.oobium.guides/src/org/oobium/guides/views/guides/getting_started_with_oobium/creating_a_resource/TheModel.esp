@@ -14,7 +14,8 @@ div.code <- code.java
 		+>     @Attribute(name="name", type=String.class),
 		+>     @Attribute(name="title", type=String.class),
 		+>     @Attribute(name="content", type=Text.class)
-		+>   }
+		+>   },
+		+>   timestamps = true
 		+> )
 		+> public class Post extends PostModel {
 		+> 
@@ -29,6 +30,13 @@ p As you can see in the source code above, the attributes specified in the creat
 p The purpose of this is so that you have a very clean representation of your model with which to work: your 
 	+w attributes and relations are displayed up front and the boiler plate code, which should be implied anyway, is
 	+w tucked away in an auto-generated super class so that it won't distract from any custom methods that you need to add.
-p The next important aspect is further up the hierarchy: <code>PostModel</code> extends the Oobium <code>Model</code>
+p After the attrs array is another option of the ModelDescription: timestamps. This automatically adds two fields to your
+	+w model - createdAt and updatedAt - for tracking creation and updates. These two fields are so common and useful that
+	+w the additional convenience has been built in. They are also treated a little different by the persistor - any time
+	+w a model is created, the persistor will automatically populate the createdAt field; likewise, the persistor will
+	+w reset the updatedAt field any time a model is updated.
+p There is also related option called datestamps that server the same purpose only they use a java.sql.Date object rather
+	+w than a java.util.Date (which is really Timestamp). The fields for datestamps are createdOn and updatedOn.
+p The final important aspect is further up the hierarchy: <code>PostModel</code> extends the Oobium <code>Model</code>
 	+w class. <code>Model</code> supplies a great deal of functionality to your Oobium models for free, including basic
 	+w lifecycle CRUD (Create, Retrieve, Update, Destroy) operations, data validation and query support.

@@ -90,7 +90,7 @@ ul.intro li
 .intro
 	width: 580px
 
-div.code code
+div.code code, div.badCode code
 	display: block
 	font-family: monaco, "Bitstream Vera Sans Mono", "Courier New", courier, monospace
 	margin: 0.25em 0
@@ -102,6 +102,10 @@ div.code_container, div.important, div.caution, div.warning, div.note, div.info
 
 div.code
 	background: url("/tab_code.gif") no-repeat scroll left top #eee
+	padding: 1.25em 1.25em 1.25em 48px
+
+div.badCode
+	background: url("/tab_bad_code.gif") no-repeat scroll left top #eee
 	padding: 1.25em 1.25em 1.25em 48px
 
 div.info
@@ -178,3 +182,13 @@ div.warning
 	color: #0000C0
 	font-style: italic
 /* END - Java Syntax Coloring */
+/* START - ESP Syntax Coloring */
+.espTag
+	color: #008
+.espTab
+	background-color: #ccc
+.espIText
+	color: #888
+.espOp
+	color: #833
+/* END - ESP Syntax Coloring */
