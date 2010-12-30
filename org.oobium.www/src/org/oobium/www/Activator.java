@@ -14,9 +14,9 @@ public class Activator extends AppService {
 	public void addRoutes(Config config, Router router) {
 		router.setHome(Home.class);
 		router.addAssetRoutes(this);
-		router.addRoute(Styles.class);
-		router.add("install").asRoute(Install.class);
-		router.add("fullInstall").asRoute("full_install", FullInstall.class);
+		router.addAsset(Styles.class);
+		router.add("install").asView(Install.class);
+		router.add("fullInstall").asView("full_install", FullInstall.class);
 	}
 
 }

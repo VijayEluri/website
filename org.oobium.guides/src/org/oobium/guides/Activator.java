@@ -15,14 +15,14 @@ public class Activator extends AppService {
 	@Override
 	public void addRoutes(Config config, Router router) {
 		router.addAssetRoutes(this);
-		router.addRoute(Styles.class);
+		router.addAsset(Styles.class);
 		
 		if(config.getMode() == Mode.DEV) {
-			router.add("guide").asRoute("/guides", GuideController.class, showAll);
-			router.add("guide").asRoute("/guides/{guide:[\\w_]+}", GuideController.class, show);
+			router.addRoute("/guides", GuideController.class, showAll);
+			router.addRoute("/guides/{guide:[\\w_]+}", GuideController.class, show);
 		} else {
 			router.setHome(GuideController.class, showAll);
-			router.add("guide").asRoute("{guide:[\\w_]+}", GuideController.class, show);
+			router.addRoute("{guide:[\\w_]+}", GuideController.class, show);
 		}
 	}
 
