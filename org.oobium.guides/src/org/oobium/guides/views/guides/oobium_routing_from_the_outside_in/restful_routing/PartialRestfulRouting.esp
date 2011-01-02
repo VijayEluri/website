@@ -6,11 +6,11 @@ p Quite often you'll want all seven actions to be handle for a model, but there 
 
 div.code <- code.java
 	+> // only adds 1 route: GET /photos/{id} -> PhotoController#show
-	+> router.addRoute(Photo.class, show)
+	+> router.addResource(Photo.class, show)
 	+> 
 	+> // adds 2 routes: POST /photos -> PhotoController#create
 	+> //           and: GET  /photos/{id} -> PhotoController#show
-	+> router.addRoutes(Photo.class, create, show)
+	+> router.addResources(Photo.class, create, show)
 
 p Note that you don't have to specify the verb with this form of routing either. Oobium uses REST conventions here too;
 	+w actually, if you passed in all seven actions to the second method you would be doing exactly what Oobium does for

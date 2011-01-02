@@ -186,9 +186,18 @@ div.warning
 .espTag
 	color: #008
 .espTab
-	background-color: #ccc
+	background-color: #ddd
 .espIText
 	color: #888
 .espOp
 	color: #833
 /* END - ESP Syntax Coloring */
+
+table
+	border-collapse: collapse
+th
+	background-color: #eee
+	padding: 5px
+	text-align: left
+td
+	padding: 5px

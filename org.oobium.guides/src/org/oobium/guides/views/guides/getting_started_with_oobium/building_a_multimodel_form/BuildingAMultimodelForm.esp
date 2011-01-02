@@ -13,7 +13,8 @@ p Again, redo the migration to create the database table:
 div.code <- code $ migrate redo
 
 p As we did earlier for the Comments, add the hasMany relation to the Post model so that it will be linked
-	+w to the Tags (don't forget to add the opposite properties so it is a true one-to-many relation).
+	+w to the Tags (don't forget to add the opposite property to the @Relation annotation in each model so that it
+	+w is a true one-to-many relation).
 
 p We will modify posts/PostForm.esp to render a partial to make a tag:
 
@@ -38,7 +39,7 @@ div.code <- code
 	+>   div.actions
 	+>     submit
 
-p Now create the folder views/tags and make a file in there called, TagForm.esp, which contains the form for the tag:
+p Now open the tags/TagForm view, and change it to be like this:
 
 div.code <- code
 	+> import com.test.blog.models.*
@@ -75,7 +76,9 @@ div.code <- code
 	+>   +  { post.getContent() }
 	+> p
 	+>   b Tags:
-	+>   +  { post.getTags() }
+	+>   - for(Tag tag : post.tags()) {
+	+>       a(tag, show)  { tag.getName() }
+	+>   - }
 	+> 
 	+> h2 Comments
 	+> view<ShowComment>(Comment: post.comments())
@@ -86,6 +89,3 @@ div.code <- code
 	+> a(post, showEdit) Edit
 	+> span  | 
 	+> a(Post.class, showAll) Back
-
-p As you can see, I cheated a little and added a getTags() method to the Post model so we could display a comma
-	+w separated list of tags in one line.  That's how you'd do it real life too, so there.

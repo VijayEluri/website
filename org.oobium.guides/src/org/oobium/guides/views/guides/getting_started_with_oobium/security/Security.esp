@@ -14,10 +14,6 @@ div.code <- code.java
 	+> 
 	+> public class ApplicationController extends Controller {
 	+> 
-	+>   public ApplicationController(HttpRequest request, Map<String, Object> routeParams) {
-	+>     super(request, routeParams);
-	+>   }
-	+> 
 	+>   @Override
 	+>   protected boolean authorize(String username, String password) {
 	+>     return "admin".equals(username) && "password".equals(password);

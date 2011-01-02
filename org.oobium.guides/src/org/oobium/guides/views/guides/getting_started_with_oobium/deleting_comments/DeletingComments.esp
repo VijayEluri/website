@@ -30,10 +30,6 @@ div.code <- code.java
 	+> 
 	+> public class CommentController extends Controller {
 	+> 
-	+>   public CommentController(HttpRequest request, Map<String, Object> routeParams) {
-	+>     super(request, routeParams);
-	+>   }
-	+> 
 	+>   @Override
 	+>   public void create() throws SQLException {
 	+>     Comment comment = param("comment", new Comment());
@@ -57,9 +53,12 @@ p The destroy method will find the comment with the correct id and post fields, 
 	+w and send us back to the show action for the post.
 
 p Before this will work though, we need to add another route - the one to handle destroying comments! The hasMany
-	+w routes that we added earlier don't add singular routes for a model because that could quickly create a lot of
+	+w routes that we used earlier did't add singular routes for the model because that could quickly create a lot of
 	+w redundant routing that would just take up memory and probably not be what you were intending. To explicitly add
 	+w the necessary route, open up the Activator again ($ open activator) and add the following:
 
 div.code <- code.java
-	+= router.addRoute(Comment.class, <span class="javaStaticField">destroy</span>);
+	+= router.addResource(Comment.class, <span class="javaStaticField">destroy</span>);
+
+div.note(style:"margin-top: 15px")
+	+= Note that <span class="javaStaticField">destroy</span> is statically imported

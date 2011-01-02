@@ -1,0 +1,44 @@
+title Element Hierarchy
+
+p Of course, attributes are only a part of the story. We also need a way of denoting child elements so that we can
+	+w define a hierarchy. To do this, ESP takes into account whitespace and defines parent-child relationships through
+	+w the use of indentation:
+
+div.code <- code
+	+= <span class="espTag">table</span>\n
+	+= <span class="espTab">  </span><span class="espTag">tr</span>\n
+	+= <span class="espTab">    </span><span class="espTag">td</span> <span class="espIText">cell 1</span>
+
+p which translate to:
+
+div.code <- code
+	+> <table>
+	+>   <tr>
+	+>     <td>cell 1</td>
+	+>   </tr>
+	+> </table>
+
+p For very short lines, however, it might be nicer to do this:
+
+div.code <- code
+	+> <table><tr><td>cell 1</td></tr></table>
+
+p and in ESP there is a short-cut that can help you and save lots of (nearly) empty lines. The same markup
+	+w that is above can be written on one line in ESP as follows:
+
+div.code <- code
+	+= <span class="espTag">table</span> <span class="espOp"><-</span> 
+	+= <span class="espTag">tr</span> <span class="espOp"><-</span> 
+	+= <span class="espTag">td</span> <span class="espIText">cell 1</span>
+
+p One thing that can be confusing with this syntax though, is to whom the indented element on the next line
+	+w is a child of:
+
+div.code <- code
+	+= <span class="espTag">table</span> <span class="espOp"><-</span> 
+	+= <span class="espTag">tr</span>\n
+	+= <span class="espTab">  </span><span class="espTag">td</span> <span class="espIText">cell 1</span>
+	+w <span class="javaComment">// I'm a child of "tr"</span>
+
+p Oh yea, you can also put comments in ESP files just like in Java files. The double forward-slash comments out everything
+	+w to the end of the line, and the /* */ syntax can be used for multi-line comments.

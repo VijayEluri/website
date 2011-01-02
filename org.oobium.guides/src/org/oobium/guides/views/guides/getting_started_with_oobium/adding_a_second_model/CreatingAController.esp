@@ -17,10 +17,6 @@ div.code <- code.java
 	+> 
 	+> public class CommentController extends Controller {
 	+> 
-	+>   public CommentController(HttpRequest request, Map<String, Object> routeParams) {
-	+>     super(request, routeParams);
-	+>   }
-	+> 
 	+>   @Override
 	+>   public void handleRequest() throws SQLException {
 	+>     // TODO handle the request
@@ -84,10 +80,6 @@ div.code <- code.java
 	+> import org.oobium.http.HttpRequest;
 	+> 
 	+> public class CommentController extends Controller {
-	+> 
-	+>   public CommentController(HttpRequest request, Map<String, Object> routeParams) {
-	+>     super(request, routeParams);
-	+>   }
 	+> 
 	+>   @Override
 	+>   public void create() throws SQLException {

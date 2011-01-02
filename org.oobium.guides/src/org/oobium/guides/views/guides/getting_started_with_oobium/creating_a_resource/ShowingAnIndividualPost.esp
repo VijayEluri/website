@@ -34,6 +34,12 @@ div.code <- code
 	+> p
 	+>   b Title:
 	+>   +  { post.getTitle() }
+	+> p
+	+>   b Created At:
+	+>   + { psst.getCreatedAt() }
+	+> p
+	+>   b Updated At:
+	+>   + { post.getUpdatedAt() }
 	+> 
 	+> a(post, edit) Edit
 	+> span  | 

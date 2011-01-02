@@ -1,0 +1,9 @@
+title Special Elements
+
+p Oobium also provides several special, custom, elements to help you create and maintain complex pages. Some of these
+	+w elements contains parts not relevant to a regular XML element. Instead, they are relevant to Java - most notablhy
+	+w the addition of a Java Type and constructor arguments. As an example let's look at the view element:
+
+div.code <- code
+	+> view<JavaType>(arg1, arg2)
+

@@ -4,10 +4,10 @@ p When your Ooium application receives an incoming request
 
 div.code <- code GET /posts/intro_to_oobium
 
-p it asks the router to match it to a controller action. If we have added a route to the route like
+p it asks the router to match it to a controller action. If we had already added a route like this:
 
 div.code <- code.java
-	+= router.addRoute("/posts/{title:\\\\w+}", Post.class, <span class="javaStaticField">show</span>);
+	+= router.addResource("/posts/{title:\\\\w+}", Post.class, <span class="javaStaticField">show</span>);
 
-p then the request is dispatched to the PostController's show action with \{ "title": "intro_to_oobium" } in the params
-	+w and you would be able to retrieve it by calling param("title").
+p then the request would be dispatched to the PostController's show method with \{ "title": "intro_to_oobium" } in
+	+w the params and you would be able to retrieve it by calling param("title").

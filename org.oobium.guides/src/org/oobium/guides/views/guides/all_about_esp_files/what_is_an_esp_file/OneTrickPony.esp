@@ -1,0 +1,11 @@
+title One Trick Pony
+
+p ESP files really do only one thing, and they keep doing it over and over again for other types of files beyond just
+	+w HTML. The take a Java file and make it easy to express the core client side web languages: HTML, CSS, Javascript.
+	+w By doing so, the core technology of ESP files is also transferrable to other files: a CSS file is just an ESP file
+	+w with a root node of "style"; a Javascript file is just an ESP file with a root node of "script"; and an XML file
+	+w is... well, just ESP file without CSS or Javascript, and some extra header thrown on at compile time.
+
+p If you want the file to be static, but still use the ESP editor, just use the static extension: .css, .js/.json, or .xml.
+	+w For dynamic versions, use the Elemental counter-part: .ess, .ejs, .eml. (Yes, I know .eml is something else - 
+	+w whatever)

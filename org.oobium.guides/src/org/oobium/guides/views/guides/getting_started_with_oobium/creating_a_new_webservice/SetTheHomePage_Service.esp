@@ -27,12 +27,6 @@ div.code
 		+> 
 		+>     // TODO add routes specific to your application
 		+> 
-		+>     router.setHome(new Controller() {
-		+>       @Override
-		+>       public void handleRequest() throws SQLException {
-		+>         render("hello world!");
-		+>       }
-		+>     });
 		+>   }
 		+> 
 		+> }

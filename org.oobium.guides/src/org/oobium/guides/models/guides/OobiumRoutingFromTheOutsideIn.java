@@ -3,7 +3,6 @@ package org.oobium.guides.models.guides;
 import org.oobium.app.server.view.View;
 import org.oobium.guides.models.Chapter;
 import org.oobium.guides.models.Guide;
-import org.oobium.guides.models.Ticket;
 import org.oobium.guides.views.guides.oobium_routing_from_the_outside_in.Intro;
 import org.oobium.guides.views.guides.oobium_routing_from_the_outside_in.pseudo_restful_routing.PseudoRestfulRouting;
 import org.oobium.guides.views.guides.oobium_routing_from_the_outside_in.restful_routing.CRUDVerbsAndActions;
