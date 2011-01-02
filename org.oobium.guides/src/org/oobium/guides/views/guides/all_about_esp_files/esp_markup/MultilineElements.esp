@@ -33,10 +33,11 @@ p produces what we want:
 div.code <- code
 	+= <p>The quick brown fox jumps over the lazy dog</p>
 
-p Why then, would we ever use the straight + element? Becuase it truly is just an extension of the previous element's
-	+w inner text, as if it were on the same line - some times we don't want word separators and, more importantly, we
-	+w want to include the result of a Java expression in our output. There are a couple other inner text extension
-	+w elements and only the raw + supports including Java parts (which we'll discuss in the next section).
+p Why then, would we ever use the straight + element? We would use it because it truly is just an extension of the
+	+w previous element's inner text, as if it were on the same line. Some times we don't want word separators and,
+	+w more importantly, we do want to include the result of a Java expression in our output. There are a couple other
+	+w inner text extension elements and only the raw + supports including Java parts (which we'll discuss in the
+	+w next section).
 
 p A summary of the inner text extension elements:
 ul
@@ -49,5 +50,5 @@ ul
 			+w This is intended for writing long sections of text.
 	li <b>+></b>
 		p The prompt extension element - behaves like the literal extension, but makes sure there is a new line between lines
-			+w and escapes angle brackets. This is intended for creating sections of code; escaping angle brackets makes it easy
-			+w to write Java generics.
+			+w and HTML escapes angle brackets. This is intended for creating sections of code; escaping the angle brackets makes
+			+w it easy to write Java generics.

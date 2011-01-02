@@ -16,14 +16,14 @@ div.code
 		+> package com.test;
 		+> 
 		+> import com.test.views.pages.Home;
-		+> import org.oobium.app.AppConfig;
 		+> import org.oobium.app.AppService;
-		+> import org.oobium.app.server.routing.Router;
+		+> import org.oobium.app.server.routing.AppRouter;
+		+> import org.oobium.utils.Config;
 		+> 
 		+> public class Activator extends AppService {
 		+> 
 		+>   @Override
-		+>   public void addRoutes(AppConfig config, Router router) {
+		+>   public void addRoutes(Config config, AppRouter router) {
 		+> 
 		+>     // TODO add routes specific to your application
 		+> 

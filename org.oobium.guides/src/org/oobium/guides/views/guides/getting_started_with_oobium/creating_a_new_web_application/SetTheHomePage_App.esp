@@ -15,18 +15,18 @@ div.code <- code.java
 	+> package com.test;
 	+> 
 	+> import com.test.views.pages.Home;
-	+> import org.oobium.app.AppConfig;
 	+> import org.oobium.app.AppService;
-	+> import org.oobium.app.server.routing.Router;
+	+> import org.oobium.app.server.routing.AppRouter;
+	+> import org.oobium.utils.Config;
 	+> 
 	+> public class Activator extends AppService {
 	+> 
 	+>   @Override
-	+>   public void addRoutes(AppConfig config, Router router) {
+	+>   public void addRoutes(Config config, AppRouter router) {
 	+> 
 	+>     // TODO add routes specific to your application
 	+> 
-	+>     router.addAssetRoutes(this);
+	+>     router.addAssetRoutes();
 	+>     router.setHome(Home.class);
 	+>   }
 	+> 
@@ -35,7 +35,7 @@ div.code <- code.java
 p This method passes in both the application's configuration and router. The router is what we want
 	+w to use to add routes to our application and as you can see, we already have two of them set up for us:
 ul
-	li router.addAssetRoutes(this) set up routes for everything in the application's assets folder. These are all
+	li router.addAssetRoutes() set up routes for everything in the application's assets folder. These are all
 		+w intended to be, and are served as if they are, static assets such as images, javascript, style sheets, etc..
 	li router.setHome(Home.class) is what is setting up our home route. In this case it is being routed to directly to
 		+w the Home.esp view in the application's views folder. This method has a few overloads - take a moment to see
