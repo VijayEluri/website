@@ -1,2 +1,6 @@
 /bin
 /generated/*
+/assets/updates/features
+/assets/updates/plugins
+/assets/updates/artifacts.jar
+/assets/updates/content.jar
