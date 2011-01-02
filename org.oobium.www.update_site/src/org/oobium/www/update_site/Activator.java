@@ -8,7 +8,7 @@ public class Activator extends ModuleService {
 
 	@Override
 	public void addRoutes(Config config, Router router) {
-		router.addAssetRoutes(this);
+		router.addAssetRoutes();
 	}
 
 }

@@ -13,7 +13,7 @@ public class Activator extends AppService {
 	@Override
 	public void addRoutes(Config config, Router router) {
 		router.setHome(Home.class);
-		router.addAssetRoutes(this);
+		router.addAssetRoutes();
 		router.addAsset(Styles.class);
 		router.add("install").asView(Install.class);
 		router.add("fullInstall").asView("full_install", FullInstall.class);

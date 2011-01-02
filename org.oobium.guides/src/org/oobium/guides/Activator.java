@@ -14,7 +14,7 @@ public class Activator extends AppService {
 
 	@Override
 	public void addRoutes(Config config, Router router) {
-		router.addAssetRoutes(this);
+		router.addAssetRoutes();
 		router.addAsset(Styles.class);
 		
 		if(config.getMode() == Mode.DEV) {
