@@ -19,7 +19,7 @@ div.code <- code.java
 	+>   attrs = {
 	+>     @Attribute(name="published", type=Date.class)
 	+>   },
-	+>   validators = {
+	+>   validations = {
 	+>     @Validate(field="content", minLength=1000, when="hasPublished")
 	+>   }
 	+> )

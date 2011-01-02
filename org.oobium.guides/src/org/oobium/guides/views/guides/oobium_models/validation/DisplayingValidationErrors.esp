@@ -12,7 +12,7 @@ div.code <- code.java
 	+>     @Attribute(name="title", type=String.class),
 	+>     @Attribute(name="content", type=Text.class)
 	+>   },
-	+>   validators = {
+	+>   validations = {
 	+>     @Validate(field="title, content", isNotBlank=true)
 	+>   }
 	+> )

@@ -5,7 +5,7 @@ p As with other parts of the model in Oobium, validations are added in the @Mode
 
 div.code <- code.java
 	+> @ModelDescription(
-	+>   validators = {
+	+>   validations = {
 	+>     @Validate(field="name", matches="\\w+")
 	+>   }
 	+> )
@@ -16,7 +16,7 @@ p There are two basic ways to use the @Validate annotation: the first is to use 
 
 div.code <- code.java
 	+> @ModelDescription(
-	+>   validators = {
+	+>   validations = {
 	+>     @Validate(with=PostValidator.class)
 	+>   }
 	+> )
@@ -58,7 +58,7 @@ p Simply create methods that verify the state of your models and add messages to
 
 div.code <- code.java
 	+> @ModelDescription(
-	+>   validators = {
+	+>   validations = {
 	+>     @Validate(field="content", withMethod="isGood")
 	+>   }
 	+> )
