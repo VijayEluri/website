@@ -19,10 +19,10 @@ public class Activator extends AppService {
 		
 		if(config.getMode() == Mode.DEV) {
 			router.addRoute("/guides", GuideController.class, showAll);
-			router.addRoute("/guides/{guide:[\\w_]+}", GuideController.class, show);
+			router.add("showGuide").asRoute("/guides/{guide:[\\w_]+}", GuideController.class, show);
 		} else {
 			router.setHome(GuideController.class, showAll);
-			router.addRoute("{guide:[\\w_]+}", GuideController.class, show);
+			router.addRoute("/{guide:[\\w_]+}", GuideController.class, show);
 		}
 	}
 

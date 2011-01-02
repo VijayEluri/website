@@ -11,9 +11,4 @@ public class Activator extends ModuleService {
 		router.addAssetRoutes(this);
 	}
 
-	@Override
-	public void removeRoutes(Config config, Router router) {
-		router.removeAssetRoutes(this);
-	}
-
 }
