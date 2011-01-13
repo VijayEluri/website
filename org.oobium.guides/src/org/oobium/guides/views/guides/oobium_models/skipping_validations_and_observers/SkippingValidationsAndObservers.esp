@@ -1,0 +1,14 @@
+title Skipping Validations and Observers
+
+p There are even times when, for whatever reason, you'll want to skip validations and observers entirely (tests and
+	+w migrations come to mind).
+
+p Oobium makes this easy (though not quite as easy, being an exception) by giving you access to the persist service
+	+w that is responsible for saving and destroying your objects. You can use this persist service to perform the
+	+w same CRUD operations that your models are capable of, but without running the model level validations or
+	+w observers. See the example below:
+
+div.code <- code.java
+	+> Post.getPersistService().create(invalidPost);
+
+p Of course, this does not bypass any persist service or database level validations that may be in place.

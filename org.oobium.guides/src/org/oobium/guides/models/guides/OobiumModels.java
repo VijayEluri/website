@@ -21,6 +21,7 @@ import org.oobium.guides.views.guides.oobium_models.observers.HaltingExecution;
 import org.oobium.guides.views.guides.oobium_models.observers.ObserverMethods;
 import org.oobium.guides.views.guides.oobium_models.observers.Observers;
 import org.oobium.guides.views.guides.oobium_models.observers.RegisteringObservers;
+import org.oobium.guides.views.guides.oobium_models.skipping_validations_and_observers.SkippingValidationsAndObservers;
 import org.oobium.guides.views.guides.oobium_models.validation.AddingValidations;
 import org.oobium.guides.views.guides.oobium_models.validation.ConditionalValidation;
 import org.oobium.guides.views.guides.oobium_models.validation.DisplayingValidationErrors;
@@ -66,6 +67,8 @@ public class OobiumModels extends Guide {
 									new ObserverMethods(),
 									new HaltingExecution()
 								}),
+
+			/*5*/ new Chapter(new SkippingValidationsAndObservers())
 		};
 	}
 
