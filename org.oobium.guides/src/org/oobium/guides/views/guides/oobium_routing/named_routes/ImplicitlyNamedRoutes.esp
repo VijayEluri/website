@@ -1,0 +1,17 @@
+title Implicitly Named Routes
+
+p While every route <b>can</b> be named, there are some that <b>must</b> be named. This is because Oobium is quite
+	+w insistent that you be able to lookup a route at a later time; not just its path, but the route itself.
+
+p Routes that are Views, Dynamic Assets, and free-form are some that must be named. Requiring you to name everything,
+	+w however, is just too much of a pain to put you through (afterall, I use Oobium too, and that would irritate the
+	+w tar out of me). Therefore, you can go ahead and add a view route just as simply as a resource, and Oobium will
+	+w implicitly create it as a named route, using a generated name for you.
+
+div.code <- code.java
+	+= router.addView(Welcome.class);
+
+p Is really the same as:
+
+div.code <- code.java
+	+= router.add("showWelcome").asView(Welcome.class);

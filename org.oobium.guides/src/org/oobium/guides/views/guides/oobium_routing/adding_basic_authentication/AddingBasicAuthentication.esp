@@ -1,0 +1,33 @@
+title Adding Basic Authentication
+
+p One of the simplest ways to protect your content online is to put it behind HTTP Basic Authentication. As we all
+	+w know by now, basic authentication has is its place in the security hierarchy - fairly low, but it is
+	+w very high in the convenience sector. Therefore, we'll simply point you to 
+	a("http://en.wikipedia.org/wiki/Basic_authentication") wikipedia
+	+w for an explanation of
+	+w basic authentication and its weaknesses, and in this guide stick to showing how Oobium makes it painless to
+	+w use (when appropriate).
+
+p For those simple times when HTTP Basic Authentication is right for your needs, you can add it directly to any
+	+w path:
+
+div.code <- code.java
+	+> router.addBasicAuthentication("/secret_stuff", "private");
+
+p In this code we've asked Oobium to use basic authentication to make sure that anyone accessing the "/secret_stuff"
+	+w path of our website have authorization to the "private" realm. This means we also need to tell Oobium who is
+	+w authorized:
+
+div.code <- code.java
+	+> router.addBasicAuthorization("private", "username", "password");
+
+p That's it. Super easy for when it fits your needs.
+
+p Next, you may want to add authentication to your static assets and, since there can easily be hundreds of them,
+	+w the thought of adding "router.addBasicAuthentication("/background.png", "private");" a few hundred times just
+	+w seems stupid. I agree. Therefore Oobium allows you treat your assets folder in a file system manner and add a
+	+w special file to any folders that you want protected: authentication.realm.
+
+p The authentication.realm file contains just one line: the name of a realm. Now when Oobium encounters this file, it
+	+w will consider the contents of the parent folder, and all subfolders, to belong to the specified realm, thereby
+	+w preventing access to any of them unless the request has been authenticated and the username has been authorized.

@@ -1,0 +1,20 @@
+title Removing Routes
+
+p Routes in Oobium are live, meaning that at any time during the application or module lifecycle they can be added
+	+w or removed. This can be used to update the routing scheme as models come and go from the system, or to 
+	+w add and remove entire sets of routes as modules are started and stopped by the OSGi runtime environment.
+
+p Removing routes is just as easy as adding them - for every add method, there is a corresponding remove method:
+
+div.code <- code.java
+	+> router.addResources(Photo.class)
+	+> router.removeResources(Photo.class)
+
+p You can also remove any named route (explicit or implicit) with:
+
+div.code <- code.java
+	+> router.remove(name)
+
+p Note that when a module is stopped by the OSGi runtime, you do not need to remove its routes. When this happens
+	+w the entire module, including its router, will be removed from the system, effectively removing all of its
+	+w routes as well.

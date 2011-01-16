@@ -1,0 +1,34 @@
+title Nested Resources
+
+p If our photo model contains a hasMany relationship then it may be handy to have that reflected in our routing
+	+w strategy as well. For instance, let's say we want to keep track of everyone in the photographs we take and
+	+w therefore have created a hasMany relationship from Photo to Subject. To use this in our routes we would do 
+	+w the following:
+
+div.code <- code.java
+	+= router.addResources(Photo.class).hasMany("subjects")
+
+p This will create the standard seven resources from the addResources method, as well as create an additional
+	+w three for the hasMany method, each of which to be handled by the SubjectController:
+
+table
+	tr
+		th Verb
+		th Path
+		th Action
+		th Used for
+	tr
+		td POST
+		td /photos/\{id}/subjects
+		td create
+		td create a new subject for the photo
+	tr
+		td GET
+		td /photos/\{id}/subjects
+		td showAll
+		td display a list of all subjects for the photo
+	tr
+		td GET
+		td /photos/\{id}/subjects/new
+		td showNew
+		td return an HTML form for creating and new subject for the photo

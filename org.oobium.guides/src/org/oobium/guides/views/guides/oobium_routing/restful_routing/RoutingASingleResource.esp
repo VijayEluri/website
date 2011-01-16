@@ -1,0 +1,15 @@
+title Routing a Single Resource
+
+p Beyond only a subset of resources, there are times that you'll want to route only a single resource. In these cases
+	+w Oobium provides a set of singular addResource methods. These are very similar to their plural counter-parts,
+	+w but do offer some unique differences.
+
+p Most notable is that a singular resource mapping does not need to worry about differentiating between the seven
+	+w different RESTful verb/path combinations and can therefore be completely customized:
+
+div.code <- code.java
+	+= router.addResource("vacation", Photo.class, <span class="javaStaticField">create</span>)
+
+p The above does <b>not</b> use "vacation" as a prefix to create a full path of "/vacation/photos". Rather is simply
+	+w uses the path argument verbatim: "/vacation" maps to the create method of the PhotoController (the verb is still
+	+w implied as POST).

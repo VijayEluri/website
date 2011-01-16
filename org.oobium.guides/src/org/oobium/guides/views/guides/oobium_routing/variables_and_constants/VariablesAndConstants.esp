@@ -1,0 +1,49 @@
+title Variables and Constants
+
+p A common URL pattern for a blog post is: "http://www.mydomain.com/2010/12/06/my_first_post". How would we
+	+w map this route in Oobium? By using variables in the path argument, of course:
+
+div.code <- code.java
+	+= router.addResource("/{y:\\\\d+}/{m:\\\\d+}/{d:\\\\d+}/{name:[\\\\w_]+}", Post.class, <span class="javaStaticField">show</span>)
+
+p If that makes you think of regular expressions, then you've already figured it out. Anything between curly braces -
+	+w {} - becomes either a variable or a constant. The difference is dictated by the separator character - a colon (:)
+	+w indicates a variable:
+
+div.code <- code.java
+	+= router.addResource("/photos/{album<u>:</u>[\\\\w_]+}", Photo.class, <span class="javaStaticField">showAll</span>)
+
+p and an equals sign (=) is a constant:
+
+div.code <- code.java
+	+= router.addResource("/photos/{thumbnails<u>=</u>true}", Photo.class, <span class="javaStaticField">showAll</span>)
+
+p The beauty of these is that they become availabe in the controller (or view) as part of the parameters map.
+	+w Thus, GET requests for "/photos/summer_2009" and  "/photos/winter_2008" would both route to the 
+	+w PhotoController#showAll method and the value of the "album" variable could be retrieved with param("album"):
+
+div.code <- code.java
+	+> @Override // GET/URL/[models]
+	+> public void showAll() throws SQLException {
+	+   List{"<Photo>"} photos = Photo.findAll("where album=?", <u><b>param("album")</b></u>);\n
+	+> 
+	+>   switch(wants()) {
+	+=     case <span class="javaStaticField">JS</span>:\n
+	+=     case <span class="javaStaticField">JSON</span>: render(photos); break;\n
+	+=     case <span class="javaStaticField">HTML</span>: render(new ShowAllPhotos(photos)); break;\n
+	+>   }
+	+> }
+
+p The constant example, on the other hand, would only handle a GET request for the path "/photos/thumbnails". Like
+	+w the variable example though, the parameters map would contain an entry named "thumbnails" with a value of "true".
+
+p Actual HTTP parameters, as expressed in the path argument, can also contain variables and constants. The difference
+	+w though, is that constants in the HTTP parameters do not need to be in the requested path, yet will always exist
+	+w in the controller's parameters map. For example:
+
+div.code <- code.java
+	+= router.addResource("/favorites?{favorites=true}", Photo.class, <span class="javaStaticField">showAll</span>)
+
+p routes a GET request for "/favorites" to the showAll method and the value of param("favorites") will be "true". This
+	+w allows you to easily overload methods based on the route used to access them, which really makes sense when you
+	+w have logically named routes like "/photos" and "/favorites".

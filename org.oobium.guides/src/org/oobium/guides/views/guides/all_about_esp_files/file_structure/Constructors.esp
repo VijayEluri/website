@@ -25,10 +25,10 @@ div.code <- code.java
 	+> // use the default value
 	+> ShowPost showPost = new ShowPost();
 
-p The only restriction is that you cannot specify a default for parameter in before a parameter that does not have
-	+w a default:
+p The only restriction is that once you specify a default value for a parameter, all remaining parameters must also
+	+w have a default value specified:
 div This is valid:
-div.code <- code.java ShowPost(Post post, Date start = new Date())
+div.code <- code.java ShowPost(Post post, Date start = new Date(), Date end = new Date())
 div(style:"margin-top: 10px") This is NOT valid:
 div.badCode <- code.java ShowPost(Post post, Date start = new Date(), Date end)
 

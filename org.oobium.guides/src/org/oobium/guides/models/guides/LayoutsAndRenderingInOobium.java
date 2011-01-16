@@ -11,7 +11,7 @@ public class LayoutsAndRenderingInOobium extends Guide {
 		super(new Intro());
 		ticket = new Ticket();
 		summary = "This guide covers the basic layout features of Oobium's Controllers and Views, including rendering and redirecting, using contentFor blocks, and working with partials.";
-		chapters = new Chapter[] { };
+		chapters = new Chapter[0];
 	}
 
 }

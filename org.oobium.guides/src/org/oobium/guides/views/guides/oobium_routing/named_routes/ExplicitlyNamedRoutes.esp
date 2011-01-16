@@ -1,0 +1,20 @@
+title Explicitly Named Routes
+
+p A typical special case that warrants itself well to naming is that of sessions. In particular, the logout function
+	+w is often handled with this resource route:
+
+div.code <- code.java
+	+= router.addResource(Session.class, <span class="javaStaticField">destroy</span>);
+
+p When we're coding though, we're not thinking "session#destroy!", we're thinking "logout":
+
+div.code <- code.java
+	+= router.add("logout").asResource(Session.class, <span class="javaStaticField">destroy</span>);
+
+p Now we can specify this path in our controllers and views using the name:
+
+div.code <- code.java
+	+> pathTo("logout")
+
+p This can be done with other types of routes as well. The router.add(name) method returns a NamedRoute object, to
+	+w which several types of routes can be added using the asXXX methods.

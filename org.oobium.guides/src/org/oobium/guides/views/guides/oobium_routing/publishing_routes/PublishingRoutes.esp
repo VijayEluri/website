@@ -1,0 +1,101 @@
+title Publishing Routes
+
+p Your application's collection of routes are really its API, and getting the most recent copy out to your consumers
+	+w (and keeping it up-to-date) can be a real challenge. Oobium helps you manage this task by allowing you to
+	+w publish any and all routes that you add. After adding a route (of any type), simply call the publish() method
+	+w on the returned object:
+
+div.code <- code.java
+	+= router.addResources(Photo.class).publish();
+
+p This will add all routes created by the addResources method to a list that will be accessible from your site's
+	+w "discovery" route. Creating this route is done as follows:
+
+div.code <- code.java
+	+= router.setDiscovery("/api");
+
+p Discovery routes always use the HTTP GET verb, so the above code means that a GET request to "/api" will return a
+	+w list of all the published routes as JSON:
+
+div.code <- code
+	+> HTTP/1.0 200 - OK
+	+> Content-Length: 796
+	+> Content-Type: text/html; charset=utf-8
+	+> 
+	+> [
+	+>   {
+	+>     model: "com.test.blog.models.Photo",
+	+>     action: "create",
+	+>     path: "/photos",
+	+>     method: "POST",
+	+>     fixed: "true"
+	+>   },
+	+>   {
+	+>     model: "com.test.blog.models.Photo",
+	+>     action: "update",
+	+>     path: "/photos/{id}",
+	+>     method: "PUT"
+	+>   },
+	+>   {
+	+>     model: "com.test.blog.models.Photo",
+	+>     action: "destroy",
+	+>     path: "/photos/{id}",
+	+>     method: "DELETE"
+	+>   },
+	+>   {
+	+>     model: "com.test.blog.models.Photo",
+	+>     action: "show",
+	+>     path: "/photos/{id}",
+	+>     method: "GET"
+	+>   },
+	+>   {
+	+>     model: "com.test.blog.models.Photo",
+	+>     action: "showAll",
+	+>     path: "/photos",
+	+>     method: "GET",
+	+>     fixed: "true"
+	+>   },
+	+>   {
+	+>     model: "com.test.blog.models.Photo",
+	+>     action: "showEdit",
+	+>     path: "/photos/{id}/edit",
+	+>     method: "GET"
+	+>   },
+	+>   {
+	+>     model: "com.test.blog.models.Photo",
+	+>     action: "showNew",
+	+>     path: "/photos/new",
+	+>     method: "GET",
+	+>     fixed: "true"
+	+>   }
+	+> ]
+
+p The only problem now is that you have to tell everyone the discovery path! This is fine in most cases, but there is
+	+w a still simpler way:
+
+div.code <- code.java
+	+= router.setDiscovery("/api", true);
+
+p The second argument in the above code example specifies whether or not to add the discovery path as a header returned
+	+w with the home page. When true, Oobium will inject the discovery path into all home page requests as follows:
+
+div.code <- code
+	+> HTTP/1.0 200 - OK
+	+> Content-Length: 446
+	+> Content-Type: text/html; charset=utf-8
+	+= <b>API-Location: /api</b>\n
+	+> 
+	+> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	+> ...snip...
+	+> </html>
+	+> 
+
+p As you can see in bold above, the discovery path is present in a header called API-Location. Clients can now go to
+	+w your home page, get the discovery path from the header and then find your full public API with a second request.
+	+w Since this API is based on your routing scheme, clients can check for updates periodically and stay up-to-date.
+
+p Of course, now that we've published our API, perhaps we don't actually want it to be public... Oobium also allows
+	+w you to hide it behind HTTP Basic Authentication by setting the discovery path with a realm:
+
+div.code <- code.java
+	+= router.setDiscovery("/api", "private", true);

@@ -7,6 +7,7 @@ import org.oobium.www.views._layouts.Styles;
 import org.oobium.www.views.pages.FullInstall;
 import org.oobium.www.views.pages.Home;
 import org.oobium.www.views.pages.Install;
+import org.oobium.www.views.pages.License;
 
 public class Activator extends AppService {
 
@@ -17,6 +18,9 @@ public class Activator extends AppService {
 		router.addAsset(Styles.class);
 		router.add("install").asView(Install.class);
 		router.add("fullInstall").asView("full_install", FullInstall.class);
+		router.addView("license", License.class);
+
+		router.addRedirect("/full_installation", "/full_install");
 	}
 
 }

@@ -1,0 +1,45 @@
+title CRUD, Verbs, and Actions
+
+p In Oobium, a restful route provides a mapping between HTTP verbs and URLs and controller actions. By convention, 
+	+w each action also maps to particular CRUD operations in a database. A single entry in the routing file, such as
+
+div.code <- code.java
+	+> router.addResources(Photo.class)
+
+p creates seven different routes in your application, all mapping to the PhotoController:
+
+view<RoutesTable>
+
+p We can also specify a path argument to prefix our routes:
+
+div.code <- code.java
+	+> router.addResources("vacation", Photo.class)
+
+p creates the same seven different routes only with the "vacation" prefix:
+
+view<RoutesTable>("/vacation/")
+
+p This path argument can also be used for much more than just a prefix though. It can also contain variables and
+	+w constants as well as completely customize how a resource is mapped. Variables and constants will be 
+	+w discussed in more detail later, but for now just know that there are two special variables: {models} and {id}
+	+w that are used in mapping a resource to a given path. The {models} variable is the name of the resource - 
+	+w "photo" for the Photo class - and the {id} is its model id, as returned by post.getId(). In a standard
+	+w call to addResources the path is determined as the following:
+
+div.code <- code
+	+> "/{models}/{id}"
+
+p If we gave a path argument that does not include these two variables - as we did with "vacation" - then they are
+	+w simply appended to the end and "vacation" becomes a prefix:
+
+div.code <- code
+	+> "/vacation/{models}/{id}"
+
+p So if for some reason we wanted to flip things around, we certainly could:
+
+div.code <- code
+	+> "/{models}/vacation/{id}"
+
+div.note
+	+= The {models} and {id} are required only for the plural method, addResources, and not for its singular
+	+w companion, addResource. Therefore the prefix capability does not work for the singular version.

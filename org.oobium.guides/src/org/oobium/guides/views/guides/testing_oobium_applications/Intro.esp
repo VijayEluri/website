@@ -1,0 +1,8 @@
+title Testing Oobium Applications
+
+p This guide covers built-in mechanisms offered by Oobium to test your application.
+	+w By referring to this guide, you will be able to:
+ul.intro
+	li Understand Oobium testing terminology
+	li Write unit and integration tests for your applications and modules
+	li Identify other popular testing approaches and libraries

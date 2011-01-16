@@ -1,0 +1,23 @@
+title Partial Resource Routing
+
+p Quite often you'll want all seven actions to be handle for a model, but there are also plenty of times when you'll
+	+w only want one, or some, of them handled (web services without a UI, for instance). To take care of this, Oobium
+	+w overrides the addRoutes method to allow specifying one, or several, of the actions you want handled:
+
+div.code <- code.java
+	+> // adds 2 routes: POST /photos -> PhotoController#create
+	+> //           and: GET  /photos/{id} -> PhotoController#show
+	+= router.addResources(Photo.class, <span class="javaStaticField">create</span>, <span class="javaStaticField">show</span>)
+
+p Note that you don't have to specify the verb with this form of routing either. Oobium uses REST conventions here too;
+	+w actually, if you passed in all seven actions to the second method you would be doing exactly what Oobium does for
+	+w you automatically.
+
+p As with the full routing we saw in the previous section, there is also a version of partial routing that takes a path
+	+w argument:
+
+div.code <- code.java
+	+= router.addResources("vacation", Photo.class, <span class="javaStaticField">create</span>, <span class="javaStaticField">show</span>)
+
+p and likewise, this path argument will be used as a prefix or,
+	+w if it contains the {models} or {id} variables, and a custom mapping for these resources.

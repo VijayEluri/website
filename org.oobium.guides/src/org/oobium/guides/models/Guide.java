@@ -8,13 +8,14 @@ import java.util.Map;
 import org.oobium.app.server.view.View;
 import org.oobium.utils.StringUtils;
 import org.oobium.guides.models.guides.AllAboutEspFiles;
-import org.oobium.guides.models.guides.GettingStartedWithOobium;
+import org.oobium.guides.models.guides.GettingStarted;
 import org.oobium.guides.models.guides.LayoutsAndRenderingInOobium;
 import org.oobium.guides.models.guides.OobiumDatabaseMigrations;
 import org.oobium.guides.models.guides.OobiumModels;
 import org.oobium.guides.models.guides.OobiumQueryInterface;
 import org.oobium.guides.models.guides.OobiumModelRelationships;
-import org.oobium.guides.models.guides.OobiumRoutingFromTheOutsideIn;
+import org.oobium.guides.models.guides.OobiumRouting;
+import org.oobium.guides.models.guides.TestingOobiumApplications;
 
 public class Guide {
 
@@ -25,14 +26,15 @@ public class Guide {
 		programs = new LinkedHashMap<String, List<String>>();
 		guides = new LinkedHashMap<String, Guide>();
 
-		add("Start Here", new GettingStartedWithOobium());
+		add("Start Here", new GettingStarted());
 		add("Models", new OobiumModels());
 		add("Models", new OobiumDatabaseMigrations());
 		add("Models", new OobiumModelRelationships());
 		add("Models", new OobiumQueryInterface());
 		add("Views", new AllAboutEspFiles());
 		add("Views", new LayoutsAndRenderingInOobium());
-		add("Controllers", new OobiumRoutingFromTheOutsideIn());
+		add("Controllers", new OobiumRouting());
+		add("Digging Deeper", new TestingOobiumApplications());
 	}
 	
 	private static void add(String program, Guide guide) {

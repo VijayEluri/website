@@ -1,3 +1,5 @@
+import org.oobium.www.common.views.Header
+
 title org.oobium: { titleize(getChild().getClass().getSimpleName()) }
 
 head
@@ -7,20 +9,22 @@ head
 	style<Styles>
 
 div#allContent
+	div#topper
+		div#topperContent
+			div#navBar <- view<Header>
+			div <- a(href:"/") <- img#logo(src:"/Logo.png")
 	div#header
-		div#space
-		div#headerContent
-			div#logo
-				a(href:"/") <- img(src:"/Logo.png")
-		div.bar
+		div#tagLine
+			p The open source Oobium project is a system for creating Java web applications and services with the aim of
+				+w maximizing developer productivity and happiness. Code well. Code happy.
+	yield("oobiLinks")
 	div#mainContent <- yield
 	div#footer
-		div.bar
 		div#footerContent
 			p &copy;2010 Oobium, Inc. All Rights Reserved
 			p "Oobium", and the Oobium logo are trademarks of Jeremy Dowdall. All rights reserved.<br/>
 				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
 				+w Other names may be trademarks of their respective owners.
 			p The Oobium Framework and Tools are open source and released under the 
-				a("http://www.opensource.org/licenses/eclipse-1.0.php") EPL
+				a("http://www.opensource.org/licenses/eclipse-1.0.php") Eclipse Public License (EPL)
 				+= .

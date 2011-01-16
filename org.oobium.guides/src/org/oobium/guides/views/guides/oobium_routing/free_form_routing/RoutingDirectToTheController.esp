@@ -1,0 +1,21 @@
+title Routing Direct to the Controller
+
+p The basic form of mapping a route directly to a controller is as follows:
+
+div.code <- code.java
+	+= router.addRoute(<span class="javaStaticField">GET</span>, "my_stuff", StuffController.class);
+
+p In this example a GET request for the path "/my_stuff" will be handled by the handleRequest method of the
+	+w StuffController. Since this route has nothing to do with resources or actions, we can't map it to one of
+	+w the standard seven controller methods, so instead we map it to the generic, catch-all, handleRequest.
+	+w Unlike Servlets Oobium doesn't even bother with separate methods for GET and POST requests - they are easy
+	+w enough to split out if you need to, but more importantly, setting up your routes so they make sense is
+	+w simple to do so you are more likely to not need this step.
+
+p One of the ways that we can start cleaning up the handleMethod syntax is by using a more resource-like approach:
+
+div.code <- code.java
+	+= router.addRoute("my_stuff", StuffController.class, <span class="javaStaticField">show</span>);
+
+p Here we make use of actions to map the "my_stuff" path to the show method of the StuffController. The GET verb
+	+w is implied by the show action.

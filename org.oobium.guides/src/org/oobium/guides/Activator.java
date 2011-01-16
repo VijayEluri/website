@@ -8,7 +8,6 @@ import org.oobium.app.server.routing.Router;
 import org.oobium.guides.controllers.GuideController;
 import org.oobium.guides.views._layouts.Styles;
 import org.oobium.utils.Config;
-import org.oobium.utils.Config.Mode;
 
 public class Activator extends AppService {
 
@@ -17,13 +16,12 @@ public class Activator extends AppService {
 		router.addAssetRoutes();
 		router.addAsset(Styles.class);
 		
-		if(config.getMode() == Mode.DEV) {
-			router.addRoute("/guides", GuideController.class, showAll);
-			router.add("showGuide").asRoute("/guides/{guide:[\\w_]+}", GuideController.class, show);
-		} else {
-			router.setHome(GuideController.class, showAll);
-			router.addRoute("/{guide:[\\w_]+}", GuideController.class, show);
-		}
+		router.setHome(GuideController.class, showAll);
+		
+		router.addRoute("/{guide:[\\w_]+}", GuideController.class, show);
+		
+		router.addRedirect("/getting_started_with_oobium", "/getting_started");
+		router.addRedirect("/oobium_routing_from_the_outside_in", "/oobium_routing");
 	}
 
 }

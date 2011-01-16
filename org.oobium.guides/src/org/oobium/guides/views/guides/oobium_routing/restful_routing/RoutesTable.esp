@@ -1,0 +1,43 @@
+RoutesTable(String prefix = "/")
+
+table
+	tr
+		th Verb
+		th Path
+		th Action
+		th Used for
+	tr
+		td POST
+		td { prefix }photos
+		td create
+		td create a new photo
+	tr
+		td DELETE
+		td { prefix }photos/\{id}
+		td destroy
+		td destroy a specific photo
+	tr
+		td PUT
+		td { prefix }photos/\{id}
+		td update
+		td update a specific photo
+	tr
+		td GET
+		td { prefix }photos/\{id}
+		td show
+		td display a specific photo
+	tr
+		td GET
+		td { prefix }photos
+		td showAll
+		td display a list of all photos
+	tr
+		td GET
+		td { prefix }photos/\{id}/edit
+		td showEdit
+		td return an HTML form for editing a specific photo
+	tr
+		td GET
+		td { prefix }photos/new
+		td showNew
+		td return an HTML form for creating and new photo

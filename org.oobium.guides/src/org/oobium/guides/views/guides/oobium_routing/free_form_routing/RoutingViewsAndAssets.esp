@@ -1,0 +1,48 @@
+title Routing Views and Assets
+
+p Controllers provide a great tool for handling requests and generating custom tuned responses, but for certain
+	+w things we don't need any of this power - the resource we want rendered has already been setup to be returned
+	+w as a response. This is true for three main cases:
+ul
+	li Assets (images, style sheets, javascript files, sound files, etc.)
+	li Views that are primarily static (HTML done in ESP is a good example)
+	li Dynamic Assets that are primarily static (CSS or JS files done in ESS or EJS, respectively)
+
+p The first one, assets, is dealt with a little differently than the others because it is easy to assemble a large
+	+w quantity of these files and manually configuring a route for each of them would be a major pain. Rather, Oobium
+	+w simply wants to know whether or not to route them (all of them):
+
+div.code <- code.java
+	+> router.addAssetRoutes();
+
+p That's it, all your files in the assets folder are now visible and world wide web.  Neato.
+
+p Plain static assets are also routed all together because there isn't that much overhead to serving them - we simply
+	+w find the resource and stream the data back to the client. Dynamic Assets take a little more than this,
+	+w however, so Oobium requires that each be specified with an explicit route:
+
+div.code <- code.java
+	+> router.addAsset(Styles.class);
+
+p Note that in neither case do we need to specify HTTP verbs or paths - assets (of either type) only ever served up
+	+w via a GET request (unless you go through a controller, of course) and their paths are automatically determined
+	+w by Oobium:
+ul
+	li Images in the /assets/images folder are mapped to just their name ("example.png")
+	li Stylesheets in the /assets/styles folder are mapped to just their name ("application.css")
+	li Javascript files in the /assets/scripts folder are mapped to just their name ("jquery-1.4.1.js")
+	li Static Assets in other folders: /assets/myfile.txt -> "/myfile.txt"; /assets/updates/site.xml -> "/udpates/site.xml"
+	li Dynamic Assets are mapped by their fully qualified Java class names: 
+		+w Styles.ess in the com.test.blog.views package -> "/com/test/blog/views/Styles.css"
+
+p Views on the other hand, need a path to specified, such as:
+
+div.code <- code.java
+	+> router.addView("/welcome", WelcomePage.class);
+
+p As with resource and direct routing, the path argument in view routes can also take variables and constants. 
+
+div.note
+	+w For more information on Views and Dynamic Assets in Oobium, refer to the 
+	a("todo") All about ESP files
+	+w guide.

@@ -1,3 +1,5 @@
+import org.oobium.www.common.views.Header
+
 title org.oobium.www: { titleize(getChild().getClass().getSimpleName()) }
 
 head
@@ -5,11 +7,11 @@ head
 
 div#allContent
 	div#topper
+		div#topperContent
+			div#navBar <- view<Header>
+			div <- a(href:"/") <- img#logo(src:"/brightLogo.png")
 	div#header
-		div#headerContent
-			div#logo
-				a(href:"/") <- img(src:"/brightLogo.png")
-	div#topBar 
+	div#topBar
 		div#topBarContent <- yield("topBarContent")
 	div#main
 		div#mainContent <- yield
@@ -27,3 +29,6 @@ div#allContent
 				+w "Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.<br/>
 				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
 				+w Other names may be trademarks of their respective owners.
+			p The Oobium Framework and Tools are open source and released under the 
+				a("http://www.opensource.org/licenses/eclipse-1.0.php") Eclipse Public License (EPL)
+				+= .

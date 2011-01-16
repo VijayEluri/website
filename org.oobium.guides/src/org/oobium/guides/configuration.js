@@ -5,12 +5,14 @@ session: "org.oobium.session.db",
 persist: "org.oobium.persist.db.derby.embedded",
 server:  "org.oobium.server",
 
+modules: "org.oobium.www.common_1.0.0",
+
 dev: {
 	host: "localhost",
 	port: 5000,
 	modules: [
-		"org.oobium.app.dev_0.5.0",
-		"org.oobium.manager_0.5.0"
+		"org.oobium.app.dev_0.6.0",
+		"org.oobium.manager_0.6.0"
 	],
 },
 

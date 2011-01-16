@@ -1,0 +1,9 @@
+title Oobium Routing
+
+p This guide covers the features of Oobium routing. By referring to this guide, you will be able to:
+ul.intro
+	li Construct your own routes, using RESTful and adhoc styles
+	li Automatically create paths and URLs
+	li Add parameters that can be received in an action
+	li Publish your routes as public and private API
+	li Protect your routes and assets with Basic Authentication

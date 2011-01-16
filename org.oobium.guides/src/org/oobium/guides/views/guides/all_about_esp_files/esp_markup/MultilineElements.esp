@@ -19,10 +19,10 @@ div.code <- code
 
 p almost what we wanted. There is no space between the word "fox" and the word "jumps" because we never asked for one - 
 	+w inner text starts <i>after</i> the first space of an element, this includes the + element. To handle this we could
-	+w simply add a  space at the end of the first line or at the beginning of the second line, but this would create a an
+	+w simply add a space at the end of the first line, or at the beginning of the second line, but this would create an
 	+w important character that was hidden from the programmer, and thus easily lost in future revisions. A better solution
-	+w is to a derivative of the + element: +w. This is also an inner text extension element but has the added feature of
-	+w making to add a word separator between the lines if one is not already present. Thus:
+	+w is to use a derivative of the + element: +w. This is also an inner text extension element but has the added feature
+	+w of making sure to add a word separator between the lines if one is not already present. Thus:
 
 div.code <- code
 	+= <span class="espTag">p</span> <span class="espIText">The quick brown fox</span>\n

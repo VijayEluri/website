@@ -1,0 +1,14 @@
+title Defining Home
+
+p Nearly all web applications have a home page, so it only makes sense to provide a way to setting this up as
+	+w simple and quick as possible. In Oobium, we use the setHome method here. The most common being the version
+	+w that takes a View class:
+
+div.code <- code.java
+	+> router.setHome(Home.class)
+
+p Another option is to use a single resourse or controller and the appropriate action:
+
+div.code <- code.java
+	+= router.setHome(Photos.class, <span class="javaStaticField">showAll</span>)
+
