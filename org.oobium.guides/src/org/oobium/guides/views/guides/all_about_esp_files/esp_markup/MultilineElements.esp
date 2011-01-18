@@ -2,11 +2,12 @@ title Multi-line Elements
 
 p Oobium's ESP format is a bit of a stickler when it comes to elements spanning more than one line. More than one
 	+w element per line is alright (if kept as the exception), but having an element span two or more lines is currently
-	+w unacceptable, with one exception: the inner text.
+	+w unacceptable, with (of course) a few exceptions: styles, scripts, and an element's inner text. Style and script
+	+w sections are covered later; we'll cover the inner text here.
 
-p It can be especially handy put to decent amounts of text directly into an ESP document (like these guides) that will
+p It can be quite handy put to decent amounts of text directly into an ESP document (like these guides) and that will
 	+w most certainly be easier to do with multiple lines rather than one extremely long line. To accomodate this, ESP
-	+w allow the continuation of the inner text part of an element on the next line with the use of an extension element:
+	+w allows the continuation of the inner text part of an element on the next line with the use of an extension element:
 
 div.code <- code
 	+= <span class="espTag">p</span> <span class="espIText">The quick brown fox</span>\n

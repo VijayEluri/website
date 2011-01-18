@@ -1,0 +1,25 @@
+title External Javascript Files
+
+p The first and foremost use of the script tag is what you'll see in a generated application's _Layout.esp file:
+div.code <- code
+	+= <span class="espTag">script</span>(defaults)
+
+p This creates two links that will import JQuery and your application's application.js file:
+
+div.code <- code
+	+> <script src="/jquery_1.4.4.js"></script>
+	+> <script src="/application.js"></script>
+
+p If you want to include a specific Javascript file (or several), you can use the following format:
+
+div.code <- code
+	+= <span class="espTag">script</span>(error_handler.js, lightbox.js)
+
+p For each file specified, a script element is created:
+
+div.code <- code
+	+> <script src="/error_handler.js"></script>
+	+> <script src="/lightbox.js"></script>
+
+p Since the script tag will only include javascript files, the ".js" is rather reduntant and can be ommitted if desired.
+

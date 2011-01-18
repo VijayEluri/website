@@ -1,0 +1,27 @@
+title HTML Head and Body
+
+p An HTML page has two very important elements: the HEAD, and BODY. Oobium's ESP files recognize this and allows
+	+w you to write them in as follows:
+
+div.code <- code
+	+= <span class="espTag">head</span>\n
+	+= <span class="espTab">  </span><span class="espTag">title</span> <span class="espIText">home page</span>\n
+	+= <span class="espTag">body</span>\n
+	+= <span class="espTab">  </span><span class="espTag">div</span> <span class="espIText">hello</span>
+
+p Head and Body can also be implied so that the above code could also be written as:
+
+div.code <- code
+	+= <span class="espTag">title</span> <span class="espIText">home page</span>\n
+	+= <span class="espTag">div</span> <span class="espIText">hello</span>
+
+p When and how are they implied? Any time one is not specified it is in the body <i>unless</i> it is for an HTML
+	+w element that only belongs in the head, such as title. We can also create multiple head elements - they are
+	+w simply concatenated, and put them in any order. Therefore we could also write the above as:
+
+div.code <- code
+	+= <span class="espTag">div</span> <span class="espIText">hello</span>\n
+	+= <span class="espTag">title</span> <span class="espIText">home page</span>
+
+p Does it make sense to do this here? Not really, but it might later when coupled with control statements in Java
+	+w elements.

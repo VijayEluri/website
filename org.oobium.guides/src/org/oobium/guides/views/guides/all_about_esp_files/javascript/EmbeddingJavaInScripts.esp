@@ -1,0 +1,23 @@
+title Embedding Java in Scripts
+
+p Embedding Java code in Javascript is usually not as useful or necessary as it is in CSS becuase Javascript has its
+	+w own ways of doing variables and equations. It still possible though, and works just the same as in a style
+	+w element - by using the special ":=" assignment operator:
+
+div.code <- code
+	+= - String favcolor = <span class="javaText">"blue"</span>;\n
+	+= \n
+	+= <span class="espTag">script</span>\n
+	+= <span class="espTab">  </span>function setColor(el) {\n
+	+= <span class="espTab">  </span>  el.color := favcolor; <span class="javaComment">// <- this is a Java assignment</span>\n
+	+= <span class="espTab">  </span>}\n
+
+p A more practical use for this, and the reason for its inclusion in ESP files, is for dealing with JSON data:
+
+div.code <- code
+	+= - String favcolor = <span class="javaText">"blue"</span>;\n
+	+= \n
+	+= <span class="espTag">script</span>\n
+	+= <span class="espTab">  </span>object = {\n
+	+= <span class="espTab">  </span>  color := favcolor\n
+	+= <span class="espTab">  </span>}\n

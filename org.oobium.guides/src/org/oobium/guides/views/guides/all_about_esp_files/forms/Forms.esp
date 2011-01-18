@@ -1,3 +1,71 @@
 title Forms
 
-p TODO
+p Since all standard ESP elements compile straight to XML/XHTML, we can write forms using all the same knowledge we
+	+w we have from normal HTML programming:
+
+div.code <- code
+	+= <span class="espTag">form</span>(action: <span class="javaText">"/posts"</span>, method: <span class="javaText">"post"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">label</span>(for: <span class="javaText">"post[title]"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">input</span>(type: <span class="javaText">"text"</span>, name: <span class="javaText">"post[title]"</span>)
+
+p If we have a model, however, we can simplify the form and speed up its integration into our system. Assuming the
+	+w variable post is of type Post, which has a field named "title", the same form becomes:
+
+div.code <- code
+	+= <span class="espTag">form</span>(post)\n
+	+= <span class="espTab">  </span><span class="espTag">label</span>(title)\n
+	+= <span class="espTab">  </span><span class="espTag">text</span>(title)
+
+p This is simpler and easier to read, but the real beauty is that the values for the fields will automatically be
+	+w filled in using the model. Each field will be named {modelName}[{fieldName}], like "post[title]" in this case,
+	+w which will be parse as a map when sent to the Oobium server and made available in the parameters map.
+
+p I also decided to use an ESP tag "text" rather than an HTML input for readability. This tag compiles into a 
+	+w regular HTML input with a type of "text" anyways. To help with readability in forms, ESP files can make use
+	+w of several convenient tags like this:
+
+table
+	tr
+		th Element
+		th Description
+		th Example
+	tr
+		td <span class="espTag">check</span>
+		td an input of type checkbox
+		td <- check
+	tr
+		td <span class="espTag">date</span>
+		td a set of inputs formatted as date fields
+		td <- date
+	tr
+		td <span class="espTag">file</span>
+		td an input of type file
+		td <- file
+	tr
+		td <span class="espTag">hidden</span>
+		td an input of type hidden
+		td <- hidden
+	tr
+		td <span class="espTag">number</span>
+		td an input of type text, with Javascript to prevent<br/> non-numbers from being entered
+		td <- number
+	tr
+		td <span class="espTag">options</span>
+		td creates an option set for a select element
+		td <- select <- options(new String[] { "option 1", "option 2"})
+	tr
+		td <span class="espTag">password</span>
+		td an input of type password
+		td <- password
+	tr
+		td <span class="espTag">reset</span>
+		td an input of type reset
+		td <- reset
+	tr
+		td <span class="espTag">submit</span>
+		td an input of type submit
+		td <- submit
+	tr
+		td <span class="espTag">text</span>
+		td an input of type text
+		td <- text

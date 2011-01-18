@@ -1,3 +1,44 @@
-title Views and Dynamic Assets
+title The View Tag
 
-p TODO
+p The simplest way to include another view is to use the ESP tag "view":
+
+div.code <- code
+	+ <span class="espTag">view</span>{"<Type>"}(arg1, arg2)
+
+p The view tag is a little different from a most ESP elements because it does not compile straight to XML, rather it
+	+w exists purely in the ESP realm. To figure out what it is, let's first discuss what it is trying to do.
+
+p When the page is rendered and a view tag is encountered, we want the rendering engine to stop what it is doing in
+	+w the current view, and render the view specifiec by the view tag. To do so, it must instantiate the specified
+	+w view, and to do this it needs a couple pieces of information: 1. what view to instantiate, and; 2. what arguments
+	+w to pass the constructor when doing so.
+
+p The "{"<Type>"}" part of the view tag is where we specify #1 - it is used
+	+w just like a generic in Java and the full qualifier for the type (if not in the same package) must be declared in
+	+w the imports.
+
+p For the second part, we simply pass in the arguments as if we were calling the constructor right here - arg1 and arg2
+	+w get passed on as if we were. What arguments do we pass in? Recall earlier in this guide the section on constructors;
+	+w each ESP file can have explicity defined constructors (just like a Java file) and these define what needs to be
+	+w passed in. If there is no constructor defined then there is an implicit one that takes no arguments (again, just
+	+w like in Java). Therefore, if we want to embed the following ESP file named Say.esp:
+
+div.code <- code
+	+= <span class="javaKeyword">Say</span>(String text)\n
+	+= <span class="espTag">div</span>.say { text }
+
+p we would write:
+
+div.code <- code
+	+= <span class="espTag">div</span>#conversation\n
+	+ <span class="espTab">  </span><span class="espTag">div</span>.person1 <- <span class="espTag">view</span>{"<Say>"}(<span class="javaText">"knock knock"</span>)\n
+	+ <span class="espTab">  </span><span class="espTag">div</span>.person2 <- <span class="espTag">view</span>{"<Say>"}(<span class="javaText">"who's there?"</span>)\n
+
+p If the Say.esp view was in a different package, then we would need to import it (just like in Java):
+
+div.code <- code
+	+= <span class="javaKeyword">import</span> some.other.package.Say\n
+	+> 
+	+= <span class="espTag">div</span>#conversation\n
+	+ <span class="espTab">  </span><span class="espTag">div</span>.person1 <- <span class="espTag">view</span>{"<Say>"}(<span class="javaText">"knock knock"</span>)\n
+	+ <span class="espTab">  </span><span class="espTag">div</span>.person2 <- <span class="espTag">view</span>{"<Say>"}(<span class="javaText">"who's there?"</span>)\n

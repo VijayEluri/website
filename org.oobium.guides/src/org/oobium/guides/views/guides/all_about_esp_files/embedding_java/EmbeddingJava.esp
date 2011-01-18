@@ -1,3 +1,7 @@
 title Embedding Java
 
-p 
+p Being able to embed a server-side language into a template is both a powerful and dangerous proposition.
+	+w It can help you quickly and efficiently create complex web pages, but if taken too far, can lead to the unsightly
+	+w practice of embedding busines logic in the presentation layer - not good.
+
+p So, how to embed Java in an ESP file? There are two ways: Java Elements and Java Parts.

@@ -1,0 +1,24 @@
+title Inline Styles
+
+p The style tag also supports inline styles in several variants. You can put a css selector on the same line as the
+	+w style tag, separated by a space (as though it were an inner text part), as well as putting them on separate lines
+	+w as children of the style tag:
+
+div.code <- code
+	+= <span class="espTag">style</span> #favorites { <span class="essProp">color</span>: blue; <span class="essProp">font-weight</span>: bold }\n
+	+> 
+	+= <span class="espTag">style</span>\n
+	+= <span class="espTab">  </span>#content { <span class="essProp">color</span>: black }\n
+	+= <span class="espTab">  </span>#favorites { <span class="essProp">color</span>: blue; <span class="essProp">font-weight</span>: bold }
+
+p You can also continue down this hierarchical layout path and put each selector's properties on a separate line,
+	+w as a child of the selector itself. Of course, if we do this then there really isn't any need for the curly
+	+w braces or semicolons, and we're left with something like this:
+
+div.code <- code
+	+= <span class="espTag">style</span>\n
+	+= <span class="espTab">  </span>#content\n
+	+= <span class="espTab">    </span><span class="essProp">color</span>: black\n
+	+= <span class="espTab">  </span>#favorites\n
+	+= <span class="espTab">    </span><span class="essProp">color</span>: blue\n
+	+= <span class="espTab">    </span><span class="essProp">font-weight</span>: bold\n

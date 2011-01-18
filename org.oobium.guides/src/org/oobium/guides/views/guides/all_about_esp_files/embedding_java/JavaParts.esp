@@ -1,3 +1,70 @@
 title Java Parts
 
-p TODO
+p Unlike Java elements, Java parts are evaluated to a String and the result is inserted into your ESP code:
+
+div.code <- code.java
+	+=  <span class="espTag">div</span>#title { post.getTitle() }
+
+p Everything between curly braces is pure Java code, so if the value of the post model's title field is
+	+w "Building Web Services with Oobium", then the generated HTML will be:
+
+div.code <- code
+	+> <div id="title">Building Web Services with Oobium</div>
+
+p Right off the bat you may see a familiar security problem here and wonder how we can HTML escape the data that we
+	+w inject into our pages. We really don't want to generate something like this:
+
+div.code <- code
+	+> <div id="title"><script>doNastyStuff()</script></div>
+
+p Oobium makes this easy to prevent, just the same as other frameworks: there are several methods for escaping
+	+w code available in the View class, which is the super class of all compiled ESP files and, therefore, readily at
+	+w your disposal:
+ul
+	li <code>htmlEscape(object)</code> - shortcut: <code>h(object)</code>
+		p Escape the characters that would allow injection of new HTML elements
+	li <code>jsonEscape(object)</code> - shortcut: <code>j(object)</code>
+		p Escape the characters that would cause problems in JSON
+	li <code>formEscape(object)</code> - shortcut: <code>f(object)</code>
+		p If <code>object</code> is a JsonModel, then return its id, otherwise delegate to HTML escape
+	li <code>nullEscape(object)</code> - shortcut: <code>n(object)</code>
+		p If <code>object</code> is null, then return an empty String, otherwise delegate to HTML escape
+
+p Thus you could escape any dangerous HTML by writing:
+
+div.code <- code.java
+	+=  <span class="espTag">div</span>#title { h(post.getTitle()) }
+
+p You could, but you actually don't have to - Oobium HTML escapes all Java parts by default. But the concept is the
+	+w same should you want to use it in other places (a Java element perhaps), or you want to use a different type
+	+w of escaping.
+
+p Still, we could go a step further and integrate these common steps a little more. And there's also the question of
+	+w what to do when we <i>don't</i> want the HTML escaped.
+
+p Rather than make you write out extra Java syntax, ESP has a special notation for each type of escape - follow the
+	+w opening brace with the letter corresponding to the escape function:
+
+div.code <- code.java
+	+=  <span class="espTag">div</span>#title {h post.getTitle() } // HTML escaped (default)\n
+	+=  <span class="espTag">div</span>#title {j post.getTitle() } // JSON escaped\n
+	+=  <span class="espTag">div</span>#title {f post.getTitle() } // Form escaped\n
+	+=  <span class="espTag">div</span>#title {n post.getTitle() } // Null escaped\n
+	+=  <span class="espTag">div</span>#title {r post.getTitle() } // Raw: not escaped at all\n
+
+p Java parts are certainly a useful way of getting data from your models and displaying it in the inner text part of
+	+w HTML elements, but it can used for much more. Actually, Java parts can exist in almost any part of an ESP
+	+w element, they can also appear has many times per line as necessary:
+
+div.code <- code.java
+	+=  <span class="espTag">div</span>#{ elemId }\n
+	+=  <span class="espTag">div</span>#.{ first ? "firstTab" : "tab" } { tabName }\n
+
+p The only real limitation is that they cannot span parts of the ESP element. The following ESP code
+
+div.code <- code.java
+	+=  <span class="espTag">div</span>#{ "title.highlight" }\n
+
+p would <i>not</i> evaluate to a div with an id of "title" and a class of "highlight". This is becuase ESPs compile in
+	+w a single pass - the above code does <i>not</i> evalauate the Java parts and then compile the ESP. The best way
+	+w to see this is to try out a few and look at the generated Java file.

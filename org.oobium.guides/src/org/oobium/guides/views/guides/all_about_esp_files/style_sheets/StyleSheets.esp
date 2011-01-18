@@ -1,3 +1,5 @@
-title Style Sheets
+title CSS and Styles
 
-p TODO
+p CSS is written in ESP files using the "style" tag. Unlike most ESP elements the style tag is overloaded to handle
+	+w the many different things you may want to do. As in regular HTML, a style section can occur in the Head or Body
+	+w elements. In ESP they are exactly the same so, for the sake of brevity, the examples below leave out the specifier.

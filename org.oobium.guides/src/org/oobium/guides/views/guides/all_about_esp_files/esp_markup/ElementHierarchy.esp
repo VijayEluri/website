@@ -42,3 +42,11 @@ div.code <- code
 
 p Oh yea, you can also put comments in ESP files just like in Java files. The double forward-slash comments out everything
 	+w to the end of the line, and the /* */ syntax can be used for multi-line comments.
+
+p One last note is that child elements are allowed to be "over-indented":
+
+div.code <- code
+	+= <span class="espTag">table</span>\n
+	+= <span class="espTab">    </span><span class="espTag">tr</span>
+	+w <span class="javaComment">// two (or more) tabs instead of one are fine, and in some cases visually useful</span>\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> <span class="espIText">cell 1</span>

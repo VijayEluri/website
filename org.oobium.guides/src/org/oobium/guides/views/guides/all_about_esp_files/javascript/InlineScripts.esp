@@ -1,0 +1,13 @@
+title Inline Scripts
+
+p The script tag also supports inline scripts, though there aren't many variants like with styles. Everything that
+	+w is a descendent of a script tag is in the same Javascript block:
+
+div.code <- code
+	+= <span class="espTag">script</span>\n
+	+= <span class="espTab">  </span>function setColor(el, color) {\n
+	+= <span class="espTab">  </span>  el.color = color;\n
+	+= <span class="espTab">  </span>}\n
+
+p The Javascript in this block is rendered verbatim, with the only exception being any embedded Java code. I didn't
+	+w highlight the indentation past the first tab (and the Oobium ESP editor won't either), because it is irrelevant.

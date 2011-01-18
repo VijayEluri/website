@@ -1,3 +1,4 @@
 title Embedding other ESP files
 
-p TODO
+p It is often advantageous to break up pages into components that can be reused and remixed. This not only helps with
+	+w managing the structure of pages, but keeping things DRY eases long term maintenance headaches.

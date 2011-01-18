@@ -106,6 +106,9 @@ ul
 	list-style-type: square
 li
 	margin: 0.5em 0
+li p
+	margin-top: 5px
+	padding-left: 5px
 
 ul.intro li
 	background: url("/Ball.png") no-repeat scroll left 0.75em
@@ -113,6 +116,7 @@ ul.intro li
 	font-weight: bold
 	list-style: none outside none
 	padding: 0.5em 1.75em
+	margin: 0
 
 .intro
 	width: 580px
@@ -221,6 +225,11 @@ div.warning
 .espOp
 	color: #833
 /* END - ESP Syntax Coloring */
+
+/* START - ESS Syntax Coloring */
+.essProp
+	color: #048
+/* END - ESS Syntax Coloring */
 
 table
 	border-collapse: collapse

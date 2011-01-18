@@ -1,0 +1,24 @@
+title External StyleSheets
+
+p The first and foremost use of the style tag is what you'll see in a generated application's _Layout.esp file:
+div.code <- code
+	+= <span class="espTag">style</span>(defaults)
+
+p This creates an link that will import your application's application.css file:
+
+div.code <- code
+	+> <link href="/application.css" type="text/css" rel="stylesheet">
+
+p If you want to include a specific CSS file (or several), you can use the following format:
+
+div.code <- code
+	+= <span class="espTag">style</span>(error_styles.css, blog_styles.css)
+
+p For each file specified, a link is created:
+
+div.code <- code
+	+> <link href="/error_styles.css" type="text/css" rel="stylesheet">
+	+> <link href="/blog_styles.css" type="text/css" rel="stylesheet">
+
+p Since the style tag will only include style sheets, the ".css" is rather reduntant and can be ommitted if desired.
+
