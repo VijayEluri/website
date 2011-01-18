@@ -31,3 +31,13 @@ p Next, you may want to add authentication to your static assets and, since ther
 p The authentication.realm file contains just one line: the name of a realm. Now when Oobium encounters this file, it
 	+w will consider the contents of the parent folder, and all subfolders, to belong to the specified realm, thereby
 	+w preventing access to any of them unless the request has been authenticated and the username has been authorized.
+
+p Note that using Basic Authentication can also be achieved in the controller. Authenticating at the controller level
+	+w can have advantages, such as allowing dynamic lookup of authorizations, but sometimes you don't need the added
+	+w flexibility and handling it at the router level is simpler - the controller never comes into play, it's not even
+	+w created or called. And, of course, for static assets there is no controller in play to
+	+w begin with, so router level authentication is your only option.
+
+div.note For adding Basic Authentication at the controller level, see the Getting Started guide's 
+	a("http://guides.oobium.org/getting_started#security") Security section
+	+= .

@@ -30,7 +30,7 @@ public class OobiumRouting extends Guide {
 
 	public OobiumRouting() {
 		super(new Intro());
-		summary = "This guide covers the user-facing features of Oobium routing. If you want to understand how to use routing in your own Oobium applications, start here.";
+		summary = "If you want to understand how to use routing in your own Oobium applications, start here.";
 		chapters = new Chapter[] { 
 			/*1*/ new Chapter(new ThePurposeOfTheOobiumRouter(), new View[] {
 									new ConnectingURLsToCode(),

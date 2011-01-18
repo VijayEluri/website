@@ -1,7 +1,7 @@
-title Publishing Routes
+title Publishing Routes as API
 
-p Your application's collection of routes are really its API, and getting the most recent copy out to your consumers
-	+w (and keeping it up-to-date) can be a real challenge. Oobium helps you manage this task by allowing you to
+p Your application's collection of routes are really its API, and getting the most recent copy out to clients
+	+w (and keeping them up-to-date) can be a real challenge. Oobium helps you manage this task by allowing you to
 	+w publish any and all routes that you add. After adding a route (of any type), simply call the publish() method
 	+w on the returned object:
 
