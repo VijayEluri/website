@@ -1,7 +1,7 @@
 title Forms
 
 p Since all standard ESP elements compile straight to XML/XHTML, we can write forms using all the same knowledge we
-	+w we have from normal HTML programming:
+	+w have from normal HTML programming:
 
 div.code <- code
 	+= <span class="espTag">form</span>(action: <span class="javaText">"/posts"</span>, method: <span class="javaText">"post"</span>)\n

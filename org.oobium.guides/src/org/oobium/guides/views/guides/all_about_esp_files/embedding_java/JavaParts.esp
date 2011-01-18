@@ -65,6 +65,6 @@ p The only real limitation is that they cannot span parts of the ESP element. Th
 div.code <- code.java
 	+=  <span class="espTag">div</span>#{ "title.highlight" }\n
 
-p would <i>not</i> evaluate to a div with an id of "title" and a class of "highlight". This is becuase ESPs compile in
+p would <i>not</i> evaluate to a div with an id of "title" and a class of "highlight". This is because ESPs compile in
 	+w a single pass - the above code does <i>not</i> evalauate the Java parts and then compile the ESP. The best way
 	+w to see this is to try out a few and look at the generated Java file.

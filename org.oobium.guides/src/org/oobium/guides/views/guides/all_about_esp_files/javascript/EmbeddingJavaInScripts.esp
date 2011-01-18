@@ -1,6 +1,6 @@
 title Embedding Java in Scripts
 
-p Embedding Java code in Javascript is usually not as useful or necessary as it is in CSS becuase Javascript has its
+p Embedding Java code in Javascript is usually not as useful or necessary as it is in CSS because Javascript has its
 	+w own ways of doing variables and equations. It still possible though, and works just the same as in a style
 	+w element - by using the special ":=" assignment operator:
 
