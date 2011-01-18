@@ -16,10 +16,10 @@ div.code <- code.java
 p and an equals sign (=) is a constant:
 
 div.code <- code.java
-	+= router.addResource("/photos/{thumbnails<u>=</u>true}", Photo.class, <span class="javaStaticField">showAll</span>)
+	+= router.addResource("/photos/{album<u>=</u>spring_2007}", Photo.class, <span class="javaStaticField">showAll</span>)
 
 p The beauty of these is that they become availabe in the controller (or view) as part of the parameters map.
-	+w Thus, GET requests for "/photos/summer_2009" and  "/photos/winter_2008" would both route to the 
+	+w Thus, GET requests for "/photos/summer_2009" and "/photos/winter_2008" would both route to the 
 	+w PhotoController#showAll method and the value of the "album" variable could be retrieved with param("album"):
 
 div.code <- code.java
@@ -34,8 +34,8 @@ div.code <- code.java
 	+>   }
 	+> }
 
-p The constant example, on the other hand, would only handle a GET request for the path "/photos/thumbnails". Like
-	+w the variable example though, the parameters map would contain an entry named "thumbnails" with a value of "true".
+p The constant example, on the other hand, would only handle a GET request for the path "/photos/spring_2007". Like
+	+w the variable example though, the parameters map would contain an entry named "album" with a value of "spring_2007".
 
 p Actual HTTP parameters, as expressed in the path argument, can also contain variables and constants. The difference
 	+w though, is that constants in the HTTP parameters do not need to be in the requested path, yet will always exist
