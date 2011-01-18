@@ -34,7 +34,8 @@ public class Guide {
 		add("Views", new AllAboutEspFiles());
 		add("Views", new LayoutsAndRenderingInOobium());
 		add("Controllers", new OobiumRouting());
-		add("Digging Deeper", new TestingOobiumApplications());
+		add("Start Here", new TestingOobiumApplications());
+//		add("Digging Deeper", new TestingOobiumApplications());
 	}
 	
 	private static void add(String program, Guide guide) {
