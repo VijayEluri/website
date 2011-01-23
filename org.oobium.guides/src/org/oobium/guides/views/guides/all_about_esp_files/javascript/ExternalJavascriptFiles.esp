@@ -21,5 +21,5 @@ div.code <- code
 	+> <script src="/error_handler.js"></script>
 	+> <script src="/lightbox.js"></script>
 
-p Since the script tag will only include javascript files, the ".js" is rather reduntant and can be ommitted if desired.
+p Since the script tag will only include JavaScript files, the ".js" is rather redundant and can be omitted if desired.
 

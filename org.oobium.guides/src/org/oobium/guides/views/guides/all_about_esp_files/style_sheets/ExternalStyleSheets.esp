@@ -20,5 +20,5 @@ div.code <- code
 	+> <link href="/error_styles.css" type="text/css" rel="stylesheet">
 	+> <link href="/blog_styles.css" type="text/css" rel="stylesheet">
 
-p Since the style tag will only include style sheets, the ".css" is rather reduntant and can be ommitted if desired.
+p Since the style tag will only include style sheets, the ".css" is rather redundant and can be omitted if desired.
 
