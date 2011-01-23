@@ -1,25 +1,32 @@
 title Oobium.org :: Deploy
 
 div#features(style:"margin-top: -60px")
-	h2 Deploy
-	
+	h2 Automated Deployment
 	p Oobium includes the means to deploy your applications to any machine that it can SSH into:
 	ul
-		li Create a site.js file
+		li Create the site.js file in your application's main folder
 		li Run "remote deploy" in the Oobium console
 	
 	p If your application uses a database, running your migrations on the remote machine is just as easy:
 	ul
 		li Run "remote migrate" in the Oobium console
 	
+	h2 Manual Deployment
+	p If you prefer, you can also manually deploy your application anywhere you want. Just have Oobium export
+		+w it, and then you can move the whole directory (it's ready to run at this point) as you wish.
+	ul
+		li Run "export" in the Oobium console
+			p Upon completion, you'll get a link to the folder containing a newly
+				+w created and ready-to-run application.
+	
 	h2 The Site configuration file
-	p The site.js file is in JSON format (though you can leave out the opening braces if you want) and located in
-		+w the same package as the application's configuration.js file.
+	p The site.js file is in JSON format (though you can leave out the opening and closing braces if you want) and
+		+w located in the same package as the application's configuration.js file.
 	p Currently, site.js accepts the following fields:
 	ul
 		li apps (optional)
 			p A list of applications which, in addition to the application containing the site.js file, should be
-				+w included in the deployment. If ommitted, only the containing application will be deployed.
+				+w included in the deployment. If omitted, only the containing application will be deployed.
 		li host (required)
 			p The name of the host, or server, to which to deploy the application. Can be a domain name or IP Address.
 		li path (optional)
@@ -35,7 +42,7 @@ div#features(style:"margin-top: -60px")
 				+w as always when using sudo!)
 	p For example, an application named com.mydomain.www, might have a site.js like this:
 	div.js <- code
-		+= apps: [ <span class="javaText">"com.mydomain.common"</span>, <span class="javaText">"com.mydomain.blog"</span> ],\n
+		+= apps: [ <span class="javaText">"org.mydomain.www"</span>, <span class="javaText">"com.mydomain.blog"</span> ],\n
 		+> 
 		+= host:      <span class="javaText">"mydomain.com"</span>,\n
 		+= path:      <span class="javaText">"my-apps"</span>,\n
