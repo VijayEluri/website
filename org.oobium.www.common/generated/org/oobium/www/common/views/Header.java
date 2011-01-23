@@ -14,7 +14,7 @@ public class Header extends View {
 
 	@Override
 	public void doRenderBody(StringBuilder __sb__) throws Exception {
-		__sb__.append("<ul><li class=\"firstTab\"><a href=\"http://www.oobium.org\">Oobium.org</a></li><li class=\"tab\"><a href=\"http://guides.oobium.org/\">Guides</a></li><li class=\"tab\"><a href=\"http://www.oobium.org/install\">Install</a></li><li class=\"tab\"><a href=\"http://www.oobium.org/license\">License</a></li><li class=\"lastTab\"><a href=\"https://github.com/oobium\">GitHub</a></li></ul>");
+		__sb__.append("<ul><li class=\"firstTab\"><a href=\"http://www.oobium.org\">Oobium.org</a></li><li class=\"tab\"><a href=\"http://guides.oobium.org/\">Guides</a></li><li class=\"tab\"><a href=\"http://www.oobium.org/install\">Install</a></li><li class=\"tab\"><a href=\"http://www.oobium.org/deploy\">Deploy</a></li><li class=\"tab\"><a href=\"http://www.oobium.org/license\">License</a></li><li class=\"lastTab\"><a href=\"https://github.com/oobium\">GitHub</a></li></ul>");
 	}
 
 }

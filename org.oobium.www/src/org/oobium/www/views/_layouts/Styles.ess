@@ -147,3 +147,20 @@ img
 	font-size: 12px
 	padding: 20px 0px
 
+div.js code
+	display: block
+	font-family: monaco, "Bitstream Vera Sans Mono", "Courier New", courier, monospace
+	margin: 0.25em 0
+	overflow: auto
+	white-space: pre
+
+div.js
+	color: #000
+	background: url("/tab_js.gif") no-repeat scroll left top #eee
+	padding: 1.25em 1.25em 1.25em 48px
+
+.javaText
+	color: #2A00FF
+
+.javaKeyword
+	color: #7F0055

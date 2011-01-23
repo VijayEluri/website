@@ -4,6 +4,7 @@ import org.oobium.app.AppService;
 import org.oobium.app.server.routing.Router;
 import org.oobium.utils.Config;
 import org.oobium.www.views._layouts.Styles;
+import org.oobium.www.views.pages.Deploy;
 import org.oobium.www.views.pages.FullInstall;
 import org.oobium.www.views.pages.Home;
 import org.oobium.www.views.pages.Install;
@@ -16,6 +17,7 @@ public class Activator extends AppService {
 		router.setHome(Home.class);
 		router.addAssetRoutes();
 		router.addAsset(Styles.class);
+		router.add("deploy").asView(Deploy.class);
 		router.add("install").asView(Install.class);
 		router.add("fullInstall").asView("full_install", FullInstall.class);
 		router.addView("license", License.class);
