@@ -2,12 +2,12 @@ Oobium Websites README
 
 DESCRIPTION
 
-  The Oobium websites project contains all the code for the websites pertaining
+  The Oobium Websites projects contain all the code for the websites pertaining
   to the open source Oobium Framework (and its tools).
 
   They are made available as examples of ESP based projects, as well as to
-  provide a place that people can criteque and comment on them (especially
-  the guides)
+  provide a place that people can critique and comment on them (especially
+  the guides).
 
   All feedback is welcome and appreciated: jeremy@oobium.com
 
@@ -15,14 +15,13 @@ DESCRIPTION
 
 INSTALLATION
 
-  Import all project into an Eclipse instance that has Oobium installed
+  Import all projects into an Eclipse instance that has Oobium installed
 
 RUNNING
 
-  Select one of the applications and issue the "start" command in the
-  Oobium Console.
+  Select one of the applications and issue the "start" command in the Oobium Console.
 
 LICENSE
 
-  The Oobium websites project follows the Oobium framework and is thus also
-  licensed under the Eclipse Public License (EPL).
+  The Oobium websites project follows the Oobium framework and is thus also licensed
+  under the Eclipse Public License (EPL).
