@@ -1,4 +1,4 @@
-title Embedding Java in Scripts
+title Embedding Java in JavaScript
 
 p Embedding Java code in Javascript is usually not as useful or necessary as it is in CSS because Javascript has its
 	+w own ways of doing variables and equations. It still possible though, and works just the same as in a style
@@ -8,7 +8,7 @@ div.code <- code
 	+= - String favcolor = <span class="javaText">"blue"</span>;\n
 	+= \n
 	+= <span class="espTag">script</span>\n
-	+= <span class="espTab">  </span>function setColor(el) {\n
+	+= <span class="espTab">  </span><span class="javaKeyword">function</span> setColor(el) {\n
 	+= <span class="espTab">  </span>  el.color := favcolor; <span class="javaComment">// <- this is a Java assignment</span>\n
 	+= <span class="espTab">  </span>}\n
 

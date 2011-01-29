@@ -24,6 +24,7 @@ import org.oobium.guides.views.guides.all_about_esp_files.javascript.EmbeddingJa
 import org.oobium.guides.views.guides.all_about_esp_files.javascript.ExternalJavascriptFiles;
 import org.oobium.guides.views.guides.all_about_esp_files.javascript.InlineScripts;
 import org.oobium.guides.views.guides.all_about_esp_files.javascript.Javascript;
+import org.oobium.guides.views.guides.all_about_esp_files.javascript.ModelsInJavascript;
 import org.oobium.guides.views.guides.all_about_esp_files.style_sheets.EmbeddingJavaInStyles;
 import org.oobium.guides.views.guides.all_about_esp_files.style_sheets.EssFiles;
 import org.oobium.guides.views.guides.all_about_esp_files.style_sheets.ExternalStyleSheets;
@@ -70,6 +71,7 @@ public class AllAboutEspFiles extends Guide {
 
 			/*6*/ new Chapter(new Javascript(), new View[] {
 									new ExternalJavascriptFiles(),
+									new ModelsInJavascript(),
 									new InlineScripts(),
 									new EmbeddingJavaInScripts(),
 									new EjsFiles()

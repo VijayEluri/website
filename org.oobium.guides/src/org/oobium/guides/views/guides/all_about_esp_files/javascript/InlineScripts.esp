@@ -1,11 +1,11 @@
-title Inline Scripts
+title Inline JavaScript
 
 p The script tag also supports inline scripts, though there aren't many variants like with styles. Everything that
 	+w is a descendent of a script tag is in the same Javascript block:
 
 div.code <- code
 	+= <span class="espTag">script</span>\n
-	+= <span class="espTab">  </span>function setColor(el, color) {\n
+	+= <span class="espTab">  </span><span class="javaKeyword">function</span> setColor(el, color) {\n
 	+= <span class="espTab">  </span>  el.color = color;\n
 	+= <span class="espTab">  </span>}\n
 
