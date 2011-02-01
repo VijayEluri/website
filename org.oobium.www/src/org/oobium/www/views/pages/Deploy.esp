@@ -4,8 +4,10 @@ div#features(style:"margin-top: -60px")
 	h2 Automated Deployment
 	p Oobium includes the means to deploy your applications to any machine that it can SSH into:
 	ul
-		li Create the site.js file in your application's main folder
 		li Run "remote deploy" in the Oobium console
+			p If you have created a "site.js" file containing the host details, then deployment will happend
+				+w automatically. Otherwise, you will be prompted for the relative information.
+				+w See the Site section below for more information.
 	
 	p If your application uses a database, running your migrations on the remote machine is just as easy:
 	ul

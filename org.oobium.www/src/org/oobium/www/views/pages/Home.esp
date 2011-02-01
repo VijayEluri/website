@@ -32,9 +32,10 @@ div#features
 					span.caption Installing Oobium (1:59)
 					div|hide <- img(src:"/thumbs/installing_oobium.jpg") // preload the roll-over image					
 				td(width:"100%")
-					img.thumbnail(src:"/thumbs/coming_soon-dis.jpg")
-					span.caption Coming Soon!
-					div|hide <- img(src:"/thumbs/coming_soon.jpg") // preload the roll-over image					
+					a(href:"http://www.youtube.com/watch?v=XJhe7dJMKxQ&hd=1", rel:"prettyPhoto", title:"")
+						img.thumbnail(src:"/thumbs/create_and_deploy-dis.jpg", alt:"Create and Deploy a Webservice", title:"Create and Deploy a Webservice (2:31)")
+					span.caption Create & Deploy a Webservice (2:31)
+					div|hide <- img(src:"/thumbs/create_and_deploy.jpg") // preload the roll-over image					
 	
 	p Oobium is a modular framework written in the Java language and leveraging OSGi. The applications you
 		+w create with it will also be modular and leverage OSGi for ease of configuration, build, and deployment.
