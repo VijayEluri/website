@@ -23,5 +23,5 @@ Import-Package: org.oobium.app,
  org.osgi.framework;version="1.4.0"
 Bundle-Activator: org.oobium.guides.Activator
 Export-Package: org.oobium.guides,
- org.oobium.guides.models
+ org.oobium.guides.controllers
 Bundle-ActivationPolicy: lazy
