@@ -1,6 +1,6 @@
 package org.oobium.www.common.views;
 
-import static org.oobium.app.server.controller.Action.*;
+import static org.oobium.http.constants.Action.*;
 import static org.oobium.utils.ArrayUtils.*;
 import static org.oobium.utils.StringUtils.*;
 import static org.oobium.utils.Utils.*;
