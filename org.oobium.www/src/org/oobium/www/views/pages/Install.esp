@@ -5,16 +5,20 @@ div#features(style:"margin-top: -60px; height: 300px")
 	
 	ul
 		li Step 0 - Install Java
-			p
-				a("http://www.oracle.com/technetwork/java/javase/downloads/index.html") Java SE JDK, version 1.6
-				+w or higher
+			table(style:"margin-top: 5px") <- tr
+				td <- img("/java_logo.png")
+				td <- a("http://www.oracle.com/technetwork/java/javase/downloads/index.html") Java SE JDK, version 1.6
 		li Step 1 - Install Eclipse
-			p 
-				a("http://eclipse.org/downloads/") Eclipse version 3.6 (Helios)
-				+w or higher<br/>
-				+w PDE is required, so get a build that includes it - Classic, RCP or J2EE are all good
+			table <- tr
+				td <- img("/eclipse_classic2.jpg")
+				td <- a("http://eclipse.org/downloads/packages/eclipse-classic-361/heliossr1") Eclipse Classic 3.6.1 (Helios)
 		li Step 2 - Install Oobium
-			p(style:"margin-bottom: 5px") Update Site is located at: <- span(style:"font-weight: bold")
-				+w http://oobium.org/updates
-			p For full step-by-step instructions: 
-				a({pathTo("fullInstall")}) Full Install
+			table(style:"margin-top: 5px")
+				tr
+					td <- img("/oobium_logo-48x48.png")
+					td Update Site is located at: <- span(style:"font-weight: bold")
+						+w http://oobium.org/updates
+				tr
+					td
+					td For full step-by-step instructions: 
+							a({pathTo("fullInstall")}) Full Install
