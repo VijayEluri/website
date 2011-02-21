@@ -2,6 +2,7 @@ body
 	font-family: Helvetica, Arial, sans-serif
 	color: #eee
 	margin: 0px
+	padding: 0px
 	background-color: #fffffd
 #allContent
 	margin-right: auto
@@ -16,8 +17,9 @@ body
 #navBar
 	font-size: 12px
 	float: right
-	margin-top: 8px
+	margin-top: 6px
 	padding-right: 40px
+	height: 24px
 #navBar ul
 	padding: 0
 	margin: 0
@@ -25,6 +27,7 @@ body
 	float: left
 	list-style: none
 	padding: 4px 15px
+	height: 24px
 #navBar a
 	color: #444
 	text-decoration: none
@@ -43,8 +46,15 @@ body
 	color: #e38531
 #header
 	height: 120px
-	padding-bottom: 5px
 	background-color: #444
+#headerContent
+	width: 960px
+	height: 120px
+	margin-right: auto
+	margin-left: auto
+#android
+	float: right 
+	margin-top: 55px
 #tagLine
 	width: 490px
 	padding: 20px 0 0 55px

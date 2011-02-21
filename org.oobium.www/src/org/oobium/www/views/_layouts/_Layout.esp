@@ -14,9 +14,11 @@ div#allContent
 			div#navBar <- view<Header>
 			div <- a(href:"/") <- img#logo(src:"/Logo.png")
 	div#header
-		div#tagLine
-			p The open source Oobium project is a system for creating Java web applications and services with the aim of
-				+w maximizing developer productivity and happiness. Code well. Code happy.
+		div#headerContent
+			img#android(src:"/Droid.png")
+			div#tagLine
+				p The open source Oobium project is a system for creating Java web applications and services with the aim of
+					+w maximizing developer productivity and happiness. Code well. Code happy.
 	yield("oobiLinks")
 	div#mainContent <- yield
 	div#footer
