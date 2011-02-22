@@ -26,14 +26,14 @@ div.code <- code
 	+> ShowPost(Post post)
 	+> 
 	+> p
-	+>   b Content:
-	+>   +  { post.getContent() }
-	+> p
 	+>   b Name:
 	+>   +  { post.getName() }
 	+> p
 	+>   b Title:
 	+>   +  { post.getTitle() }
+	+> p
+	+>   b Content:
+	+>   +  { post.getContent() }
 	+> p
 	+>   b Created At:
 	+>   + { psst.getCreatedAt() }

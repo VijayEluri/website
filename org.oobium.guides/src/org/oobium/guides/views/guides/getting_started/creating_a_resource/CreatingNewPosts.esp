@@ -36,8 +36,8 @@ div.code <- code
 	+> 
 	+> PostForm(Post post)
 	+> 
-	+> messages
 	+> form(post)
+	+>   errors
 	+>   div.field
 	+>     div <- label(name)
 	+>     div <- text(name)

@@ -73,17 +73,9 @@ p Taking a look at the super class, the up method is:
 div.code <- code.java
 	+> @Override
 	+> public void up() throws SQLException {
-	+>   Table systemAttrs = createTable("system_attrs",
-	+>       String("name"),
-	+>       String("detail"),
-	+>       Text("data")
-	+>   );
-	+>   systemAttrs.addUniqueIndex("name", "detail");
-	+>   systemAttrs.update();
-	+> 
 	+>   createTable("posts", tableOptions.get("posts"),
-	+>       String("name", Map("required", true)),
-	+>       String("title", Map("required", true)),
+	+>       String("name"),
+	+>       String("title"),
 	+>       Text("content"),
 	+>       Timestamps()
 	+>   );

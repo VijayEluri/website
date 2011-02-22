@@ -8,9 +8,7 @@ p Oobium contollers provides a very simple HTTP authentication system that will 
 div.code <- code.java
 	+> package com.test.blog.controllers;
 	+> 
-	+> import java.util.Map;
 	+> import org.oobium.app.server.controller.Controller;
-	+> import org.oobium.http.HttpRequest;
 	+> 
 	+> public class ApplicationController extends Controller {
 	+> 

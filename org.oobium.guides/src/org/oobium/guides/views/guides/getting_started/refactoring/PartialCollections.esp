@@ -34,6 +34,12 @@ div.code <- code
 	+> p
 	+>   b Content:
 	+>   +  { post.getContent() }
+	+> p
+	+>   b Created At:
+	+>   + { psst.getCreatedAt() }
+	+> p
+	+>   b Updated At:
+	+>   + { post.getUpdatedAt() }
 	+> 
 	+> h2 Comments
 	+> view<ShowComment>(Comment: post.comments())

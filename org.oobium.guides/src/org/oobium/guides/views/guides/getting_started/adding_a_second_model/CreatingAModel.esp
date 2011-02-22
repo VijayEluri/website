@@ -57,14 +57,6 @@ p In addition, Oobium has updated the AbstractCreateDatabase migration's up meth
 div.code <- code.java
 	+> @Override
 	+> public void up() throws SQLException {
-	+>   Table systemAttrs = createTable("system_attrs",
-	+>       String("name"),
-	+>       String("detail"),
-	+>       Text("data")
-	+>   );
-	+>   systemAttrs.addUniqueIndex("name", "detail");
-	+>   systemAttrs.update();
-	+> 
 	+>   Table comments = createTable("comments", tableOptions.get("comments"),
 	+>       String("commenter"),
 	+>       Text("body"),
@@ -74,8 +66,8 @@ div.code <- code.java
 	+>   comments.addIndex("post");
 	+> 
 	+>   createTable("posts", tableOptions.get("posts"),
-	+>       String("name", Map("required", true)),
-	+>       String("title", Map("required", true)),
+	+>       String("name"),
+	+>       String("title"),
 	+>       Text("content"),
 	+>       Timestamps()
 	+>   );

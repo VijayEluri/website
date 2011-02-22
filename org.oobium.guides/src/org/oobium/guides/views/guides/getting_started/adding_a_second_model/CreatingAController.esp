@@ -12,11 +12,8 @@ div.code <- code.java
 	+> package com.test.blog.controllers;
 	+> 
 	+> import java.sql.SQLException;
-	+> import java.util.Map;
-	+> import org.oobium.app.server.controller.Controller;
-	+> import org.oobium.http.HttpRequest;
 	+> 
-	+> public class CommentController extends Controller {
+	+> public class CommentController extends ApplicationController {
 	+> 
 	+>   @Override
 	+>   public void handleRequest() throws SQLException {
@@ -49,6 +46,12 @@ div.code <- code
 	+> p
 	+>   b Content:
 	+>   +  { post.getContent() }
+	+> p
+	+>   b Created At:
+	+>   + { psst.getCreatedAt() }
+	+> p
+	+>   b Updated At:
+	+>   + { post.getUpdatedAt() }
 	+> 
 	+> h2 Add a comment:
 	+> form(post, "comments")
@@ -73,14 +76,13 @@ p This adds a form on the ShowPost view that creates a new comment, which will c
 div.code <- code.java
 	+> package com.test.blog.controllers;
 	+> 
-	+= import static org.oobium.app.server.controller.Action.<span class="javaStaticField">show</span>\n
+	+= import static org.oobium.http.constants.Action.<span class="javaStaticField">show</span>\n
 	+> 
 	+> import java.sql.SQLException;
-	+> import java.util.Map;
-	+> import org.oobium.app.server.controller.Controller;
-	+> import org.oobium.http.HttpRequest;
 	+> 
-	+> public class CommentController extends Controller {
+	+> import com.test.blog.models.Comment;
+	+> 
+	+> public class CommentController extends ApplicationController {
 	+> 
 	+>   @Override
 	+>   public void create() throws SQLException {
@@ -113,6 +115,12 @@ div.code <- code
 	+> p
 	+>   b Content:
 	+>   +  { post.getContent() }
+	+> p
+	+>   b Created At:
+	+>   + { psst.getCreatedAt() }
+	+> p
+	+>   b Updated At:
+	+>   + { post.getUpdatedAt() }
 	+> 
 	+> h2 Comments
 	+> - for(Comment comment : post.comments()) {

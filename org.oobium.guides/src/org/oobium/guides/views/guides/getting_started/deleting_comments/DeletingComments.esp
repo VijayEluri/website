@@ -21,14 +21,13 @@ p Clicking this new "Destroy Comment" link will fire off a DELETE request to the
 div.code <- code.java
 	+> package com.test.blog.controllers;
 	+> 
-	+= import static org.oobium.app.server.controller.Action.<span class="javaStaticField">show</span>\n
+	+= import static org.oobium.http.constants.Action.<span class="javaStaticField">show</span>\n
 	+> 
 	+> import java.sql.SQLException;
-	+> import java.util.Map;
-	+> import org.oobium.app.server.controller.Controller;
-	+> import org.oobium.http.HttpRequest;
 	+> 
-	+> public class CommentController extends Controller {
+	+> import com.test.blog.models.Comment;
+	+> 
+	+> public class CommentController extends ApplicationController {
 	+> 
 	+>   @Override
 	+>   public void create() throws SQLException {

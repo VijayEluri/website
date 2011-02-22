@@ -24,8 +24,8 @@ div.code <- code
 	+> 
 	+> PostForm(Post post)
 	+> 
-	+> messages
 	+> form(post)
+	+>   errors
 	+>   div.field
 	+>     div <- label(name)
 	+>     div <- text(name)
@@ -79,6 +79,12 @@ div.code <- code
 	+>   - for(Tag tag : post.tags()) {
 	+>       a(tag, show)  { tag.getName() }
 	+>   - }
+	+> p
+	+>   b Created At:
+	+>   + { psst.getCreatedAt() }
+	+> p
+	+>   b Updated At:
+	+>   + { post.getUpdatedAt() }
 	+> 
 	+> h2 Comments
 	+> view<ShowComment>(Comment: post.comments())
