@@ -2,10 +2,18 @@ title Oobium.org :: Home
 
 script
 	function enable(elem) {
-		elem.src = elem.src.substring(0,elem.src.length-8) + '.jpg';
+		if(elem.src) {
+			elem.src = elem.src.replace('-dis.', '.');
+		} else {
+			enable(elem.firstChild);
+		}
 	}
 	function disable(elem) {
-		elem.src = elem.src.substring(0,elem.src.length-4) + '-dis.jpg';
+		if(elem.src) {
+			elem.src = elem.src.replace(/\\.(\\w\\w\\w)$/, '-dis.$1');
+		} else {
+			disable(elem.firstChild);
+		}
 	}
 	
 	$(document).ready(function(){
