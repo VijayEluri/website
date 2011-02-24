@@ -1,11 +1,11 @@
 title Oobium.org :: Installation
 
-div#features(style:"margin-top: -60px; height: 300px")
+div#features(style:"margin-top: -60px; height: 400px")
 	h2 Installation
 	
 	ul
 		li Step 0 - Install Java
-			table(style:"margin-top: 5px") <- tr
+			table(style:"margin: 5px 0") <- tr
 				td <- img("/java_logo.png")
 				td <- a("http://www.oracle.com/technetwork/java/javase/downloads/index.html") Java SE JDK, version 1.6
 		li Step 1 - Install Eclipse
@@ -13,12 +13,17 @@ div#features(style:"margin-top: -60px; height: 300px")
 				td <- img("/eclipse_classic2.jpg")
 				td <- a("http://eclipse.org/downloads/packages/eclipse-classic-361/heliossr1") Eclipse Classic 3.6.1 (Helios)
 		li Step 2 - Install Oobium
-			table(style:"margin-top: 5px")
+			table(style:"margin: 5px 0 15px 0")
 				tr
 					td <- img("/oobium_logo-48x48.png")
 					td Update Site is located at: <- span(style:"font-weight: bold")
 						+w http://oobium.org/updates
 				tr
 					td
-					td For full step-by-step instructions: 
+					td(style:"padding-left: 10px") (for full step-by-step instructions: 
 							a({pathTo("fullInstall")}) Full Install
+							+= )
+		li Step 3 - Have fun learning Oobium!
+			table <- tr
+				td <- img("/BookIcon-48x48.png")
+				td <- a("http://guides.oobium.org/") The Oobium Framework Guides
