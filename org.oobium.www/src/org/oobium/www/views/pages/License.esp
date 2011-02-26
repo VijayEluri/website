@@ -1,4 +1,4 @@
-title Oobium.org :: License
+title The Oobium framework and tools - licensed under the EPL
 
 div#features(style:"margin-top: -60px; height: 300px")
 	h2 License
@@ -11,6 +11,8 @@ div#features(style:"margin-top: -60px; height: 300px")
 		li
 			a("https://github.com/oobium/framework") Oobium Framework
 			+w (includes tools)
+	
+	img("/OSI-Approved-License-100x137.png", style:"float:right")
 	
 	p To read more about the EPL:
 	ul

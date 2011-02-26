@@ -1,6 +1,6 @@
 import org.oobium.www.common.views.Header
 
-title org.oobium.www: { titleize(getChild().getClass().getSimpleName()) }
+title Oobium Framework Guides
 
 head
 	style<Styles>

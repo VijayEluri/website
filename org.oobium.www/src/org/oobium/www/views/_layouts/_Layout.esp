@@ -1,6 +1,6 @@
 import org.oobium.www.common.views.Header
 
-title org.oobium: { titleize(getChild().getClass().getSimpleName()) }
+title The Oobium framework and tools project
 
 head
 	script(jquery_1.4.4)

@@ -1,4 +1,4 @@
-title Oobium.org :: Home
+title The Oobium framework and tools project
 
 script
 	function enable(elem) {

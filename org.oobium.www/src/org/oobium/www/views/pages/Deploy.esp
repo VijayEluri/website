@@ -1,4 +1,4 @@
-title Oobium.org :: Deploy
+title How to Deploy an Oobium application
 
 div#features(style:"margin-top: -60px")
 	h2 Automated Deployment
