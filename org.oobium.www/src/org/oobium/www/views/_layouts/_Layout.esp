@@ -23,6 +23,9 @@ div#allContent
 	div#mainContent <- yield
 	div#footer
 		div#footerContent
+			div#contatColum
+				p Email: jeremy@oobium.com
+				div <- a(href:"http://twitter.com/#!/oobium") <- img(src:"/TwitterIcon.png")
 			p &copy;2010 Oobium, Inc. All Rights Reserved
 			p "Oobium", and the Oobium logo are trademarks of Jeremy Dowdall. All rights reserved.<br/>
 				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
