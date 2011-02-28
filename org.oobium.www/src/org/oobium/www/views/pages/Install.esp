@@ -9,9 +9,24 @@ div#features(style:"margin-top: -60px; height: 400px")
 				td <- img("/java_logo.png")
 				td <- a("http://www.oracle.com/technetwork/java/javase/downloads/index.html") Java SE JDK, version 1.6
 		li Step 1 - Install Eclipse
-			table <- tr
-				td <- img("/eclipse_classic2.jpg")
-				td <- a("http://eclipse.org/downloads/packages/eclipse-classic-361/heliossr1") Eclipse Classic 3.6.1 (Helios)
+			table
+				tr
+					td <- img("/eclipse_classic2.jpg")
+					td Eclipse Classic 3.6.1 (Helios) 
+						span(style:"font-size: 12px")
+							a("http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.6.1-201009090800/eclipse-SDK-3.6.1-win32.zip") (Windows 32)
+							+=  
+							a("http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.6.1-201009090800/eclipse-SDK-3.6.1-win32-x86_64.zip") (Windows 64)
+							+=  
+							a("http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.6.1-201009090800/eclipse-SDK-3.6.1-macosx-carbon.tar.gz") (Carbon)
+							+=  
+							a("http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.6.1-201009090800/eclipse-SDK-3.6.1-macosx-cocoa.tar.gz") (Cocoa 32)
+							+=  
+							a("http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.6.1-201009090800/eclipse-SDK-3.6.1-macosx-cocoa-x86_64.tar.gz") (Cocoa 64)
+							+=  
+							a("http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.6.1-201009090800/eclipse-SDK-3.6.1-linux-gtk.tar.gz") (Linux 32)
+							+=  
+							a("http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.6.1-201009090800/eclipse-SDK-3.6.1-linux-gtk-x86_64.tar.gz") (Linux 64)
 		li Step 2 - Install Oobium
 			table(style:"margin: 5px 0 15px 0")
 				tr
