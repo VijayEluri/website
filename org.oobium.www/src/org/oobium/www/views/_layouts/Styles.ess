@@ -149,6 +149,7 @@ img
 #footer
 	background-color: #444
 	padding-top: 4px
+	height: 175px
 #footerContent
 	width: 920px
 	margin-right: auto
@@ -160,6 +161,7 @@ img
 	float: right
 	width: 120px
 	padding-right: 10px
+
 
 div.js code
 	display: block
