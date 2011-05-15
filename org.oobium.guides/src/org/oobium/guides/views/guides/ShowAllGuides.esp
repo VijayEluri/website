@@ -22,7 +22,7 @@ contentFor("topBarContent")
 			- Guide guide = Guide.guides.get(path);
 			- if(guide.ticket == null || Mode.isDEV() || guide.ticket.number != null) {
 					div.guide
-						div <- a({pathTo("showGuide", guide.getPath())}) { guide.getTitle() }
+						div <- a(guide.getPath()) { guide.getTitle() }
 						- if(guide.ticket != null) {
 								div.ticket
 									- if(guide.ticket.number == null) {

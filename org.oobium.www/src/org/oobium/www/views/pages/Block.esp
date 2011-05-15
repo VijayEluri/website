@@ -1,9 +1,9 @@
 Block(String id, String title, String message, String image)
 
-div#{id}.block(onmouseover:enable(this), onmouseout:disable(this))
-	img#{image}.icon(src:"/{image}-dis.png")
+div#{id}.block(onmouseover:"enable(this)", onmouseout:"disable(this)")
+	img#{image}.icon(src:"/${image}-dis.png")
 		h2 { title }
 		p { message }
 
 div|hide
-	img(src:"/{image}.png") // preload the roll-over image
+	img(src:"/${image}.png") // preload the roll-over image

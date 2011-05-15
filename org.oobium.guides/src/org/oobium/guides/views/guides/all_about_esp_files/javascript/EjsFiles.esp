@@ -3,8 +3,8 @@ title EJS Files
 p The last form that the script tag can take is used to import an EJS file.
 
 p An EJS file is essentially just the script tag from an ESP file. In other words, it is an ESP file whose content
-	+w is only Javascript (and therefore does need the script tag). For example, the Javascript from the previous
-	+w section could be in an EJS file called, Scripts.ess, like so:
+	+w is only Javascript (and therefore does not need the script tag). For example, the Javascript from the previous
+	+w section could be in an EJS file called, Scripts.ejs, like so:
 
 div.code <- code
 	+= <span class="javaKeyword">Scripts</span>(String favcolor = <span class="javaText">"blue"</span>)\n

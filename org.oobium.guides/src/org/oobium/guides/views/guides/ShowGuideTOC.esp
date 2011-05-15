@@ -11,11 +11,11 @@ div#guideTOC
 		ol
 			- for(Chapter chapter : guide.chapters) {
 					li
-						a({chapter.getPath()}) { chapter.title }
+						a(chapter.getPath()) { chapter.title }
 						- if(chapter.sections.length > 0) {
 							ul
 								- for(View section : chapter.sections) {
-										li <- a({chapter.getPath(section)}) { section.getTitle() }
+										li <- a(chapter.getPath(section)) { section.getTitle() }
 								- }
 						- }
 			- }

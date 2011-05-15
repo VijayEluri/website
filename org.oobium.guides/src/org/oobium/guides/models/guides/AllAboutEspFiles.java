@@ -1,6 +1,6 @@
 package org.oobium.guides.models.guides;
 
-import org.oobium.app.server.view.View;
+import org.oobium.app.views.View;
 import org.oobium.guides.models.Chapter;
 import org.oobium.guides.models.Guide;
 import org.oobium.guides.views.guides.all_about_esp_files.Intro;

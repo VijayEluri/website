@@ -6,12 +6,10 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Oobium-Type: module
 Import-Package: org.oobium.app,
- org.oobium.app.server.controller,
- org.oobium.app.server.response,
- org.oobium.app.server.routing,
+ org.oobium.app.controllers,
+ org.oobium.app.response,
+ org.oobium.app.routing,
  org.oobium.app.workers,
- org.oobium.http,
- org.oobium.http.constants,
  org.oobium.logging,
  org.oobium.persist,
  org.oobium.utils,

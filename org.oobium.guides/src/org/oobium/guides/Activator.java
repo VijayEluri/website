@@ -1,10 +1,10 @@
 package org.oobium.guides;
 
-import static org.oobium.http.constants.Action.show;
-import static org.oobium.http.constants.Action.showAll;
+import static org.oobium.app.http.Action.show;
+import static org.oobium.app.http.Action.showAll;
 
 import org.oobium.app.AppService;
-import org.oobium.app.server.routing.Router;
+import org.oobium.app.routing.Router;
 import org.oobium.guides.controllers.GuideController;
 import org.oobium.guides.views._layouts.Styles;
 import org.oobium.utils.Config;

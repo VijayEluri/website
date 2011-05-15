@@ -1,7 +1,6 @@
 ({
 
 cache:   "org.oobium.cache.file",
-session: "org.oobium.session.db",
 persist: "org.oobium.persist.db.derby.embedded",
 server:  "org.oobium.server",
 

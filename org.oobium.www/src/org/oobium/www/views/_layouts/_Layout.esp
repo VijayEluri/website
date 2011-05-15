@@ -31,7 +31,7 @@ div#allContent
 					tr
 						td <- a(href:"http://www.facebook.com/home.php#!/pages/Oobium/151289821548767") <- img(src:"/Facebook.png")
 						td <- a(href:"http://www.linkedin.com/company/1977451") <- img(src:"/Linkedin.png")
-			p &copy;2010 Oobium, Inc. All Rights Reserved
+			p &copy;2010, 2011 Oobium, LLC All Rights Reserved
 			p "Oobium", and the Oobium logo are trademarks of Jeremy Dowdall. All rights reserved.<br/>
 				+w Oracle and Java are registered trademarks of Oracle and/or its affiliates. 
 				+w Other names may be trademarks of their respective owners.

@@ -36,7 +36,7 @@ div#features(style:"margin-top: -60px; height: 400px")
 				tr
 					td
 					td(style:"padding-left: 10px") (for full step-by-step instructions: 
-							a({pathTo("fullInstall")}) Full Install
+							a(pathTo("fullInstall")) Full Install
 							+= )
 		li Step 3 - Have fun learning Oobium!
 			table <- tr

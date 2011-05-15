@@ -15,9 +15,9 @@ public class GuideController extends ApplicationController {
 		Guide guide = guides.get(param("guide"));
 		if(guide != null) {
 			render(new ShowGuide(guide));
-			String src = response.getBody();
+			String src = new String(response.getContent().array());
 			src = new SyntaxColorer(src).color();
-			response.setBody(src);
+			response.setContent(src);
 		}
 	}
 	

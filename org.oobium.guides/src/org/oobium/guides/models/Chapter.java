@@ -1,6 +1,6 @@
 package org.oobium.guides.models;
 
-import org.oobium.app.server.view.View;
+import org.oobium.app.views.View;
 import org.oobium.utils.StringUtils;
 
 

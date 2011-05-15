@@ -5,9 +5,9 @@ Bundle-SymbolicName: org.oobium.www.common
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Oobium-Type: module
-Import-Package: org.oobium.app.server.controller,
- org.oobium.app.server.view,
- org.oobium.http.constants,
+Import-Package: org.oobium.app.controllers,
+ org.oobium.app.http,
+ org.oobium.app.views,
  org.oobium.persist,
  org.oobium.utils,
  org.oobium.utils.json

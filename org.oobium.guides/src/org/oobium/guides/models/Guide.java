@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.oobium.app.server.view.View;
+import org.oobium.app.views.View;
 import org.oobium.utils.StringUtils;
 import org.oobium.guides.models.guides.AllAboutEspFiles;
 import org.oobium.guides.models.guides.GettingStarted;
