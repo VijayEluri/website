@@ -9,9 +9,9 @@ p The view tag is a little different from a most ESP elements because it does no
 	+w exists purely in the ESP realm. To figure out what it is, let's first discuss what it is trying to do.
 
 p When the page is rendered and a view tag is encountered, we want the rendering engine to stop what it is doing in
-	+w the current view, and render the view specifiec by the view tag. To do so, it must instantiate the specified
+	+w the current view, and render the view specified by the view tag. To do so, it must instantiate the specified
 	+w view, and to do this it needs a couple pieces of information: 1. what view to instantiate, and; 2. what arguments
-	+w to pass the constructor when doing so.
+	+w to pass to the constructor of the view when it is being instantiated.
 
 p The "{"<Type>"}" part of the view tag is where we specify #1 - it is used
 	+w just like a generic in Java and the full qualifier for the type (if not in the same package) must be declared in

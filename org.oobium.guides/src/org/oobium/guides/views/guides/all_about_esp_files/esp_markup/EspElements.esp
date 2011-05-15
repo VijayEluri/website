@@ -41,5 +41,5 @@ div.code <- code
 	+> <div id="myDiv" style="display:none">hello!</div>
 
 p Using this format, any XML (and thus HTML) element can be expressed, whether Oobium knows about it or not. This allows
-	+w Oobium help with the elements it does know about (such div, table, object, etc...) without limiting your ability
+	+w Oobium to help with the elements it does know about (such div, table, object, etc...) without limiting your ability
 	+w to use new elements, or even make up your own. 

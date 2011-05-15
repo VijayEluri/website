@@ -1,6 +1,6 @@
 title ESS Files
 
-p The last form that the style tag can take is used to import an ESS file. But first, what is an ESS file?
+p The last form of the style tag is used to import an ESS file. But first, what is an ESS file?
 
 p An ESS file is essentially just the style tag from an ESP file. In other words, it is an ESP file whose content
 	+w is only CSS (and therefore does not need the style tag). For example, the CSS from the previous section could be
@@ -19,7 +19,7 @@ p This ESS file can be included in a view using the style tag as follows:
 
 div.code <- code
 	+ <span class="espTag">style</span>{"<Styles>"} <span class="javaComment">// using the default, no-args, constructor</span>\n
-	+ <span class="espTag">style</span>{"<Styles>"}("green")
+	+ <span class="espTag">style</span>{"<Styles>"}(<span class="javaText">"green"</span>)
 
 p This form of the style tag uses the "{"<Type>"}" element part just like we saw with the view tag. It can do this
 	+w because ESS files are just like ESP files and are also compiled to Java in the same way.

@@ -18,6 +18,6 @@ div.code <- code
 	+= - String favcolor = <span class="javaText">"blue"</span>;\n
 	+= \n
 	+= <span class="espTag">script</span>\n
-	+= <span class="espTab">  </span>object = {\n
+	+= <span class="espTab">  </span>var object = {\n
 	+= <span class="espTab">  </span>  color := favcolor\n
 	+= <span class="espTab">  </span>}\n

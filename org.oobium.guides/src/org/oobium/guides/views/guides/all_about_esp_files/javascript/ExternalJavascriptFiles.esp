@@ -4,7 +4,7 @@ p The first and foremost use of the script tag is what you'll see in a generated
 div.code <- code
 	+= <span class="espTag">script</span>(defaults)
 
-p This generates two links that will import JQuery and your application's application.js file:
+p This generates two elements that will import JQuery and your application's application.js file:
 
 div.code <- code
 	+> <script src="/jquery_1.4.4.js"></script>

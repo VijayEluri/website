@@ -50,6 +50,6 @@ ul
 		p The word extension element - behaves like the literal extension, but makes sure there is a space between words.
 			+w This is intended for writing long sections of text.
 	li <b>+></b>
-		p The prompt extension element - behaves like the literal extension, but makes sure there is a new line between lines
-			+w and HTML escapes angle brackets. This is intended for creating sections of code; escaping the angle brackets makes
-			+w it easy to write Java generics.
+		p The prompt extension element - behaves like the literal extension, but makes sure there is a new line character
+			+w between lines and HTML escapes angle brackets. This is intended for creating sections of code; escaping the
+			+w angle brackets makes it easy to write Java generics.

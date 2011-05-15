@@ -4,7 +4,7 @@ p The first and foremost use of the style tag is what you'll see in a generated 
 div.code <- code
 	+= <span class="espTag">style</span>(defaults)
 
-p This creates an link that will import your application's application.css file:
+p This creates a link that will import your application's application.css file:
 
 div.code <- code
 	+> <link href="/application.css" type="text/css" rel="stylesheet">

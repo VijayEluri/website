@@ -33,7 +33,7 @@ div.code <- code
 
 p Note that you won't have to publish any of your routes first, but this will effectively be
 	+w publishing them for anyone that wants to parse the JSON. Of course, this shouldn't be a problem
-	+w since I'm sure that security by obsurity isn't your thing.
+	+w since I'm sure that security by obscurity isn't your thing.
 
 div.note
 	+w The generated JavaScript models require JQuery - make sure to include it when using this feature.

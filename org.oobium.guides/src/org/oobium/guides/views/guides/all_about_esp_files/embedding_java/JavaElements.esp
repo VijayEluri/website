@@ -25,7 +25,7 @@ div.code <- code.java
 
 p An important point here is that Java elements are still ESP elements and fit into the hierarchy as such. In the
 	+w above example, the first Java element is a child of the first div, therefore any elements created during the
-	+w execution of the Java code will become childs of the first div - as seen in the above result.
+	+w execution of the Java code will become children of the first div - as seen in the above result.
 
 p If we had made the Java elements at the same level as the first div:
 

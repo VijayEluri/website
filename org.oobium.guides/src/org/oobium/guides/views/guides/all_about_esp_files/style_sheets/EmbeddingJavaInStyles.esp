@@ -18,4 +18,4 @@ div.code <- code.java
 	+= <span class="espTab">    </span><span class="essProp">font-weight</span>: bold\n
 
 p This will allow certain (very) convenient things such as using consistent variables and
-	+w performing mathematical operations on them, but will not allow the CSS to be overrun.
+	+w performing mathematical operations on them, but will not allow the CSS to be overrun with control statements.
