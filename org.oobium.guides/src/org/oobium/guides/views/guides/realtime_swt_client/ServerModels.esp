@@ -6,53 +6,10 @@ div.code
 	code $ create application com.test.blog
 
 p This will create a new Oobium application called com.test.blog in your current workspace.
-	+w It will also create a Migrator and TestSuite project for this new application:
-
-div.code
-	code
-		+> successfully created "Application: com.test.blog"
-		+> successfully created "Migrator: com.test.blog.migrator_1.0.0.qualifier"
-		+> successfully created "TestSuite: com.test.blog.tests_1.0.0.qualifier"
 
 p Next, create a simple Post model by entering this command in your terminal:
 
 div.code <- code $ create model post name:string title:string content:text
-
-p The model generator will build 8 files in your application and edit two more.
-	+w The output from the command will contain hyperlinks to open each of them in the editor:
-
-div.code <- code
-	+= created model <span class="consoleLink">Post</span>\n
-	+= created view <span class="consoleLink">posts/ShowEditPost</span>\n
-	+= created view <span class="consoleLink">posts/ShowAllPosts</span>\n
-	+= created view <span class="consoleLink">posts/ShowNewPost</span>\n
-	+= created view <span class="consoleLink">posts/ShowPost</span>\n
-	+= created controller <span class="consoleLink">PostController</span>\n
-	+= modified <span class="consoleLink">MANIFEST.MF</span>\n
-	+= created test case <span class="consoleLink">PostTests</span>\n
-	+= created test case <span class="consoleLink">PostControllerTests</span>\n
-	+= added model routes to <span class="consoleLink">Activator.java</span>
-
-p Opening the model should reveal the following code:
-
-div.code <- code.java
-		+> package com.test.blog.models;
-		+> 
-		+> import org.oobium.persist.Attribute;
-		+> import org.oobium.persist.ModelDescription;
-		+> import org.oobium.persist.Text;
-		+> 
-		+> @ModelDescription(
-		+>   attrs = {
-		+>     @Attribute(name="name", type=String.class),
-		+>     @Attribute(name="title", type=String.class),
-		+>     @Attribute(name="content", type=Text.class)
-		+>   },
-		+>   timestamps = true
-		+> )
-		+> public class Post extends PostModel {
-		+> 
-		+> }
 
 p Of course, since our purpose of this example is to show how we can access our models from a remote client, we should
 	+w open up our Activator file and publish the routes to Post:

@@ -113,9 +113,9 @@ div.code <- code.java
 	+> 
 	+> }
 
-p At this point, you have (most of) the UI created, and are able to run the application. Run it be selecting the class
+p At this point, you have (most of) the UI created, and are able to run the application. Run it by selecting the class
 	+w in the Eclipse Package Manager and then choosing Run -> Run from the Eclipse menu. You should have a simple
-	+w application popup that looks like this:
+	+w application pop up that looks like this:
 
 div <- img("/guides/real_time_swt_client/screenshot-app1.png")
 

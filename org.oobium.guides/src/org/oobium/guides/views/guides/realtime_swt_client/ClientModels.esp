@@ -1,6 +1,7 @@
 title The Client Models
 
-p 
+p We now have our models on the server and a client UI that we want to use them in. To get our models to the client,
+	+w simply enter the following command in the Oobium console:
 
 div.code <- code $ export client target:com.test.reader
 
@@ -22,27 +23,26 @@ p We can now use the Post model in our client just like we can in our server.
 p First, let's modify ExampleReader to create columns on the table to correspond to our Post model. Replace
 	+w the "TODO add field columns" comment with the following:
 
-div.code <- code
+div.code <- code.java
 	+> for(String s : Post.FIELDS) {
 	+>   c = new TableColumn(table, SWT.NONE);
 	+>   c.setText(titleize(s));
 	+>   c.pack();
 	+> }
 
-p Make sure to import Post, then start it up and you should see five extra columns: "Content", "Created At",
+p Make sure to import Post, then start it up and you should see five new columns in the table: "Content", "Created At",
 	+w "Name", "Title", and "Updated At".
 
 p Next, modify ExampleReader to fetch a list of Post models from the server and use them to populate the table.
 	+w Replace the "TODO add initial items" comment with:
 
-div.code <- code
-	+> Model.setGlobalPersistService(service);
+div.code <- code.java
 	+> for(Post post : Post.findAll()) {
 	+>   addItem(post);
 	+> }
 
 p and add the "addItem(Post)" method:
-div.code <- code
+div.code <- code.java
 	+> private static void addItem(final Post post) {
 	+>   display.syncExec(new Runnable() {
 	+>     @Override
@@ -65,7 +65,7 @@ div.code <- code(style:"color:red")
 	+=   at com.test.blog.models.PostModel.findAll(<span class="consoleLink">PostModel.java:93</span>)\n
 	+=   at com.test.reader.ExampleReader.main(<span class="consoleLink">ExampleReader.java:31</span>)\n
 
-p which should make sense - we haven't set up the persistence yet. Let's care of that now by replacing the 
+p which make's' sense as we haven't set up the persistence yet. Let's care of that now by replacing the 
 	+w "TODO setup persistence" comment with:
 
 div.code <- code.java
@@ -73,12 +73,12 @@ div.code <- code.java
 	+> // TODO add ModelListener
 
 p Run it now and, if your server project (com.test.blog) is running, then it will start up and you should see an item in the
-	+w table for every Post you have created on the server. If the server is not running, you'll get this error:
-
-div.code <- code(style:"color:red")
-	+= Exception in thread "main" <span class="consoleLink">java.sql.SQLException</span>: no published route found for class com.test.blog.models.Post: showAll\n
+	+w table for every Post you have created on the server.
 
 p And yes, I added another placeholder there :)
+
+div.note
+	+= If the server is not running, you'll get this error: "no published route found for class com.test.blog.models.Post: showAll"
 
 p Right now, the client can request model, manipulate them, and persist them back to the server - add this code in the place
 	+w of the "TODO add selection listener" to more of this:
@@ -112,7 +112,7 @@ div.code <- code.java
 	+>   }
 	+> });
 
-p and, of course, add the midding methods updateItem and removeItem:
+p and, of course, add the missing methods, updateItem and removeItem:
 
 div.code <- code.java
 	+> private static void updateItem(final Post post) {
@@ -162,5 +162,23 @@ p This creates a ModelNotifier in your server project. ModelNotifiers are a spec
 	+w "model-notifications" group. I say "any", but there is a select method you can override to filter which sockets
 	+w receive the notice (and if you're worried about sensitive information, all that is sent is the model class name and
 	+w its id, except for updates, those also include a list of fields that were updated).
+
+div.code <- code.java
+	+> package com.test.blog.models.observers;
+	+> 
+	+> import com.test.blog.models.Post;
+	+> import org.oobium.app.http.Action;
+	+> import org.oobium.app.persist.ModelNotifier;
+	+> import org.oobium.app.server.Websocket;
+	+> 
+	+> public class PostNotifier extends ModelNotifier<Post> {
+	+> 
+	+>   @Override
+	+>   protected boolean select(Websocket socket, Action action) {
+	+>     // TODO Auto-generated method stub
+	+>     return true;
+	+>   }
+	+> 
+	+> }
 
 p Restart the server and the client and you're all set - enjoy!

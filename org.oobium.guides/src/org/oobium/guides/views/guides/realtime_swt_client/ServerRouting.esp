@@ -1,9 +1,0 @@
-title Server Routing and Notifiers
-
-p This guide shows you how to export your Oobium models to an SWT (or any other Java) client and communicate with them
-	+w in real time. By referring to this guide, you will be able to:
-ul.intro
-	li Use your Oobium models in Java clients
-	li Persist your models from a client to the server
-	li Send Real Time Notifications of model changes from the server
-	li Receive Real Time Notifications of model changes in the client
