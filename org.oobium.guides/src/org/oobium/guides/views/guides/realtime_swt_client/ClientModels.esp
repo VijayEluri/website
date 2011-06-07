@@ -1,0 +1,166 @@
+title The Client Models
+
+p 
+
+div.code <- code $ export client target:com.test.reader
+
+p You'll be prompted whether you want to export the entire project or just its models. For this example,
+	+w enter "m" to just export the models:
+
+div.code <- code
+	+> export the full [P]roject, or just its [M]odels? [P/M] m
+	+= exported org.jboss.netty.jar to <span class="consoleLink">com.test.reader: /oobium</span>\n
+	+= exported org.oobium.jar to <span class="consoleLink">com.test.reader: /oobium</span>\n
+	+= exported com.test.blog.models.jar to <span class="consoleLink">com.test.reader: /oobium</span>\n
+	+> export complete
+	+>  *** models to be accessed by the client must be publised first ***
+
+p as usual, interesting things (such as the exported jars) are hyperlinked in case you want to open them up and poke around.
+
+p We can now use the Post model in our client just like we can in our server.
+
+p First, let's modify ExampleReader to create columns on the table to correspond to our Post model. Replace
+	+w the "TODO add field columns" comment with the following:
+
+div.code <- code
+	+> for(String s : Post.FIELDS) {
+	+>   c = new TableColumn(table, SWT.NONE);
+	+>   c.setText(titleize(s));
+	+>   c.pack();
+	+> }
+
+p Make sure to import Post, then start it up and you should see five extra columns: "Content", "Created At",
+	+w "Name", "Title", and "Updated At".
+
+p Next, modify ExampleReader to fetch a list of Post models from the server and use them to populate the table.
+	+w Replace the "TODO add initial items" comment with:
+
+div.code <- code
+	+> Model.setGlobalPersistService(service);
+	+> for(Post post : Post.findAll()) {
+	+>   addItem(post);
+	+> }
+
+p and add the "addItem(Post)" method:
+div.code <- code
+	+> private static void addItem(final Post post) {
+	+>   display.syncExec(new Runnable() {
+	+>     @Override
+	+>     public void run() {
+	+>       TableItem item = new TableItem(table, SWT.NONE);
+	+>       item.setText(0, String.valueOf(post.getId()));
+	+>       for(int i = 0; i < Post.FIELDS.length; i++) {
+	+>         item.setText(i+1, String.valueOf(post.get(Post.FIELDS[i])));
+	+>       }
+	+>     }
+	+>   });
+	+> }
+
+p This one we can't run quite yet - if you do, you should see this kind of error:
+
+div.code <- code(style:"color:red")
+	+= Exception in thread "main" <span class="consoleLink">java.sql.SQLException</span>: no PersistService present\n
+	+=   at org.oobium.persist.NullPersistService.findAll(<span class="consoleLink">NullPersistService.java:69</span>)\n
+	+=   at org.oobium.persist.Model.findAll(<span class="consoleLink">Model.java:67</span>)\n
+	+=   at com.test.blog.models.PostModel.findAll(<span class="consoleLink">PostModel.java:93</span>)\n
+	+=   at com.test.reader.ExampleReader.main(<span class="consoleLink">ExampleReader.java:31</span>)\n
+
+p which should make sense - we haven't set up the persistence yet. Let's care of that now by replacing the 
+	+w "TODO setup persistence" comment with:
+
+div.code <- code.java
+	+> HttpPersistService service = new HttpPersistService("localhost:5000", true);
+	+> // TODO add ModelListener
+
+p Run it now and, if your server project (com.test.blog) is running, then it will start up and you should see an item in the
+	+w table for every Post you have created on the server. If the server is not running, you'll get this error:
+
+div.code <- code(style:"color:red")
+	+= Exception in thread "main" <span class="consoleLink">java.sql.SQLException</span>: no published route found for class com.test.blog.models.Post: showAll\n
+
+p And yes, I added another placeholder there :)
+
+p Right now, the client can request model, manipulate them, and persist them back to the server - add this code in the place
+	+w of the "TODO add selection listener" to more of this:
+
+div.code <- code.java
+	+> b.addSelectionListener(new SelectionAdapter() {
+	+>   @Override
+	+>   public void widgetSelected(SelectionEvent e) {
+	+>     Post post = new Post();
+	+>     post.setTitle(txt.getText());
+	+>     post.save();
+	+>   }
+	+> });
+
+p but to actually recieve notification from the server that something has happened to our models there, we need to take
+	+w care of that last comment, "TODO add ModelListener":
+
+div.code <- code.java
+	+> service.addListener(new ModelListener<Post>() {
+	+>   @Override
+	+>   public void onCreate(Post post) {
+	+>     addItem(post);
+	+>   }
+	+>   @Override
+	+>   public void onUpdate(Post post, String[] fields) {
+	+>     updateItem(post);
+	+>   }
+	+>   @Override
+	+>   public void onDestroy(int id) {
+	+>     removeItem(id);
+	+>   }
+	+> });
+
+p and, of course, add the midding methods updateItem and removeItem:
+
+div.code <- code.java
+	+> private static void updateItem(final Post post) {
+	+>   display.syncExec(new Runnable() {
+	+>     @Override
+	+>     public void run() {
+	+>       String id = String.valueOf(post.getId());
+	+>       for(TableItem item : table.getItems()) {
+	+>         if(id.equals(item.getText(0))) {
+	+>           for(int i = 0; i < Post.FIELDS.length; i++) {
+	+>             item.setText(i+1, String.valueOf(post.get(Post.FIELDS[i])));
+	+>           }
+	+>           return;
+	+>         }
+	+>       }
+	+>     }
+	+>   });
+	+> }
+	+> 
+	+> private static void removeItem(final Post post) {
+	+>   display.syncExec(new Runnable() {
+	+>     @Override
+	+>     public void run() {
+	+>       String id = String.valueOf(post.getId());
+	+>       for(TableItem item : table.getItems()) {
+	+>         if(id.equals(item.getText(0))) {
+	+>           item.dispose();
+	+>           return;
+	+>         }
+	+>       }
+	+>     }
+	+>   });
+	+> }
+
+p Congratulations! You're _almost_ done! Our client is now listener to the server, via a WebSocket, for any changes
+	+w that the server wants to tell it about the models. Wait... only the changes that the server _wants_ to tell it? Yes,
+	+w that's right, because there will be pleny of times that the server doesn't want to tell anyone anything :)
+
+p So, for our last little step in this process, we need to go back to the server and have it tell the patiently listening
+	+w client about changes to the Post model. To do this, make sure the server project is selected by the Oobium console
+	+w and then enter the following command:
+
+div.code <- code $ create notifier post
+
+p This creates a ModelNotifier in your server project. ModelNotifiers are a special case of Observer that override the
+	+w afterCreate, afterUpdate, and afterDestroy to send out a notification to any WebSockets that are part of the
+	+w "model-notifications" group. I say "any", but there is a select method you can override to filter which sockets
+	+w receive the notice (and if you're worried about sensitive information, all that is sent is the model class name and
+	+w its id, except for updates, those also include a list of fields that were updated).
+
+p Restart the server and the client and you're all set - enjoy!

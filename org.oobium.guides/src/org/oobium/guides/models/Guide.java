@@ -15,6 +15,7 @@ import org.oobium.guides.models.guides.OobiumModels;
 import org.oobium.guides.models.guides.OobiumQueryInterface;
 import org.oobium.guides.models.guides.OobiumModelRelationships;
 import org.oobium.guides.models.guides.OobiumRouting;
+import org.oobium.guides.models.guides.RealTimeSwtClient;
 import org.oobium.guides.models.guides.TestingOobiumApplications;
 
 public class Guide {
@@ -31,6 +32,7 @@ public class Guide {
 		add("Models", new OobiumDatabaseMigrations());
 		add("Models", new OobiumModelRelationships());
 		add("Models", new OobiumQueryInterface());
+		add("Models", new RealTimeSwtClient());
 		add("Views", new AllAboutEspFiles());
 		add("Views", new LayoutsAndRenderingInOobium());
 		add("Controllers", new OobiumRouting());
