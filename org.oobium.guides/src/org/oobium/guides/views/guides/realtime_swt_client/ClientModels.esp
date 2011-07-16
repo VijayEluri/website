@@ -26,12 +26,14 @@ p First, let's modify ExampleReader to create columns on the table to correspond
 div.code <- code.java
 	+> for(String s : Post.FIELDS) {
 	+>   c = new TableColumn(table, SWT.NONE);
-	+>   c.setText(titleize(s));
+	+>   c.setText(StringUtils.titleize(s));
 	+>   c.pack();
 	+> }
 
-p Make sure to import Post, then start it up and you should see five new columns in the table: "Content", "Created At",
-	+w "Name", "Title", and "Updated At".
+p Make sure to import Post and StringUtils, then start the client up again and you should see five new columns
+	+w in the table: "Content", "Created At", "Name", "Title", and "Updated At".
+
+div.note StringUtils contains many useful helper functions - consider importing it statically
 
 p Next, modify ExampleReader to fetch a list of Post models from the server and use them to populate the table.
 	+w Replace the "TODO add initial items" comment with:
@@ -50,7 +52,7 @@ div.code <- code.java
 	+>       TableItem item = new TableItem(table, SWT.NONE);
 	+>       item.setText(0, String.valueOf(post.getId()));
 	+>       for(int i = 0; i < Post.FIELDS.length; i++) {
-	+>         item.setText(i+1, String.valueOf(post.get(Post.FIELDS[i])));
+	+>         item.setText(i+1, post.get(Post.FIELDS[i], ""));
 	+>       }
 	+>     }
 	+>   });
@@ -69,13 +71,10 @@ p which make's' sense as we haven't set up the persistence yet. Let's care of th
 	+w "TODO setup persistence" comment with:
 
 div.code <- code.java
-	+> HttpPersistService service = new HttpPersistService("localhost:5000", true);
-	+> // TODO add ModelListener
+	+> new HttpPersistService("localhost:5000", true);
 
-p Run it now and, if your server project (com.test.blog) is running, then it will start up and you should see an item in the
-	+w table for every Post you have created on the server.
-
-p And yes, I added another placeholder there :)
+p Run the client now and, if your server project (com.test.blog) is running, then it will start up and you should see
+	+w an item in the table for every Post you have created on the server.
 
 div.note
 	+= If the server is not running, you'll get this error: "no published route found for class com.test.blog.models.Post: showAll"
@@ -94,25 +93,25 @@ div.code <- code.java
 	+> });
 
 p but to actually recieve notification from the server that something has happened to our models there, we need to take
-	+w care of that last comment, "TODO add ModelListener":
+	+w care of that last comment, "TODO add Observer":
 
 div.code <- code.java
-	+> service.addListener(new ModelListener<Post>() {
+	+> Post.addObserver(new Observer<Post>() {
 	+>   @Override
-	+>   public void onCreate(Post post) {
+	+>   public void afterCreate(Post post) {
 	+>     addItem(post);
 	+>   }
 	+>   @Override
-	+>   public void onUpdate(Post post, String[] fields) {
+	+>   public void afterUpdate(Post post) {
 	+>     updateItem(post);
 	+>   }
 	+>   @Override
-	+>   public void onDestroy(int id) {
+	+>   public void afterDestroy(int id) {
 	+>     removeItem(id);
 	+>   }
 	+> });
 
-p and, of course, add the missing methods, updateItem and removeItem:
+p and, of course, add the missing methods: updateItem and removeItem:
 
 div.code <- code.java
 	+> private static void updateItem(final Post post) {
@@ -123,7 +122,7 @@ div.code <- code.java
 	+>       for(TableItem item : table.getItems()) {
 	+>         if(id.equals(item.getText(0))) {
 	+>           for(int i = 0; i < Post.FIELDS.length; i++) {
-	+>             item.setText(i+1, String.valueOf(post.get(Post.FIELDS[i])));
+	+>             item.setText(i+1, post.get(Post.FIELDS[i], ""));
 	+>           }
 	+>           return;
 	+>         }
@@ -132,13 +131,13 @@ div.code <- code.java
 	+>   });
 	+> }
 	+> 
-	+> private static void removeItem(final Post post) {
+	+> private static void removeItem(final int id) {
 	+>   display.syncExec(new Runnable() {
 	+>     @Override
 	+>     public void run() {
-	+>       String id = String.valueOf(post.getId());
+	+>       String s = String.valueOf(id);
 	+>       for(TableItem item : table.getItems()) {
-	+>         if(id.equals(item.getText(0))) {
+	+>         if(s.equals(item.getText(0))) {
 	+>           item.dispose();
 	+>           return;
 	+>         }
@@ -147,38 +146,4 @@ div.code <- code.java
 	+>   });
 	+> }
 
-p Congratulations! You're _almost_ done! Our client is now listener to the server, via a WebSocket, for any changes
-	+w that the server wants to tell it about the models. Wait... only the changes that the server _wants_ to tell it? Yes,
-	+w that's right, because there will be pleny of times that the server doesn't want to tell anyone anything :)
-
-p So, for our last little step in this process, we need to go back to the server and have it tell the patiently listening
-	+w client about changes to the Post model. To do this, make sure the server project is selected by the Oobium console
-	+w and then enter the following command:
-
-div.code <- code $ create notifier post
-
-p This creates a ModelNotifier in your server project. ModelNotifiers are a special case of Observer that override the
-	+w afterCreate, afterUpdate, and afterDestroy to send out a notification to any WebSockets that are part of the
-	+w "model-notifications" group. I say "any", but there is a select method you can override to filter which sockets
-	+w receive the notice (and if you're worried about sensitive information, all that is sent is the model class name and
-	+w its id, except for updates, those also include a list of fields that were updated).
-
-div.code <- code.java
-	+> package com.test.blog.models.observers;
-	+> 
-	+> import com.test.blog.models.Post;
-	+> import org.oobium.app.http.Action;
-	+> import org.oobium.app.persist.ModelNotifier;
-	+> import org.oobium.app.server.Websocket;
-	+> 
-	+> public class PostNotifier extends ModelNotifier<Post> {
-	+> 
-	+>   @Override
-	+>   protected boolean select(Websocket socket, Action action) {
-	+>     // TODO Auto-generated method stub
-	+>     return true;
-	+>   }
-	+> 
-	+> }
-
-p Restart the server and the client and you're all set - enjoy!
+p Congratulations! You're done - enjoy real-time updates in your client over WebSockets!

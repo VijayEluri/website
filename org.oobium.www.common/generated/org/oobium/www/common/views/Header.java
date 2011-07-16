@@ -1,13 +1,13 @@
 package org.oobium.www.common.views;
 
-import static org.oobium.http.constants.Action.*;
 import static org.oobium.utils.ArrayUtils.*;
 import static org.oobium.utils.StringUtils.*;
 import static org.oobium.utils.Utils.*;
 import static org.oobium.utils.json.JsonUtils.*;
 
-import org.oobium.app.server.controller.Controller;
-import org.oobium.app.server.view.View;
+import org.oobium.app.controllers.HttpController;
+import org.oobium.app.http.Action;
+import org.oobium.app.views.View;
 
 @SuppressWarnings("unused")
 public class Header extends View {

@@ -11,29 +11,10 @@ p Next, create a simple Post model by entering this command in your terminal:
 
 div.code <- code $ create model post name:string title:string content:text
 
-p Of course, since our purpose of this example is to show how we can access our models from a remote client, we should
-	+w open up our Activator file and publish the routes to Post:
-
-div.code <- code $ open activator
-
-p and modify its addRoutes method to look like this:
-
-div.code <- code.java
-	+> @Override
-	+> public void addRoutes(Config config, AppRouter router) {
-	+>   router.setDiscovery("/api", true);
-	+>   router.setHome(Home.class);
-	+>   router.addResources(Post.class).publish();
-	+>   router.addModelNotifier();
-	+> }
-
-p Note the last line, which contains a new type of route. Router#addModelNotifier() adds a WebSocket route that is
-	+w accessible from the special "model-notifications" group and will be used later on for just that purpose.
-
 p Now, since we'll have a real example client shortly, we should start and migrate the server so that it is ready for us:
 
 div.code <- code
 	+> $ start
 	+> $ migrate
 
-p That's it for now - let's move on to the client!
+p That's it for now - let's create the client!

@@ -62,6 +62,8 @@ div.code <- code.java
 	+>   public static void main(String[] args) throws Exception {
 	+>     // TODO setup persistence
 	+> 
+	+>     // TODO add Observer
+	+> 
 	+>     createUI();
 	+> 
 	+>     // TODO add initial items

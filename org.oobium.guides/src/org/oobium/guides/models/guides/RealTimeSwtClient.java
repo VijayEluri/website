@@ -5,6 +5,7 @@ import org.oobium.guides.models.Guide;
 import org.oobium.guides.views.guides.realtime_swt_client.ClientModels;
 import org.oobium.guides.views.guides.realtime_swt_client.ClientUI;
 import org.oobium.guides.views.guides.realtime_swt_client.Intro;
+import org.oobium.guides.views.guides.realtime_swt_client.Resources;
 import org.oobium.guides.views.guides.realtime_swt_client.ServerModels;
 
 public class RealTimeSwtClient extends Guide {
@@ -16,7 +17,8 @@ public class RealTimeSwtClient extends Guide {
 		chapters = new Chapter[] {
 				/*1*/ new Chapter(new ServerModels()),
 				/*2*/ new Chapter(new ClientUI()),
-				/*3*/ new Chapter(new ClientModels())
+				/*3*/ new Chapter(new ClientModels()),
+				/*4*/ new Chapter(new Resources())
 		};
 	}
 
