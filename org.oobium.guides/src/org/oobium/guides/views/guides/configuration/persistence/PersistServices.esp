@@ -33,6 +33,7 @@ div.code <- code
 	+>   host:     <host - default is "127.0.0.1">,
 	+>   port:     <port - default is 3306>,
 	+>   database: "mydb_dev",
+	+>   engine:   <engine - default is "INNODB">,
 	+>   username: <username - default is "root">,
 	+>   password: <password - default is an empty String>
 	+> }
