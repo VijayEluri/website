@@ -1,25 +1,22 @@
 title Adding Validation
 
-p As with other parts of the model in Oobium, validations are added in the @ModelDescription class annotation so that
-	+w body of the class is kept clean.
+p Unlike other parts of the model in Oobium, validations are not added to the @ModelDescription class annotation.
+	+w Instead, the @Validations class annotation is used. This maintains the clean class body, but also allows for
+	+w for the use of different validations between the server and client(s) sides.
 
 div.code <- code.java
-	+> @ModelDescription(
-	+>   validations = {
-	+>     @Validate(field="name", matches="\\w+")
-	+>   }
-	+> )
+	+> @Validations({
+	+>   @Validate(field="name", matches="\\w+")
+	+> })
 
 p There are two basic ways to use the @Validate annotation: the first is to use it on a specific field (or fields, if
 	+w a comma separate list is provided) as shown above, and the second is to specify a Validator class to do the
 	+w actual work:
 
 div.code <- code.java
-	+> @ModelDescription(
-	+>   validations = {
-	+>     @Validate(with=PostValidator.class)
-	+>   }
-	+> )
+	+> @Validations({
+	+>   @Validate(with=PostValidator.class)
+	+> })
 	+> public Post extends PostModel {
 	+> 
 	+> ... snip ...
@@ -57,11 +54,9 @@ p Simply create methods that verify the state of your models and add messages to
 	+w specifying the method with the "withMethod" option:
 
 div.code <- code.java
-	+> @ModelDescription(
-	+>   validations = {
-	+>     @Validate(field="content", withMethod="isGood")
-	+>   }
-	+> )
+	+> @Validations({
+	+>   @Validate(field="content", withMethod="isGood")
+	+> })
 	+> public Post extends PostModel {
 	+> 
 	+>   private boolean isGood() {

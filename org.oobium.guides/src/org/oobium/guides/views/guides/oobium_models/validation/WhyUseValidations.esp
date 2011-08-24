@@ -18,7 +18,7 @@ ul
 		+w JavaScript and can be bypassed if the user is using their own client. However, if combined with other techniques,
 		+w client-side validation can be a convenient way to provide users with immediate feedback as they use your site.
 	li Controller-level validations can be tempting to use, but often become unwieldy and difficult to test and maintain.
-		+w Whenever possible, it’s a good idea to keep your controllers skinny, as it will make your application a pleasure
+		+w Whenever possible, it's a good idea to keep your controllers skinny, as it will make your application a pleasure
 		+w to work with in the long run.
 	li Model-level validations are the best way to ensure that only valid data is saved into your database. They are database
 		+w agnostic, cannot be bypassed by end users, and are convenient to test and maintain. Oobium makes them easy to use

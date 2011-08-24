@@ -8,6 +8,7 @@ import java.util.Map;
 import org.oobium.app.views.View;
 import org.oobium.utils.StringUtils;
 import org.oobium.guides.models.guides.AllAboutEspFiles;
+import org.oobium.guides.models.guides.Configuration;
 import org.oobium.guides.models.guides.GettingStarted;
 import org.oobium.guides.models.guides.LayoutsAndRenderingInOobium;
 import org.oobium.guides.models.guides.OobiumDatabaseMigrations;
@@ -37,7 +38,7 @@ public class Guide {
 		add("Views", new LayoutsAndRenderingInOobium());
 		add("Controllers", new OobiumRouting());
 		add("Start Here", new TestingOobiumApplications());
-//		add("Digging Deeper", new TestingOobiumApplications());
+		add("Digging Deeper", new Configuration());
 	}
 	
 	private static void add(String program, Guide guide) {

@@ -1,6 +1,6 @@
 title Partial Forms
 
-p Lets also move that new comment section out to it’s own partial, again, you create a file
+p Lets also move that new comment section out to it's own partial, again, you create a file
 	+w comments/CommentForm.esp and in it you put:
 
 div.code <- code

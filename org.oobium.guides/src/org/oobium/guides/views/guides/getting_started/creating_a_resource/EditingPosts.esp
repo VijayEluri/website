@@ -53,8 +53,8 @@ div.code <- code.java
 
 p In the update method, Oobium instantiates a new Post class using the param map in much the same way as in the
 	+w create method, only this time is also sets the post's id explicitly to the id parameter that is part of the
-	+w route. If all goes well, the user is redirected to the post’s
-	+w show view. If there are any problems, it’s back to the edit view to correct them.
+	+w route. If all goes well, the user is redirected to the post's
+	+w show view. If there are any problems, it's back to the edit view to correct them.
 
 div.note Sometimes you don't want just any parameter sent from a client to be saved to the database (activation
 	+w codes, password hashes, account balances, etc....).  Therefore Oobium controllers include a filter

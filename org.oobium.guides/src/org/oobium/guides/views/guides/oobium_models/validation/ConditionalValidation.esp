@@ -18,11 +18,11 @@ div.code <- code.java
 	+> @ModelDescription(
 	+>   attrs = {
 	+>     @Attribute(name="published", type=Date.class)
-	+>   },
-	+>   validations = {
-	+>     @Validate(field="content", minLength=1000, when="hasPublished")
 	+>   }
 	+> )
+	+> @Validations({
+	+>   @Validate(field="content", minLength=1000, when="hasPublished")
+	+> })
 	+> public Post extends PostModel {
 	+> 
 	+> }

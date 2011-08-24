@@ -12,7 +12,6 @@ ol
 	li Attributes ("attrs" - an array of @Attribute annotations)
 	li Has One Relationships ("hasOne" - an array of @Relation annotations)
 	li Has Many Relationships ("hasMany" - an array of @Relation annotations)
-	li Validations ("validations" - an array of @Validate annotations)
 
 p With these, you can create all manner of fields in your models and relationships between your models. Below is an
 	+w example of what the model for a blog post might look like:
@@ -29,10 +28,6 @@ div.code <- code.java
 	+>   },
 	+>   hasMany = {
 	+>     @Relation(name="comments", type=Comment.class, opposite="post")
-	+>   },
-	+>   validations = {
-	+>     @Validate(field="title", isNotBlank=true),
-	+>     @Validate(field="content", minLength=500, tokenizer="\\w+", when="hasPublished")
 	+>   }
 	+> )
 	+> public Post extends PostModel {
@@ -61,7 +56,3 @@ p The hasOne array is where relationships that are to one other model (or none, 
 h3 hasMany
 p The hasMany array is similar to the hasOne array, and also uses the @Relation annotation, except that (as the
 	+w name implies) there can be more than one - a collection.
-
-h3 validations
-p The validations array is where basic validations of the other model descriptions are provided using @Validate
-	+w annotations. These are purely in the Java model objects and do not affect the persisted model at all.

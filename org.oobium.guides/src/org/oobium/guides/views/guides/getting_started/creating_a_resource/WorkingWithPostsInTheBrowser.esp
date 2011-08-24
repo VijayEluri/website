@@ -1,12 +1,12 @@
 title Working with Posts in the Browser
 
-p Now you’re ready to start working with posts. To do that, navigate to
+p Now you're ready to start working with posts. To do that, navigate to
 	+w http://localhost:5000 and then click the “My Blog” link:
 
 div <- img("/guides/getting_started_with_oobium/screenshot-new_app-server_view-posts.png")
 
-p This is the result of Oobium rendering the showAll view of your posts. There aren’t currently any posts
-	+w in the database, but if you click the New Post link you can create one. After that, you’ll find that
+p This is the result of Oobium rendering the showAll view of your posts. There aren't currently any posts
+	+w in the database, but if you click the New Post link you can create one. After that, you'll find that
 	+w you can edit posts, look at their details, or destroy them. All of the logic and HTML to handle this
 	+w was built by the single create application command.
 

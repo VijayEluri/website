@@ -11,7 +11,7 @@ h5 Models
 p A model represents the information (data) of the application and the rules to manipulate that data. In the case
 	+w of Oobium, models are primarily used for managing the rules of interaction with a corresponding database table.
 	+w In most cases, one table in your database will correspond to one model in your application. The bulk of your
-	+w application’s business logic will be concentrated in the models.
+	+w application's business logic will be concentrated in the models.
 
 h5 Views
 p Views represent the user interface of your application. In Oobium, views are often HTML files with embedded Java

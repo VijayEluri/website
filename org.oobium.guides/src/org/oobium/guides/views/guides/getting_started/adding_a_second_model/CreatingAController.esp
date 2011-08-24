@@ -1,6 +1,6 @@
 title Creating a Controller
 
-p With the model in hand, you can turn your attention to creating a matching controller. Again, there’s a generator
+p With the model in hand, you can turn your attention to creating a matching controller. Again, there's a generator
 	+w for this:
 
 div.code <- code $ create controller comment
@@ -30,7 +30,7 @@ p Like with any blog, our readers will create their comments directly after read
 	+w added their comment, will be sent back to the post show page to see their comment now listed. Due to this,
 	+w our CommentsController is there to provide a method to create comments and delete SPAM comments when they arrive.
 
-p So first, we’ll wire up the ShowPost view to let us make a new comment:
+p So first, we'll wire up the ShowPost view to let us make a new comment:
 
 div.code <- code
 	+> import com.test.blog.models.*
@@ -70,7 +70,7 @@ div.code <- code
 	+> a(Post.class, showAll) Back
 
 p This adds a form on the ShowPost view that creates a new comment, which will call the CommentController's
-	+w create action, so let’s revisit the controller and replace the existing handleRequest method with the RESTful
+	+w create action, so let's revisit the controller and replace the existing handleRequest method with the RESTful
 	+w create method:
 
 div.code <- code.java
@@ -99,7 +99,7 @@ p Once we have made the new comment, we send the user back to the original post.
 	+w <code>hidden(post, value: {f post })</code>.
 
 p As we have seen previously, this redirect routes to the show method of the PostController, which in turn
-	+w renders the ShowPost view. This is where we want the comment to show, so let’s add that now:
+	+w renders the ShowPost view. This is where we want the comment to show, so let's add that now:
 
 div.code <- code
 	+> import com.test.blog.models.*

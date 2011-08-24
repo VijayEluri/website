@@ -18,5 +18,5 @@ div.code <- code.java
 	+> }
 
 p The destroy method of an Oobium model instance removes the corresponding record from the database. After
-	+w that’s done, there isn’t any record to display, so Oobium redirects the user’s browser to the ShowAllPosts
+	+w that's done, there isn't any record to display, so Oobium redirects the user's browser to the ShowAllPosts
 	+w view for the model.

@@ -1,0 +1,49 @@
+title Persist Services
+
+p Persist services are OSGi services that implement the PersistService interface.
+
+p Oobium currently has the following PersistServices that can be configured for use within your application:
+ul
+	li Derby
+	li MongoDB
+	li MySQL
+	li PostgreSQL
+
+p Sample configurations are below:
+
+p Derby (Embedded)
+div.code <- code
+	+> persist: "org.oobium.persist.db.derby.embedded"
+
+p MongoDB
+div.code <- code
+	+> persist: {
+	+>   service:  "org.oobium.persist.mongo",
+	+>   host:     <host - default is "localhost">,
+	+>   port:     <port - default is 27017>,
+	+>   database: "mydb_dev",
+	+>   username: <username - default is an empty String>,
+	+>   password: <password - default is an empty String>
+	+> }
+
+p MySQL
+div.code <- code
+	+> persist: {
+	+>   service:  "org.oobium.persist.db.mysql",
+	+>   host:     <host - default is "127.0.0.1">,
+	+>   port:     <port - default is 3306>,
+	+>   database: "mydb_dev",
+	+>   username: <username - default is "root">,
+	+>   password: <password - default is an empty String>
+	+> }
+
+p PostgreSQL
+div.code <- code
+	+> persist: {
+	+>   service:  "org.oobium.persist.db.postgresql",
+	+>   host:     <host - default is "127.0.0.1">,
+	+>   port:     <port - default is 5432>,
+	+>   database: "mydb_dev",
+	+>   username: <username - default is "root">,
+	+>   password: <password - default is an empty String>
+	+> }

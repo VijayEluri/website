@@ -75,7 +75,7 @@ div.info This is the prefered manner of working with forms in Oobium because it 
 
 p When the user clicks the Create Post button on this form, the browser will send information back to the create
 	+w method of the controller (Oobium knows to call the create method because the form is sent with an HTTP POST
-	+w request; that’s one of the REST conventions that is used in the default routing):
+	+w request; that's one of the REST conventions that is used in the default routing):
 
 div.code <- code.java
 	+> @Override // POST/URL/[models]

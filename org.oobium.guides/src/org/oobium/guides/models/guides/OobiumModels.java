@@ -16,6 +16,7 @@ import org.oobium.guides.views.guides.oobium_models.model_structure.JustAMap;
 import org.oobium.guides.views.guides.oobium_models.model_structure.ModelDescription;
 import org.oobium.guides.views.guides.oobium_models.model_structure.ModelStructure;
 import org.oobium.guides.views.guides.oobium_models.model_structure.TheHierarchy;
+import org.oobium.guides.views.guides.oobium_models.notifiers.Notifiers;
 import org.oobium.guides.views.guides.oobium_models.observers.CreatingObservers;
 import org.oobium.guides.views.guides.oobium_models.observers.HaltingExecution;
 import org.oobium.guides.views.guides.oobium_models.observers.ObserverMethods;
@@ -65,7 +66,8 @@ public class OobiumModels extends Guide {
 									new CreatingObservers(),
 									new RegisteringObservers(),
 									new ObserverMethods(),
-									new HaltingExecution()
+									new HaltingExecution(),
+									new Notifiers()
 								}),
 
 			/*5*/ new Chapter(new SkippingValidationsAndObservers())

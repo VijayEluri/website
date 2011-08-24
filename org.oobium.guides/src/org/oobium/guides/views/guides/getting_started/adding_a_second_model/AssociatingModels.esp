@@ -20,10 +20,6 @@ div.code <- code.java
 	+>   hasMany = {
 	+>     @Relation(name="comments", type=Comment.class)
 	+>   },
-	+>   validations = {
-	+>     @Validate(field="name", isNotBlank=true),
-	+>     @Validate(field="title", isNotBlank=true, minLength=5)
-	+>   },
 	+>   timestamps = true
 	+> )
 

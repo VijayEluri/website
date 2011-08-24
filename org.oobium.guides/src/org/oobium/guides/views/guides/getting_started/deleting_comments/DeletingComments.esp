@@ -3,7 +3,7 @@ title Deleting Comments
 p Another important feature on a blog is being able to delete SPAM comments. To do this, we need to implement a
 	+w link of some sort in the view and a destroy method in the CommentController.
 
-p So first, let’s add the destroy link in the comments/ShowComment.esp view:
+p So first, let's add the destroy link in the comments/ShowComment.esp view:
 
 div.code <- code
 	+> import com.test.blog.models.*
@@ -16,7 +16,7 @@ div.code <- code
 	+> a(comment, destroy) Destroy Comment
 
 p Clicking this new "Destroy Comment" link will fire off a DELETE request to the path of the given comment, which will
-	+w get routed to the destroy method of our CommentsController. So, let’s add that destroy method now:
+	+w get routed to the destroy method of our CommentsController. So, let's add that destroy method now:
 
 div.code <- code.java
 	+> package com.test.blog.controllers;

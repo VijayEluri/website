@@ -2,7 +2,7 @@ title Adding Some Validation
 
 p Oobium includes 2 ways to help you validate the data in your models before they are sent to persistent storage.
 ul
-	li The @Validate annotations in the @ModelDescription
+	li The @Validations class annotation
 	li Override the appropriate validate methods in the model code
 
 p Open the <code>Post</code> model and validate that the name and title are not blank by adding
@@ -10,9 +10,9 @@ p Open the <code>Post</code> model and validate that the name and title are not 
 
 div.code
 	code.java
-		+> validations = {
+		+> @Validations({
 		+>   @Validate(field="name, title", isNotBlank=true)
-		+> }
+		+> })
 
 p This change will validate that the <code>name</code> and <code>title</code> are not blank (null or zero-length)
 	+w at the model level. The validation will occur before both updates and creates, but will be skipped on an
@@ -32,10 +32,10 @@ p For our demo here, we want to make sure that the <code>title</code> is at leas
 
 div.code
 	code.java
-		+> validations = {
+		+> @Validations({
 		+>   @Validate(field="name", isNotBlank=true),
 		+>   @Validate(field="title", isNotBlank=true, minLength=5)
-		+> }
+		+> })
 
 p If any of these validations fail, they will put an error into a map that we can access later to find out what went
 	+w wrong and display an appropriate message to the user.

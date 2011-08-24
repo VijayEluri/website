@@ -1,7 +1,7 @@
 title Creating a Model
 
 p Models in Oobium use a singular name, and their corresponding database tables use a plural name. For the model
-	+w to hold comments, the convention is to use the name Comment. Even if you don’t want to use the entire
+	+w to hold comments, the convention is to use the name Comment. Even if you don't want to use the entire
 	+w apparatus set up by scaffolding, it is still handy to use generators to make things like models
 	+w and controllers. To create just the new model, run this command in your terminal:
 
