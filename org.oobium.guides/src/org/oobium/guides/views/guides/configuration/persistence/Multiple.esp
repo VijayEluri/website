@@ -10,7 +10,7 @@ div.code <- code
 	+>     database: "myapp_dev"
 	+>   },
 	+>   {
-	+>     service:  "org.oobium.persist.db.mysql",
+	+>     service:  "org.oobium.persist.mongo",
 	+>     database: "myapp_data_dev",
 	+>     models:   "com.myapp.models.DataPoint"
 	+>   }
