@@ -4,18 +4,18 @@ p Persist services are OSGi services that implement the PersistService interface
 
 p Oobium currently has the following PersistServices that can be configured for use within your application:
 ul
-	li Derby
-	li MongoDB
-	li MySQL
-	li PostgreSQL
+	li <- a("#derby")  Derby
+	li <- a("#mongodb")  MongoDB
+	li <- a("#mysql") MySQL
+	li <- a("#postgresql")  PostgreSQL
 
 p Sample configurations are below:
 
-p Derby (Embedded)
+p Derby (Embedded) <- a(name:"derby")
 div.code <- code
 	+> persist: "org.oobium.persist.db.derby.embedded"
 
-p MongoDB
+p MongoDB <- a(name:"mongodb")
 div.code <- code
 	+> persist: {
 	+>   service:  "org.oobium.persist.mongo",
@@ -26,7 +26,7 @@ div.code <- code
 	+>   password: <password - default is an empty String>
 	+> }
 
-p MySQL
+p MySQL <- a(name:"mysql")
 div.code <- code
 	+> persist: {
 	+>   service:  "org.oobium.persist.db.mysql",
@@ -38,7 +38,7 @@ div.code <- code
 	+>   password: <password - default is an empty String>
 	+> }
 
-p PostgreSQL
+p PostgreSQL <- a(name:"postgresql")
 div.code <- code
 	+> persist: {
 	+>   service:  "org.oobium.persist.db.postgresql",
