@@ -3,7 +3,7 @@ title Multiple Persist Services
 p It is entirely possible to mix and match PersistServices in your application.
 
 p MySQL primary, with MongoDB for DataPoint models
-div.code <- code
+div.code <- code.java
 	+> persist: [
 	+>   {
 	+>     service:  "org.oobium.persist.db.mysql",
