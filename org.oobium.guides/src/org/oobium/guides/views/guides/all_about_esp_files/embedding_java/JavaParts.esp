@@ -53,8 +53,8 @@ div.code <- code.java
 	+=  <span class="espTag">div</span>#title {r post.getTitle() } // Raw: not escaped at all\n
 
 p Java parts are certainly a useful way of getting data from your models and displaying it in the inner text part of
-	+w HTML elements, but it can also be used for much more. Actually, Java parts can exist in almost any part of an ESP
-	+w element; they can also appear has many times per line as necessary:
+	+w HTML elements, but it can also be used for much more. Java parts can exist in almost any part of an ESP
+	+w element, and they can be used as many times per line as necessary:
 
 div.code <- code.java
 	+=  <span class="espTag">div</span>#{ elemId }\n
