@@ -41,7 +41,7 @@ p If any of these validations fail, they will put an error into a map that we ca
 	+w wrong and display an appropriate message to the user.
 
 p More information about Oobium validations can be found in the 
-	a("/oobium_model_objects#validation") Validations section
+	a("/oobium_model_objects#validations") Validations section
 	+w of the 
 	a("/oobium_model_objects") Oobium Model Objects
 	+w guide.

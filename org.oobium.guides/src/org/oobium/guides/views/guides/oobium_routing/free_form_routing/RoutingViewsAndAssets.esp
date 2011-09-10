@@ -15,7 +15,7 @@ p The first one, assets, is dealt with a little differently than the others beca
 div.code <- code.java
 	+> router.addAssetRoutes();
 
-p That's it, all your files in the assets folder are now visible and world wide web.  Neato.
+p That's it, all your files in the assets folder are now visible to the world wide web.  Neato.
 
 p Plain static assets are also routed all together because there isn't that much overhead to serving them - we simply
 	+w find the resource and stream the data back to the client. Dynamic Assets take a little more than this,
@@ -24,7 +24,7 @@ p Plain static assets are also routed all together because there isn't that much
 div.code <- code.java
 	+> router.addAsset(Styles.class);
 
-p Note that in neither case do we need to specify HTTP verbs or paths - assets (of either type) only ever served up
+p Note that in neither case do we need to specify HTTP verbs or paths - assets (of either type) are only served up
 	+w via a GET request (unless you go through a controller, of course) and their paths are automatically determined
 	+w by Oobium:
 ul
@@ -44,5 +44,5 @@ p As with resource and direct routing, the path argument in view routes can also
 
 div.note
 	+w For more information on Views and Dynamic Assets in Oobium, refer to the 
-	a("todo") All about ESP files
+	a("/all_about_esp_files") All about ESP files
 	+w guide.
