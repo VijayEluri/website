@@ -21,7 +21,7 @@ public class SyntaxColorer {
 	public String color() {
 		char[] ca = src.toCharArray();
 		int s1 = 0;
-		while(s1 != -1) {
+		while(s1 != -1 && s1 < ca.length) {
 			if(isNext(ca, s1, JAVA_START)) {
 				int s2 = findAll(ca, s1+1, CODE_END);
 				if(s2 == -1) {

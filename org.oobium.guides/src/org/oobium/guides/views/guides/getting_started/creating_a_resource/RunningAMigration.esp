@@ -12,29 +12,22 @@ p The Migration project is closely related to your regular Oobium application an
 
 div.code <- code $ open migrator
 
-p The Migrator contains a single method to return the migrations that it will process, and the order in
+p The Migrator contains a single method - addMigrations - that allows you set the migrations to be processed, and the order in
 	+w which to process them:
 
 div.code <- code.java
 	+> package com.test.blog.migrator;
 	+> 
-	+> import static org.oobium.utils.literal.List;
-	+> 
-	+> import java.util.List;
-	+> 
-	+> import org.oobium.persist.migrate.Migration;
-	+> import org.oobium.persist.migrate.MigratorService;
-	+> 
 	+> import com.test.blog.migrator.migrations.CreateDatabase;
+	+> import org.oobium.persist.migrate.Migrations;
+	+> import org.oobium.persist.migrate.db.DbMigratorService;
 	+> 
-	+> public class Migrator extends MigratorService {
+	+> public class Migrator extends DbMigratorService {
 	+> 
-	+>   @Override
-	+>   public List<? extends Migration> getMigrations() {
-	+>     return List(
-	+>       new CreateDatabase()
-	+>     );
-	+>   }
+	+> 	@Override
+	+> 	public void addMigrations(Migrations migrations) {
+	+> 		migrations.add(CreateDatabase.class);
+	+> 	}
 	+> 
 	+> }
 
@@ -45,46 +38,31 @@ div.code <- code.java
 	+> package com.test.blog.migrator.migrations;
 	+> 
 	+> import java.sql.SQLException;
+	+> import org.oobium.persist.migrate.db.AbstractDbMigration;
 	+> 
-	+> public class CreateDatabase extends AbstractCreateDatabase {
+	+> public class CreateDatabase extends AbstractDbMigration {
 	+> 
-	+>   @Override
-	+>   public void up() throws SQLException {
-	+>     // TODO set any custom options to be used in the super method
-	+>     super.up();
-	+>     // TODO manipulate the data now that the database has been created
-	+>   }
+	+> 	@Override
+	+> 	public void up() throws SQLException {
+	+> 		createTable("posts",
+	+> 			String("name"),
+	+> 			String("title"),
+	+> 			Text("content"),
+	+> 			Timestamps()
+	+> 		);
+	+> 	}
 	+> 
-	+>   @Override
-	+>   public void down() throws SQLException {
-	+>     // TODO add any custom routines before dropping the database
-	+>     dropDatabase();
-	+>   }
+	+> 	@Override
+	+> 	public void down() throws SQLException {
+	+> 		dropTable("posts");
+	+> 	}
 	+> 
 	+> }
 
-p The above migration creates two methods, up, which is called when you run this migration into the database,
-	+w and down, in case you need to reverse the changes made by this migration at a later date. The up command
-	+w in this case simply delegates to its super class, which is auto-generated from all of the models in the
-	+w application (as well as from separate modules that have been included, something we'll discuss later).
-
-p Taking a look at the super class, the up method is:
-
-div.code <- code.java
-	+> @Override
-	+> public void up() throws SQLException {
-	+>   createTable("posts", tableOptions.get("posts"),
-	+>       String("name"),
-	+>       String("title"),
-	+>       Text("content"),
-	+>       Timestamps()
-	+>   );
-	+> }
-
-p The up method in this case creates two tables.  The first is a system table that is created for all projects.
-	+w The next is the one for our <code>Post</code> model - a table with two string columns and a text column.
-	+w It also creates two timestamp fields (implied by <code>Timestamps()</code>) to track record creation and
-	+w updating. More information about Oobium migrations can be found in the 
+p The above migration creates two methods, up, which is called when you run this migration forward,
+	+w and down, in case you need to reverse the changes made by this migration at a later date. The up method
+	+w in this case create the table "posts" with the columns corresponding to the model, and the down method
+	+w simply drops the "posts" table. More information about Oobium migrations can be found in the 
 	a("/oobium_database_migrations") Oobium Database Migrations
 	+w guide.
 
@@ -95,7 +73,7 @@ div.code <- code $ migrate
 div.note The server must be running to perform a migration. If you stopped it, or are picking up this guide in the
 	+w middle then you'll need to start it up by issuing the "start" command in the Oobium console.
 
-p Oobium will execute this migration command and tell you it created the System and Posts tables.
+p Oobium will execute this migration command and tell you whether it completed successfully or not.
 
 div.note
 	+w Because you're working in the development environment by default, this command will apply to the

@@ -1,7 +1,7 @@
 title Working with Posts in the Browser
 
 p Now you're ready to start working with posts. To do that, navigate to
-	+w http://localhost:5000 and then click the “My Blog” link:
+	+w http://localhost:5000 and then click the "My Blog" link:
 
 div <- img("/guides/getting_started_with_oobium/screenshot-new_app-server_view-posts.png")
 

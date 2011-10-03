@@ -14,9 +14,9 @@ p The activator will contain a single method, <code>addRoutes</code>:
 div.code <- code.java
 	+> package com.test;
 	+> 
-	+> import com.test.views.pages.Home;
+	+> import com.test.blog.views.pages.Home;
 	+> import org.oobium.app.AppService;
-	+> import org.oobium.app.server.routing.AppRouter;
+	+> import org.oobium.app.routing.AppRouter;
 	+> import org.oobium.utils.Config;
 	+> 
 	+> public class Activator extends AppService {

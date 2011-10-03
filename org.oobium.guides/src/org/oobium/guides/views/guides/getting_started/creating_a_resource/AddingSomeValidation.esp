@@ -6,13 +6,11 @@ ul
 	li Override the appropriate validate methods in the model code
 
 p Open the <code>Post</code> model and validate that the name and title are not blank by adding
-	+w a validator to the model description's validations array:
+	+w the following @Validations annotation just below the @ModelDescription:
 
 div.code
 	code.java
-		+> @Validations({
-		+>   @Validate(field="name, title", isNotBlank=true)
-		+> })
+		+> @Validations(@Validate(field="name, title", isNotBlank=true))
 
 p This change will validate that the <code>name</code> and <code>title</code> are not blank (null or zero-length)
 	+w at the model level. The validation will occur before both updates and creates, but will be skipped on an

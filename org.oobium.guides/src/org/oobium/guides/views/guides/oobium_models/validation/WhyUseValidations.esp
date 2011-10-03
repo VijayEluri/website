@@ -12,7 +12,7 @@ ul
 		+w use some constraints at the database level. Additionally, database-level validations can safely handle some things
 		+w (such as uniqueness in heavily-used tables) that can be difficult to implement otherwise.<br/>
 		+w Oobium provides ways to specify common database level constraints when defining your model (
-		a("/oobium_models#modeldescription") @ModelDescription
+		a("/oobium_model_objects#model_structure-@model_description") @ModelDescription
 		+= )
 	li Client-side validations can be useful, but are unreliable if used alone. If they are implemented using
 		+w JavaScript and can be bypassed if the user is using their own client. However, if combined with other techniques,

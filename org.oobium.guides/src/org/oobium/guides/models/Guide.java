@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.oobium.app.views.View;
+import org.oobium.persist.Model;
 import org.oobium.utils.StringUtils;
 import org.oobium.guides.models.guides.AllAboutEspFiles;
 import org.oobium.guides.models.guides.Configuration;
@@ -19,7 +20,7 @@ import org.oobium.guides.models.guides.OobiumRouting;
 import org.oobium.guides.models.guides.RealTimeSwtClient;
 import org.oobium.guides.models.guides.TestingOobiumApplications;
 
-public class Guide {
+public class Guide extends Model {
 
 	public static final Map<String, List<String>> programs;
 	public static final Map<String, Guide> guides;

@@ -19,8 +19,10 @@ div.code <- code
 	+= created view <span class="consoleLink">posts/ShowAllPosts</span>\n
 	+= created view <span class="consoleLink">posts/ShowNewPost</span>\n
 	+= created view <span class="consoleLink">posts/ShowPost</span>\n
+	+= created view <span class="consoleLink">posts/PostForm</span>\n
 	+= created controller <span class="consoleLink">PostController</span>\n
 	+= modified <span class="consoleLink">MANIFEST.MF</span>\n
+	+= created notifier <span class="consoleLink">PostNotifier</span>\n
 	+= created test case <span class="consoleLink">PostTests</span>\n
 	+= created test case <span class="consoleLink">PostControllerTests</span>\n
 	+= added model routes to <span class="consoleLink">Activator.java</span>
