@@ -17,7 +17,7 @@ div#allContent
 		div#mainContent <- yield
 	div#footer
 		div#footerContent
-			p &copy;2010, 2011 Oobium, LLC All Rights Reserved
+			p &copy;2010, 2011 Oobium, Inc. All Rights Reserved
 			p This work is licenced under a 
 				a(href:"http://creativecommons.org/licenses/by-sa/3.0/") Creative Commons Attribution-Share Alike 3.0
 				+w Licence and is a derivative work of the excellent 
