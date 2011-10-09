@@ -23,6 +23,8 @@ public class Activator extends AppService {
 		router.addView("license", License.class);
 
 		router.addRedirect("/full_installation", "/full_install");
+		
+		router.addFiles("updates");
 	}
 
 }

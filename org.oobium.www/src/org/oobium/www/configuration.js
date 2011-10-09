@@ -1,11 +1,7 @@
 ({
 
 cache:   "org.oobium.cache.file",
-
-modules: [
-	"org.oobium.www.common_1.0.0",
-	"org.oobium.www.update_site_1.0.0"
-],
+modules: "org.oobium.www.common_1.0.0",
 
 dev: {
 	host: "localhost",
