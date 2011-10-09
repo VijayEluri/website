@@ -1,8 +1,6 @@
 ({
 
 cache:   "org.oobium.cache.file",
-persist: "org.oobium.persist.db.derby.embedded",
-server:  "org.oobium.server",
 
 modules: [
 	"org.oobium.www.common_1.0.0",
@@ -21,7 +19,7 @@ test: {
 },
 
 prod: {
-	host: [ "oobium.org", "www.oobium.org" ],
+	host: [ "oobium.org", "www.oobium.org", "50.23.105.18" ],
 	port: 80,
 }
 
