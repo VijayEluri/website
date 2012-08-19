@@ -1,10 +1,13 @@
-title Creating new Posts
+CreatingNewPosts(String title = "Creating new Posts")
 
-p Creating a new post involves two actions. The first is the showNew action, which instantiates an empty Post object:
+title {title}
+
+p Creating a new post involves two actions. The first is the showNew action, which instantiates an empty Post object
+	+w and then renders it using the ShowNewPost view:
 
 div.code <- code.java
 		+> @Override // GET/URL/[models]/new
-		+> public void showNew() throws SQLException {
+		+> public void showNew() throws Exception {
 		+>   Post post = new Post();
 		+>   render(new ShowNewPost(post));
 		+> }
@@ -12,15 +15,16 @@ div.code <- code.java
 p The ShowNewPost.esp view displays this empty Post to the user:
 
 div.code <- code
-		+> import com.test.blog.models.*
-		+> 
-		+> ShowNewPost(Post post)
-		+> 
-		+> h1 New post
-		+> 
-		+> view<PostForm>(post)
-		+> 
-		+> a(Post.class, showAll) Back
+		+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+		+= \n
+		+= <span class="javaKeyword">ShowNewPost</span>(Post post)\n
+		+= \n
+		+= <span class="espTag">h1</span> <span class="espIText">New post</span>\n
+		+= \n
+		+= <span class="espTag">view</span>
+		+ {"<PostForm>"}(post)\n
+		+= \n
+		+= <span class="espTag">a</span>(Post.class, showAll) <span class="espIText">Back</span>
 
 p The <code>{"view<PostForm>(post)"}</code>
 	+w line is our first introduction to partials in Oobium. A partial is actually a regular ESP file, but is used
@@ -32,23 +36,23 @@ p The <code>{"view<PostForm>(post)"}</code>
 p If you take a look at posts/PostForm.esp file, you will see the following:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> 
-	+> PostForm(Post post)
-	+> 
-	+> form(post)
-	+>   errors
-	+>   div.field
-	+>     div <- label(name)
-	+>     div <- text(name)
-	+>   div.field
-	+>     div <- label(title)
-	+>     div <- text(title)
-	+>   div.field
-	+>     div <- label(content)
-	+>     div <- text(content)
-	+>   div.actions
-	+>     submit
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= \n
+	+= <span class="javaKeyword">PostForm</span>(Post post)\n
+	+= \n
+	+= <span class="espTag">form</span>(post)\n
+	+= <span class="espTab">  </span><span class="espTag">errors</span>\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">div</span> <- <span class="espTag">label</span>(<span class="javaText">"name"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">div</span> <- <span class="espTag">text</span>(<span class="javaText">"name"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">div</span> <- <span class="espTag">label</span>(<span class="javaText">"title"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">div</span> <- <span class="espTag">text</span>(<span class="javaText">"title"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">div</span> <- <span class="espTag">label</span>(<span class="javaText">"content"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">div</span> <- <span class="espTag">text</span>(<span class="javaText">"content"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.actions\n
+	+= <span class="espTab">    </span><span class="espTag">submit</span>
 
 p For more information on partials, refer to the 
 	a("/layouts_and_rendering_in_oobium") Layouts and Rendering in Oobium
@@ -79,7 +83,7 @@ p When the user clicks the Create Post button on this form, the browser will sen
 
 div.code <- code.java
 	+> @Override // POST/URL/[models]
-	+> public void create() throws SQLException {
+	+> public void create() throws Exception {
 	+>   Post post = param("post", new Post());
 	+>   if(post.create()) {
 	+>     switch(wants()) {
@@ -114,9 +118,9 @@ p After successfully saving the new post, the create method redirects the user t
 p If the post was not successfully saved, due to a validation error, then the controller returns the user back to
 	+w the showNew action with any error messages so that the user has the chance to fix the error and try again.
 
-p The “Post was successfully created” message is stored inside of the Oobium flash map, (just called the Flash)
+p The "Post was successfully created" message is stored inside of the Oobium flash map, (just called the Flash)
 	+w so that messages can be carried over to another action, providing the user with useful information on the status
 	+w of their request. In the case of create, the user never actually sees any page rendered during the Post creation
 	+w process, because it immediately redirects to the new Post as soon Oobium saves the record. The Flash carries over
 	+w a message to the next action, so that when the user is redirected back to the show action, they are presented with
-	+w a message saying “Post was successfully created.”
+	+w a message saying "Post was successfully created."

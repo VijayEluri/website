@@ -1,3 +1,5 @@
-title Configuration
+Intro(String title = "Configuration")
+
+title {title}
 
 p This guide is (will be) an in-depth look at how to configure an Oobium application.

@@ -1,4 +1,6 @@
-title Layouts and Rendering in Oobium
+Intro(String title = "Layouts and Rendering in Oobium")
+
+title {title}
 
 p This guide covers the basic layout features of Action Controller and Action View. By referring to this guide,
 	+w you will be able to:

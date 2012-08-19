@@ -1,4 +1,6 @@
-title Routing Direct to the Controller
+RoutingDirectToTheController(String title = "Routing Direct to the Controller")
+
+title {title}
 
 p The basic form of mapping a route directly to a controller is as follows:
 

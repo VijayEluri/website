@@ -1,4 +1,6 @@
-title Working with Validation Errors
+UsingValidationErrors(String title = "Working with Validation Errors")
+
+title {title}
 
 p When a validation fails, it adds an error message to the Errors List. This list can be used to ask the model if it
 	+w is valid or not by using the hasErrors() method. Oobium also provides a few other ways of accessing and manipulating

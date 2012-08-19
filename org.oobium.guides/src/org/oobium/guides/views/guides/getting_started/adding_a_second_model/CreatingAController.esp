@@ -1,4 +1,6 @@
-title Creating a Controller
+CreatingAController(String title = "Creating a Controller")
+
+title {title}
 
 p With the model in hand, you can turn your attention to creating a matching controller. Again, there's a generator
 	+w for this:
@@ -16,7 +18,7 @@ div.code <- code.java
 	+> public class CommentController extends ApplicationController {
 	+> 
 	+>   @Override
-	+>   public void handleRequest() throws SQLException {
+	+>   public void handleRequest() throws Exception {
 	+>     // TODO handle the request
 	+>   }
 	+> 
@@ -85,7 +87,7 @@ div.code <- code.java
 	+> public class CommentController extends ApplicationController {
 	+> 
 	+>   @Override
-	+>   public void create() throws SQLException {
+	+>   public void create() throws Exception {
 	+>     Comment comment = param("comment", new Comment());
 	+>     if(comment.create()) {
 	+=       redirectTo(comment.getPost(), <span class="javaStaticField">show</span>);\n

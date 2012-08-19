@@ -1,23 +1,24 @@
-title Embedding Java in JavaScript
+EmbeddingJavaInScripts(String title = "Embedding Java in JavaScript")
 
-p Embedding Java code in Javascript is usually not as useful or necessary as it is in CSS because Javascript has its
-	+w own ways of doing variables and equations. It still possible though, and works just the same as in a style
-	+w element - by using the special ":=" assignment operator:
+title {title}
+
+p To be honest, Oobium currently does't make much of an attempt to parse your JavaScript code - it's really just a
+	+w big ole string. On the bright side though, this does make it really easy to embed Java parts:
 
 div.code <- code
-	+= - String favcolor = <span class="javaText">"blue"</span>;\n
+	+= - int cycles = 100;\n
 	+= \n
 	+= <span class="espTag">script</span>\n
-	+= <span class="espTab">  </span><span class="javaKeyword">function</span> setColor(el) {\n
-	+= <span class="espTab">  </span>  el.color := favcolor; <span class="javaComment">// <- this is a Java assignment</span>\n
+	+= <span class="espTab">  </span><span class="javaKeyword">for</span>(var i = 0; i < ${cycles}; i++) {\n
+	+= <span class="espTab">  </span>  alert(<span class="javaText">'srsly, how irritating would this be?'</span>);\n
 	+= <span class="espTab">  </span>}\n
 
-p A more practical use for this, and the reason for its inclusion in ESP files, is for dealing with JSON data:
+p Naturally, this works great with JSON data:
 
 div.code <- code
 	+= - String favcolor = <span class="javaText">"blue"</span>;\n
 	+= \n
 	+= <span class="espTag">script</span>\n
-	+= <span class="espTab">  </span>var object = {\n
-	+= <span class="espTab">  </span>  color := favcolor\n
+	+= <span class="espTab">  </span>var data = {\n
+	+= <span class="espTab">  </span>  <span class="javaText">"color"</span>: ${favcolor}\n
 	+= <span class="espTab">  </span>}\n

@@ -1,4 +1,6 @@
-title Why Use Validations?
+WhyUseValidations(String title = "Why Use Validations?")
+
+title {title}
 
 p Validations are used to ensure that only valid data is saved into your data store. For example, it may be important
 	+w to your application to ensure that every user provides a valid email address and mailing address.

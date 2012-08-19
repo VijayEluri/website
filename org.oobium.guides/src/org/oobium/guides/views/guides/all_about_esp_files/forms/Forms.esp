@@ -1,4 +1,6 @@
-title Forms
+Forms(String title = "Forms")
+
+title {title}
 
 p Since all standard ESP elements compile straight to XML/XHTML, we can write forms using all the same knowledge we
 	+w have from normal HTML programming:
@@ -9,7 +11,7 @@ div.code <- code
 	+= <span class="espTab">  </span><span class="espTag">input</span>(type: <span class="javaText">"text"</span>, name: <span class="javaText">"post[title]"</span>)
 
 p If we have a model, however, we can simplify the form and speed up its integration into our system. Assuming the
-	+w variable post is of type Post, which has a field named "title", the same form becomes:
+	+w variable post is of type Post, which has a field named "title", the above form becomes:
 
 div.code <- code
 	+= <span class="espTag">form</span>(post)\n
@@ -44,7 +46,7 @@ table
 	tr
 		td <span class="espTag">hidden</span>
 		td an input of type hidden
-		td <- hidden
+		td <- hidden(value: "move along people, nothing to see here")
 	tr
 		td <span class="espTag">number</span>
 		td an input of type text, with Javascript to prevent<br/> non-numbers from being entered

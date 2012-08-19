@@ -1,4 +1,6 @@
-title Free-form Routing
+FreeFormRouting(String title = "Free-form Routing")
+
+title {title}
 
 p Although RESTful routing helps us in so many ways, there will always be times that it doesn't quite fit right.
 	+w For these times Oobium provides you with a few methods to go completely free-form and map a route directly

@@ -203,6 +203,7 @@ div.warning
 
 .javaKeyword
 	color: #7F0055
+	font-weight: bold
 
 .javaAnnotation
 	color: #646464

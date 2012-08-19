@@ -1,4 +1,6 @@
-title Guide Assumptions
+GuideAssumptions(String title = "Guide Assumptions")
+
+title {title}
 
 p This guide is designed for beginners who want to get started with an Oobium application from scratch.
 	+w It does not assume that you have any prior experience with Oobium. However, to get the most out of it, 

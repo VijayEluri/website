@@ -1,4 +1,6 @@
-title Listing all Posts
+ListingAllPosts(String title = "Listing all Posts")
+
+title {title}
 
 p The easiest place to start looking at functionality is with the code that lists all posts.
 	+w Open the <code>PostController</code> class
@@ -9,8 +11,8 @@ p Take a look at the showAll action:
 
 div.code <- code.java
 	+> @Override // GET/URL/[models]
-	+> public void showAll() throws SQLException {
-	+>   List<Post> posts = Post.findAll();
+	+> public void showAll() throws Exception {
+	+>   List<Post> posts = Post.findAll(getQuery(), getValues());
 	+> 
 	+>   switch(wants()) {
 	+=     case <span class="javaStaticField">JS</span>:\n
@@ -37,63 +39,66 @@ div.code <- code $ open view posts/ShowAllPosts
 p Here are the contents of posts/ShowAllPosts.esp:
 
 div.code <- code
-	+> import java.util.Collection
-	+> import org.oobium.persist.Paginator
-	+> import com.test.blog.models.*
-	+> 
-	+> ShowAllPosts(Collection<Post> posts)
-	+> ShowAllPosts(Paginator<Post> paginator)
-	+> 
-	+> h1 Listing posts
-	+> 
-	+> table
-	+>   tr
-	+>     th Name
-	+>     th Title
-	+>     th Content
-	+>   - for(Post post : posts) {
-	+>       tr
-	+>         td { post.getName() }
-	+>         td { post.getTitle() }
-	+>         td { post.getContent() }
-	+>         td <- a(post, show) Show
-	+>         td <- a(post, showEdit) Edit
-	+>         td <- a(post, destroy, confirm: "Are you sure?") Delete
-	+>   - }
-	+> 
-	+> br
-	+> 
-	+> a(Post.class, showNew) New Post
+	+= <span class="javaKeyword">import</span> java.util.List\n
+	+= <span class="javaKeyword">import</span> org.oobium.persist.Paginator\n
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= \n
+	+= <span class="javaKeyword">ShowAllPosts</span>(List<Post> posts)\n
+	+= <span class="javaKeyword">ShowAllPosts</span>(Paginator<Post> paginator)\n
+	+= \n
+	+= <span class="espTag">h1</span> <span class="espIText">Listing Posts</span>\n
+	+= \n
+	+= <span class="espTag">p</span> <- <span class="espTag">a</span>(Post.class, showNew) <span class="espIText">New Post</span>\n
+	+= \n
+	+= <span class="espTag">table</span>\n
+	+= <span class="espTab">  </span><span class="espTag">tr</span>\n
+	+= <span class="espTab">    </span><span class="espTag">th</span> <span class="espIText">id</span>\n
+	+= <span class="espTab">    </span><span class="espTag">th</span> <span class="espIText">Name</span>\n
+	+= <span class="espTab">    </span><span class="espTag">th</span> <span class="espIText">Title</span>\n
+	+= <span class="espTab">    </span><span class="espTag">th</span> <span class="espIText">Content</span>\n
+	+= <span class="espTab">  </span>- <span class="javaKeyword">for</span>(Post post : posts) {\n
+	+= <span class="espTab">    </span><span class="espTag">tr</span>\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> { post.getId() }\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> { post.getName() }\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> { post.getTitle() }\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> { post.getContent() }\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> <span class="javaKeyword"><-</span> <span class="espTag">a</span>(post, show) <span class="espIText">Show</span>\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> <span class="javaKeyword"><-</span> <span class="espTag">a</span>(post, showEdit) <span class="espIText">Edit</span>\n
+	+= <span class="espTab">      </span><span class="espTag">td</span> <span class="javaKeyword"><-</span> <span class="espTag">a</span>(post, destroy, confirm: "Are you sure?") <span class="espIText">Delete</span>\n
+	+= <span class="espTab">  </span>- }
 
 p This view iterates over the contents of the posts array to display content and links.
 	+w A few things to note in the view:
 
 ul
-	li There are two constructors (ShowAllPosts(...)) - these are just like the constructors in a regular Java file
+	li There are two constructors (<span class="javaKeyword">ShowAllPosts</span>(...)) - these are just like the constructors in a regular Java file
 		+w except that they have no body.  The parameters that are identified in the constructors are automatically
-		+w available through out the HTML section of the code (everything after the last constructor).  Notice how the
+		+w available through out the Markup section of the code (everything after the last constructor).  Notice how the
 		+w constructor in this ESP file lines up with the creation of a new ShowAllPages object in the controller's
 		+w showAll method.
 	li Whitespace is important! You probably indent your code already to make it more readable, well, Oobium enforces
 		+w this concept and uses it to give you the benefit of not needing closing tags - indentation is how you create
-		+w the hierarchy of elements.
+		+w the hierarchy of elements.<br/>
+		+w (The ESP editor shows leading tabs - which denote hierarchy - in gray, as shown above)
 	li There are lines of Java source code - any line that starts with a dash ("-") is interpretted as Java source code,
 		+w and has access to variables that were defined before it or passed in through the constructor.  In this file
 		+w there is a for-each loop that wraps the creation of a row in the table, thus creating a row for each Post in
 		+w the Posts collection.
 	li There are sections of Java source code - anything enclosed in braces
-		+w ("{}") is also interpretted as Java source code; it also has access to variable is constrained to only allow
-		+w returning a String (or an Object, which will be converted to a String). As mentioned before - anything after
-		+w a space character is considered the HTML element's inner text, so in the code "td { post.getContent() }", a
-		+w table data element will be created with the value of post.getContent() inside.
-	li There are some wierd left pointing arrows ("<-") - these let us break the rules of indentation (didn't take long,
-		+w did it?)  When there's just one child that needs to be added to an element, creating a whole other line can
-		+w be unwielding, so Oobium lets you use this short hand: "td <- a" means that the anchor is a child of the td.
+		+w ("{}") is also interpretted as Java source code; it also has access to variables, but is always evaluated to String.
+		+w As mentioned before - anything after a space character is considered the HTML element's inner text, so in the
+		+w code "td { post.getContent() }", a table data element will be created with the value of post.getContent() inside.
+	li There are some wierd left pointing arrows ("<span class="javaKeyword"><-</span>") - these let us break the rules of
+		+w indentation (didn't take long, did it?)  When there's just one child that needs to be added to an element, creating
+		+w a whole other line can be unwielding, so Oobium lets you use this short hand: 
+		+=  "<span class="espTag">td</span> <span class="javaKeyword"><-</span> <span class="espTag">a</span>"
+		+w means that the anchor is a child of the
+		+=  <span class="espTag">td</span>.
 
 div.note
 	+w Java sections (parts that are eclosed in braces: { }) are intended to evaluate to a String that will be
 	+w displayed on a web page as HTML.  As such, the String is automatically escaped for any non-HTML friendly
-	+w characters. Oobium contains convenient syntax to change the type of escaping, and to turn it off and
+	+w characters. Oobium contains convenient syntax to change the type of escaping, or to turn it off and
 	+w return raw text:
 	ul
 		li
@@ -107,10 +112,10 @@ div.note
 		li
 			+= {r "my text" } - the "r" denotes raw text, and does not escape anything
 
-div.info For more details on the rendering process, see 
-	a("/layouts_and_rendering_in_oobium") Layouts and Rendering in Oobium
-	+= .
-
 div.info For more details ESP files, see 
 	a("/all_about_esp_files") All about ESP Files
+	+= .
+
+div.info For more details on the rendering process, see 
+	a("/layouts_and_rendering_in_oobium") Layouts and Rendering in Oobium
 	+= .

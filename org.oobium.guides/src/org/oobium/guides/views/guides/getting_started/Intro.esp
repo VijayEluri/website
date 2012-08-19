@@ -1,4 +1,6 @@
-title Getting Started
+Intro(String title = "Getting Started")
+
+title {title}
 
 p This guide covers getting up and running with Oobium. After reading it, you should be familiar with:
 ul.intro

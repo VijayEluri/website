@@ -1,3 +1,5 @@
+import static org.oobium.guides.models.helpers.ViewHelper.getTitle
+
 import java.util.*
 import org.oobium.guides.models.*
 import org.oobium.guides.views.pages.*
@@ -16,7 +18,7 @@ div#guideContent
 			- }
 			- for(int j = 0; j < chapter.sections.length; j++) {
 				- View section = chapter.sections[j];
-					h4#{chapter.getId(section)} { (i+1) + "." + (j+1) + " " + section.getTitle() }
+					h4#{chapter.getId(section)} { (i+1) + "." + (j+1) + " " + getTitle(section) }
 					yield(section)
 			- }
 		- }

@@ -1,9 +1,11 @@
-title ESP Elements
+EspElements(String title = "ESP Elements")
+
+title {title}
 
 p The basis of ESP elements is that, unless otherwise mentioned, they are equivalent to XML elements. The ESP element:
 
 div.code <- code
-	+= <span class="espTag">tag</span>#id.class1.class2(attr1: val1, attr2: val2) <span class="espIText">inner text</span>
+	+= <span class="espTag">tag</span>#id.class1.class2(attr1: <span class="javaText">"val1"</span>, attr2: <span class="javaText">"val1"</span>) <span class="espIText">inner text</span>
 
 p is equivalent to the following XML:
 
@@ -16,7 +18,7 @@ p All parts can be present, some of them, or only the tag, but whatever parts ar
 div.code <- code
 	+= <span class="espTag">tag</span>\n
 	+= <span class="espTag">tag</span>.class1\n
-	+= <span class="espTag">tag</span>(attr1: "val1")\n
+	+= <span class="espTag">tag</span>(attr1: <span class="javaText">"val1"</span>)\n
 
 p but these are not:
 

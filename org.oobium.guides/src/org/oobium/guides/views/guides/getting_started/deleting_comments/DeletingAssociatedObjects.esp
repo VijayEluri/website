@@ -1,4 +1,6 @@
-title Deleting Associated Objects
+DeletingAssociatedObjects(String title = "Deleting Associated Objects")
+
+title {title}
 
 p If you delete a post then its associated comments will also need to be deleted. Otherwise they would simply
 	+w occupy space in the database. Oobium allows you to use the onDelete property of a relation to achieve this.

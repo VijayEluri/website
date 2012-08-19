@@ -1,4 +1,6 @@
-title Security
+Security(String title = "Security")
+
+title {title}
 
 p If you were to publish your blog online, anybody would be able to add, edit and delete posts or delete comments.
 

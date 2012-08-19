@@ -1,4 +1,6 @@
-title Custom Code
+CustomCode(String title = "Custom Code")
+
+title {title}
 
 p Custom code refers to when you're off on your own and Oobium can't help you.
 

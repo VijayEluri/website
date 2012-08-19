@@ -1,4 +1,6 @@
-title Routing a Single Resource
+RoutingASingleResource(String title = "Routing a Single Resource")
+
+title {title}
 
 p Beyond only a subset of resources, there are times that you'll want to route only a single resource. In these cases
 	+w Oobium provides a set of singular addResource methods. These are very similar to their plural counter-parts,

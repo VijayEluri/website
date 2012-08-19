@@ -1,4 +1,6 @@
-title Showing an Individual Post
+ShowingAnIndividualPost(String title = "Showing an Individual Post")
+
+title {title}
 
 p When you click the show link for a post on the index page, it will bring you to a URL like
 	+w http://localhost:5000/posts/1. Oobium interprets this as a call to the show action for the resource, and
@@ -6,8 +8,8 @@ p When you click the show link for a post on the index page, it will bring you t
 
 div.code <- code.java
 	+> @Override // GET/URL/[models]/id
-	+> public void show() throws SQLException {
-	+>   Post post = Post.find(getId());
+	+> public void show() throws Exception {
+	+>   Post post = Post.findById(getId());
 	+>   if(post != null) {
 	+>     switch(wants()) {
 	+=       case <span class="javaStaticField">JS</span>:\n
@@ -21,27 +23,21 @@ p The show action uses Post.find(int id) to search for a single record in the da
 	+w the record, it is displayed using ShowPost.esp:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> 
-	+> ShowPost(Post post)
-	+> 
-	+> p
-	+>   b Name:
-	+>   +  { post.getName() }
-	+> p
-	+>   b Title:
-	+>   +  { post.getTitle() }
-	+> p
-	+>   b Content:
-	+>   +  { post.getContent() }
-	+> p
-	+>   b Created At:
-	+>   + { psst.getCreatedAt() }
-	+> p
-	+>   b Updated At:
-	+>   + { post.getUpdatedAt() }
-	+> 
-	+> a(post, edit) Edit
-	+> span  | 
-	+> a(Post.class, showAll) Back
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= \n
+	+= <span class="javaKeyword">ShowPost</span>(Post post)\n
+	+= \n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> <span class="espIText">Name:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span> { post.getName() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> <span class="espIText">Title:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span> { post.getTitle() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> <span class="espIText">Content:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span> { post.getContent() }\n
+	+= \n
+	+= <span class="espTag">a</span>(post, showEdit) <span class="espIText">Edit</span>\n
+	+= <span class="espTag">span</span>  | \n
+	+= <span class="espTag">a</span>(Post.class, showAll) <span class="espIText">Back</span>
 

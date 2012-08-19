@@ -1,3 +1,5 @@
-title Getting a Database Connection
+GettingADatabaseConnection(String title = "Getting a Database Connection")
+
+title {title}
 
 p TODO

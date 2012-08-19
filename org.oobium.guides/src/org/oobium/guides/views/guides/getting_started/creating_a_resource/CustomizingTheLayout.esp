@@ -1,4 +1,6 @@
-title Customizing the Layout
+CustomizingTheLayout(String title = "Customizing the Layout")
+
+title {title}
 
 p The view is only part of the story of how HTML is displayed in your web browser. Oobium also has the concept
 	+w of layouts, which are containers for views. When Oobium renders a view to the browser, it does so by putting
@@ -12,14 +14,14 @@ p Now modify the layout by adding a body tag with a background style, and making
 
 div.code
 	code
-		+> title com.test.blog: { titleize(getChild().getClass().getSimpleName()) }
-		+> 
-		+> head
-		+>   script(defaults)
-		+>   style(defaults)
-		+> 
-		+> body(style:"background: #eee")
-		+>   div <- yield
+		+= <span class="espTag">title</span> com.test.blog: { titleize(getChild().getClass().getSimpleName()) }\n
+		+= \n
+		+= <span class="espTag">head</span>\n
+		+= <span class="espTab">  </span><span class="espTag">script</span>(<span class="javaText">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"</span>)\n
+		+= <span class="espTab">  </span><span class="espTag">style</span>(defaults)\n
+		+= \n
+		+= <span class="espTag">body</span>(style:"<span class="essProp">background</span>: #eee")\n
+		+= <span class="espTab">  </span><span class="espTag">div</span> <- <span class="javaKeyword"><b>yield</b></span>
 
 p Now when you refresh the /posts page, you'll see a gray background to the page. This same gray background
-	+w will be used throughout all the views for posts.
+	+w will be used throughout all the views that use this layout.

@@ -12,7 +12,7 @@ div#allContent
 			div <- a(href:"/") <- img#logo(src:"/brightLogo.png")
 	div#header
 	div#topBar
-		div#topBarContent <- yield("topBarContent")
+		div#topBarContent <- yieldTo("topBarContent")
 	div#main
 		div#mainContent <- yield
 	div#footer

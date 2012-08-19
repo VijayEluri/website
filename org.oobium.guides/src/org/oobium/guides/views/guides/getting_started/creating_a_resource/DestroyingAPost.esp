@@ -1,11 +1,13 @@
-title Destroying a Post
+DestroyingAPost(String title = "Destroying a Post")
+
+title {title}
 
 p Finally, clicking one of the destroy links sends the associated id to the destroy action:
 
 div.code <- code.java
 	+> @Override // DELETE/URL/[models]/id
-	+> public void destroy() throws SQLException {
-	+>   Post post = Post.newInstance(getId());
+	+> public void destroy() throws Exception {
+	+>   Post post = new Post().setId(getId());
 	+>   if(post.destroy()) {
 	+>     switch(wants()) {
 	+=       case <span class="javaStaticField">JS</span>:\n

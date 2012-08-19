@@ -1,4 +1,6 @@
-title Creating a Model
+CreatingAModel(String title = "Creating a Model")
+
+title {title}
 
 p Models in Oobium use a singular name, and their corresponding database tables use a plural name. For the model
 	+w to hold comments, the convention is to use the name Comment. Even if you don't want to use the entire
@@ -52,20 +54,20 @@ p This is very similar to the Post.java model that you saw earlier. The main dif
 	+w section of the ModelDescription being used: the hasOne array. In this array are specified all of the model's hasOne
 	+w relations (aptly created by the @Relation annotation). The above code can be read as: a comment has one post.
 
-p In addition, Oobium has updated the AbstractCreateDatabase migration's up method to create the corresponding table:
+p In addition, Oobium has updated the CreateDatabase migration to handle the new model type:
 
 div.code <- code.java
 	+> @Override
 	+> public void up() throws SQLException {
-	+>   Table comments = createTable("comments", tableOptions.get("comments"),
+	+>   Table comments = createTable("comments",
 	+>       String("commenter"),
 	+>       Text("body"),
-	+>       Integer("post"),
-	+>       Timestamps()
+	+>       Timestamps(),
+	+>       Integer("post")
 	+>   );
 	+>   comments.addIndex("post");
 	+> 
-	+>   createTable("posts", tableOptions.get("posts"),
+	+>   createTable("posts",
 	+>       String("name"),
 	+>       String("title"),
 	+>       Text("content"),
@@ -74,6 +76,14 @@ div.code <- code.java
 	+> 
 	+>   comments.addForeignKey("post", "posts");
 	+>   comments.update();
+	+> }
+	+> 
+	+> @Override
+	+> public void down() throws SQLException {
+	+>   changeTable("comments", removeForeignKey("post"));
+	+> 
+	+>   dropTable("comments");
+	+>   dropTable("posts");
 	+> }
 
 p Notice at the end of the method that a foreign key is setup on the comments table.  This has to be done at the end,

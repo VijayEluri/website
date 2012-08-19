@@ -1,0 +1,52 @@
+Server(String title = "Server")
+
+title {title}
+
+p Oobium applications are OSGi services that need to register with the server (another OSGi service) to be able to
+	+w accept HTTP connections. There are a couple of ways to do this, each with varying degrees of simplicity and
+	+w control.
+
+p The simplest server connection just specifies a port number:
+div.code <- code.java
+	+> server: 5000
+
+p Muliple ports may be specified by using a list:
+div.code <- code.java
+	+> server: [ 5000, 5001 ]
+
+p To specify other server options, use a map:
+div.code <- code.java
+	+> server: {
+	+>   host: "mydomain.com",
+	+>   port: 5000,
+	+>   options: {
+	+>     ... snip ...
+	+>   }
+	+> }
+
+p The host parameter, just like the port parameter, can also be a list to specify more than one:
+div.code <- code.java
+	+> server: {
+	+>   host: [ "www.mydomain.com", "mydomain.com"],
+	+>   port: 5000,
+	+>   options: {
+	+>     ... snip ...
+	+>   }
+	+> }
+
+div.info If no host is specified, then all hosts will be handled by the application.
+
+p SSL uses a Java keystore, and is configured in a similar manner:
+div.code <- code.java
+	+> server: {
+	+>   ssl: {
+	+>     port: 243,
+	+>     ssl.protocol: "TLS",           // defaults to "TLS"
+	+>     keystore.password: "password",
+	+>     keystore.location: "location", // defaults to "conf/keystore.jks"
+	+>     keystore.algorithm: "JKS",     // defaults to "JKS"
+	+>   }
+	+> }
+
+div.note At least one port MUST be specified, but it can be either a regular port or an SSL port (from the ssl section).
+	+w You are not required to have both.

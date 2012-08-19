@@ -1,4 +1,22 @@
-title Notifiers
+Notifiers(String title = "Notifiers")
+
+title {title}
 
 p Notifiers are a special subclass of Observer that are used to notify remote Observers.
-p TODO
+
+p When you want to connect a remote client to your Oobium based web application, the easiest thing to do is export
+	+w your models to a client library. This library will contain your models and an HttpPersistService that allows
+	+w them to be persisted back to the server-side web application using the same CRUD operations you're already used to.
+
+p The HttpPersistService also has a means of connecting to the server by means of WebSockets to receive "real-time"
+	+w updates about the state of your models. This allows your client models to fully utilize Observers the same way
+	+w (from the developer perspective) that your server does.
+
+p Behind the scenes, pre-commit observer methods happen identically, but the post-commit (afterSave, afterUpdate, afterDestroy)
+	+w all operate off a websocket callback - if, for example, a model is updated on the server, then your client will
+	+w receive a notification of that via a websocket and trigger the afterUpdate method of the appropriate Observer.
+
+p Sometimes, however, we don't want these message going out, or we want to modify / log them before they do. There are
+	+w an infinite number of cases we might want to handle, thus each Model class gets a corresponding Notifier
+	+w (automatically generated when the model is created) that allows the server-side developer to intercept these
+	+w notifications and handle them appropriately. 

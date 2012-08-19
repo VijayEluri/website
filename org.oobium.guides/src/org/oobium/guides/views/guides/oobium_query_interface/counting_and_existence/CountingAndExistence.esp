@@ -1,3 +1,5 @@
-title Counting and Existence
+CountingAndExistence(String title = "Counting and Existence")
+
+title {title}
 
 p TODO

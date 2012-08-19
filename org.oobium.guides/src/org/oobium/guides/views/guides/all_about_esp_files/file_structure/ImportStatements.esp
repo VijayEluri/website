@@ -1,4 +1,6 @@
-title Import Statements
+ImportStatements(String title = "Import Statements")
+
+title {title}
 
 p Import statements are used in ESP files to specify the fully qualified name of a class so that it can be referred to
 	+w in the code by its short (simple) name. This is exactly what they accomplish in a regular Java file and ESP's are

@@ -1,7 +1,9 @@
-title Halting Execution
+HaltingExecution(String title = "Halting Execution")
+
+title {title}
 
 p After every observer method is run in the execution path of a given operation (create, update, destroy) the errors list
 	+w is checked and, if there are any errors found, the execution of the operation is halted.
 
-p This can be used as an extension of the validation system provided within the model. Just make sure to make it clear
-	+w where the error came from or debugging can get confusing.
+p This can be used as an extension of the validation system provided within the model. Just make sure to be clear
+	+w about where the error came from or debugging can get confusing.

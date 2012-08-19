@@ -1,4 +1,6 @@
-title Building a Multi-Model Form
+BuildingAMultimodelForm(String title = "Building a Multi-Model Form")
+
+title {title}
 
 p Another feature of your average blog is the ability to tag posts. To implement this feature your application needs
 	+w to interact with more than one model on a single form. Oobium offers support for nested forms.
@@ -19,40 +21,42 @@ p As we did earlier for the Comments, add the hasMany relation to the Post model
 p We will modify posts/PostForm.esp to render a partial to make a tag:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> import com.test.blog.views.tags.*
-	+> 
-	+> PostForm(Post post)
-	+> 
-	+> form(post)
-	+>   errors
-	+>   div.field
-	+>     div <- label(name)
-	+>     div <- text(name)
-	+>   div.field
-	+>     div <- label(title)
-	+>     div <- text(title)
-	+>   div.field
-	+>     div <- label(content)
-	+>     div <- text(content)
-	+>   view<TagForm>(new Tag().setPost(post))
-	+>   div.actions
-	+>     submit
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= <span class="javaKeyword">import</span> com.test.blog.views.tags.*\n
+	+= \n
+	+= <span class="javaKeyword">PostForm</span>(Post post)\n
+	+= \n
+	+= <span class="espTag">form</span>(post)\n
+	+= <span class="espTab">  </span><span class="espTag">errors</span>\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">label</span>(<span class="javaText">"name"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">text</span>(<span class="javaText">"name"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">label</span>(<span class="javaText">"title"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">text</span>(<span class="javaText">"title"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">label</span>(<span class="javaText">"content"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">text</span>(<span class="javaText">"content"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">view</span>
+	+ {"<TagForm>"}
+	+= (<span class="javaKeyword">new</span> Tag().setPost(post))\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.actions\n
+	+= <span class="espTab">    </span><span class="espTag">submit</span>\n
 
 p Now open the tags/TagForm view, and change it to be like this:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> 
-	+> TagForm(Tag tag)
-	+> 
-	+> fields(tag)
-	+>   hidden(post)
-	+>   div.field
-	+>     div <- label(name)
-	+>     div <- text(name)
-	+>   div.actions
-	+>     submit
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= \n
+	+= <span class="javaKeyword">TagForm</span>(Tag tag)\n
+	+= \n
+	+= <span class="espTag">fields</span>(tag)\n
+	+= <span class="espTab">  </span><span class="espTag">hidden</span>(<span class="javaText">"post"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">label</span>(<span class="javaText">"name"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">text</span>(<span class="javaText">"name"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.actions\n
+	+= <span class="espTab">    </span><span class="espTag">submit</span>\n
 
 p Note that this time we've used the fields element rather than the form element.  This will render child form elements
 	+w in the same manner, but they will be based on the model supplied to the fields element.
@@ -60,38 +64,42 @@ p Note that this time we've used the fields element rather than the form element
 p Finally, we will edit the ShowPost view to show our tags:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> import com.test.blog.views.comments.*
-	+> 
-	+> ShowPost(Post post)
-	+> 
-	+> p
-	+>   b Name:
-	+>   +  { post.getName() }
-	+> p
-	+>   b Title:
-	+>   +  { post.getTitle() }
-	+> p
-	+>   b Content:
-	+>   +  { post.getContent() }
-	+> p
-	+>   b Tags:
-	+>   - for(Tag tag : post.tags()) {
-	+>       a(tag, show)  { tag.getName() }
-	+>   - }
-	+> p
-	+>   b Created At:
-	+>   + { psst.getCreatedAt() }
-	+> p
-	+>   b Updated At:
-	+>   + { post.getUpdatedAt() }
-	+> 
-	+> h2 Comments
-	+> view<ShowComment>(Comment: post.comments())
-	+> 
-	+> h2 Add a comment:
-	+> view<CommentForm>(post)
-	+> 
-	+> a(post, showEdit) Edit
-	+> span  | 
-	+> a(Post.class, showAll) Back
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= <span class="javaKeyword">import</span> com.test.blog.views.comments.*\n
+	+= \n
+	+= <span class="javaKeyword">ShowPost</span>(Post post)\n
+	+= \n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Name:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span>  { post.getName() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Title:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span>  { post.getTitle() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Content:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span>  { post.getContent() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Tags:</span>\n
+	+= <span class="espTab">  </span>- <span class="javaKeyword">for</span>(Tag tag : post.tags()) {\n
+	+= <span class="espTab">      </span><span class="espTag">a</span>(tag, show)  { tag.getName() }\n
+	+= <span class="espTab">  </span>- }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Created At:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span> { psst.getCreatedAt() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Updated At:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span> { post.getUpdatedAt() }\n
+	+= \n
+	+= <span class="espTag">h2</span> Comments</span>\n
+	+= <span class="espTag">view</span>
+	+ {"<ShowComment>"}
+	+= (Comment: post.comments())\n
+	+= \n
+	+= <span class="espTag">h2</span> Add a comment:</span>\n
+	+= <span class="espTag">view</span>
+	+ {"<CommentForm>"}
+	+= \n
+	+= <span class="espTag">a</span>(post, showEdit) <span class="espIText">Edit</span>\n
+	+= <span class="espTag">span</span> <span class="espIText"> | </span>\n
+	+= <span class="espTag">a</span>(Post.class, showAll) <span class="espIText">Back</span>\n
+	

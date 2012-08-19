@@ -1,12 +1,14 @@
-title Editing Posts
+EditingPosts(String title = "Editing Posts")
+
+title {title}
 
 p Like creating a new post, editing a post is a two-part process. The first step is a request to
 	+w a(post, showEdit) with a particular post. This calls the showEdit method in the controller:
 
 div.code <- code.java
 	+> @Override // GET/URL/[models]/id/edit
-	+> public void showEdit() throws SQLException {
-	+>   Post post = Post.find(getId());
+	+> public void showEdit() throws Exception {
+	+>   Post post = Post.findById(getId());
 	+>   if(post != null) {
 	+>     render(new ShowEditPost(post));
 	+>   }
@@ -15,17 +17,18 @@ div.code <- code.java
 p After finding the requested post, it is rendered using the ShowEditPost view to display it:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> 
-	+> ShowEditPost(Post post)
-	+> 
-	+> h1 Editing post
-	+> 
-	+> view<PostForm>(post)
-	+> 
-	+> a(post) Show
-	+> span  | 
-	+> a(Post.class, showAll) Back
+		+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+		+= \n
+		+= <span class="javaKeyword">ShowEditPost</span>(Post post)\n
+		+= \n
+		+= <span class="espTag">h1</span> <span class="espIText">Editing post</span>\n
+		+= \n
+		+= <span class="espTag">view</span>
+		+ {"<PostForm>"}(post)\n
+		+= \n
+		+= <span class="espTag">a</span>(post, show) <span class="espIText">Show</span>\n
+		+= <span class="espTag">span</span>  <span class="espIText">|</span> \n
+		+= <span class="espTag">a</span>(Post.class, showAll) <span class="espIText">Back</span>
 
 p Again, as with the ShowNewPost view, the ShowEditPost view is using the form partial, this time however, the form
 	+w will do a PUT action to the PostController and the submit button will display "Update Post".
@@ -34,7 +37,7 @@ p Submitting the form created by this view will invoke the update method within 
 
 div.code <- code.java
 	+> @Override // PUT/URL/[models]/id
-	+> public void update() throws SQLException {
+	+> public void update() throws Exception {
 	+>   Post post = param("post", Post.class).setId(getId());
 	+>   if(post.update()) {
 	+>     switch(wants()) {

@@ -1,4 +1,6 @@
-title Testing Oobium Applications
+Intro(String title = "Testing Oobium Applications")
+
+title {title}
 
 p This guide covers built-in mechanisms offered by Oobium to test your application.
 	+w By referring to this guide, you will be able to:

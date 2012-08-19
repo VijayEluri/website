@@ -1,4 +1,6 @@
-title REST
+REST(String title = "REST")
+
+title {title}
 
 p Rest stands for Representational State Transfer and is the foundation of the RESTful architecture. This is
 	+w generally considered to be Roy Fielding's doctoral thesis, Architectural Styles and the Design of

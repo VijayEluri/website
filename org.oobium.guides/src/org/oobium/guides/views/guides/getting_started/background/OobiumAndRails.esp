@@ -1,4 +1,6 @@
-title Ruby on Rails
+OobiumAndRails(String title = "Ruby on Rails")
+
+title {title}
 
 p If you have any experience with 
 	a("http://rubyonrails.org") Ruby on Rails
@@ -24,5 +26,4 @@ ul
 	li Oobium is not just a framework, it is also tools and builds and environments
 	li Oobium is not just for web applications, it is also for mobile and rich client applications
 
-p Of course, at the heart of it all is the framework and when stuck, the Oobium framework looks first to Ruby on Rails
-	+w for suggestions.<br/>Face it Java lords, they got a lot right.
+p Of course, at the heart of it all is the framework and when stuck, the Oobium framework looks first to Ruby on Rails.

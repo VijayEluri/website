@@ -1,4 +1,6 @@
-title Adding Basic Authentication
+AddingBasicAuthentication(String title = "Adding Basic Authentication")
+
+title {title}
 
 p One of the simplest ways to protect your content online is to put it behind HTTP Basic Authentication. As we all
 	+w know by now, basic authentication has is its place in the security hierarchy - fairly low, but it is

@@ -1,0 +1,18 @@
+MultipleApplications(String title = "Multiple Applications")
+
+title {title}
+
+p It is possible to have multiple Oobium applications running in a single deployed OSGi runtime environment.
+
+p If they run on separate ports, then each is simply configured as shown in the previous section. Sometimes, however,
+	+w you'll want an application to be a virtual host on the same port as another application (usually port 80).
+	+w To handle this case, you need to configure the virtual host application to use the same server as configured for
+	+w the primary by "extend"ing it:
+
+div.code <- code.java
+	+> server: {
+	+>   extend: "com.myapp", // <- the name of the application
+	+>   host: "vhost.mydomain.com"
+	+> }
+
+div.note When using the "extend" keyword, only it and the "host" parameter will be considered. All others are discarded.

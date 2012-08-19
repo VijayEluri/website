@@ -1,4 +1,6 @@
-title Displaying Validation Errors in the View
+DisplayingValidationErrors(String title = "Displaying Validation Errors in the View")
+
+title {title}
 
 p Oobium's ESP files contain some custom tags to help you easily display the error messages of your models.
 
@@ -58,11 +60,12 @@ p If you pass an empty string into either of these options, it will get rid of t
 h3 Customizing the Error Messages CSS
 p The selectors to customize the style of error messages are:
 ul
-	li .fieldWithErrors – Style for the form fields and labels with errors.
-	li .errorExplanation – Style for the div element with the error messages.
-	li .errorExplanation h2 – Style for the header of the div element.
-	li .errorExplanation p – Style for the paragraph that holds the message that appears right below the header of the div element.
-	li .errorExplanation ul li – Style for the list items with individual error messages.
+	li .labelWithErrors - Style for the labels of form fields with errors.
+	li .fieldWithErrors - Style for the form fields with errors.
+	li .errorExplanation - Style for the div element with the error messages.
+	li .errorExplanation h2 - Style for the header of the div element.
+	li .errorExplanation p - Style for the paragraph that holds the message that appears right below the header of the div element.
+	li .errorExplanation ul li - Style for the list items with individual error messages.
 
 p The default application.css file, that is generated when creating the application, contains the red-based style shown
 	+w above. You can (and are encouraged to) change this to suit your application's needs.

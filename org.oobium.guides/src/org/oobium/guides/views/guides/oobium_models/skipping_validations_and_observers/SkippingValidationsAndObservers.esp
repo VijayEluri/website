@@ -1,4 +1,6 @@
-title Skipping Validations and Observers
+SkippingValidationsAndObservers(String title = "Skipping Validations and Observers")
+
+title {title}
 
 p There are even times when, for whatever reason, you'll want to skip validations and observers entirely (tests and
 	+w migrations come to mind).
@@ -12,3 +14,12 @@ div.code <- code.java
 	+> Post.getPersistService().create(invalidPost);
 
 p Of course, this does not bypass any persist service or database level validations that may be in place.
+
+p To skip validations only, you can manually deactivate (and later reactivate) them:
+
+div.code <- code.java
+	+> Model.deactivateObservers();
+	+> 
+	+> ... to stuff ...
+	+> 
+	+> Model.activateObservers();

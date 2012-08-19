@@ -1,13 +1,15 @@
-title Defining Home
+DefiningHome(String title = "Defining Home")
 
-p Nearly all web applications have a home page, so it only makes sense to provide a way to setting this up as
-	+w simple and quick as possible. In Oobium, we use the setHome method here. The most common being the version
+title {title}
+
+p Nearly all web applications have a home page, so it makes sense to provide a way to set this up as
+	+w quickly and simply as possible. In Oobium, we use the setHome method here. The most common being the version
 	+w that takes a View class:
 
 div.code <- code.java
 	+> router.setHome(Home.class)
 
-p Another option is to use a single resourse or controller and the appropriate action:
+p Another option is to use a single resource or controller and the appropriate action:
 
 div.code <- code.java
 	+= router.setHome(Photos.class, <span class="javaStaticField">showAll</span>)

@@ -1,3 +1,5 @@
-title Retrieving Multiple Models
+RetrievingMultipleModels(String title = "Retrieving Multiple Models")
+
+title {title}
 
 p TODO

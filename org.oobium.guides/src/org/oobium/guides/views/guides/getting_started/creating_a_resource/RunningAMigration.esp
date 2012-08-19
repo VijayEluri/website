@@ -1,4 +1,6 @@
-title Running a Migration
+RunningAMigration(String title = "Running a Migration")
+
+title {title}
 
 p Back when we created the application we also said to create a Migration project.  Now's the time to
 	+w a look at what that was all about.
@@ -59,18 +61,20 @@ div.code <- code.java
 	+> 
 	+> }
 
-p The above migration creates two methods, up, which is called when you run this migration forward,
+p The above migration has two methods: up, which is called when you run this migration forward,
 	+w and down, in case you need to reverse the changes made by this migration at a later date. The up method
 	+w in this case create the table "posts" with the columns corresponding to the model, and the down method
 	+w simply drops the "posts" table. More information about Oobium migrations can be found in the 
 	a("/oobium_database_migrations") Oobium Database Migrations
 	+w guide.
 
-p At this point, you can use a console command to run the migration:
+p It's actually not necessary to do now, because starting the server from within the Oobium tools
+	+w automatically runs the migrator, but if you need to in the future, you can use a console command
+	+w to run the migration:
 
 div.code <- code $ migrate
 
-div.note The server must be running to perform a migration. If you stopped it, or are picking up this guide in the
+div.info The server must be running to perform a migration. If you stopped it, or are picking up this guide in the
 	+w middle then you'll need to start it up by issuing the "start" command in the Oobium console.
 
 p Oobium will execute this migration command and tell you whether it completed successfully or not.

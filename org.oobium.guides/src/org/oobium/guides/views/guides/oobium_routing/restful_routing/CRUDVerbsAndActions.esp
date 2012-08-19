@@ -1,4 +1,6 @@
-title CRUD, Verbs, and Actions
+CRUDVerbsAndActions(String title = "CRUD, Verbs, and Actions")
+
+title {title}
 
 p In Oobium, a restful route provides a mapping between HTTP verbs and URLs and controller actions. By convention, 
 	+w each action also maps to particular CRUD operations in a database. A single entry in the routing file, such as
@@ -22,8 +24,8 @@ view<RoutesTable>("/vacation/")
 p This path argument can also be used for much more than just a prefix though. It can also contain variables and
 	+w constants as well as completely customize how a resource is mapped. Variables and constants will be 
 	+w discussed in more detail later, but for now just know that there are two special variables: {models} and {id}
-	+w that are used in mapping a resource to a given path. The {models} variable is the name of the resource - 
-	+w "photo" for the Photo class - and the {id} is its model id, as returned by post.getId(). In a standard
+	+w that are used in mapping a resource to a given path. The {models} variable is the plural name of the resource - 
+	+w "photos" for the Photo class - and the {id} is its model id, as returned by post.getId(). In a standard
 	+w call to addResources the path is determined as the following:
 
 div.code <- code

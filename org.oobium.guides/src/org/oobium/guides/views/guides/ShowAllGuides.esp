@@ -4,7 +4,9 @@ import org.oobium.guides.models.*
 import org.oobium.guides.views.pages.*
 import org.oobium.utils.Config.Mode
 
-title Oobium Framework Guides
+ShowAllGuides(String title = "Oobium Framework Guides")
+
+title {title}
 
 contentFor("topBarContent")
 	div#column

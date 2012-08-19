@@ -1,4 +1,6 @@
-title Variables and Constants
+VariablesAndConstants(String title = "Variables and Constants")
+
+title {title}
 
 p A common URL pattern for a blog post is: "http://www.mydomain.com/2010/12/06/my_first_post". How would we
 	+w map this route in Oobium? By using variables in the path argument, of course:
@@ -11,12 +13,12 @@ p If that makes you think of regular expressions, then you've already figured it
 	+w indicates a variable:
 
 div.code <- code.java
-	+= router.addResource("/photos/{album<u>:</u>[\\\\w_]+}", Photo.class, <span class="javaStaticField">showAll</span>)
+	+= router.addResource("/photos/{album<b>:</b>[\\\\w_]+}", Photo.class, <span class="javaStaticField">showAll</span>)
 
 p and an equals sign (=) is a constant:
 
 div.code <- code.java
-	+= router.addResource("/photos/{album<u>=</u>spring_2007}", Photo.class, <span class="javaStaticField">showAll</span>)
+	+= router.addResource("/photos/{album<b>=</b>spring_2007}", Photo.class, <span class="javaStaticField">showAll</span>)
 
 p The beauty of these is that they become availabe in the controller (or view) as part of the parameters map.
 	+w Thus, GET requests for "/photos/summer_2009" and "/photos/winter_2008" would both route to the 
@@ -24,8 +26,8 @@ p The beauty of these is that they become availabe in the controller (or view) a
 
 div.code <- code.java
 	+> @Override // GET/URL/[models]
-	+> public void showAll() throws SQLException {
-	+   List{"<Photo>"} photos = Photo.findAll("where album=?", <u><b>param("album")</b></u>);\n
+	+> public void showAll() throws Exception {
+	+   List{"<Photo>"} photos = Photo.findAll("where album=?", <b>param("album")</b>);\n
 	+> 
 	+>   switch(wants()) {
 	+=     case <span class="javaStaticField">JS</span>:\n

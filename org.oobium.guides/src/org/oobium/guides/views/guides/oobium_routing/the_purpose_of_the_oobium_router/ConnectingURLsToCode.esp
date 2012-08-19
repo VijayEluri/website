@@ -1,4 +1,6 @@
-title Connecting URLs To Code
+ConnectingURLsToCode(String title = "Connecting URLs To Code")
+
+title {title}
 
 p When your Ooium application receives an incoming request
 
@@ -9,5 +11,6 @@ p it asks the router to match it to a controller action. If we had already added
 div.code <- code.java
 	+= router.addResource("/posts/{title:\\\\w+}", Post.class, <span class="javaStaticField">show</span>);
 
-p then the request would be dispatched to the PostController's show method with \{ "title": "intro_to_oobium" } in
+p
+	+= then the request would be dispatched to the PostController's show method with { "title": "intro_to_oobium" } in
 	+w the params and you would be able to retrieve it by calling param("title").

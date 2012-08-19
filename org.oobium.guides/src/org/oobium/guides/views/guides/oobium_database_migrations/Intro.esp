@@ -1,4 +1,6 @@
-title Oobium Database Migrations
+Intro(String title = "Oobium Database Migrations")
+
+title {title}
 
 p Migrations are a convenient way for you to alter your database in a structured and organized manner. You
 	+w could edit fragments of SQL by hand but you would then be responsible for telling other developers that

@@ -1,5 +1,7 @@
 package org.oobium.guides.models;
 
+import static org.oobium.guides.models.helpers.ViewHelper.getTitle;
+
 import org.oobium.app.views.View;
 import org.oobium.utils.StringUtils;
 
@@ -16,7 +18,7 @@ public class Chapter {
 	}
 	
 	public Chapter(View intro, View[] sections) {
-		this.title = intro.getTitle();
+		this.title = getTitle(intro);
 		this.intro = intro;
 		this.sections = sections;
 	}
@@ -26,7 +28,7 @@ public class Chapter {
 	}
 	
 	public String getId(View view) {
-		return StringUtils.underscored(title + "-" + view.getTitle()).replaceAll(REGEX, "");
+		return StringUtils.underscored(title + "-" + getTitle(view)).replaceAll(REGEX, "");
 	}
 	
 	public String getPath() {

@@ -3,9 +3,8 @@ import org.oobium.www.common.views.Header
 title The Oobium framework and tools project
 
 head
-	script(jquery_1.4.4)
-	script(jquery.prettyPhoto)
-	style(prettyPhoto) 
+	script("https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+	script("/jquery.prettyPhoto.js")
 	style<Styles>
 
 div#allContent
@@ -19,7 +18,7 @@ div#allContent
 			div#tagLine
 				p The open source Oobium project is a system for creating Java web applications and services with the aim of
 					+w maximizing developer productivity and happiness. Code well. Code happy.
-	yield("oobiLinks")
+	yieldTo("oobiLinks")
 	div#mainContent <- yield
 	div#footer
 		div#footerContent

@@ -1,4 +1,6 @@
-title Inline JavaScript
+InlineScripts(String title = "Inline JavaScript")
+
+title {title}
 
 p The script tag also supports inline scripts, though there aren't many variants like with styles. Everything that
 	+w is a descendent of a script tag is in the same Javascript block:

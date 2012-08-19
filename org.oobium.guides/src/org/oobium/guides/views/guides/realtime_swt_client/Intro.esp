@@ -1,4 +1,6 @@
-title Real Time SWT Client
+Intro(String title = "Real Time SWT Client")
+
+title {title}
 
 p This guide shows you how to export your Oobium models to an SWT (or any other Java) client and communicate with them
 	+w in real time. By referring to this guide, you will be able to:

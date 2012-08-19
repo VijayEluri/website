@@ -1,4 +1,6 @@
-title Removing Routes
+RemovingRoutes(String title = "Removing Routes")
+
+title {title}
 
 p Routes in Oobium are live, meaning that at any time during the application or module lifecycle they can be added
 	+w or removed. This can be used to update the routing scheme as models come and go from the system, or to 

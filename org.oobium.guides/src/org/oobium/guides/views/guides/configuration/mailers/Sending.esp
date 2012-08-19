@@ -1,0 +1,20 @@
+Sending(String title = "Sending")
+
+title {title}
+
+div.code <- code.java
+	+> mail.send: {
+	+>   mail.transport.protocol: "smtps", // required field
+	+>   host:     "mail.myhost.com",      // required field
+	+>   username: "username",             // defaults to an empty String
+	+>   password: "password"              // defaults to an empty String
+	+> }
+
+p To send using GMail, set the "service" property to "gmail":
+
+div.code <- code.java
+	+> mail.send: {
+	+>   service:  "gmail",      // automatically sets appropriate properties for GMail
+	+>   username: "username",   // defaults to an empty String
+	+>   password: "password"    // defaults to an empty String
+	+> }

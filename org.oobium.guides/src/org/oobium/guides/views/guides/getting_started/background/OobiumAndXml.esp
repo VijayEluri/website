@@ -1,9 +1,11 @@
-title XML
+OobiumAndXml(String title = "XML")
+
+title {title}
 
 p Oobium doesn't like XML.
 
 p Throughout this guide you'll find places that are traditionally dominated by XML, and see that they've been
-	+w converted to something... not so, er, ugly.  Notable mentions are the configuration file, which is done in 
+	+w converted to something not so, er, ugly.  Notable mentions are the configuration file, which is done in 
 	a("http://json.org") JSON
 	+= , and the views and mailers which take a 
 	a("http://haml-lang.com") HAML

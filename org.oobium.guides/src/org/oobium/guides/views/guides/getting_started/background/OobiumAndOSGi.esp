@@ -1,4 +1,6 @@
-title OSGi
+OobiumAndOSGi(String title = "OSGi")
+
+title {title}
 
 p Oobium consumes OSGi bundles like so many tasty little snacks (or, like 
 	a("http://www.youtube.com/watch?v=13NxYV4CoaE") Winston goes through cilantro
@@ -6,9 +8,8 @@ p Oobium consumes OSGi bundles like so many tasty little snacks (or, like
 	+w OSGi bundles with some extra markers to help Oobium do its thing.
 
 p Deep down, in places I don't talk about at parties, OSGi is the real influence and driving force behind Oobium;
-	+w it is also the inspiration behind the name
-	+w and logo (particals, modularity, and all that jazz). SWT and Android are also significant forces
-	+w at play, but at the core the framework I was really after was an "OSGi on Rails" and not just a "Java on Rails".
+	+w it is also the inspiration behind the name and logo (particals, modularity, and all that jazz).
+	+w SWT and Android are also significant forces at play, but at the core, it's all about OSGi.
 
 p Thus, a deployed Oobium application is really just a collection of bundles (those familiar with Eclipse will be used
 	+w to this). There are server bundles, logging bundles, persistence bundles, database bundles, etc., etc., and they

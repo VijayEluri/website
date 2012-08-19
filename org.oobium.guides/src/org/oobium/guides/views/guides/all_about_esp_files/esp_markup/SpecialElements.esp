@@ -1,4 +1,6 @@
-title Special Elements
+SpecialElements(String title = "Special Elements")
+
+title {title}
 
 p Oobium also provides several special, custom, elements to help you create and maintain complex pages. Some of these
 	+w elements contains parts not relevant to a regular XML element. Instead, they are relevant to Java - most notablhy

@@ -1,4 +1,6 @@
-title What is Oobium?
+WhatIsOobium(String title = "What is Oobium?")
+
+title {title}
 
 p Oobium is a system for creating web applications, web services, and web connected clients. 
 	+w It is designed to make programming these applications easier and more enjoyable 

@@ -1,4 +1,6 @@
-title Content
+HtmlContent(String title = "Content")
+
+title {title}
 
 p Everything else on the page is markup. Though, as I'm sure you noticed in the first example, none of it is really
 	+w markup (there are no angle brackets or closing tags) - it's similar to 

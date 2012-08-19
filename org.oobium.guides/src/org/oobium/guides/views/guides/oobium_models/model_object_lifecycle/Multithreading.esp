@@ -1,4 +1,6 @@
-title Multi-threading
+Multithreading(String title = "Multi-threading")
+
+title {title}
 
 p Java is inherently a multi-threaded language and Oobium takes advantage of this in many places, itself being a
 	+w multi-threaded framework. Models in Oobium, however, are NOT thread-safe.

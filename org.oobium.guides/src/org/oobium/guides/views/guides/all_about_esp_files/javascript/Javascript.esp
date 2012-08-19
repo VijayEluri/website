@@ -1,4 +1,6 @@
-title Javascript
+Javascript(String title = "Javascript")
+
+title {title}
 
 p Javascript is handled very much like CSS in an ESP file, and thus we'll go through it in the same manner.
 

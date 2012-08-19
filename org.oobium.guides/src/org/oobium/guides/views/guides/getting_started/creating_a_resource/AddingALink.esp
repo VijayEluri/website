@@ -1,4 +1,6 @@
-title Adding a Link
+AddingALink(String title = "Adding a Link")
+
+title {title}
 
 p To hook the posts up to the home page you've already created, you can add a link to the home page.
 	+w Open pages/Home.esp by issuing the <code>open view</code> command:
@@ -10,15 +12,15 @@ p And modify it to look like the following:
 
 div.code
 	code
-		+> import com.test.blog.models.*
-		+> 
-		+> title Home Page
-		+> 
-		+> div Hello from Oobium! :)
-		+> 
-		+> a(Post.class, showAll) My Blog
+		+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+		+= \n
+		+= <span class="espTag">title</span> <span class="espIText">Home Page</span>\n
+		+= \n
+		+= <span class="espTag">div</span> <span class="espIText">Hello from Oobium! :)</span>\n
+		+= \n
+		+= <span class="espTag">a</span>(Post.class, showAll) <span class="espIText">My Blog</span>
 
-p There are a few things to discuss with the simple code snippet above as this is our first look at an Oobium
+p There are a few things to discuss with the simple code snippet above since this is our first look at an Oobium
 	+w view template, called an ESP file (for Elemental Server Page).  For a more in depth look at ESP files see the
 	+w Oobium guide: 
 	a("/all_about_esp_files") All about ESP Files
@@ -32,7 +34,7 @@ p Second, notice that there is no HTML, although what is there should look like 
 	+= , and Oobium tries to take every advantage from it as possible.
 ul
 	li <code>title</code> - the HTML title tag, except it can be placed on any page
-	li <code>div</code> - the HTML div tag, anything on the same line after the space goes inside the div as HTML text
+	li <code>div</code> - the HTML div tag, anything on the same line after the space goes inside the div as HTML inner text
 	li <code>a</code> - an HTML link (or anchor) and this is its ESP two-parameters version: the two parameters create
 		+w a path (using REST) and set it to the link's <code>href</code> attribute; here we're saying: create a link
 		+w to the <code>showAll</code> action for the <code>Post</code> class (typically "/posts")

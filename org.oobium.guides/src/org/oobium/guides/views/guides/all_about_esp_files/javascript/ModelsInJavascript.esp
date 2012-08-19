@@ -1,4 +1,6 @@
-title Models in Javascript
+ModelsInJavascript(String title = "Models in Javascript")
+
+title {title}
 
 p Since Oobium is an MVC type of framework, you've probably spent some time creating a nice
 	+w collection of models. Wouldn't it be nice to use those same models in your JavaScript?
@@ -17,23 +19,23 @@ p Oobium supports creating a simple JavaScript version of your models - in the O
 div.code <- code $ create client
 
 p This will generate a models.js file, in your assets/scripts folder, which can then be included
-	+w in a manner similar to that of other external JavaScript files, only this time using the
-	+w "models" keyword:
+	+w in a manner similar to that of other external JavaScript files:
 
 div.code <- code
-	+= <span class="espTag">script</span>(models)
+	+= <span class="espTag">script</span>("/models.js"</span>)
 
-p When the ESP is compiled, this will create a script tag to include the models.js file, as well
-	+w as the JavaScript required to instantiate a JavaScript router object that is initialized with
-	+w your application's current model routes:
+p At this stage, you also need to instantiate a JavaScript router object and initialize it with
+	+w your application's current model routes, so you actual code would look like this:
 
 div.code <- code
-	+> <script src="/models.js"></script>
-	+> <script>$Router=new Router({"...snip..."});</script>
+	+= script(<span class="javaText">"/models.js"</span>)\n
+	+= <span class="espTab">  </span>$Router = new Router({${toJson(controller.getRouter().getModelRouteMap())}});
 
 p Note that you won't have to publish any of your routes first, but this will effectively be
 	+w publishing them for anyone that wants to parse the JSON. Of course, this shouldn't be a problem
 	+w since I'm sure that security by obscurity isn't your thing.
+
+p And yes, I also think some convenience methods would be nice here... all in due time.
 
 div.note
 	+w The generated JavaScript models require JQuery - make sure to include it when using this feature.

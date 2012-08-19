@@ -1,4 +1,6 @@
-title Redirects
+Redirects(String title = "Redirects")
+
+title {title}
 
 p More often than not, if you're interested in making your URLs meaningful, you'll eventually want to change something
 	+w about them. Unfortunately, you might do this after you've tweeted a particularly important page and you

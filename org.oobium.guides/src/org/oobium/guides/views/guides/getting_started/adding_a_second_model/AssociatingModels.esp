@@ -1,4 +1,6 @@
-title Associating Models
+AssociatingModels(String title = "Associating Models")
+
+title {title}
 
 p We created a one way "has one" relationship on the Comment model pointing to the Post model. We also saw how this
 	+w creates a foreign key column in the Comment database table.  Now, this also implies that the Post model should
@@ -13,8 +15,8 @@ p We already have the has one relationship defined in the comment model's ModelD
 div.code <- code.java
 	+> @ModelDescription(
 	+>   attrs = {
-	+>     @Attribute(name="name", type=String.class, required=true),
-	+>     @Attribute(name="title", type=String.class, required=true),
+	+>     @Attribute(name="name", type=String.class),
+	+>     @Attribute(name="title", type=String.class),
 	+>     @Attribute(name="content", type=Text.class)
 	+>   },
 	+>   hasMany = {

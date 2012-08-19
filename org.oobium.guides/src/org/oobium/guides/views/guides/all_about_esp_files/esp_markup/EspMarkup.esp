@@ -1,3 +1,5 @@
-title ESP Markup
+EspMarkup(String title = "ESP Markup")
+
+title {title}
 
 p Markup is primary purpose of ESP files and thus, anything that is not something else, is markup. 

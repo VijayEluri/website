@@ -1,4 +1,6 @@
-title Oobium Model Objects
+Intro(String title = "Oobium Model Objects")
+
+title {title}
 
 p This guide covers the core features of Oobium models.  By referring to this guide, you will be able to:
 ul.intro

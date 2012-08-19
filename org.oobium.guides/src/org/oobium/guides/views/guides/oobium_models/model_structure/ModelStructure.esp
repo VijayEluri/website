@@ -1,4 +1,6 @@
-title Model Structure
+ModelStructure(String title = "Model Structure")
+
+title {title}
 
 p Oobium goes to great lengths to help your models be fully expressive, putting all you need to know about them in one
 	+w place, while also being adamant that they stay clean and that the class body is empty.

@@ -1,4 +1,6 @@
-title Partial Collections
+PartialCollections(String title = "Partial Collections")
+
+title {title}
 
 p First we will make a comment view to extract showing all the comments for the post. Create the view
 	+w comments/ShowComment:
@@ -10,55 +12,57 @@ p Note that this will create an ESP file, ShowComment.esp, in the views/comments
 	+= Open this file and put the following into it:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> 
-	+> ShowComment(Comment comment)
-	+> 
-	+> p <b>Commenter:</b> { comment.getCommenter() }
-	+> p <b>Comment:</b> { comment.getBody() }
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= \n
+	+= <span class="javaKeyword">ShowComment</span>(Comment comment)\n
+	+= \n
+	+= <span class="espTag">p</span> <span class="javaKeyword"><-</span> <span class="espTag">b</span> <span class="espIText">Commenter:</span> { comment.getCommenter() }\n
+	+= <span class="espTag">p</span> <span class="javaKeyword"><-</span> <span class="espTag">b</span> <span class="espIText">Comment:</span> { comment.getBody() }\n
 
 p Then, in the posts/ShowPost.esp you can change it to look like the following:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> import com.test.blog.views.comments.*
-	+> 
-	+> ShowPost(Post post)
-	+> 
-	+> p
-	+>   b Name:
-	+>   +  { post.getName() }
-	+> p
-	+>   b Title:
-	+>   +  { post.getTitle() }
-	+> p
-	+>   b Content:
-	+>   +  { post.getContent() }
-	+> p
-	+>   b Created At:
-	+>   + { psst.getCreatedAt() }
-	+> p
-	+>   b Updated At:
-	+>   + { post.getUpdatedAt() }
-	+> 
-	+> h2 Comments
-	+> view<ShowComment>(Comment: post.comments())
-	+> 
-	+> h2 Add a comment:
-	+> form(post, "comments")
-	+>   hidden(post, value: {f post })
-	+>   div.field
-	+>     label(commenter)
-	+>     text(commenter)
-	+>   div.field
-	+>     label(body)
-	+>     text(body)
-	+>   div.actions
-	+>     submit
-	+> 
-	+> a(post, showEdit) Edit
-	+> span  | 
-	+> a(Post.class, showAll) Back
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= <span class="javaKeyword">import</span> com.test.blog.views.comments.*\n
+	+= \n
+	+= <span class="javaKeyword">ShowPost</span>(Post post)\n
+	+= \n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Name:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span>  { post.getName() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Title:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span>  { post.getTitle() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Content:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span>  { post.getContent() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Created At:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span> { psst.getCreatedAt() }\n
+	+= <span class="espTag">p</span>\n
+	+= <span class="espTab">  </span><span class="espTag">b</span> Updated At:</span>\n
+	+= <span class="espTab">  </span><span class="espIText">+</span> { post.getUpdatedAt() }\n
+	+= \n
+	+= <span class="espTag">h2</span> Comments</span>\n
+	+= <span class="espTag">view</span>
+	+ {"<ShowComment>"}
+	+= (Comment: post.comments())\n
+	+= \n
+	+= <span class="espTag">h2</span> Add a comment:</span>\n
+	+= <span class="espTag">form</span>(post, "comments"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">hidden</span>(post, value: {f post })\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">label</span>(<span class="javaText">"commenter"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">text</span>(<span class="javaText">"commenter"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.field\n
+	+= <span class="espTab">    </span><span class="espTag">label</span>(<span class="javaText">"body"</span>)\n
+	+= <span class="espTab">    </span><span class="espTag">text</span>(<span class="javaText">"body"</span>)\n
+	+= <span class="espTab">  </span><span class="espTag">div</span>.actions\n
+	+= <span class="espTab">    </span><span class="espTag">submit</span>\n
+	+= \n
+	+= <span class="espTag">a</span>(post, showEdit) <span class="espIText">Edit</span>\n
+	+= <span class="espTag">span</span> <span class="espIText"> | </span>\n
+	+= <span class="espTag">a</span>(Post.class, showAll) <span class="espIText">Back</span>\n
 
 p This will now render the partial in comments/ShowComment.esp once for each comment that is in the
 	+w post.comments() collection. As the render method iterates over the post.comments() collection, it creates

@@ -1,21 +1,31 @@
-title Embedding Java in Styles
+EmbeddingJavaInStyles(String title = "Embedding Java in Styles")
+
+title {title}
 
 p Once again, keep in mind that ESP files just compile into regular Java files, so having the ability to put pure
 	+w Java code in your CSS should be possible. It should also be helpful and not let you muck things up too badly
 	+w by injecting business logic.<br/>
-	+w Thus, Oobium's ESP files let you use a very restricted amount of Java in your
-	+w styles by allowing the value of a property to be evaluated as Java if the special ":=" assignment operator
-	+w is used:
+	+w Therefore, Oobium's ESP files let you use a very restricted amount of Java in your
+	+w styles by allowing the value of a property to contain Java parts the same way you use them in strings.
+	+w Thus allowing you to write this:
 
 div.code <- code.java
-	+= - String favcolor = "blue";\n
+	+= <span class="espTag">style</span>\n
+	+= <span class="espTab">  </span>#content\n
+	+= <span class="espTab">    </span><span class="essProp">background-color</span>: blue\n
+	+= <span class="espTab">    </span><span class="essProp">width</span>: 600px\n
+
+p as this:
+
+div.code <- code.java
+	+= - String bgcolor = "blue";\n
+	+= - int pagewidth = 800;\n
+	+= - int sidebarwidth = 200;\n
 	+= \n
 	+= <span class="espTag">style</span>\n
 	+= <span class="espTab">  </span>#content\n
-	+= <span class="espTab">    </span><span class="essProp">color</span>: black\n
-	+= <span class="espTab">  </span>#favorites\n
-	+= <span class="espTab">    </span><span class="essProp">color</span>:= favcolor <span class="javaComment">// <- this is a Java assignment</span>\n
-	+= <span class="espTab">    </span><span class="essProp">font-weight</span>: bold\n
+	+= <span class="espTab">    </span><span class="essProp">background-color</span>: ${bgcolor}\n
+	+= <span class="espTab">    </span><span class="essProp">width</span>: ${pagewidth-sidebarwidth}px\n
 
 p This will allow certain (very) convenient things such as using consistent variables and
 	+w performing mathematical operations on them, but will not allow the CSS to be overrun with control statements.

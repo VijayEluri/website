@@ -1,4 +1,6 @@
-title Observer Methods
+ObserverMethods(String title = "Observer Methods")
+
+title {title}
 
 p Here is a list of all the available methods in an Observer. They are listed here in the same order that they will
 	+w be called during the respective operations:

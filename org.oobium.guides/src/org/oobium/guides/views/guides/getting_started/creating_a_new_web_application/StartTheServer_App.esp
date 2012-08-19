@@ -1,4 +1,6 @@
-title Starting up the Web Server
+StartTheServer_App(String title = "Starting up the Web Server")
+
+title {title}
 
 p You actually have a fully functional Oobium application already. To see it, you need to start it and a web server
 	+w on your development machine. You can do this by running the following command:

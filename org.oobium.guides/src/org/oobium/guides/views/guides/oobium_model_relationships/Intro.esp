@@ -1,4 +1,6 @@
-title Oobium Model Relationships
+Intro(String title = "Oobium Model Relationships")
+
+title {title}
 
 p This guide covers the relation features of Oobium models.  By referring to this guide, you will be able to:
 ul.intro

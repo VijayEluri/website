@@ -1,4 +1,6 @@
-title Caching and Sessions
+CachingAndSessions(String title = "Caching and Sessions")
+
+title {title}
 
 p Oobium provides basic caching support in the context of sessions. Between the time a session is created, by calling
 	+w the openSession(String) method of the persistor, and it is terminated, by calling the corresponding closeSession()

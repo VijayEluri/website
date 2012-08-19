@@ -1,4 +1,6 @@
-title Constructors
+Constructors(String title = "Constructors")
+
+title {title}
 
 p Constructors in ESP files are also extremely similar to their Java counterparts and are used to accomplish the same
 	+w purpose - allow objects to be passed in when being instantiated. There are, however, two big differences with

@@ -1,4 +1,6 @@
-title Setting the Application Home Page
+SetTheHomePage_App(String title = "Setting the Application Home Page")
+
+title {title}
 
 p When creating an application, Oobium goes ahead and creates a sample home page and wires up a route for it.
 	+w Now let's take a look at what actually is happening, and how we may change it in the future.
@@ -35,8 +37,8 @@ div.code <- code.java
 p This method passes in both the application's configuration and router. The router is what we want
 	+w to use to add routes to our application and as you can see, we already have two of them set up for us:
 ul
-	li router.addAssetRoutes() set up routes for everything in the application's assets folder. These are all
+	li router.addAssetRoutes() sets up routes for everything in the application's assets folder. These are all
 		+w intended to be, and are served as if they are, static assets such as images, javascript, style sheets, etc..
-	li router.setHome(Home.class) is what is setting up our home route. In this case it is being routed to directly to
+	li router.setHome(Home.class) is what is setting up our home route. In this case it is being routed directly to
 		+w the Home.esp view in the application's views folder. This method has a few overloads - take a moment to see
 		+w what they are.

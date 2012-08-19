@@ -1,4 +1,6 @@
-title Adding Validation
+AddingValidations(String title = "Adding Validation")
+
+title {title}
 
 p Unlike other parts of the model in Oobium, validations are not added to the @ModelDescription class annotation.
 	+w Instead, the @Validations class annotation is used. This maintains the clean class body, but also allows for

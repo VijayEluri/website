@@ -1,4 +1,6 @@
-title Conditional Validation
+ConditionalValidation(String title = "Conditional Validation")
+
+title {title}
 
 p Sometimes it will make sense to validate an object only when a given predicate is satisfied. You can do that by using
 	+w the "when" and "unless" options. You use the "when" option when you want to specify that the validation should

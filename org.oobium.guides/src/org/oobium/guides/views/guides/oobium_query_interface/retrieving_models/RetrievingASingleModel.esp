@@ -1,3 +1,5 @@
-title Retrieving a Single Model
+RetrievingASingleModel(String title = "Retrieving a Single Model")
+
+title {title}
 
 p TODO

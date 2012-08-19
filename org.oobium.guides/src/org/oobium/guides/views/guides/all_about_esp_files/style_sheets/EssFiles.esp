@@ -1,4 +1,6 @@
-title ESS Files
+EssFiles(String title = "ESS Files")
+
+title {title}
 
 p The last form of the style tag is used to import an ESS file. But first, what is an ESS file?
 
@@ -7,19 +9,17 @@ p An ESS file is essentially just the style tag from an ESP file. In other words
 	+w in an ESS file called, Styles.ess, like so:
 
 div.code <- code
-	+= <span class="javaKeyword">Styles</span>(String favcolor = <span class="javaText">"blue"</span>)\n
+	+= <span class="javaKeyword">Styles</span>(String bgcolor = <span class="javaText">"blue"</span>, int pagewidth = 800, int sidebarwidth = 200)\n
 	+= \n
 	+= #content\n
-	+= <span class="espTab">  </span><span class="essProp">color</span>: black\n
-	+= #favorites\n
-	+= <span class="espTab">  </span><span class="essProp">color</span>:= favcolor\n
-	+= <span class="espTab">  </span><span class="essProp">font-weight</span>: bold\n
+	+= <span class="espTab">  </span><span class="essProp">background-color</span>: ${bgcolor}\n
+	+= <span class="espTab">  </span><span class="essProp">width</span>: ${pagewidth-sidebarwidth}px\n
 
 p This ESS file can be included in a view using the style tag as follows:
 
 div.code <- code
 	+ <span class="espTag">style</span>{"<Styles>"} <span class="javaComment">// using the default, no-args, constructor</span>\n
-	+ <span class="espTag">style</span>{"<Styles>"}(<span class="javaText">"green"</span>)
+	+ <span class="espTag">style</span>{"<Styles>"}(<span class="javaText">"green"</span>, 600, 150)
 
 p This form of the style tag uses the "{"<Type>"}" element part just like we saw with the view tag. It can do this
 	+w because ESS files are just like ESP files and are also compiled to Java in the same way.

@@ -1,4 +1,6 @@
-title Oobium Query Interface
+Intro(String title = "Oobium Query Interface")
+
+title {title}
 
 p This guide covers different ways to retrieve data from the database using Oobium.
 	+w By referring to this guide, you will be able to:

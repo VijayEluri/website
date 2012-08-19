@@ -1,4 +1,6 @@
-title The Model
+TheModel(String title = "The Model")
+
+title {title}
 
 p The first product of the model generator is, of course, the model itself - Post.java:
 
@@ -35,8 +37,8 @@ p After the attrs array is another option of the ModelDescription: timestamps. T
 	+w the additional convenience has been built in. They are also treated a little different by the persistor - any time
 	+w a model is created, the persistor will automatically populate the createdAt field; likewise, the persistor will
 	+w reset the updatedAt field any time a model is updated.
-p There is also related option called datestamps that server the same purpose only they use a java.sql.Date object rather
-	+w than a java.util.Date (which is really Timestamp). The fields for datestamps are createdOn and updatedOn.
+p There is also a related option called datestamps that serves the same purpose, only it uses a java.sql.Date object rather
+	+w than a java.util.Date (which is really a date and a time). The fields for datestamps are createdOn and updatedOn.
 p The final important aspect is further up the hierarchy: <code>PostModel</code> extends the Oobium <code>Model</code>
-	+w class. <code>Model</code> supplies a great deal of functionality to your Oobium models for free, including basic
+	+w class. <code>Model</code> supplies a great deal of functionality to your Oobium models for free, including the basic
 	+w lifecycle CRUD (Create, Retrieve, Update, Destroy) operations, data validation and query support.

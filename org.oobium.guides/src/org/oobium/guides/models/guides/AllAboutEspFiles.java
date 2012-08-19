@@ -7,6 +7,7 @@ import org.oobium.guides.views.guides.all_about_esp_files.Intro;
 import org.oobium.guides.views.guides.all_about_esp_files.embedding_java.EmbeddingJava;
 import org.oobium.guides.views.guides.all_about_esp_files.embedding_java.JavaElements;
 import org.oobium.guides.views.guides.all_about_esp_files.embedding_java.JavaParts;
+import org.oobium.guides.views.guides.all_about_esp_files.embedding_java.Strings;
 import org.oobium.guides.views.guides.all_about_esp_files.embedding_other_esp_files.EmbeddingOtherEspFiles;
 import org.oobium.guides.views.guides.all_about_esp_files.embedding_other_esp_files.Views;
 import org.oobium.guides.views.guides.all_about_esp_files.esp_markup.ElementHierarchy;
@@ -55,7 +56,8 @@ public class AllAboutEspFiles extends Guide {
 
 			/*4*/ new Chapter(new EmbeddingJava(), new View[] {
 									new JavaElements(),
-									new JavaParts()
+									new JavaParts(),
+									new Strings()
 								}),
 
 			/*5*/ new Chapter(new EmbeddingOtherEspFiles(), new View[] {

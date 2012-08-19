@@ -1,4 +1,6 @@
-title Deleting Comments
+DeletingComments(String title = "Deleting Comments")
+
+title {title}
 
 p Another important feature on a blog is being able to delete SPAM comments. To do this, we need to implement a
 	+w link of some sort in the view and a destroy method in the CommentController.
@@ -6,14 +8,14 @@ p Another important feature on a blog is being able to delete SPAM comments. To 
 p So first, let's add the destroy link in the comments/ShowComment.esp view:
 
 div.code <- code
-	+> import com.test.blog.models.*
-	+> 
-	+> ShowComment(Comment comment)
-	+> 
-	+> p <b>Commenter:</b> { comment.getCommenter() }
-	+> p <b>Comment:</b> { comment.getBody() }
-	+> 
-	+> a(comment, destroy) Destroy Comment
+	+= <span class="javaKeyword">import</span> com.test.blog.models.*\n
+	+= \n
+	+= <span class="javaKeyword">ShowComment</span>(Comment comment)\n
+	+= \n
+	+= <span class="espTag">p</span> <span class="javaKeyword"><-</span> <span class="espTag">b</span> <span class="espIText">Commenter:</span> { comment.getCommenter() }\n
+	+= <span class="espTag">p</span> <span class="javaKeyword"><-</span> <span class="espTag">b</span> <span class="espIText">Comment:</span> { comment.getBody() }\n
+	+= \n
+	+= <span class="espTag">a</span>(comment, destroy) <span class="espIText">Destroy Comment</span>
 
 p Clicking this new "Destroy Comment" link will fire off a DELETE request to the path of the given comment, which will
 	+w get routed to the destroy method of our CommentsController. So, let's add that destroy method now:
@@ -23,14 +25,12 @@ div.code <- code.java
 	+> 
 	+= import static org.oobium.http.constants.Action.<span class="javaStaticField">show</span>\n
 	+> 
-	+> import java.sql.SQLException;
-	+> 
 	+> import com.test.blog.models.Comment;
 	+> 
 	+> public class CommentController extends ApplicationController {
 	+> 
 	+>   @Override
-	+>   public void create() throws SQLException {
+	+>   public void create() throws Exception {
 	+>     Comment comment = param("comment", new Comment());
 	+>     if(comment.create()) {
 	+=       redirectTo(comment.getPost(), <span class="javaStaticField">show</span>);\n
@@ -38,8 +38,8 @@ div.code <- code.java
 	+>   }
 	+> 
 	+>   @Override
-	+>   public void destroy() throws SQLException {
-	+>     Comment comment = Comment.find(getId());
+	+>   public void destroy() throws Exception {
+	+>     Comment comment = Comment.findById(getId());
 	+>     Post post = comment.getPost();
 	+>     if(comment.destroy()) {
 	+=       redirectTo(post, <span class="javaStaticField">show</span>);\n

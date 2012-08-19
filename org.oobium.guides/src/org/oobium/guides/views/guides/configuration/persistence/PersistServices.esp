@@ -1,4 +1,6 @@
-title Persist Services
+PersistServices(String title = "Persist Services")
+
+title {title}
 
 p Persist services are OSGi services that implement the PersistService interface.
 

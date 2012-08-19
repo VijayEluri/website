@@ -1,3 +1,5 @@
+import static org.oobium.guides.models.helpers.ViewHelper.getTitle
+
 import java.util.*
 import org.oobium.guides.models.*
 import org.oobium.guides.views.pages.*
@@ -15,7 +17,7 @@ div#guideTOC
 						- if(chapter.sections.length > 0) {
 							ul
 								- for(View section : chapter.sections) {
-										li <- a(chapter.getPath(section)) { section.getTitle() }
+										li <- a(chapter.getPath(section)) { getTitle(section) }
 								- }
 						- }
 			- }

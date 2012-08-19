@@ -1,24 +1,23 @@
-title External Javascript
+ExternalJavascriptFiles(String title = "External Javascript")
 
-p The first and foremost use of the script tag is what you'll see in a generated application's _Layout.esp file:
+title {title}
+
+p There is no "defaults" parameter for the script tag, so what you'll see in a generated application's _Layout.esp file is:
 div.code <- code
-	+= <span class="espTag">script</span>(defaults)
+	+= <span class="espTag">script</span>(<span class="javaText">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"</span>)
 
-p This generates two elements that will import JQuery and your application's application.js file:
-
-div.code <- code
-	+> <script src="/jquery_1.4.4.js"></script>
-	+> <script src="/application.js"></script>
-
-p If you want to include a specific Javascript file (or several), you can use the following format:
+p This simply creates an HTML script element, using the given parameter for the "src" attribute:
 
 div.code <- code
-	+= <span class="espTag">script</span>(error_handler.js, lightbox.js)
+	+> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+p If you want to include multiple external JavaScript files, you can use the following format:
+
+div.code <- code
+	+= <span class="espTag">script</span>(<span class="javaText">"/error_handler.js"</span>, <span class="javaText">"/lightbox.js"</span>)
 
 p For each comma delimited file specified, a script element is generated:
 
 div.code <- code
 	+> <script src="/error_handler.js"></script>
 	+> <script src="/lightbox.js"></script>
-
-p Since the script tag will only include JavaScript files, the ".js" is rather redundant and can be omitted if desired.

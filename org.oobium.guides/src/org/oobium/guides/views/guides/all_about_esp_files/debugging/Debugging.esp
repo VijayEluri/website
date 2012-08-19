@@ -1,3 +1,5 @@
-title Debugging
+Debugging(String title = "Debugging")
+
+title {title}
 
 p TODO

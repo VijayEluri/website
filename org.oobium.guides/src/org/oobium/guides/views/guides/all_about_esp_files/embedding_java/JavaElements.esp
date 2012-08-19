@@ -1,4 +1,6 @@
-title Java Elements
+JavaElements(String title = "Java Elements")
+
+title {title}
 
 p Java elements are whole line elements that allow you to execute pure Java code. They are only allowed as whole lines
 	+w however, and there is no way of creating functions, instance variables, anything static - they are locked into

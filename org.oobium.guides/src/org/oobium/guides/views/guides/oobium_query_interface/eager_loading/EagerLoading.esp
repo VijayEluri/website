@@ -1,3 +1,5 @@
-title Eager Loading
+EagerLoading(String title = "Eager Loading")
+
+title {title}
 
 p TODO

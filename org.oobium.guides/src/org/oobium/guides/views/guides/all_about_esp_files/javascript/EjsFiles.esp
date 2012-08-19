@@ -1,4 +1,6 @@
-title EJS Files
+EjsFiles(String title = "EJS Files")
+
+title {title}
 
 p The final form of the script tag is used to import an EJS file.
 
@@ -9,8 +11,8 @@ p An EJS file is essentially just the script tag from an ESP file. In other word
 div.code <- code
 	+= <span class="javaKeyword">Scripts</span>(String favcolor = <span class="javaText">"blue"</span>)\n
 	+= \n
-	+= var object = {\n
-	+=   color := favcolor\n
+	+= var data = {\n
+	+=   <span class="javaText">"color"</span>: ${favcolor}\n
 	+= }\n
 
 p This EJS file can be included in a view using the script tag as follows:

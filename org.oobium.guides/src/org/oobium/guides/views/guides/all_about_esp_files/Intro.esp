@@ -1,4 +1,6 @@
-title All about ESP Files
+Intro(String title = "All about ESP Files")
+
+title {title}
 
 p This guide is an in-depth look at the ESP Files used in an Oobium application.
 	+w After reading it, you should be familiar with:

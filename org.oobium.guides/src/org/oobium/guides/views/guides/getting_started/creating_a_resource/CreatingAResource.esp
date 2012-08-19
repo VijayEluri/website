@@ -1,4 +1,6 @@
-title Creating a Resource
+CreatingAResource(String title = "Creating a Resource")
+
+title {title}
 
 p In the case of the blog application, you can start by generating a scaffolded Post resource: this will
 	+w represent a single blog posting. To do this, enter this command in your terminal:
@@ -10,7 +12,7 @@ div.note
 	+w is not intended to be a perfect fit for your application. You will need to customize the
 	+w code yourself, though it does provide a convenient way to get started.
 
-p The model generator will build 8 files in your application and edit two more.
+p The model generator will create ten files in your application and edit two more.
 	+w The output from the command will contain hyperlinks to open each of them in the editor:
 
 div.code <- code

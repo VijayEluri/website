@@ -1,4 +1,6 @@
-title Oobium Routing
+Intro(String title = "Oobium Routing")
+
+title {title}
 
 p This guide covers the features of Oobium routing. By referring to this guide, you will be able to:
 ul.intro

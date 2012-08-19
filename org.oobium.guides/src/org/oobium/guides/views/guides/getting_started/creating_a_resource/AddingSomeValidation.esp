@@ -1,4 +1,6 @@
-title Adding Some Validation
+AddingSomeValidation(String title = "Adding Some Validation")
+
+title {title}
 
 p Oobium includes 2 ways to help you validate the data in your models before they are sent to persistent storage.
 ul
@@ -25,22 +27,5 @@ ul
 	li <code>validateUpdate()</code> - is run before the model is updated (but not before it is created)
 	li <code>validateDestroy()</code> - is run before the model is destroyed
 
-p For our demo here, we want to make sure that the <code>title</code> is at least 5 characters long before
-	+w allowing the model to be saved:
-
-div.code
-	code.java
-		+> @Validations({
-		+>   @Validate(field="name", isNotBlank=true),
-		+>   @Validate(field="title", isNotBlank=true, minLength=5)
-		+> })
-
-p If any of these validations fail, they will put an error into a map that we can access later to find out what went
-	+w wrong and display an appropriate message to the user.
-
-p More information about Oobium validations can be found in the 
-	a("/oobium_model_objects#validations") Validations section
-	+w of the 
-	a("/oobium_model_objects") Oobium Model Objects
-	+w guide.
-
+p If any of these validations fail, they will set an error on the model - we can access the errors later to find out
+	+w what went wrong and display an appropriate message to the user.

@@ -1,4 +1,6 @@
-title Model Object Lifecycle
+ModelObjectLifecycle(String title = "Model Object Lifecycle")
+
+title {title}
 
 p During the normal operation of an Oobium application, models may be created, updated, and destroyed. To help you
 	+w control your application and its data, Oobium provides many hooks into this model life cycle.

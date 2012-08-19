@@ -1,0 +1,31 @@
+Strings(String title = "Strings")
+
+title {title}
+
+p Strings are a place that most other languages happily leave Java in the dust. This usually isn't a problem because
+	+w we're all used to overly verbose code anyway, but in ESP files it is especially troublesome. Thus, something
+	+w needed to be done. Nothing drastic, mind you. Just something to help us maintain the style that ESP is all about.
+
+p Thus, ESP allows you to embed Java directly into Java strings much the way you can in Ruby strings (the ones with
+	+w the double quotes) or in Groovy's GStrings.
+
+p Instead of this:
+
+div.code <- code
+	+= <span class="espTag">tag</span>(attr1: <span class="javaText">"say "</span> + var1 + <span class="javaText">" "</span> + var2 + <span class="javaText">" times"</span>)\n
+
+p ESP allows you to write:
+
+div.code <- code
+	+= <span class="espTag">tag</span>(attr1: <span class="javaText">"say</span> ${var1} ${var2} <span class="javaText">times"</span>)\n
+
+p
+	+= As with Java parts, whatever is inside the ${} is pure Java evaluated and converted to a string. In this case, it
+	+w is then concatenated with the strings before and/or after it. Also just like Java parts, you can put any Java
+	+w you want in there: just a variable, or full blown expressions:
+
+div.code <- code
+	+= <span class="espTag">tag</span>(attr1: <span class="javaText">"say</span> ${var1} ${ 10 * var2 } <span class="javaText">times"</span>)\n
+
+p Whoop-dee-doo you say? Trust me, this helps... especially in Script and Style sections.<br/>
+	+= Phew. Glad we cleared that up.

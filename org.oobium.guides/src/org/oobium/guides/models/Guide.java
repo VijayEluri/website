@@ -19,6 +19,7 @@ import org.oobium.guides.models.guides.OobiumModelRelationships;
 import org.oobium.guides.models.guides.OobiumRouting;
 import org.oobium.guides.models.guides.RealTimeSwtClient;
 import org.oobium.guides.models.guides.TestingOobiumApplications;
+import org.oobium.guides.models.helpers.ViewHelper;
 
 public class Guide extends Model {
 
@@ -64,11 +65,11 @@ public class Guide extends Model {
 	}
 	
 	public String getTitle() {
-		return intro.getTitle();
+		return ViewHelper.getTitle(intro);
 	}
 	
 	public String getPath() {
-		return StringUtils.underscored(intro.getTitle());
+		return StringUtils.underscored(getTitle());
 	}
 	
 }

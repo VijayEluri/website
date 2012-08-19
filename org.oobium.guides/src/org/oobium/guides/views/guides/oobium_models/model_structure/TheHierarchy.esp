@@ -1,4 +1,6 @@
-title The Hierarchy
+TheHierarchy(String title = "The Hierarchy")
+
+title {title}
 
 p Models in Oobium are typically in the following hierarchy:
 

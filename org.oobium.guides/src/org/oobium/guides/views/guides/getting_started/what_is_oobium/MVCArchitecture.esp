@@ -1,4 +1,6 @@
-title The MVC Architecture
+MVCArchitecture(String title = "The MVC Architecture")
+
+title {title}
 
 p At the core of the Oobium framework is the Model, View, Controller architecture, usually just called MVC.
 	+w MVC benefits include:
@@ -14,11 +16,11 @@ p A model represents the information (data) of the application and the rules to 
 	+w application's business logic will be concentrated in the models.
 
 h5 Views
-p Views represent the user interface of your application. In Oobium, views are often HTML files with embedded Java
+p Views represent the user interface of your application. In Oobium, views are in ESP files, a form of HTML with embedded Java
 	+w code that perform tasks related solely to the presentation of the data. Views handle the job of providing data
 	+w to the web browser or other tool that is used to make requests from your application.
 
 h5 Controllers
-p Controllers provide the “glue” between models and views. In Oobium, controllers are responsible for processing the
-	+w incoming requests from the web browser, interrogating the models for data, and passing that data on to the views
-	+w for presentation.
+p Controllers provide the "glue" between models and views. In Oobium, controllers are responsible for processing the
+	+w incoming requests from the web browser (or other HTTP client), interrogating the models for data, and passing that
+	+w data on to the views for presentation.

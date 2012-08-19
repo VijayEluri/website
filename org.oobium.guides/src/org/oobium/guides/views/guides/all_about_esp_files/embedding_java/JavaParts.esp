@@ -1,4 +1,6 @@
-title Java Parts
+JavaParts(String title = "Java Parts")
+
+title {title}
 
 p Unlike Java elements, Java parts are evaluated to a String and the result is inserted into your ESP code:
 
@@ -54,17 +56,28 @@ div.code <- code.java
 
 p Java parts are certainly a useful way of getting data from your models and displaying it in the inner text part of
 	+w HTML elements, but it can also be used for much more. Java parts can exist in almost any part of an ESP
-	+w element, and they can be used as many times per line as necessary:
+	+w element, and they can be used as many times per line as necessary.
 
-div.code <- code.java
-	+=  <span class="espTag">div</span>#{ elemId }\n
-	+=  <span class="espTag">div</span>#.{ first ? "firstTab" : "tab" } { tabName }\n
+p Let's take the line from section 3.1 above:
 
-p The only real limitation is that they cannot span parts of the ESP element. The following ESP code
+div.code <- code
+	+= <span class="espTag">tag</span>#id.class1.class2(attr1: <span class="javaText">"val1"</span>, attr2: <span class="javaText">"val2"</span>) <span class="espIText">inner text</span>
 
-div.code <- code.java
-	+=  <span class="espTag">div</span>#{ "title.highlight" }\n
+p and replace everything we can with Java parts:
 
-p would <i>not</i> evaluate to a div with an id of "title" and a class of "highlight". This is because ESPs compile in
-	+w a single pass - the above code does <i>not</i> evalauate the Java parts and then compile the ESP. The best way
-	+w to see this is to try out a few and look at the generated Java file.
+div.code <- code
+	+= <span class="espTag">tag</span>#{arg1}.{arg2}.{arg3}(attr1: arg4, attr2: arg5) <span class="espIText">inner text</span>
+
+p Basically, everthing except the tag and the attribute keys can be replaced with Java parts.
+
+div.note Note that the attribute values (arg4 and arg5) don't have curly braces around them. This is because
+	+w attribute values are ALWAYS Java parts! If you want a simple string there, make sure to use the double quotes!
+
+p We can still take this a little further - each section can be multiple Java parts, or a mix of Java parts and regular text:
+
+div.code <- code
+	+= <span class="espTag">tag</span>#row_{rowNumber++}<span class="espIText"> inner text</span><br/>
+	+= <span class="espTag">tag</span>#{name}_{rowNumber++}<span class="espIText"> inner text</span>
+
+p Lastly, there is one other place where Java parts can be used: as parameters in custom ESP tags.
+	+w You'll see this in the section on views.

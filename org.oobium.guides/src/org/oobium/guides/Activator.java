@@ -6,16 +6,14 @@ import static org.oobium.app.http.Action.showAll;
 import org.oobium.app.AppService;
 import org.oobium.app.routing.Router;
 import org.oobium.guides.controllers.GuideController;
-import org.oobium.guides.views._layouts.Styles;
 import org.oobium.utils.Config;
 
 public class Activator extends AppService {
 
 	@Override
-	public void addRoutes(Config config, Router router) {
+	public void addRoutes(Config config, Router router) {		router.addAssetRoutes();
 		router.addAssetRoutes();
-		router.addAsset(Styles.class);
-		
+	
 		router.setHome(GuideController.class, showAll);
 		
 		router.addRoute("/{guide:[\\w_]+}", GuideController.class, show);

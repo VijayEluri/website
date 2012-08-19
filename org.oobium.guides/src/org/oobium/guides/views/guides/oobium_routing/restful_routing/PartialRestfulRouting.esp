@@ -1,4 +1,6 @@
-title Partial Resource Routing
+PartialRestfulRouting(String title = "Partial Resource Routing")
+
+title {title}
 
 p Quite often you'll want all seven actions to be handle for a model, but there are also plenty of times when you'll
 	+w only want one, or some, of them handled (web services without a UI, for instance). To take care of this, Oobium

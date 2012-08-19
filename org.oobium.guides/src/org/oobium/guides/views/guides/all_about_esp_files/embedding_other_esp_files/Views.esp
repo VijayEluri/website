@@ -1,4 +1,6 @@
-title The View Tag
+Views(String title = "The View Tag")
+
+title {title}
 
 p The simplest way to include another view is to use the ESP tag "view":
 
@@ -21,7 +23,9 @@ p For the second part, we simply pass in the arguments as if we were calling the
 	+w get passed on as if we were. What arguments do we pass in? Recall earlier in this guide the section on constructors;
 	+w each ESP file can have explicity defined constructors (just like a Java file) and these define what needs to be
 	+w passed in. If there is no constructor defined then there is an implicit one that takes no arguments (again, just
-	+w like in Java). Therefore, if we want to embed the following ESP file named Say.esp:
+	+w like in Java).
+
+p Therefore, if we want to embed the following ESP file named Say.esp:
 
 div.code <- code
 	+= <span class="javaKeyword">Say</span>(String text)\n
