@@ -1,7 +1,5 @@
 AddingALink(String title = "Adding a Link")
 
-title {title}
-
 p To hook the posts up to the home page you've already created, you can add a link to the home page.
 	+w Open pages/Home.esp by issuing the <code>open view</code> command:
 

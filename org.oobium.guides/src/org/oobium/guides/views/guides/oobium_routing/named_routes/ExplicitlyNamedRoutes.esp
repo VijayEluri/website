@@ -1,7 +1,5 @@
 ExplicitlyNamedRoutes(String title = "Explicitly Named Routes")
 
-title {title}
-
 p A typical special case that warrants itself well to naming is that of sessions. In particular, the logout function
 	+w is often handled with this resource route:
 

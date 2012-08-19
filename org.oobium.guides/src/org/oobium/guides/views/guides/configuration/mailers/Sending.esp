@@ -1,7 +1,5 @@
 Sending(String title = "Sending")
 
-title {title}
-
 div.code <- code.java
 	+> mail.send: {
 	+>   mail.transport.protocol: "smtps", // required field

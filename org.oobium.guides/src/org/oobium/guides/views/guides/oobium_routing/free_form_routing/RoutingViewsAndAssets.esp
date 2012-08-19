@@ -1,7 +1,5 @@
 RoutingViewsAndAssets(String title = "Routing Views and Assets")
 
-title {title}
-
 p Controllers provide a great tool for handling requests and generating custom tuned responses, but for certain
 	+w things we don't need any of this power - the resource we want rendered has already been setup to be returned
 	+w as a response. This is true for three main cases:

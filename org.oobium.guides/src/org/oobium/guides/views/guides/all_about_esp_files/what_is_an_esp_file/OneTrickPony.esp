@@ -1,7 +1,5 @@
 OneTrickPony(String title = "One Trick Pony")
 
-title {title}
-
 p ESP files really do only one thing, and they keep doing it over and over again for other types of files beyond just
 	+w HTML. The take a Java file and make it easy to express the core client side web languages: HTML, CSS, Javascript.
 	+w By doing so, the core technology of ESP files is also transferrable to other files: a CSS file is just an ESP file

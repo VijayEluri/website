@@ -1,7 +1,5 @@
 ModelsInJavascript(String title = "Models in Javascript")
 
-title {title}
-
 p Since Oobium is an MVC type of framework, you've probably spent some time creating a nice
 	+w collection of models. Wouldn't it be nice to use those same models in your JavaScript?
 

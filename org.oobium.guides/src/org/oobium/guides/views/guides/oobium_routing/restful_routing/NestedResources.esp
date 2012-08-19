@@ -1,7 +1,5 @@
 NestedResources(String title = "Nested Resources")
 
-title {title}
-
 p If our photo model contains a hasMany relationship then it may be handy to have that reflected in our routing
 	+w strategy as well. For instance, let's say we want to keep track of everyone in the photographs we take and
 	+w therefore have created a hasMany relationship from Photo to Subject. To use this in our routes we would do 

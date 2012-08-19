@@ -1,7 +1,5 @@
 DestroyingAPost(String title = "Destroying a Post")
 
-title {title}
-
 p Finally, clicking one of the destroy links sends the associated id to the destroy action:
 
 div.code <- code.java

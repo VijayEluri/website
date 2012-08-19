@@ -1,7 +1,5 @@
 ImplicitlyNamedRoutes(String title = "Implicitly Named Routes")
 
-title {title}
-
 p While every route <b>can</b> be named, there are some that <b>must</b> be named. This is because Oobium is quite
 	+w insistent that you be able to lookup a route at a later time; not just its path, but the route itself.
 

@@ -1,7 +1,5 @@
 Views(String title = "The View Tag")
 
-title {title}
-
 p The simplest way to include another view is to use the ESP tag "view":
 
 div.code <- code

@@ -1,7 +1,5 @@
 MVCArchitecture(String title = "The MVC Architecture")
 
-title {title}
-
 p At the core of the Oobium framework is the Model, View, Controller architecture, usually just called MVC.
 	+w MVC benefits include:
 ul

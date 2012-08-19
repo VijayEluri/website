@@ -1,7 +1,5 @@
 CreatingAResource(String title = "Creating a Resource")
 
-title {title}
-
 p In the case of the blog application, you can start by generating a scaffolded Post resource: this will
 	+w represent a single blog posting. To do this, enter this command in your terminal:
 

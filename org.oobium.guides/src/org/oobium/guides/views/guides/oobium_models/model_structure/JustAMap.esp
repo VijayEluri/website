@@ -1,7 +1,5 @@
 JustAMap(String title = "It's Just a Map")
 
-title {title}
-
 p Really, Oobium models are just maps - at least, you should think of them that way.
 
 p The point of this is so that you

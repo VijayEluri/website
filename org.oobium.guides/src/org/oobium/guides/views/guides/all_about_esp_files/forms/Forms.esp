@@ -1,7 +1,5 @@
 Forms(String title = "Forms")
 
-title {title}
-
 p Since all standard ESP elements compile straight to XML/XHTML, we can write forms using all the same knowledge we
 	+w have from normal HTML programming:
 

@@ -1,7 +1,5 @@
 Multiple(String title = "Multiple Persist Services")
 
-title {title}
-
 p It is entirely possible to mix and match PersistServices in your application.<br/>
 	+= For example, a MySQL primary with MongoDB used for "DataPoint" models:
 div.code <- code.java

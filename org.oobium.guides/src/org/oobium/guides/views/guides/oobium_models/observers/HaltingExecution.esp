@@ -1,7 +1,5 @@
 HaltingExecution(String title = "Halting Execution")
 
-title {title}
-
 p After every observer method is run in the execution path of a given operation (create, update, destroy) the errors list
 	+w is checked and, if there are any errors found, the execution of the operation is halted.
 

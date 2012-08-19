@@ -1,7 +1,5 @@
 TheHierarchy(String title = "The Hierarchy")
 
-title {title}
-
 p Models in Oobium are typically in the following hierarchy:
 
 img("/guides/oobium_models/screenshot-hierarchy.png")

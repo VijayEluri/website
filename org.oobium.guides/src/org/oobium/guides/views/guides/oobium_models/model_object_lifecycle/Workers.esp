@@ -1,7 +1,5 @@
 Workers(String title = "Workers")
 
-title {title}
-
 p There are plenty of times that it would be great to run things in a separate thread, or background task. Because this
 	+w is so common (and rightfully so), Oobium has Worker classes that you can use.
 

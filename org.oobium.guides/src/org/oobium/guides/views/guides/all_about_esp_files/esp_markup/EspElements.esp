@@ -1,7 +1,5 @@
 EspElements(String title = "ESP Elements")
 
-title {title}
-
 p The basis of ESP elements is that, unless otherwise mentioned, they are equivalent to XML elements. The ESP element:
 
 div.code <- code

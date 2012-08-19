@@ -1,7 +1,5 @@
 ClientModels(String title = "The Client Models")
 
-title {title}
-
 p We now have our models on the server and a client UI that we want to use them in. To get our models to the client,
 	+w simply enter the following command in the Oobium console:
 

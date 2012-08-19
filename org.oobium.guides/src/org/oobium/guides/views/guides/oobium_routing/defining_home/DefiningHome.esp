@@ -1,7 +1,5 @@
 DefiningHome(String title = "Defining Home")
 
-title {title}
-
 p Nearly all web applications have a home page, so it makes sense to provide a way to set this up as
 	+w quickly and simply as possible. In Oobium, we use the setHome method here. The most common being the version
 	+w that takes a View class:

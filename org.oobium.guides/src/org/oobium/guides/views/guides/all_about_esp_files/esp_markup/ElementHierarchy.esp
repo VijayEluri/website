@@ -1,7 +1,5 @@
 ElementHierarchy(String title = "Element Hierarchy")
 
-title {title}
-
 p Of course, attributes are only a part of the story. We also need a way of denoting child elements so that we can
 	+w define a hierarchy. To do this, ESP takes into account leading Tab characters, and thereby defines parent-child
 	+w relationships through the use of indentation:

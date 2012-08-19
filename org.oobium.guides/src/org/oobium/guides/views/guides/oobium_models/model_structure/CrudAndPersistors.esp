@@ -1,7 +1,5 @@
 CrudAndPersistors(String title = "CRUD and Persistors")
 
-title {title}
-
 p A key point of models in an application is that they can be saved and retrieved to some form of persistence storage.
 	+w Databases are the most common these days, but the File System, In-Memory cache, or even remote storage systems
 	+w all qualify as well.

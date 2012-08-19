@@ -1,7 +1,5 @@
 ModelDescription(String title = "@ModelDescription")
 
-title {title}
-
 p The @ModelDescription annotation gives your model its true and unique characteristics - its actual defined fields
 	+w that can be persisted, validated, queried, and accessed via standard Java getters and setters. The method of using
 	+w a single class annotation was chosen over several field annotations (as is the case in normal JPA) so that everything

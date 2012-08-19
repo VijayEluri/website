@@ -1,7 +1,5 @@
 PersistServices(String title = "Persist Services")
 
-title {title}
-
 p Persist services are OSGi services that implement the PersistService interface.
 
 p Oobium currently has the following PersistServices that can be configured for use within your application:

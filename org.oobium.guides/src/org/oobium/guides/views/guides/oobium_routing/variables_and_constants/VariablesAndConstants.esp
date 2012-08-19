@@ -1,7 +1,5 @@
 VariablesAndConstants(String title = "Variables and Constants")
 
-title {title}
-
 p A common URL pattern for a blog post is: "http://www.mydomain.com/2010/12/06/my_first_post". How would we
 	+w map this route in Oobium? By using variables in the path argument, of course:
 

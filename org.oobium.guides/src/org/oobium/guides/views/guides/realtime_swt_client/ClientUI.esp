@@ -1,7 +1,5 @@
 ClientUI(String title = "The Client User Interface")
 
-title {title}
-
 p To create the example SWT client, start by selecting File -> New -> Project... from the Eclipse menu.
 	+w This will open a dialog from which you can then select to create a new Plug-in Project.
 

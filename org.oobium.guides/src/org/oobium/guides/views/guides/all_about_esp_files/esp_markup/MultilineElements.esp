@@ -1,7 +1,5 @@
 MultilineElements(String title = "Multi-line Elements")
 
-title {title}
-
 p Oobium's ESP format is a bit of a stickler when it comes to elements spanning more than one line. More than one
 	+w element per line is alright (if kept as the exception), but having an element span two or more lines is currently
 	+w unacceptable, with (of course) a few exceptions: styles, scripts, and an element's inner text. Style and script

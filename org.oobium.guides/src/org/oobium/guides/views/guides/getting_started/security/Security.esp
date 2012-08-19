@@ -1,7 +1,5 @@
 Security(String title = "Security")
 
-title {title}
-
 p If you were to publish your blog online, anybody would be able to add, edit and delete posts or delete comments.
 
 p Oobium contollers provides a very simple HTTP authentication system that will work nicely in this situation.

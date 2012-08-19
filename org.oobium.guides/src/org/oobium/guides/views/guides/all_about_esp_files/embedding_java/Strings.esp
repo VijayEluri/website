@@ -1,7 +1,5 @@
 Strings(String title = "Strings")
 
-title {title}
-
 p Strings are a place that most other languages happily leave Java in the dust. This usually isn't a problem because
 	+w we're all used to overly verbose code anyway, but in ESP files it is especially troublesome. Thus, something
 	+w needed to be done. Nothing drastic, mind you. Just something to help us maintain the style that ESP is all about.

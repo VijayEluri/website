@@ -1,7 +1,5 @@
 Server(String title = "Server")
 
-title {title}
-
 p Oobium applications are OSGi services that need to register with the server (another OSGi service) to be able to
 	+w accept HTTP connections. There are a couple of ways to do this, each with varying degrees of simplicity and
 	+w control.

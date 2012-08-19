@@ -1,7 +1,5 @@
 ServerModels(String title = "The Server Models")
 
-title {title}
-
 p To begin, go to the Oobium Console view in Eclipse, and type:
 
 div.code

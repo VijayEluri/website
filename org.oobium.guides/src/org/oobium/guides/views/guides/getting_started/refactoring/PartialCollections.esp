@@ -1,7 +1,5 @@
 PartialCollections(String title = "Partial Collections")
 
-title {title}
-
 p First we will make a comment view to extract showing all the comments for the post. Create the view
 	+w comments/ShowComment:
 

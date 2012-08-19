@@ -1,7 +1,5 @@
 ExternalJavascriptFiles(String title = "External Javascript")
 
-title {title}
-
 p There is no "defaults" parameter for the script tag, so what you'll see in a generated application's _Layout.esp file is:
 div.code <- code
 	+= <span class="espTag">script</span>(<span class="javaText">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"</span>)

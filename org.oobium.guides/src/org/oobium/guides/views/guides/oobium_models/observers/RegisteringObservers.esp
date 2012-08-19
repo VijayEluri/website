@@ -1,7 +1,5 @@
 RegisteringObservers(String title = "Registering Observers")
 
-title {title}
-
 p Observers are placed in the models/observers folder by convention, and any observer found there when the application
 	+w starts will be automatically registered.
 

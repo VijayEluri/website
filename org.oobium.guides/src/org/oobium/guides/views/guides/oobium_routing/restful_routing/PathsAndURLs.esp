@@ -1,7 +1,5 @@
 PathsAndURLs(String title = "Paths and URLs")
 
-title {title}
-
 p The Oobium router contains a number of methods to help retrieve the path and URL of models that have been
 	+w routed. These can be used, in the case of the Photo resources:
 

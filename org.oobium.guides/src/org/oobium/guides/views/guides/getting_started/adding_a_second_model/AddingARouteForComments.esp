@@ -1,7 +1,5 @@
 AddingARouteForComments(String title = "Adding a Route for Comments")
 
-title {title}
-
 p Since we only asked Oobium to create the model for us, we will need to add a route ourselves so that Oobium knows
 	+w where we would like to navigate to see comments. Open up the Activator class again, you will see the entry that
 	+w was added automatically for posts near the top by the model generator, router.addResources(Post.class), edit it as

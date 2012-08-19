@@ -1,7 +1,5 @@
 MultipleApplications(String title = "Multiple Applications")
 
-title {title}
-
 p It is possible to have multiple Oobium applications running in a single deployed OSGi runtime environment.
 
 p If they run on separate ports, then each is simply configured as shown in the previous section. Sometimes, however,

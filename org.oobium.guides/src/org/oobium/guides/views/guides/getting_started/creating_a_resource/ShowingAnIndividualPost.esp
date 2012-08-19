@@ -1,7 +1,5 @@
 ShowingAnIndividualPost(String title = "Showing an Individual Post")
 
-title {title}
-
 p When you click the show link for a post on the index page, it will bring you to a URL like
 	+w http://localhost:5000/posts/1. Oobium interprets this as a call to the show action for the resource, and
 	+w passes in 1 as the id parameter. Here's the show action:

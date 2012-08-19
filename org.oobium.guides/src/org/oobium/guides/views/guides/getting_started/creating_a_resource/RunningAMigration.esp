@@ -1,7 +1,5 @@
 RunningAMigration(String title = "Running a Migration")
 
-title {title}
-
 p Back when we created the application we also said to create a Migration project.  Now's the time to
 	+w a look at what that was all about.
 

@@ -1,7 +1,5 @@
 WhatIsAnEspFile(String title = "What is an ESP file?")
 
-title {title}
-
 p In Oobium, views are created using ESP - Elemental Server Pages.
 
 p ESP file are similar to JSP or ERB files in that they allow you to create markup that includes

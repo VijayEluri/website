@@ -1,7 +1,5 @@
 DisplayingValidationErrors(String title = "Displaying Validation Errors in the View")
 
-title {title}
-
 p Oobium's ESP files contain some custom tags to help you easily display the error messages of your models.
 
 h3 errors

@@ -1,7 +1,5 @@
 ConnectingURLsToCode(String title = "Connecting URLs To Code")
 
-title {title}
-
 p When your Ooium application receives an incoming request
 
 div.code <- code GET /posts/intro_to_oobium

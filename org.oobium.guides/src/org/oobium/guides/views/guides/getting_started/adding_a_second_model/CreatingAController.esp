@@ -1,7 +1,5 @@
 CreatingAController(String title = "Creating a Controller")
 
-title {title}
-
 p With the model in hand, you can turn your attention to creating a matching controller. Again, there's a generator
 	+w for this:
 

@@ -1,7 +1,5 @@
 EmbeddingJavaInScripts(String title = "Embedding Java in JavaScript")
 
-title {title}
-
 p To be honest, Oobium currently does't make much of an attempt to parse your JavaScript code - it's really just a
 	+w big ole string. On the bright side though, this does make it really easy to embed Java parts:
 

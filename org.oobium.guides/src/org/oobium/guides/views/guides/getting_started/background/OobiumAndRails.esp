@@ -1,7 +1,5 @@
 OobiumAndRails(String title = "Ruby on Rails")
 
-title {title}
-
 p If you have any experience with 
 	a("http://rubyonrails.org") Ruby on Rails
 	+w then the similarities between it and what you'll see here will be

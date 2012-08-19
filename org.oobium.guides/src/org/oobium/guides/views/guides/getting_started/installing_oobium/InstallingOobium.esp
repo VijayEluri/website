@@ -1,7 +1,5 @@
 InstallingOobium(String title = "Installing Oobium")
 
-title {title}
-
 p There are currently two way to install and run Oobium:
 ol
 	li Eclipse Update Site

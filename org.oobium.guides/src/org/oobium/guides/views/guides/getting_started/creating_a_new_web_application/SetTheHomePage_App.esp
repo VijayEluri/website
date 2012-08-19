@@ -1,7 +1,5 @@
 SetTheHomePage_App(String title = "Setting the Application Home Page")
 
-title {title}
-
 p When creating an application, Oobium goes ahead and creates a sample home page and wires up a route for it.
 	+w Now let's take a look at what actually is happening, and how we may change it in the future.
 

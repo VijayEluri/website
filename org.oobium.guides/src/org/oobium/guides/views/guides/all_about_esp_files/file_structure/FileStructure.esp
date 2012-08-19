@@ -1,7 +1,5 @@
 FileStructure(String title = "File Structure")
 
-title {title}
-
 p Every ESP file has three distinct parts, though none of them actually need to be implemented. An empty file is
 	+w valid, albeit not very useful. Any part that is missing becomes implied and will still compile fine - the only
 	+w real constraint is that the parts that are implemented must be in the following order:

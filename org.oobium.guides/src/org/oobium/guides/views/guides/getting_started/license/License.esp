@@ -1,7 +1,5 @@
 License(String title = "License and Source")
 
-title {title}
-
 p The Oobium framework and tools are licensed under the 
 	a("http://www.opensource.org/licenses/eclipse-1.0.php") Eclipse Public License, v1.0
 	+= .

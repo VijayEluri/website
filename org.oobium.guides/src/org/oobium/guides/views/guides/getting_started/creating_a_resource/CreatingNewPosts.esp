@@ -1,7 +1,5 @@
 CreatingNewPosts(String title = "Creating new Posts")
 
-title {title}
-
 p Creating a new post involves two actions. The first is the showNew action, which instantiates an empty Post object
 	+w and then renders it using the ShowNewPost view:
 

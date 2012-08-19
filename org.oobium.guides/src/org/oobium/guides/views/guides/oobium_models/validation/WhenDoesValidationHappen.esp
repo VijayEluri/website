@@ -1,7 +1,5 @@
 WhenDoesValidationHappen(String title = "When does Validation Happen?")
 
-title {title}
-
 p Validation can occur before any operation that could change the model's state is executed. These operations are:
 ul
 	li create

@@ -1,6 +1,4 @@
 Resources(String title = "Resources")
 
-title {title}
-
 ul
 	li <- a("/source/ExampleReader.java.txt") ExampleReader.java

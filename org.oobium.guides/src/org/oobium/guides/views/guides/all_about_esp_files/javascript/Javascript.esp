@@ -1,7 +1,5 @@
 Javascript(String title = "Javascript")
 
-title {title}
-
 p Javascript is handled very much like CSS in an ESP file, and thus we'll go through it in the same manner.
 
 p Javascript is written in ESP files using the "script" tag. Similar to the style tag, the script tag is overloaded

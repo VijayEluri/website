@@ -1,7 +1,5 @@
 ListingAllPosts(String title = "Listing all Posts")
 
-title {title}
-
 p The easiest place to start looking at functionality is with the code that lists all posts.
 	+w Open the <code>PostController</code> class
 

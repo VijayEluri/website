@@ -1,7 +1,5 @@
 CustomizingTheLayout(String title = "Customizing the Layout")
 
-title {title}
-
 p The view is only part of the story of how HTML is displayed in your web browser. Oobium also has the concept
 	+w of layouts, which are containers for views. When Oobium renders a view to the browser, it does so by putting
 	+w the view's HTML into a layout's HTML. An application specific layout is used for all the controllers and

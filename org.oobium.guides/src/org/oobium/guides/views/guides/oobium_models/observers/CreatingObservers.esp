@@ -1,7 +1,5 @@
 CreatingObservers(String title = "Creating Observers")
 
-title {title}
-
 p Imagine that we want to send an email to a list of subscribers every time we create a new blog post. Because sending
 	+w emails is not directly related to our model's purpose, we should create an observer to contain this
 	+w functionality.

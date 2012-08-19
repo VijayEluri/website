@@ -1,7 +1,5 @@
 MultiModelTransactions(String title = "Multi-Model Transactions")
 
-title {title}
-
 p Under normal circumstances Oobium persistors commit changes as they happen. In other words, a record is fully written
 	+w to the database (in the case of a database persistor) by the time the save() method returns.
 

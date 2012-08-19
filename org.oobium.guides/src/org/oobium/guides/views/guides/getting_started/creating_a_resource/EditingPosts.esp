@@ -1,7 +1,5 @@
 EditingPosts(String title = "Editing Posts")
 
-title {title}
-
 p Like creating a new post, editing a post is a two-part process. The first step is a request to
 	+w a(post, showEdit) with a particular post. This calls the showEdit method in the controller:
 

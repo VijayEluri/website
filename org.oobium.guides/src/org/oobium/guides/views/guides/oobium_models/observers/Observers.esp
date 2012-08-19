@@ -1,7 +1,5 @@
 Observers(String title = "Observers")
 
-title {title}
-
 p Observers are classes that hook into a model with methods that get called at certain moments of the model's lifecycle.
 	+w Using these methods it is possible to write code that will run when ever an Oobium model is created, saved, updated,
 	+w destroyed, or validated, but in a way that doesn't pollute the model with code that isn't directly related to

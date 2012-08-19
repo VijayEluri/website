@@ -1,5 +1,3 @@
 MailerTemplates(String title = "Mailer templates")
 
-title {title}
-
 p TODO

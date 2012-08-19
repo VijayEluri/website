@@ -1,7 +1,5 @@
 JavaParts(String title = "Java Parts")
 
-title {title}
-
 p Unlike Java elements, Java parts are evaluated to a String and the result is inserted into your ESP code:
 
 div.code <- code.java

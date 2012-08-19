@@ -1,7 +1,5 @@
 TheModel(String title = "The Model")
 
-title {title}
-
 p The first product of the model generator is, of course, the model itself - Post.java:
 
 div.code <- code.java

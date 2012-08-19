@@ -1,7 +1,5 @@
 EmbeddingJavaInStyles(String title = "Embedding Java in Styles")
 
-title {title}
-
 p Once again, keep in mind that ESP files just compile into regular Java files, so having the ability to put pure
 	+w Java code in your CSS should be possible. It should also be helpful and not let you muck things up too badly
 	+w by injecting business logic.<br/>

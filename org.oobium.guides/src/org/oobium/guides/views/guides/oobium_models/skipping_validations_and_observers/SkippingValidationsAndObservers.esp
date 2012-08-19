@@ -1,7 +1,5 @@
 SkippingValidationsAndObservers(String title = "Skipping Validations and Observers")
 
-title {title}
-
 p There are even times when, for whatever reason, you'll want to skip validations and observers entirely (tests and
 	+w migrations come to mind).
 

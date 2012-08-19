@@ -1,7 +1,5 @@
 EssFiles(String title = "ESS Files")
 
-title {title}
-
 p The last form of the style tag is used to import an ESS file. But first, what is an ESS file?
 
 p An ESS file is essentially just the style tag from an ESP file. In other words, it is an ESP file whose content

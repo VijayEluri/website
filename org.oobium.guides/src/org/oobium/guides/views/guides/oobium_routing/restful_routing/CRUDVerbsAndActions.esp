@@ -1,7 +1,5 @@
 CRUDVerbsAndActions(String title = "CRUD, Verbs, and Actions")
 
-title {title}
-
 p In Oobium, a restful route provides a mapping between HTTP verbs and URLs and controller actions. By convention, 
 	+w each action also maps to particular CRUD operations in a database. A single entry in the routing file, such as
 

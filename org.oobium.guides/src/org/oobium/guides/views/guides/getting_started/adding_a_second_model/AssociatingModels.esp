@@ -1,7 +1,5 @@
 AssociatingModels(String title = "Associating Models")
 
-title {title}
-
 p We created a one way "has one" relationship on the Comment model pointing to the Post model. We also saw how this
 	+w creates a foreign key column in the Comment database table.  Now, this also implies that the Post model should
 	+w "have many" Comments but to make this a reality we need to update our Post model. To make these relationships

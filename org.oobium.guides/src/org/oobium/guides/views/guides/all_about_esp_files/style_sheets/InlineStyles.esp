@@ -1,7 +1,5 @@
 InlineStyles(String title = "Inline Styles")
 
-title {title}
-
 p The style tag also supports inline styles in several variants. You can put a css selector on the same line as the
 	+w style tag, separated by a space (as though it were an inner text part), as well as putting them on separate lines
 	+w as children of the style tag:

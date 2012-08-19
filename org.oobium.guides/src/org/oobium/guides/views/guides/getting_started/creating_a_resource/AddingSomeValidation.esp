@@ -1,7 +1,5 @@
 AddingSomeValidation(String title = "Adding Some Validation")
 
-title {title}
-
 p Oobium includes 2 ways to help you validate the data in your models before they are sent to persistent storage.
 ul
 	li The @Validations class annotation

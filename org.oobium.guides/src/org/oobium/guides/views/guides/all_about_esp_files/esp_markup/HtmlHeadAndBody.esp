@@ -1,7 +1,5 @@
 HtmlHeadAndBody(String title = "HTML Head and Body")
 
-title {title}
-
 p An HTML page has two very important elements: the HEAD, and BODY. Oobium recognizes this, and allows
 	+w you to write them in as follows:
 

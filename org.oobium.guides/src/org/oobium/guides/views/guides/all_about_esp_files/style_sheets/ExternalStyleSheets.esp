@@ -1,7 +1,5 @@
 ExternalStyleSheets(String title = "External StyleSheets")
 
-title {title}
-
 p The first and foremost use of the style tag is what you'll see in a generated application's _Layout.esp file:
 div.code <- code
 	+= <span class="espTag">style</span>(defaults)

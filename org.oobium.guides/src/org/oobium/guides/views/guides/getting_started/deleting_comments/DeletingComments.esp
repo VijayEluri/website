@@ -1,7 +1,5 @@
 DeletingComments(String title = "Deleting Comments")
 
-title {title}
-
 p Another important feature on a blog is being able to delete SPAM comments. To do this, we need to implement a
 	+w link of some sort in the view and a destroy method in the CommentController.
 

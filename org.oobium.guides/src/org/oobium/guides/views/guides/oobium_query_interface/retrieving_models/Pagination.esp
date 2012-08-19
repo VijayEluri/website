@@ -1,5 +1,3 @@
 Pagination(String title = "Pagination")
 
-title {title}
-
 p TODO

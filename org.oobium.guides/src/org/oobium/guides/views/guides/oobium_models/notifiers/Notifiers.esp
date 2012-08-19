@@ -1,7 +1,5 @@
 Notifiers(String title = "Notifiers")
 
-title {title}
-
 p Notifiers are a special subclass of Observer that are used to notify remote Observers.
 
 p When you want to connect a remote client to your Oobium based web application, the easiest thing to do is export

@@ -1,7 +1,5 @@
 PartialForms(String title = "Partial Forms")
 
-title {title}
-
 p Lets also move that new comment section out to it's own partial, again, you create a file
 	+w comments/CommentForm.esp and in it you put:
 

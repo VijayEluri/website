@@ -1,7 +1,5 @@
 GeneratingPathsAndURLsFromCode(String title = "Generating Paths and URLs from Code")
 
-title {title}
-
 p You can also generate paths and URLs. If your application contains this code:
 
 div In the controller:

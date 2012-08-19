@@ -1,7 +1,5 @@
 TheRequestResponseCycle(String title = "The Request-Response Cycle")
 
-title {title}
-
 p When handling requests in a standard request-response cycle, Oobium sets up and tears down the model persistors,
 	+w and their sessions, automatically for you. It also does this in a single thread (each execution path through
 	+w a controller happens in a single thread) so that you don't have to worry about concurrency issues.

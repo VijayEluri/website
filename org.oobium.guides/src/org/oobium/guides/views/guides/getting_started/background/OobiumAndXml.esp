@@ -1,7 +1,5 @@
 OobiumAndXml(String title = "XML")
 
-title {title}
-
 p Oobium doesn't like XML.
 
 p Throughout this guide you'll find places that are traditionally dominated by XML, and see that they've been

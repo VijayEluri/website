@@ -1,6 +1,4 @@
 Refactoring(String title = "Refactoring")
 
-title {title}
-
 p Now that we have Posts and Comments working, if we take a look at the ShowPost view, it's starting to get a bit
 	+w long and awkward. We can use partials to clean this up.
